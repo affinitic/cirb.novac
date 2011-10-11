@@ -1,0 +1,32 @@
+html, body {border: 0px; margin: 0px; padding: 0px;}
+body {font-family: sans-serif; font-weight: normal; font-size: .8em;}
+
+#header {}
+
+div#ws_urbis, div#ws_waws {height:0px;width:0px;overflow:hidden;}
+
+#geocoding_panel, #drilling_panel {padding: 5px;}
+
+input[type=button] {width:100px; margin: 5px 0px 5px 90px;}
+
+#map_panel {float: left; height:502px; width:670px; border: solid #aaaaaa 1px; padding: 0px; margin: 5px 5px 5px 5px;}
+#map {height:100%;}
+
+#navigation {float: left; width: 280px; height:502px; border: solid #aaaaaa 1px; padding: 5px; margin: 5px 5px 5px 0px;}
+
+#results_panel {clear:both; border: solid #aaaaaa 1px; padding: 5px; margin:5px; min-height:100px;}
+#results_panel table {padding: 2px;}
+
+table.urbis_result th {padding:5px;}
+table.urbis_result td {padding:10px; font-weight: normal;}
+
+.footer {color: #666666; width: 100%; text-align: center;}
+
+
+/*** Navigation ***/
+table.filter td{border-width:5px; border-color:transparent;}
+td.color {height:25px; width:25px;}
+td.required {background-color:yellow}
+td.granted {background-color:green}
+td.refused {background-color:red}
+td.canceled {background-color:blue}

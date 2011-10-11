@@ -1,0 +1,94 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cirb.novac">
+      
+<tal:head metal:fill-slot="head_slot">      
+      <meta http-equiv="imagetoolbar" content="no">
+</tal:head>
+<tal:css metal:fill-slot="style_slot">
+
+</tal:css>
+<tal:js metal:fill-slot="javascript_head_slot"> 
+    <script type="text/javascript" tal:attributes="src string:${portal_url}/novac_public.js"></script>
+</tal:js>
+
+<body>
+    <div metal:fill-slot="main" tal:define="data view/public">        
+        <tal:block tal:condition="not: data/error" >
+            <div id="ws_waws" tal:content="data/ws_waws"> ws_waws </div>
+        </tal:block>
+		
+        <div id="table" style="padding: 0 1em 1em;">
+			<table class="detail_table">
+				<caption i18n:translate="detail_de_la_demande">detail_de_la_demande</caption>
+				<tbody><tr>
+					<td class="tableheader" colspan="2" i18n:translate="localisation">localisation</td>
+				</tr>
+				<tr>
+					<th class="address" i18n:translate="address">address</th>
+					<td class="address"></td>
+				</tr>
+			</tbody></table>
+	
+			<table class="detail_table">
+				<tbody><tr>
+					<td class="tableheader" colspan="2" i18n:translate="informations_generales">informations_generales</td>
+				</tr>
+				<tr>
+					<th class="set_width" i18n:translate="n_dossier">n_dossier</th>
+					<td id="n_dossier"></td>
+				</tr><tr>
+					<th i18n:translate="reference">reference</th>
+					<td id="reference"></td>
+				</tr>
+				<tr>
+					<th i18n:translate="dossier_depose_a">dossier_depose_a</th>
+					<td id="dossier_depose_a"></td>
+				</tr>
+				<tr>
+					<th i18n:translate="type_de_permis">type_de_permis</th>
+					<td id="type_de_permis"></td>
+				</tr>
+				<tr>
+					<th i18n:translate="description">Description</th>
+					<td id="description"></td>
+				</tr>
+				<tr>
+					<th i18n:translate="demande_introduite_le">demande_introduite_le</th>
+					<td id="demande_introduite_le"></td>
+				</tr>
+				<tr>
+					<th i18n:translate="langue">langue</th>
+					<td id="langue"></td>
+				</tr>
+				<tr>
+					<th i18n:translate="statut_du_dossier">statut_du_dossier</th>
+					<td id="statut_du_dossier"></td>
+				</tr>
+			</tbody></table>
+	
+			<table class="detail_table">
+				<tbody><tr>
+					<td class="tableheader" colspan="2" i18n:translate="informations_supplémentaires">informations_supplémentaires</td>
+				</tr>
+				<tr>
+					<th class="detail_document" i18n:translate="documents">documents</th>
+					<th class="detail_attachment" i18n:translate="annexes">annexes</th>
+				</tr><tr>
+					<td>TODO : titre du document <img tal:attributes="src string:${portal_url}/images/pdf_icon.gif" alt="pdf icon"></td>
+					<td>TODO : titre de l'annexe <img tal:attributes="src string:${portal_url}/images/pdf_icon.gif" alt="pdf icon"></td>
+				</tr>
+				<tr>
+					<td>TODO : titre du document <img tal:attributes="src string:${portal_url}/images/pdf_icon.gif" alt="pdf icon"></td>
+					<td>&nbsp;</td>
+				</tr>
+			</tbody></table>
+		</div>
+        
+        <tal:block tal:condition="data/error" >
+            <div tal:replace="data/error_text">error</div>
+        </tal:block>
+    </div>
+</body>
+</html>

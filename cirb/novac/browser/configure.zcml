@@ -1,0 +1,55 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="cirb.novac">
+
+
+
+  <interface
+      interface=".interfaces.IThemeSpecific"
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
+      name="Novac"
+      />
+  <include package="plone.app.contentmenu" />
+
+  <!-- -*- extra stuff goes here -*- -->
+  <browser:page
+      for="*"
+      name="novac_view"
+      class=".novacview.NovacView"
+      template="templates/novacview.pt"
+      allowed_interface=".novacview.INovacView"
+      permission="zope2.View"
+      />
+
+
+  <browser:page
+      for="*"
+      name="wawspublic_view"
+      class=".publicview.PublicView"
+      template="templates/publicview.pt"
+      allowed_interface=".publicview.IPublicView"
+      permission="zope2.View"
+      />
+      
+      
+  <browser:page
+      for="*"
+      name="wawsprivate_view"
+      class=".privateview.PrivateView"
+      template="templates/privateview.pt"
+      allowed_interface=".privateview.IPrivateView"
+      permission="zope2.View"
+      />
+      
+      
+  <browser:page
+      for="*"
+      name="wawslistprivate_view"
+      class=".listprivateview.ListprivateView"
+      template="templates/listprivateview.pt"
+      allowed_interface=".listprivateview.IListprivateView"
+      permission="zope2.View"
+      />
+
+</configure>

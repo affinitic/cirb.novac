@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <!-- -*- extra stuff goes here -*- -->
+    <permission name="cirb.novac: Add Nova Citoyen" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
+    <permission name="cirb.novac: Add Private Folder" acquire="True">
+      <role name="Authenticated" />
+    </permission>
+    <permission name="cirb.novac: Add List Private Folder" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
+    <permission name="cirb.novac: Add Public Folder" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
+    
+  </permissions>
+</rolemap>

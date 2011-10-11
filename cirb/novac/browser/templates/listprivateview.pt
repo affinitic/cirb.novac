@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cirb.novac">
+      
+<tal:head metal:fill-slot="head_slot">      
+      <meta http-equiv="imagetoolbar" content="no">
+</tal:head>
+<tal:css metal:fill-slot="style_slot">
+
+</tal:css>
+<tal:js metal:fill-slot="javascript_head_slot"> 
+    <script type="text/javascript" tal:attributes="src string:${portal_url}/novac_listprivate.js"></script>
+</tal:js>
+
+<body>
+    <div metal:fill-slot="main" tal:define="data view/listprivate">        
+        <tal:block tal:condition="not: data/error" >
+            <div id="ws_waws" tal:content="data/ws_waws"> ws_waws </div>
+        </tal:block>
+        
+        <div id="table" style="padding: 0 1em 1em;">
+			<table class="detail_table">
+				<caption i18n:translate="vous_etes_maintenant_connecte">vous_etes_maintenant_connecte</caption>
+				<tbody><tr>
+					<td colspan="4" style="text-align:right;" id="username"><img tal:attributes="src string:${portal_url}/images/user.png" alt="user"> </td>
+				</tr>
+				<tr>
+					<td class="tableheader" colspan="4" i18n:translate="vos_dossiers_actives">vos_dossiers_actives</td>
+				</tr>
+				<tr>
+					<th i18n:translate="address">address</th>
+					<th i18n:translate="n_dossier">n_dossier</th>
+					<th i18n:translate="type">type</th>
+					<th i18n:translate="date_d_activation">date_d_activation</th>
+				</tr>
+				<tr>
+					<td><a href="detail2.html?lat=50.85155112&amp;lng=4.34170466">&nbsp;</a></td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+			</tbody></table>
+			<br>
+			<table class="detail_table">
+				<tbody><tr>
+					<td class="tableheader" i18n:translate="activez_un_dossier">activez_un_dossier</td>
+				</tr>
+				<tr>
+					<td>
+						<div id="unlock">
+							<strong><p i18n:translate="La toute première fois, il faut activer un dossier pour avoir accès aux détails">La toute première fois, il faut activer un dossier pour avoir accès aux détails</p></strong>
+	<!--						<p>Langue : 
+								<select>
+									<Option selected="selected" value="FR">Français</option>
+									<option value="NL">Nederlands</option>
+								</select>
+							</p>
+							<p>Contact (téléphone, GSM ou e-mail) : <input type="text" size="35" /></p>
+	-->
+							<p i18n:translate="Insérez votre clé unique pour activer votre dossier">Insérez votre clé unique pour activer votre dossier</p>
+								<img tal:attributes="src string:${portal_url}/images/key24.png" alt="key" style="float:left;"><input type="text" size="4" maxlength="4">-<input type="text" size="4" maxlength="4">-<input type="text" size="4" maxlength="4">-<input type="text" size="4" maxlength="4">-<input type="text" size="4" maxlength="4">-<input type="text" size="4" maxlength="4">
+							<p><input type="checkbox" checked="checked">&nbsp;<em>
+							<tal:block i18n:translate="Je suis toujours d'accord avec l'avertissement relatif à l'usage des données de ma carte d'identité électronique">Je suis toujours d'accord avec l'avertissement relatif à l'usage des données de ma carte d'identité électronique</tal:block>
+							</em></p>
+							
+								<span style="border:1px solid #bbb;background-color:#ddd;cursor:pointer;padding:.15em .5em;">
+								<a style="color:#222;text-decoration:none;border-bottom:0;" href="detail3.html?lat=50.84010261&amp;lng=4.40025742">Activer</a></span><br><br>
+						</div>
+					</td>
+				</tr>
+			</tbody></table>
+		</div>
+        
+        <tal:block tal:condition="data/error" >
+            <div tal:replace="data/error_text">error</div>
+        </tal:block>
+    </div>
+</body>
+</html>

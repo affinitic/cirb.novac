@@ -1,0 +1,91 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cirb.novac">
+      
+<tal:head metal:fill-slot="head_slot">      
+      <meta http-equiv="imagetoolbar" content="no">
+</tal:head>
+<tal:css metal:fill-slot="style_slot">
+    <link rel="stylesheet" href="novac.css" type="text/css"/>
+</tal:css>
+<tal:js metal:fill-slot="javascript_head_slot"> 
+    <!--script type="text/javascript" src="jquery-1.6.2.min.js"></script-->
+    <script type="text/javascript" tal:attributes="src string:${portal_url}/novac.js"></script>
+</tal:js>
+
+<body>
+    <div metal:fill-slot="main" tal:define="data view/novac">        
+        <tal:block tal:condition="not: data/error" >
+            <div id="ws_urbis" tal:content="data/ws_urbis"> ws_urbis </div>
+            <div id="ws_waws" tal:content="data/ws_waws"> ws_waws </div>
+            
+            <div id="map_panel"><div id="map"></div></div>
+           
+            <div id="navigation">
+                <div id="accordion">               
+                    <h3><a href="#" i18n:translate="mon_dossier">mon_dossier</a></h3>
+                    <div>
+                        <a tal:attributes="href data/private_url" i18n:translate="login">login</a>
+                    </div>
+                    <h3><a href="#" i18n:translate="search_address">search_address</a></h3>
+                    <div>
+                        <table>
+                        <tbody>
+                            <tr><td i18n:translate="street_name:">street_name:</td><td><input type="text" id="street" /></td></tr>
+                            <tr><td i18n:translate="number:">number:</td><td><input type="text" id="number" /></td></tr>
+                            <tr><td i18n:translate="post_code:">post_code:</td><td><input type="text" id="post_code"/></td></tr>
+                        </tbody>
+                        </table>
+                        <input type="button" id="geocode" i18n:domain="plone" i18n:attributes="value search;"/>
+                    </div>
+                    <h3><a href="#" i18n:translate="filtres">filtres</a></h3>
+                    <div class="filter">
+                        <table class="filter">
+                        <tbody>
+                            <tr>
+                                <td class="color required"></td>
+                                <td><input type="checkbox" id="required"></td>
+                                <td><label for="required"><tal:block i18n:translate="required">required</tal:block></td>
+                            </tr>
+                            <tr>
+                                <td class="color granted"></td>
+                                <td><input type="checkbox" id="granted"></td>
+                                <td><label for="granted"><tal:block i18n:translate="granted">granted</tal:block></td>
+                            </tr>
+                            <tr>
+                                <td class="color refused"></td>
+                                <td><input type="checkbox" id="refused"></td>
+                                <td><label for="refused"><tal:block i18n:translate="refused">refused</tal:block></td>
+                            </tr>
+                            <tr>
+                                <td class="color canceled"></td>
+                                <td><input type="checkbox" id="canceled"></td>
+                                <td><label for="canceled"><tal:block i18n:translate="canceled">canceled</tal:block></td>
+                            </tr>
+                        </tbody>
+                        </table>                        
+                    
+                    </div>
+                    <h3><a href="#" i18n:translate="recherche_dossiers">recherche_dossiers</a></h3>
+                    <div>
+                        <table>
+                        <tbody>
+                            <tr><td i18n:translate="street_name:">street_name:</td><td><input type="text" id="folder_street" /></td></tr>
+                            <tr><td i18n:translate="number:">number:</td><td><input type="text" id="folder_number" /></td></tr>
+                            <tr><td i18n:translate="post_code:">post_code:</td><td><input type="text" id="folder_post_code"/></td></tr>
+                        </tbody>
+                        </table>
+                        <input type="button" id="folder_geocode" i18n:domain="plone" i18n:attributes="value search;"/>
+                    </div>
+                </div>
+            </div>
+            <div id="results_panel" i18n:translate="results">results</div>
+        </tal:block>
+        <tal:block tal:condition="data/error" >
+            <div tal:content="data/error_text">error</div>
+        </tal:block>
+        <div class="footer">UrbIS®©</div>
+    </div>
+</body>
+</html>
