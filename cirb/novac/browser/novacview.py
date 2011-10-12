@@ -3,6 +3,9 @@ from zope.interface import implements, Interface
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 
+from zope.component import getUtility
+from plone.registry.interfaces import IRegistry
+
 from cirb.novac import novacMessageFactory as _
 
 import re, os
@@ -40,24 +43,17 @@ class NovacView(BrowserView):
         """
         novac method
         """
-        data = {}
-        ws_urbis = ''
-        ws_waws = ''
-        private_url= ''
-        for elem in self.context.contentValues():
-            if elem.getPortalTypeName() == 'Urbis Map':
-                ws_urbis = elem.getWs_urbis()
-            if elem.getPortalTypeName() == 'Public Folder':
-                ws_waws = elem.getWs_url()
-            if elem.getPortalTypeName() == 'List Private Folder':
-                private_url = elem.absolute_url()
+        registry = getUtility(IRegistry)
+        novac_url = registry['cirb.novac.novac_url']
+        urbis_url = registry['cirb.urbis.urbis_url']
+        error=False
+        msg_error=''
+        if not novac_url:
+            error=True
+            msg_error=_(u'No url for cirb.novac.novac_url')
+        if not urbis_url:
+            error=True
+            msg_error=_(u'No url for cirb.urbis.urbis_url')
+        private_url='wawslistprivate_view'
+        return {'novac_url':novac_url,'urbis_url':urbis_url,'private_url':private_url,'error':error,'msg_error':msg_error}
         
-        if not ws_urbis:
-            return {'error':True, 'error_text': _('Add a Urbis Map')}
-        if not ws_waws:
-            return {'error':True, 'error_text': _('Add a Public Folder')}
-        if not private_url:
-            return {'error':True, 'error_text': _('Add a Lsit Private Folder')}
-            
-        
-        return {'ws_urbis':ws_urbis, 'ws_waws':ws_waws, 'private_url':private_url, 'error':False}

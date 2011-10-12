@@ -3,6 +3,9 @@ from zope.interface import implements, Interface
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 
+from zope.component import getUtility
+from plone.registry.interfaces import IRegistry
+
 from cirb.novac import novacMessageFactory as _
 
 
@@ -35,11 +38,12 @@ class PrivateView(BrowserView):
     
     def private(self):
         
-        ws_waws = ''
-        for elem in self.context.contentValues():
-            if elem.getPortalTypeName() == 'Private Folder':
-                ws_waws = elem.getWs_url()
-        if not ws_waws:
-            return {'error':True, 'error_text': 'Add a Private Folder'}
-        return {'error':False,'ws_waws':ws_waws}
+        registry = getUtility(IRegistry)
+        novac_url = registry['cirb.novac.novac_url']
+        error=False
+        msg_error=''
+        if not novac_url:
+            error=True
+            msg_error=_(u'No url for novac url')
+        return {'novac_url':novac_url,'error':error,'msg_error':msg_error}
     

@@ -11,6 +11,11 @@
       name="Novac"
       />
   <include package="plone.app.contentmenu" />
+  
+  <permission
+    id="novac.View"
+    title="cirb.novac: PrivateView"
+    />  
 
   <!-- -*- extra stuff goes here -*- -->
   <browser:page
@@ -39,7 +44,7 @@
       class=".privateview.PrivateView"
       template="templates/privateview.pt"
       allowed_interface=".privateview.IPrivateView"
-      permission="zope2.View"
+      permission="novac.View"
       />
       
       
@@ -49,7 +54,7 @@
       class=".listprivateview.ListprivateView"
       template="templates/listprivateview.pt"
       allowed_interface=".listprivateview.IListprivateView"
-      permission="zope2.View"
+      permission="novac.View"
       />
 
 </configure>
