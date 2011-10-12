@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<registry>
+    <record name="cirb.novac.novac_url">
+        <field type="plone.registry.field.URI">
+            <title>Waws URL</title>
+            <description>Url used to Waws connection</description>
+        </field>
+        <value>http://ws.irisnet.be/waws/nova/</value>
+    </record>
+</registry>
