@@ -10,14 +10,28 @@
       type="zope.publisher.interfaces.browser.IBrowserSkinType"
       name="Novac"
       />
+      
   <include package="plone.app.contentmenu" />
   
   <permission
-    id="novac.View"
-    title="cirb.novac: PrivateView"
-    />  
+      id="novac.View"
+      title="cirb.novac: PrivateView"
+      />
+    
+  <browser:resourceDirectory
+      name="cirb.novac.images"
+      directory="images"
+      layer=".interfaces.INovacCustomization"
+      />
+  
+      
+  <browser:resourceDirectory
+      name="cirb.novac.scripts"
+      directory="scripts"
+      layer=".interfaces.INovacCustomization"
+      />
 
-  <!-- -*- extra stuff goes here -*- -->
+
   <browser:page
       for="*"
       name="novac_view"
@@ -56,5 +70,20 @@
       allowed_interface=".listprivateview.IListprivateView"
       permission="novac.View"
       />
+      
+   <browser:defaultView
+       for=".novacview.INovacView"
+       name="novac_view" />
+      
+      
+   <browser:viewlet
+        name="plone.path_bar"
+        view=".publicview.PublicView"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+        layer=".interfaces.IThemeSpecific"
+        class=".viewlets.BreatcrumbViewlet"
+        permission="zope2.View"
+        />
+
 
 </configure>

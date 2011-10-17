@@ -9,6 +9,7 @@ $(document).ready(function() {
     
     var url_ws_urbis = $('#ws_urbis').html();
     var url_ws_waws = $('#ws_waws').html();
+    var json_file  = $('#json_file').html();
     var mapOptions = { 
         resolutions: [34.76915808105469, 17.384579040527345, 8.692289520263673, 4.346144760131836, 2.173072380065918, 1.086536190032959, 0.5432680950164795, 0.2716340475082398, 0.1358170237541199],
         projection: new OpenLayers.Projection('EPSG:31370'),
@@ -60,7 +61,7 @@ $(document).ready(function() {
                     strategies: [new OpenLayers.Strategy.BBOX(),
                                  new OpenLayers.Strategy.Cluster()],
                     protocol: new OpenLayers.Protocol.HTTP({
-                        url: url_ws_waws,
+                        url: json_file,
                         format: new OpenLayers.Format.GeoJSON()
                         }),
                     styleMap: new OpenLayers.StyleMap({
@@ -123,12 +124,21 @@ function set_xy(data) {
 
 
 function set_result(data) {
+    var absolute_url  = $('#absolute_url').html();
+    var url = absolute_url+"/wawspublic_view?id=";
     var table = "<table class=\"urbis_result\"><tbody>";
     var header = "<tr>";
     var content = "<tr>";
     $.each(data, function(key, attribute) {
-        header += "<th>" + key + "</th>";
-        content += "<td>" + attribute + "</td>";
+        if (key == "id") {
+            header += "<th>" + key + "</th>";
+            content += "<td><a href='"+url+attribute+"'>" + attribute + "</a></td>";
+        
+        }
+        else {
+            header += "<th>" + key + "</th>";
+            content += "<td>" + attribute + "</td>";
+        }
     });    
     table += header+'</tr>';
     table += content+'</tr>';

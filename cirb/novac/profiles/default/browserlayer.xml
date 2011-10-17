@@ -1,0 +1,7 @@
+<layers>
+    <layer
+        name="cirb.novac.scripts"
+        interface="cirb.novac.browser.interfaces.INovacCustomization"
+        />
+</layers>
+

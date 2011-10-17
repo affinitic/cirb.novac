@@ -7,23 +7,32 @@
       <meta http-equiv="imagetoolbar" content="no">
 </tal:head>
 <tal:css metal:fill-slot="style_slot">
-    <link rel="stylesheet" href="novac.css" type="text/css"/>
+    <link rel="stylesheet" tal:attributes="href string:${portal_url}/++resource++cirb.novac.scripts/novac.css" type="text/css"/>
 </tal:css>
 <tal:js metal:fill-slot="javascript_head_slot"> 
-    <!--script type="text/javascript" src="jquery-1.6.2.min.js"></script-->
-    <script type="text/javascript" tal:attributes="src string:${portal_url}/novac.js"></script>
+    <!--script type="text/javascript" src="jquery-1.6.2.min.js"></script-->    
+    <script type="text/javascript" tal:attributes="src string:${portal_url}/++resource++cirb.novac.scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" tal:attributes="src string:${portal_url}/++resource++cirb.novac.scripts/novac.js"></script>
 </tal:js>
 
 <body>
-    <div metal:fill-slot="main" tal:define="data view/novac">        
+       
+    <div metal:fill-slot="main" tal:define="data view/novac">	
+	    
+		<!--p metal:use-macro="context/macros/novacbreathcrumb">
+		    <b metal:fill-slot="novac_additional_breathcrumb">
+			public novac
+		    </b>
+		</p-->
         <tal:block tal:condition="not: data/error" >
-            <div id="ws_urbis" tal:content="data/urbis_url"> ws_urbis </div>
-            <div id="ws_waws" tal:content="data/novac_url"> ws_waws </div>
-            
+            <div id="ws_urbis" tal:content="data/urbis_url" class="hiddenStructure"> ws_urbis </div>
+            <div id="ws_waws" tal:content="data/novac_url" class="hiddenStructure"> ws_waws </div>
+	    <div id="json_file" tal:content="data/json_file" class="hiddenStructure"> json_file </div>
+            <div id="absolute_url" tal:content="context/absolute_url" class="hiddenStructure"> portal_url </div>
             <div id="map_panel"><div id="map"></div></div>
            
             <div id="navigation">
-                <div id="accordion">               
+                <div id="accordion">
                     <h3><a href="#" i18n:translate="mon_dossier">mon_dossier</a></h3>
                     <div>
                         <a tal:attributes="href data/private_url" i18n:translate="login">login</a>

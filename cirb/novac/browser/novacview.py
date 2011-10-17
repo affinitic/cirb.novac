@@ -38,7 +38,10 @@ class NovacView(BrowserView):
     @property
     def portal(self):
         return getToolByName(self.context, 'portal_url').getPortalObject()
-
+    
+    def view_name(self):
+        return "novac"
+    
     def novac(self):
         """
         novac method
@@ -46,6 +49,7 @@ class NovacView(BrowserView):
         registry = getUtility(IRegistry)
         novac_url = registry['cirb.novac.novac_url']
         urbis_url = registry['cirb.urbis.urbis_url']
+        json_file = registry['cirb.novac.json_file']
         error=False
         msg_error=''
         if not novac_url:
@@ -54,6 +58,11 @@ class NovacView(BrowserView):
         if not urbis_url:
             error=True
             msg_error=_(u'No url for cirb.urbis.urbis_url')
+        if not json_file:
+            error=True
+            msg_error=_(u'No json_file')
         private_url='wawslistprivate_view'
-        return {'novac_url':novac_url,'urbis_url':urbis_url,'private_url':private_url,'error':error,'msg_error':msg_error}
+        return {'novac_url':novac_url,'urbis_url':urbis_url,
+                'json_file':json_file,
+                'private_url':private_url,'error':error,'msg_error':msg_error}
         

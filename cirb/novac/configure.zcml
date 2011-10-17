@@ -7,11 +7,6 @@
     i18n_domain="cirb.novac">
     
   <five:registerPackage package="." initialize=".initialize" />
-
-  <!-- Include the sub-packages that use their own configure.zcml files. -->
-  <include package=".browser" />
-  
-  <i18n:registerTranslations directory="locales" />
   
   <!-- Register the installation GenericSetup extension profile -->
   <genericsetup:registerProfile
@@ -22,8 +17,15 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
       
+  <!-- Include the sub-packages that use their own configure.zcml files. -->
+  <include package=".browser" />
   
-  <cmf:registerDirectory name="novac" directory="skins" recursive="True" />
+  <i18n:registerTranslations directory="locales" />
+  
+  
+      
+  
+  <!--cmf:registerDirectory name="novac" directory="skins" recursive="True" /-->
   
   <!-- -*- extra stuff goes here -*- -->
   

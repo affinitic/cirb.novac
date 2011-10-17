@@ -7,4 +7,11 @@
         </field>
         <value>http://ws.irisnet.be/waws/nova/</value>
     </record>
+    <record name="cirb.novac.json_file">
+        <field type="plone.registry.field.URI">
+            <title>Waws URL</title>
+            <description>Url used to Waws connection</description>
+        </field>
+        <value>http://localhost:8080/Plone/++resource++cirb.novac.scripts/test.json</value>
+    </record>
 </registry>

@@ -24,18 +24,18 @@
     enabled="True" expression=""  inline="False"/>
 -->
   <javascript
-    id="OpenLayers-2.10.js"
+    id="++resource++cirb.novac.scripts/OpenLayers-2.10.js"
     cacheable="False" compression="none" cookable="False"
     enabled="True" expression=""  inline="False"/>
     
   <javascript
-    id="jquery.soapclient.js"
+    id="++resource++cirb.novac.scripts/jquery.soapclient.js"
     cacheable="False" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
     
-  <javascript
-    id="jquery-ui.min.js"
+  <!--javascript
+    id="++resource++cirb.novac.scripts/jquery-ui.min.js"
     cacheable="False" compression="none" cookable="False"
-    enabled="True" expression=""  inline="False"/>
+    enabled="True" expression=""  inline="False"/-->
 
 </object>

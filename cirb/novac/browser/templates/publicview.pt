@@ -14,12 +14,17 @@
 </tal:js>
 
 <body>
-    <div metal:fill-slot="main" tal:define="data view/public">        
-        <tal:block tal:condition="not: data/error" >
+
+    
+    
+    <div metal:fill-slot="main" tal:define="data view/public">    
+	 <tal:block tal:condition="not: data/error" >
             <div id="ws_waws" tal:content="data/novac_url"> novac_url </div>
-        </tal:block>
+	    <div id="folder_id" tal:content="data/folder_id"> folder_id </div>
+         </tal:block>
 		
-        <div id="table" style="padding: 0 1em 1em;">
+		<br /><div id="json" tal:content="view/python_json/data"> python_json </div> <br />
+        <div  tal:condition="not: view/python_json/error" id="table" style="padding: 0 1em 1em;">
 			<table class="detail_table">
 				<caption i18n:translate="detail_de_la_demande">detail_de_la_demande</caption>
 				<tbody><tr>

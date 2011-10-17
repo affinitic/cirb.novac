@@ -1,0 +1,15 @@
+{"type":"FeatureCollection", "features":[ 
+
+{"geometry": {"type":"Point", "coordinates":[152665.789,170960.37]}, "type":"Feature", 
+
+"properties": {"id":"147360","typedossier":"Abattage d'arbres","commune":"Schaerbeek", "novaRef":"AA/191295", "numberfrom":"30", "streetname":"Rue Aimé Smekens", "zipcode":"1030"}}, 
+
+{"geometry": {"type":"Point", "coordinates":[151687.21,172328.89]}, "type":"Feature", 
+
+"properties": {"id":"148922","typedossier":"Panneau publicitaire","commune":"Schaerbeek", "novaRef":"PP/191859", "numberfrom":"152", "streetname":"Avenue Gustave Latinis", "zipcode":"1030"}}, 
+
+{"geometry": {"type":"Point", "coordinates":[151356.499,171786.229]}, "type":"Feature", 
+
+"properties": {"id":"150232","typedossier":"Permis d'urbanisme privé","commune":"Schaerbeek", "novaRef":"PU/192178", "numberfrom":"32","numberto":"40",  "streetname":"Rue Auguste Lambiotte", "zipcode":"1030"}}
+
+]}
