@@ -71,6 +71,7 @@
       permission="novac.View"
       />
       
+   <!-- used to change default folder view with an interface -->
    <browser:defaultView
        for=".novacview.INovacView"
        name="novac_view" />
@@ -80,7 +81,7 @@
         name="plone.path_bar"
         view=".publicview.PublicView"
         manager="plone.app.layout.viewlets.interfaces.IAboveContent"
-        layer=".interfaces.IThemeSpecific"
+        layer=".interfaces.INovacCustomization"
         class=".viewlets.BreatcrumbViewlet"
         permission="zope2.View"
         />

@@ -1,5 +1,4 @@
 from plone.theme.interfaces import IDefaultPloneLayer
-from zope.viewlet.interfaces import IViewletManager
 
 
 class IThemeSpecific(IDefaultPloneLayer):
@@ -9,9 +8,6 @@ class IThemeSpecific(IDefaultPloneLayer):
        (in urbis/viewlets/configure.zcml).
     """
     
-class IAboveContent(IViewletManager):
-    """
-    """
     
 from zope.interface import Interface
 
