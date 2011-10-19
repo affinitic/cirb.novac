@@ -23,7 +23,11 @@
 			<table class="detail_table">
 				<caption i18n:translate="vous_etes_maintenant_connecte">vous_etes_maintenant_connecte</caption>
 				<tbody><tr>
-					<td colspan="4" style="text-align:right;" id="username"><img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/user.png" alt="user"> </td>
+					<td colspan="4" style="text-align:right;" id="username">
+						<p id="user-name"><tal:block tal:content="user"> John </tal:block>
+						<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/user.png" alt="user">
+						&nbsp;|&nbsp;<a tal:attributes="href string:${portal_url}/logout"><tal:block i18n:translate="logout">logout</tal:block></a></p>
+					</td>
 				</tr>
 				<tr>
 					<td class="tableheader" colspan="4" i18n:translate="vos_dossiers_actives">vos_dossiers_actives</td>

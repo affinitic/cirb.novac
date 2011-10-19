@@ -2,6 +2,7 @@ from zope.interface import implements, Interface
 
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
+from zope.component import getMultiAdapter
 
 from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
@@ -44,5 +45,9 @@ class ListprivateView(BrowserView):
         if not novac_url:
             error=True
             msg_error=_(u'No url for novac url')
-        return {'novac_url':novac_url,'error':error,'msg_error':msg_error}
+        
+        self.portal_state = getMultiAdapter((self.context, self.request),
+                                            name=u'plone_portal_state')
+        user = self.portal_state.member()
+        return {'novac_url':novac_url,'error':error,'msg_error':msg_error, 'user':user}
     

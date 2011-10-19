@@ -60,7 +60,7 @@
 				</tr>
 				<tr>
 					<th i18n:translate="description">Description</th>
-					<td id="description"  tal:content='json/results/desc'></td>
+					<td id="desc"  tal:content='json/results/desc'></td>
 				</tr>
 				<tr>
 					<th i18n:translate="demande_introduite_le">demande_introduite_le</th>
