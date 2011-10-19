@@ -15,9 +15,9 @@
 
 <body>
 
-    
-    
     <div metal:fill-slot="main" tal:define="data view/public; json view/python_json">    
+		<div id="ws_urbis" tal:content="data/urbis_url" class="hiddenStructure"> ws_urbis </div>
+	
 		<div class='hiddenStructure'>		
 			<tal:block tal:condition="not: data/error" >
 				<em><div id="ws_waws" tal:content="data/novac_url"> novac_url </div></em>
@@ -52,7 +52,7 @@
 				</tr>
 				<tr>
 					<th i18n:translate="dossier_depose_a">dossier_depose_a</th>
-					<td id="dossier_depose_a"></td>
+					<td id="dossier_depose_a" tal:content='json/results/folder_filed'>></td>
 				</tr>
 				<tr>
 					<th i18n:translate="type_de_permis">type_de_permis</th>
@@ -60,19 +60,19 @@
 				</tr>
 				<tr>
 					<th i18n:translate="description">Description</th>
-					<td id="desc"  tal:content='json/results/desc'></td>
+					<td id="desc" tal:content='json/results/desc'></td>
 				</tr>
 				<tr>
 					<th i18n:translate="demande_introduite_le">demande_introduite_le</th>
-					<td id="demande_introduite_le"></td>
+					<td id="demande_introduite_le" tal:content='json/results/introduce_on'></td>
 				</tr>
 				<tr>
 					<th i18n:translate="langue">langue</th>
-					<td id="langue"></td>
+					<td id="langue" tal:content='json/results/lang'></td>
 				</tr>
 				<tr>
 					<th i18n:translate="statut_du_dossier">statut_du_dossier</th>
-					<td id="statut_du_dossier"></td>
+					<td id="statut_du_dossier" tal:content='json/results/status'></td>
 				</tr>
 			</tbody></table>
 	
@@ -92,6 +92,12 @@
 					<td>&nbsp;</td>
 				</tr>
 			</tbody></table>
+			
+			<div id="container">
+				<div id="map_panel2"><div id="map"></div></div>		
+			</div>
+			<div style='clean:both'></div>
+
 		</div>
         
         <tal:block tal:condition="data/error" >

@@ -8,6 +8,7 @@ div#ws_urbis, div#ws_waws {height:0px;width:0px;overflow:hidden;}
 input[type=button] {width:100px; margin: 5px 0px 5px 90px;}
 
 #map_panel {float: left; height:502px; width:670px; border: solid #aaaaaa 1px; padding: 0px; margin: 5px 5px 5px 5px;}
+#map_panel2 {float: left; height:502px; width:880px; border: solid #aaaaaa 1px; padding: 0px; margin: 5px 5px 5px 5px;}
 #map {height:100%;}
 
 #navigation {float: left; width: 215px; height:502px; border: solid #aaaaaa 1px; padding: 5px; margin: 5px 5px 5px 0px;}
