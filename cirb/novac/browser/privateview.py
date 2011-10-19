@@ -8,7 +8,10 @@ from plone.registry.interfaces import IRegistry
 
 from cirb.novac import novacMessageFactory as _
 
-
+FOLDER_LIST_WS = '/nova/sso/dossiers?errn=errn3' # ?errn=errn3 used to test
+PRIVATE_FODLER_WS = '/nova/sso/dossiers/150000?errn=errn3' # ?errn=errn3 used to test
+HISTORY =  '/nova/sso/dossiers/150000/history?errn=errn3' # ?errn=errn3 used to test
+ACTIVATION = 'http://ws.irisnetlab.be/waws/sso/errn3/activate?key='
 class IPrivateView(Interface):
     """
     Cas view interface

@@ -1,5 +1,4 @@
 
-
 #header {}
 
 div#ws_urbis, div#ws_waws {height:0px;width:0px;overflow:hidden;}
@@ -29,3 +28,60 @@ td.required {background-color:yellow}
 td.granted {background-color:green}
 td.refused {background-color:red}
 td.canceled {background-color:blue}
+
+
+
+/*** Tempaltes ***/
+.detail_table {
+    width: 100%;
+    font-size: .8em;
+    margin-bottom:1em;
+}
+.detail_table caption {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+.detail_table, .detail_table td, .detail_table th {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    padding: .5em;
+    vertical-align: top;
+    text-align: left;
+}
+.tableheader {
+    background-color: #ddd;
+    border-bottom: 1px solid #cc071e !important;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.detail_table th {
+    background-color: #eee;
+}
+.detail_table td a, #id-card a, .back {
+    color: #222;
+    text-decoration: none;
+    border-bottom: 1px solid #222;
+}
+.detail_table td a:hover, #id-card a:hover, .back:hover {
+    color: #222;
+    border-bottom: 1px solid #cc071e;
+}
+.set_width {
+    width: 220px;
+}
+.detail_document {
+    background: #eee url(images/page_full.png) no-repeat 5px 3px;
+    padding-left: 32px !important;
+    height: 30px;
+}
+.detail_attachment {
+    background: #eee url(images/attach_document.png) no-repeat 5px 3px;
+    padding-left: 32px !important;
+    height: 30px;
+}
+.arrow-back {
+    position:relative;
+    top:30px;
+    left:20px;
+}

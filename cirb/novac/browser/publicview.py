@@ -14,6 +14,8 @@ from cirb.novac import novacMessageFactory as _
 
 from cirb.novac.browser.novacview import INovacView, NovacView
 
+PUB_DOSSIER = 'nova/pub/dossiers'
+
 class IPublicView(Interface):
     """
     Cas view interface
@@ -28,10 +30,14 @@ class PublicView(BrowserView):
     Cas browser view
     """
     implements(IPublicView)
-
+    
+    novac_url=''
+    
     def __init__(self, context, request):
         self.context = context
         self.request = request
+        registry = getUtility(IRegistry)
+        self.novac_url = registry['cirb.novac.novac_url']
         
     @property
     def portal_catalog(self):
@@ -44,40 +50,76 @@ class PublicView(BrowserView):
     def view_name(self):
         return "public"
         
-    def public(self):
-        registry = getUtility(IRegistry)
-        novac_url = registry['cirb.novac.novac_url']
-        json_file = registry['cirb.novac.json_file']
+    def public(self):        
         folder_id = self.request.form.get('id')
         error=False
         msg_error=''
-        if not novac_url:
+        if not self.novac_url:
             error=True
             msg_error=_(u'No url for novac url')
         if not folder_id:
             error=True
-            msg_error=_(u'No url for novac url')
+            msg_error=_(u'No folder id')
         
-        return {'novac_url':novac_url,'folder_id':folder_id,'error':error,'msg_error':msg_error}
+        return {'novac_url':self.novac_url,'folder_id':folder_id,'error':error,'msg_error':msg_error}
         
     
     def python_json(self):
         oldtimeout = socket.getdefaulttimeout()
         data = ''
+        msg_error=''
         error=False
-        url = 'http://ws.irisnetlab.be/nova/pub/dossiers/'+self.request.form.get('id')
+        try:
+            num_dossier = self.request.form.get('id')
+        except:
+            error = True
+            msg_error = 'Not num_dossier in url (GET)'
+        url = '%s/%s/%s/' % (self.novac_url, PUB_DOSSIER, num_dossier)
         try:
             socket.setdefaulttimeout(7) # let's wait 7 sec            
-            request = urllib2.Request(url,headers={'content-type': 'application/json'})            
+            
+            request = urllib2.Request(url,headers={'content-type': 'application/json', 
+                                                   'ACCEPT': 'application/json'})            
             #request.add_header('User-Agent', 'Cas/1 +http://www.cirb.irisnet.be/')
             opener = urllib2.build_opener()
-            data = opener.open(request).read()
+            data_from_url = opener.open(request).read()
         except HTTPError, e:
-            data = _('The server couldn\'t fulfill the request.<br />Error code: %s' % e.code)
+            msg_error = _('The server couldn\'t fulfill the request.<br />Error code: %s' % e.code)
             error=True
+            return {'data':data, 'error':error, 'called_url':url}
         except URLError, e:
-            data = _('We failed to reach a server.<br /> Reason: %s'% e.reason)
+            msg_error = _('We failed to reach a server.<br /> Reason: %s'% e.reason)
             error=True
+            return {'data':data, 'error':error, 'msg_error':msg_error, 'called_url':url}
         finally:
             socket.setdefaulttimeout(oldtimeout)
-        return {'data':data, 'error':error, 'called_url':url}
+        import json
+        data = json.loads(data_from_url)
+        properties = data['properties']
+        try:
+            address = '%s, %s %s %s' % (properties['numberFrom'],
+                                    properties['streetName'],
+                                    properties['zipCode'],
+                                    properties['municipality'],)
+        except:
+            error=True
+            msg_error += 'Error with address<br />'            
+        try:
+            type_dossier = properties['typeDossier']
+        except:
+            error=True
+            msg_error += 'Error with typeDossier<br />'
+        try:
+            desc = properties['object']
+        except:
+            error=True
+            msg_error += 'Error with object (desc)<br />'
+        try:
+            ref = properties['novaRef']
+        except:
+            ref=''
+            error=True
+            msg_error += 'Error with novaRe<br />'
+        results={'address':address, 'type_dossier':type_dossier,'desc':desc,'ref':ref, 'num_dossier':num_dossier}
+        
+        return {'data':data, 'error':error, 'msg_error':msg_error, 'called_url':url, 'results':results}

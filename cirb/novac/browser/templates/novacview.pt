@@ -7,7 +7,7 @@
       <meta http-equiv="imagetoolbar" content="no">
 </tal:head>
 <tal:css metal:fill-slot="style_slot">
-    <link rel="stylesheet" tal:attributes="href string:${portal_url}/++resource++cirb.novac.scripts/novac.css" type="text/css"/>
+    <!--link rel="stylesheet" tal:attributes="href string:${portal_url}/++resource++cirb.novac.scripts/novac.css" type="text/css"/-->
 </tal:css>
 <tal:js metal:fill-slot="javascript_head_slot"> 
     <!--script type="text/javascript" src="jquery-1.6.2.min.js"></script-->    
@@ -19,11 +19,6 @@
        
     <div metal:fill-slot="main" tal:define="data view/novac">	
 	    
-		<!--p metal:use-macro="context/macros/novacbreathcrumb">
-		    <b metal:fill-slot="novac_additional_breathcrumb">
-			public novac
-		    </b>
-		</p-->
         <tal:block tal:condition="not: data/error" >
             <div id="ws_urbis" tal:content="data/urbis_url" class="hiddenStructure"> ws_urbis </div>
             <div id="ws_waws" tal:content="data/novac_url" class="hiddenStructure"> ws_waws </div>

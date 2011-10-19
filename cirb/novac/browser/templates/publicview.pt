@@ -10,7 +10,7 @@
 
 </tal:css>
 <tal:js metal:fill-slot="javascript_head_slot"> 
-    <script type="text/javascript" tal:attributes="src string:${portal_url}/novac_public.js"></script>
+    <script type="text/javascript" tal:attributes="src string:${portal_url}/++resource++cirb.novac.scripts/novac_public.js"></script>
 </tal:js>
 
 <body>
@@ -18,15 +18,15 @@
     
     
     <div metal:fill-slot="main" tal:define="data view/public; json view/python_json">    
-	 <tal:block tal:condition="not: data/error" >
-            <em><div id="ws_waws" tal:content="data/novac_url"> novac_url </div></em>
-	    <!--div id="folder_id" tal:content="data/folder_id"> folder_id </div-->
-         </tal:block>
-		
-	    <br />
-		<em><div id="ws_waws" tal:content="json/called_url"> novac_url </div></em>
-		<div id="json" tal:content="json/data"> python_json </div> 
-	    <br />
+		<div class='hiddenStructure'>		
+			<tal:block tal:condition="not: data/error" >
+				<em><div id="ws_waws" tal:content="data/novac_url"> novac_url </div></em>
+			</tal:block>		
+			<br />
+			<em><div id="ws_waws" tal:content="json/called_url"> novac_url </div></em>
+			<div id="json" tal:content="json/data"> python_json </div> 
+			<br />
+		</div>
         <div  tal:condition="not: json/error" id="table" style="padding: 0 1em 1em;">
 			<table class="detail_table">
 				<caption i18n:translate="detail_de_la_demande">detail_de_la_demande</caption>
@@ -35,7 +35,7 @@
 				</tr>
 				<tr>
 					<th class="address" i18n:translate="address">address</th>
-					<td class="address"></td>
+					<td class="address" tal:content='json/results/address'>address</td>
 				</tr>
 			</tbody></table>
 	
@@ -45,10 +45,10 @@
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="n_dossier">n_dossier</th>
-					<td id="n_dossier"></td>
+					<td id="n_dossier"  tal:content='json/results/num_dossier'></td>
 				</tr><tr>
 					<th i18n:translate="reference">reference</th>
-					<td id="reference"></td>
+					<td id="reference" tal:content='json/results/ref'></td>
 				</tr>
 				<tr>
 					<th i18n:translate="dossier_depose_a">dossier_depose_a</th>
@@ -56,11 +56,11 @@
 				</tr>
 				<tr>
 					<th i18n:translate="type_de_permis">type_de_permis</th>
-					<td id="type_de_permis"></td>
+					<td id="type_de_permis" tal:content='json/results/type_dossier'></td>
 				</tr>
 				<tr>
 					<th i18n:translate="description">Description</th>
-					<td id="description"></td>
+					<td id="description"  tal:content='json/results/desc'></td>
 				</tr>
 				<tr>
 					<th i18n:translate="demande_introduite_le">demande_introduite_le</th>
@@ -96,6 +96,9 @@
         
         <tal:block tal:condition="data/error" >
             <div tal:replace="data/error_text">error</div>
+        </tal:block>
+		<tal:block tal:condition="json/error" >
+            <div tal:replace="json/msg_error">error</div>
         </tal:block>
     </div>
 </body>
