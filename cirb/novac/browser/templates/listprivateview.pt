@@ -23,7 +23,7 @@
 			<table class="detail_table">
 				<caption i18n:translate="vous_etes_maintenant_connecte">vous_etes_maintenant_connecte</caption>
 				<tbody><tr>
-					<td colspan="4" style="text-align:right;" id="username"><img tal:attributes="src string:${portal_url}/images/user.png" alt="user"> </td>
+					<td colspan="4" style="text-align:right;" id="username"><img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/user.png" alt="user"> </td>
 				</tr>
 				<tr>
 					<td class="tableheader" colspan="4" i18n:translate="vos_dossiers_actives">vos_dossiers_actives</td>
@@ -59,7 +59,7 @@
 							<p>Contact (téléphone, GSM ou e-mail) : <input type="text" size="35" /></p>
 	-->
 							<p i18n:translate="Insérez votre clé unique pour activer votre dossier">Insérez votre clé unique pour activer votre dossier</p>
-								<img tal:attributes="src string:${portal_url}/images/key24.png" alt="key" style="float:left;"><input type="text" size="4" maxlength="4">-<input type="text" size="4" maxlength="4">-<input type="text" size="4" maxlength="4">-<input type="text" size="4" maxlength="4">-<input type="text" size="4" maxlength="4">-<input type="text" size="4" maxlength="4">
+								<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/key24.png" alt="key" style="float:left;"><input type="text" size="4" maxlength="4">-<input type="text" size="4" maxlength="4">-<input type="text" size="4" maxlength="4">-<input type="text" size="4" maxlength="4">-<input type="text" size="4" maxlength="4">-<input type="text" size="4" maxlength="4">
 							<p><input type="checkbox" checked="checked">&nbsp;<em>
 							<tal:block i18n:translate="Je suis toujours d'accord avec l'avertissement relatif à l'usage des données de ma carte d'identité électronique">Je suis toujours d'accord avec l'avertissement relatif à l'usage des données de ma carte d'identité électronique</tal:block>
 							</em></p>

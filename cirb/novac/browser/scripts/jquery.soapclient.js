@@ -45,7 +45,7 @@
 				if(this.settings.spinner){
 					leDom = this.settings.spinner;
 					this.settings.spinnerClone=jQuery(leDom).clone(true);
-					jQuery(leDom).html('<center><img src="images/spinner.gif"/></center>');
+					jQuery(leDom).html('<center><img src="++resource++cirb.novac.images/spinner.gif"/></center>');
 				}
 				if(this.settings.async)
 					this._loadWsdl();

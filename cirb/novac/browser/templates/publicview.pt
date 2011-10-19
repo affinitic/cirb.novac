@@ -24,7 +24,8 @@
          </tal:block>
 		
 	    <br />
-		<div id="json" tal:content="structure json/data"> python_json </div> 
+		<em><div id="ws_waws" tal:content="json/called_url"> novac_url </div></em>
+		<div id="json" tal:content="json/data"> python_json </div> 
 	    <br />
         <div  tal:condition="not: json/error" id="table" style="padding: 0 1em 1em;">
 			<table class="detail_table">
@@ -83,11 +84,11 @@
 					<th class="detail_document" i18n:translate="documents">documents</th>
 					<th class="detail_attachment" i18n:translate="annexes">annexes</th>
 				</tr><tr>
-					<td>TODO : titre du document <img tal:attributes="src string:${portal_url}/images/pdf_icon.gif" alt="pdf icon"></td>
-					<td>TODO : titre de l'annexe <img tal:attributes="src string:${portal_url}/images/pdf_icon.gif" alt="pdf icon"></td>
+					<td>TODO : titre du document <img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/pdf_icon.gif" alt="pdf icon"></td>
+					<td>TODO : titre de l'annexe <img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/pdf_icon.gif" alt="pdf icon"></td>
 				</tr>
 				<tr>
-					<td>TODO : titre du document <img tal:attributes="src string:${portal_url}/images/pdf_icon.gif" alt="pdf icon"></td>
+					<td>TODO : titre du document <img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/pdf_icon.gif" alt="pdf icon"></td>
 					<td>&nbsp;</td>
 				</tr>
 			</tbody></table>

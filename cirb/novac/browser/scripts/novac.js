@@ -14,7 +14,8 @@ $(document).ready(function() {
         resolutions: [34.76915808105469, 17.384579040527345, 8.692289520263673, 4.346144760131836, 2.173072380065918, 1.086536190032959, 0.5432680950164795, 0.2716340475082398, 0.1358170237541199],
         projection: new OpenLayers.Projection('EPSG:31370'),
         maxExtent: new OpenLayers.Bounds(16478.795,19244.928,301307.738,304073.87100000004),
-        units: "meters",
+        units: "meters", 
+        theme: "++resource++cirb.novac.images/",
         controls: []
     };
     map = new OpenLayers.Map('map', mapOptions );

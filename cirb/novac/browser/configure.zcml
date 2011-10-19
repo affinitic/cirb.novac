@@ -21,7 +21,7 @@
   <browser:resourceDirectory
       name="cirb.novac.images"
       directory="images"
-      layer=".interfaces.INovacCustomization"
+      layer=".interfaces.INovacCustomization"      
       />
   
       

@@ -1,6 +1,6 @@
 <layers>
     <layer
-        name="cirb.novac.scripts"
+        name="cirb.novac.layer"
         interface="cirb.novac.browser.interfaces.INovacCustomization"
         />
 </layers>

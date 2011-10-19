@@ -80,4 +80,4 @@ class PublicView(BrowserView):
             error=True
         finally:
             socket.setdefaulttimeout(oldtimeout)
-        return {'data':data, 'error':error}
+        return {'data':data, 'error':error, 'called_url':url}

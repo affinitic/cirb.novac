@@ -24,7 +24,7 @@
 			<table class="detail_table">
 				<caption i18n:translate="Etat d'avancement - Demande de permis d'urbanisme">Etat d'avancement - Demande de permis d'urbanisme</caption>
 				<tbody><tr>
-					<td style="text-align:right;" colspan="2"><img tal:attributes="src string:${portal_url}/images/user.png" alt="user"> 
+					<td style="text-align:right;" colspan="2"><img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/user.png" alt="user"> 
 						<a href="login2.html"></a>
 					</td>
 				</tr>
@@ -78,15 +78,15 @@
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="enquete_publiqe">enquete_publiqe</th>
-					<td id="enquete_publiqe"><img tal:attributes="src string:${portal_url}/images/check_mark.png" alt="check">&nbsp;&nbsp;début : 30-03-2009 | fin : 13-04-2009</td>
+					<td id="enquete_publiqe"><img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">&nbsp;&nbsp;début : 30-03-2009 | fin : 13-04-2009</td>
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="commission_de_concertation">commission_de_concertation</th>
-					<td id="commission_de_concertation"><img tal:attributes="src string:${portal_url}/images/check_mark.png" alt="check">&nbsp;&nbsp;22-04-2009</td>
+					<td id="commission_de_concertation"><img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">&nbsp;&nbsp;22-04-2009</td>
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="fonctionnaire_delegue">fonctionnaire_delegue</th>
-					<td id="fonctionnaire_delegue"><img tal:attributes="src string:${portal_url}/images/check_mark.png" alt="check">&nbsp;&nbsp;</td>
+					<td id="fonctionnaire_delegue"><img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">&nbsp;&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="AED">AED</th>
@@ -100,7 +100,7 @@
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="decision">decision</th>
-					<td id="decision"><img tal:attributes="src string:${portal_url}/images/check_mark.png" alt="check">&nbsp;&nbsp;OK</td>
+					<td id="decision"><img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">&nbsp;&nbsp;OK</td>
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="permis">permis</th>
@@ -125,11 +125,11 @@
 					<th class="detail_document" i18n:translate="documents">documents</th>
 					<th class="detail_attachment" i18n:translate="annexes">annexes</th>
 				</tr><tr>
-					<td>TODO : titre du document <img tal:attributes="src string:${portal_url}/images/pdf_icon.gif" alt="pdf icon"></td>
-					<td>TODO : titre de l'annexe <img tal:attributes="src string:${portal_url}/images/pdf_icon.gif" alt="pdf icon"></td>
+					<td>TODO : titre du document <img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/pdf_icon.gif" alt="pdf icon"></td>
+					<td>TODO : titre de l'annexe <img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/pdf_icon.gif" alt="pdf icon"></td>
 				</tr>
 				<tr>
-					<td>TODO : titre du document <img tal:attributes="src string:${portal_url}/images/pdf_icon.gif" alt="pdf icon"></td>
+					<td>TODO : titre du document <img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/pdf_icon.gif" alt="pdf icon"></td>
 					<td>&nbsp;</td>
 				</tr>
 			</tbody></table>	
