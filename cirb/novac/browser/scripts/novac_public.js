@@ -44,7 +44,6 @@ $(document).ready(function() {
     map.addLayer(urbislayer);
     
     var icon_url = portal_url+'/++resource++cirb.novac.images/marker.png';
-    alert(icon_url);
     var size = new OpenLayers.Size(21,25);
     var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
     var icon_marker = new OpenLayers.Icon(icon_url, size, offset);
