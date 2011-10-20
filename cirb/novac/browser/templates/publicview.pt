@@ -28,6 +28,10 @@
 			<br />
 		</div>
         <div  tal:condition="not: json/error" id="table" style="padding: 0 1em 1em;">
+			<div class="hiddenStructure" id="x" tal:content="json/results/x">x</div>
+			<div class="hiddenStructure" id="y" tal:content="json/results/y">y</div>
+			<div class="hiddenStructure" id="portal_url" tal:content="context/portal_url">portal_url</div>
+			
 			<table class="detail_table">
 				<caption i18n:translate="detail_de_la_demande">detail_de_la_demande</caption>
 				<tbody><tr>

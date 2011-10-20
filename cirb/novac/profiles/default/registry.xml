@@ -14,4 +14,11 @@
         </field>
         <value>http://localhost:8080/Plone/++resource++cirb.novac.scripts/test.json</value>
     </record>
+    <record name="cirb.novac.rest_service">
+        <field type="plone.registry.field.URI">
+            <title>REST URL</title>
+            <description>REST URL called to transform address in LatLon</description>
+        </field>
+        <value>http://services.gis.irisnetlab.be/urbis/Rest/Localize/getxycoord</value>
+    </record>
 </registry>

@@ -8,7 +8,7 @@ div#ws_urbis, div#ws_waws {height:0px;width:0px;overflow:hidden;}
 input[type=button] {width:100px; margin: 5px 0px 5px 90px;}
 
 #map_panel {float: left; height:502px; width:670px; border: solid #aaaaaa 1px; padding: 0px; margin: 5px 5px 5px 5px;}
-#map_panel2 {float: left; height:502px; width:880px; border: solid #aaaaaa 1px; padding: 0px; margin: 5px 5px 5px 5px;}
+#map_panel2 {float: left; height:300px; width:880px; border: solid #aaaaaa 1px; padding: 0px; margin: 5px 5px 5px 5px;}
 #map {height:100%;}
 
 #navigation {float: left; width: 215px; height:502px; border: solid #aaaaaa 1px; padding: 5px; margin: 5px 5px 5px 0px;}
@@ -72,12 +72,12 @@ td.canceled {background-color:blue}
     width: 220px;
 }
 .detail_document {
-    background: #eee url(images/page_full.png) no-repeat 5px 3px;
+    background: #eee url(++resource++cirb.novac.images/page_full.png) no-repeat 5px 3px;
     padding-left: 32px !important;
     height: 30px;
 }
 .detail_attachment {
-    background: #eee url(images/attach_document.png) no-repeat 5px 3px;
+    background: #eee url(++resource++cirb.novac.images/attach_document.png) no-repeat 5px 3px;
     padding-left: 32px !important;
     height: 30px;
 }

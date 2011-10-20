@@ -16,7 +16,9 @@ $(document).ready(function() {
                    alert(result);}) */
     //alert(called_url + " : "+result);
     var url_ws_urbis = $('#ws_urbis').html();
-    
+    var portal_url = $('#portal_url').html();
+    var x = $('#x').html();
+    var y = $('#y').html();
     var mapOptions = { 
         resolutions: [34.76915808105469, 17.384579040527345, 8.692289520263673, 4.346144760131836, 2.173072380065918, 1.086536190032959, 0.5432680950164795, 0.2716340475082398, 0.1358170237541199],
         projection: new OpenLayers.Projection('EPSG:31370'),
@@ -41,7 +43,15 @@ $(document).ready(function() {
     );
     map.addLayer(urbislayer);
     
+    var icon_url = portal_url+'/++resource++cirb.novac.images/marker.png';
+    alert(icon_url);
+    var size = new OpenLayers.Size(21,25);
+    var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+    var icon_marker = new OpenLayers.Icon(icon_url, size, offset);
+    var size = new OpenLayers.Size(21,25);
+    address_folder = new OpenLayers.LonLat(x, y);
     markers_layer = new OpenLayers.Layer.Markers( "Markers" );
+    markers_layer.addMarker(new OpenLayers.Marker(address_folder), icon_marker);
     map.addLayer(markers_layer);
     
     var style = new OpenLayers.Style({
@@ -66,7 +76,7 @@ $(document).ready(function() {
                     }
                 });
     
-    map.setCenter(new OpenLayers.LonLat(150000.0, 170000.0));
+    map.setCenter(address_folder, 5);
     
     
 });

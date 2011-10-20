@@ -39,7 +39,7 @@ class PublicView(BrowserView):
         registry = getUtility(IRegistry)
         self.novac_url = registry['cirb.novac.novac_url']
         self.urbis_url = registry['cirb.urbis.urbis_url']
-        
+        self.rest_service = registry['cirb.novac.rest_service']
     @property
     def portal_catalog(self):
         return getToolByName(self.context, 'portal_catalog')
@@ -99,7 +99,12 @@ class PublicView(BrowserView):
         not_avaiable = self.context.translate(msgid)
         import json
         data = json.loads(data_from_url)
-        properties = data['properties']
+        try:
+            geometry = data['geometry']
+            properties = data['properties']
+        except:
+            geometry=None
+            properties=None
         try:
             address = '%s, %s %s %s' % (properties['numberFrom'],
                                     properties['streetName'],
@@ -135,9 +140,15 @@ class PublicView(BrowserView):
             status = properties['status']
         except:
             status  = not_avaiable
-            
+        try:
+            x = str(geometry['x'])
+            y = str(geometry['y'])
+        except:
+            x = '150000.0'
+            y = '170000.0'
         results={'address':address, 'type_dossier':type_dossier,'desc':desc,'ref':ref, 
                  'num_dossier':num_dossier, 'folder_filed':folder_filed, 'introduce_on':introduce_on,
-                 'lang':lang, 'status':status}
+                 'lang':lang, 'status':status, 'x':x, 'y':y}
         
-        return {'data':data, 'error':error, 'msg_error':msg_error, 'called_url':url, 'results':results}
+        return {'data':data, 'rest_service':self.rest_service, 'results':results,
+                'error':error, 'msg_error':msg_error, 'called_url':url }
