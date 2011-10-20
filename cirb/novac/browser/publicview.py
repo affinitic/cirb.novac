@@ -97,6 +97,7 @@ class PublicView(BrowserView):
         
         msgid = _(u"not_available")
         not_avaiable = self.context.translate(msgid)
+        
         import json
         data = json.loads(data_from_url)
         try:
@@ -111,44 +112,36 @@ class PublicView(BrowserView):
                                     properties['zipCode'],
                                     properties['municipality'],)
         except:
-            address = not_avaiable         
-        try:
-            type_dossier = properties['typeDossier']
-        except:
-            type_dossier = not_avaiable
-        try:
-            desc = properties['object']
-        except:
-            desc = not_avaiable
-        try:
-            ref = properties['novaRef']
-        except:
-            ref  = not_avaiable
-        try:
-            folder_filed = properties['folderFiled']
-        except:
-            folder_filed  = not_avaiable
-        try:
-            introduce_on = properties['introduceOn']
-        except:
-            introduce_on  = not_avaiable
-        try:
-            lang = properties['lang']
-        except:
-            lang  = not_avaiable
-        try:
-            status = properties['status']
-        except:
-            status  = not_avaiable
+            address = not_avaiable   
+            
+        type_dossier = self.get_properties(properties,"typeDossier")
+        desc = self.get_properties(properties,'object')
+        ref = self.get_properties(properties,'novaRef')
+        folder_filed = self.get_properties(properties,'folderFiled')
+        introduce_on = self.get_properties(properties,'introduceOn')
+        lang = self.get_properties(properties,'lang')
+        status = self.get_properties(properties,'status')
+       
         try:
             x = str(geometry['x'])
             y = str(geometry['y'])
         except:
             x = '150000.0'
             y = '170000.0'
-        results={'address':address, 'type_dossier':type_dossier,'desc':desc,'ref':ref, 
+            
+        results = {'address':address, 'type_dossier':type_dossier,'desc':desc,'ref':ref, 
                  'num_dossier':num_dossier, 'folder_filed':folder_filed, 'introduce_on':introduce_on,
                  'lang':lang, 'status':status, 'x':x, 'y':y}
         
         return {'data':data, 'rest_service':self.rest_service, 'results':results,
                 'error':error, 'msg_error':msg_error, 'called_url':url }
+    
+    
+    def get_properties(self, prop, prop_name):
+        msgid = _(u"not_available")
+        not_avaiable = self.context.translate(msgid)
+        try:
+            return prop[prop_name]
+        except:
+            return not_avaiable
+        
