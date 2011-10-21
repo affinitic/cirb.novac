@@ -51,7 +51,7 @@ class PublicView(BrowserView):
     def view_name(self):
         return "public"
         
-    def public(self):        
+    def public(self):
         folder_id = self.request.form.get('id')
         error=False
         msg_error=''

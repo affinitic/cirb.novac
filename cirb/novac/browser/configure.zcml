@@ -85,6 +85,14 @@
         class=".viewlets.BreatcrumbViewlet"
         permission="zope2.View"
         />
+        
+    <browser:page
+      for="*"
+      name="activate_key"
+      class=".listprivateview.ListprivateView"
+      attribute="activate_key"
+      permission="novac.View"
+       />
 
 
 </configure>
