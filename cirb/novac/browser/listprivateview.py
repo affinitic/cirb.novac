@@ -60,12 +60,14 @@ class ListprivateView(BrowserView):
                 'user':user, 'dossier_list':dossier_list, 'dossier_list_url':dossier_list_url}
     
     
-    # view to activate a dossier with the 'numero de registre national'
+    # view to activate a dossier with the key
     def activate_key(self):
-        test_key = 'kkZdrP/R2IbSIB1/bu+xHg=='
         #key = self.request.form.get('key')
-        key = test_key
+        query_string = self.request.environ['QUERY_STRING']
+        key = query_string.replace('key=','')
+        
         activate_url = '%s%s%s' %(self.novac_url,ACTIVATION,key)
+        activate_url = activate_url.encode('utf-8')
         results = novacview.called_url(request_url=activate_url, request_headers={'User-Agent': 'Novac/1 +http://www.urbanisme.irisnet.be/'})
         
-        return 'activate_key : %s  - %s - %s ' % (key, activate_url, results)
+        return 'activate_key : %s <br />%s ' % (activate_url, results)
