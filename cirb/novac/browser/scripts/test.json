@@ -1,15 +1,12 @@
 {"type":"FeatureCollection", "features":[ 
 
-{"geometry": {"type":"Point", "coordinates":[152665.789,170960.37]}, "type":"Feature", 
+{u'geometry': {u'y': 166624.08100000001, u'x': 146564.296, u'type': u'Point', u'coordinates': [146564.296, 166624.08100000001]}, u'type': u'Feature', 
+u'properties': {u"id":"209203",u'novaRef': u'07/PFD/228325', u'codeDossier': u'PFD', u'numberFrom': u'58', u'object': u'd\xe9molir et reconstruire (reconstruction totale ou hors sol);', u'municipality': u'Forest', u'zipCode': u'1190', u'statusPermit': u'DEMANDE', u'startPublicInquiry': u'11/02/2010', u'endPublicInquiry': u'25/02/2010', u'publicInquiry': u'Oui', u'typeDossier': u"Permis d'urbanisme d\xe9livr\xe9 par le FD", u'streetName': u'Rue de Li\xe8ge'}}
 
-"properties": {"id":"147360","typedossier":"Abattage d'arbres","commune":"Schaerbeek", "novaRef":"AA/191295", "numberfrom":"30", "streetname":"Rue Aimé Smekens", "zipcode":"1030"}}, 
-
-{"geometry": {"type":"Point", "coordinates":[151687.21,172328.89]}, "type":"Feature", 
-
-"properties": {"id":"148922","typedossier":"Panneau publicitaire","commune":"Schaerbeek", "novaRef":"PP/191859", "numberfrom":"152", "streetname":"Avenue Gustave Latinis", "zipcode":"1030"}}, 
+{u'geometry': {u'y': 173433.11199999999, u'x': 151260.41200000001, u'type': u'Point', u'coordinates': [151260.41200000001, 173433.11199999999]}, u'type': u'Feature', 
+u'properties': {u"id":"209439",u'novaRef': u'15/PFD/236572', u'codeDossier': u'PFD', u'numberFrom': u'36', u'object': u'transformer ou r\xe9nover avec modification du volume;', u'municipality': u'Schaerbeek', u'zipCode': u'1030', u'statusPermit': u'DEMANDE', u'startPublicInquiry': u'15/02/2010', u'endPublicInquiry': u'01/03/2010', u'publicInquiry': u'Oui', u'typeDossier': u"Permis d'urbanisme d\xe9livr\xe9 par le FD", u'streetName': u'Rue du Foyer Schaerbeekois'}}
 
 {"geometry": {"type":"Point", "coordinates":[151356.499,171786.229]}, "type":"Feature", 
-
-"properties": {"id":"150232","typedossier":"Permis d'urbanisme privé","commune":"Schaerbeek", "novaRef":"PU/192178", "numberfrom":"32","numberto":"40",  "streetname":"Rue Auguste Lambiotte", "zipcode":"1030"}}
+"properties": {"id":"150232","typedossier":"Permis d'urbanisme prive","commune":"Schaerbeek", "novaRef":"PU/192178", "numberfrom":"32","numberto":"40",  "streetname":"Rue Auguste Lambiotte", "zipcode":"1030"}}
 
 ]}

@@ -87,7 +87,7 @@ class PublicView(BrowserView):
         except HTTPError, e:
             msg_error = _('The server couldn\'t fulfill the request.<br />Error code: %s' % e.code)
             error=True
-            return {'data':data, 'error':error, 'called_url':url}
+            return {'data':data, 'error':error, 'msg_error':msg_error, 'called_url':url}
         except URLError, e:
             msg_error = _('We failed to reach a server.<br /> Reason: %s'% e.reason)
             error=True
@@ -118,9 +118,9 @@ class PublicView(BrowserView):
         desc = self.get_properties(properties,'object')
         ref = self.get_properties(properties,'novaRef')
         folder_filed = self.get_properties(properties,'folderFiled')
-        introduce_on = self.get_properties(properties,'introduceOn')
+        introduce_on = self.get_properties(properties,'startPublicInquiry')
         lang = self.get_properties(properties,'lang')
-        status = self.get_properties(properties,'status')
+        status = self.get_properties(properties,'statusPermit')
        
         try:
             x = str(geometry['x'])
