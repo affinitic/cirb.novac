@@ -1,12 +1,15 @@
-{"type":"FeatureCollection", "features":[ 
+{"type":"FeatureCollection", "features":[
 
-{u'geometry': {u'y': 166624.08100000001, u'x': 146564.296, u'type': u'Point', u'coordinates': [146564.296, 166624.08100000001]}, u'type': u'Feature', 
-u'properties': {u"id":"209203",u'novaRef': u'07/PFD/228325', u'codeDossier': u'PFD', u'numberFrom': u'58', u'object': u'd\xe9molir et reconstruire (reconstruction totale ou hors sol);', u'municipality': u'Forest', u'zipCode': u'1190', u'statusPermit': u'DEMANDE', u'startPublicInquiry': u'11/02/2010', u'endPublicInquiry': u'25/02/2010', u'publicInquiry': u'Oui', u'typeDossier': u"Permis d'urbanisme d\xe9livr\xe9 par le FD", u'streetName': u'Rue de Li\xe8ge'}}
+{"geometry": {"type": "Point", "coordinates": [146564.296, 166624.081]}, 
+"type": "Feature", 
+"properties": {"id":"209203","novaRef": "07/PFD/228325", "numberfrom": "58", "numberto":"58", "commune": "Forest", "zipcode": "1190","typedossier":"urbanisme par le FD", "streetname": "Rue de Lige"}},
 
-{u'geometry': {u'y': 173433.11199999999, u'x': 151260.41200000001, u'type': u'Point', u'coordinates': [151260.41200000001, 173433.11199999999]}, u'type': u'Feature', 
-u'properties': {u"id":"209439",u'novaRef': u'15/PFD/236572', u'codeDossier': u'PFD', u'numberFrom': u'36', u'object': u'transformer ou r\xe9nover avec modification du volume;', u'municipality': u'Schaerbeek', u'zipCode': u'1030', u'statusPermit': u'DEMANDE', u'startPublicInquiry': u'15/02/2010', u'endPublicInquiry': u'01/03/2010', u'publicInquiry': u'Oui', u'typeDossier': u"Permis d'urbanisme d\xe9livr\xe9 par le FD", u'streetName': u'Rue du Foyer Schaerbeekois'}}
+{"geometry": {"type": "Point", "coordinates": [151260.412, 173433.111]}, 
+"type": "Feature", 
+"properties": {"id":"209439","novaRef": "15/PFD/236572", "numberfrom":"36","numberto":"36",  "commune": "Schaerbeek", "zipcode": "1030",  "typedossier": "Permis d'urbanisme par le FD", "streetname": "Rue du Foyer Schaerbeekois"}},
 
-{"geometry": {"type":"Point", "coordinates":[151356.499,171786.229]}, "type":"Feature", 
+{"geometry": {"type":"Point", "coordinates":[151356.499,171786.229]}, 
+"type":"Feature", 
 "properties": {"id":"150232","typedossier":"Permis d'urbanisme prive","commune":"Schaerbeek", "novaRef":"PU/192178", "numberfrom":"32","numberto":"40",  "streetname":"Rue Auguste Lambiotte", "zipcode":"1030"}}
 
 ]}
