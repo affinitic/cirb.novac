@@ -12,6 +12,24 @@ import re, os
 import urllib2, socket
 from urllib2 import URLError, HTTPError
 
+def called_url(request_url, request_headers): # request_headers is a dict
+    oldtimeout = socket.getdefaulttimeout()
+    results = ''
+    msg_error=''
+    url = request_url
+    try:
+        socket.setdefaulttimeout(7) # let's wait 7 sec        
+        request = urllib2.Request(url,headers=request_headers)
+        opener = urllib2.build_opener()
+        results = opener.open(request).read()
+    except HTTPError, e:
+        return _('The server couldn\'t fulfill the request.<br />Error code: %s' % e.code)
+    except URLError, e:
+        return _('We failed to reach a server.<br /> Reason: %s'% e.reason)
+    finally:
+        socket.setdefaulttimeout(oldtimeout)
+    return results  
+
 class INovacView(Interface):
     """
     Cas view interface
@@ -65,22 +83,13 @@ class NovacView(BrowserView):
         return {'novac_url':novac_url,'urbis_url':urbis_url,
                 'json_file':json_file,
                 'private_url':private_url,'error':error,'msg_error':msg_error}
+    
+    def wfs_request(self):
+        #key = self.request.form.get('key')
+        #query_string = self.request.environ['QUERY_STRING']
+        url = self.request.form.get('url')
+        headers = {'User-Agent': 'Novac/1 +http://www.urbanisme.irisnet.be/'}
+        return called_url(url , headers)
 
 
-def called_url(request_url, request_headers): # request_headers is a dict
-    oldtimeout = socket.getdefaulttimeout()
-    results = ''
-    msg_error=''
-    url = request_url
-    try:
-        socket.setdefaulttimeout(7) # let's wait 7 sec        
-        request = urllib2.Request(url,headers=request_headers)
-        opener = urllib2.build_opener()
-        results = opener.open(request).read()
-    except HTTPError, e:
-        return _('The server couldn\'t fulfill the request.<br />Error code: %s' % e.code)
-    except URLError, e:
-        return _('We failed to reach a server.<br /> Reason: %s'% e.reason)
-    finally:
-        socket.setdefaulttimeout(oldtimeout)
-    return results
+
