@@ -2,7 +2,7 @@ OpenLayers.DOTS_PER_INCH = 90.71428571428572;
 OpenLayers.Util.onImageLoadErrorColor = 'transparent';
 var map, layer;
 var filter_geom;
-var markers_layer, features_layer, highlightLayer;
+var markers_layer, features_layer, highlightLayer, points, markers;
 $(document).ready(function() {
 
 
@@ -14,6 +14,7 @@ $(document).ready(function() {
     var url_ws_waws = $('#ws_waws').html();
     var json_file  = $('#json_file').html();
     var portal_url = $('#portal_url').html();
+    var current_language = $('#current_language').html();
     url = portal_url+"/wfs_request?url="+url_ws_urbis+"&headers=";
    
     var mapOptions = { 
@@ -46,10 +47,13 @@ $(document).ready(function() {
 	var clusters = new OpenLayers.Layer.WMS("Clusters", url_ws_urbis, 			{layers: 'nova:CLUSTER3KM', transparent: 'true',minScale: 25000});
     map.addLayer(clusters);
 
-	var points = new OpenLayers.Layer.WMS("Points",url_ws_urbis, 			{layers: 'nova:NOVA_DOSSIERS', transparent: 'true',maxScale: 25000});
+	points = new OpenLayers.Layer.WMS("Points",url_ws_urbis, 			{layers: 'nova:NOVA_DOSSIERS', transparent: 'true',maxScale: 25000});
     map.addLayer(points);
 
-	highlightLayer = new OpenLayers.Layer.Vector("Highlighted Features", {
+markers = new OpenLayers.Layer.Markers("zibo");
+map.addLayer(markers);
+
+	/*highlightLayer = new OpenLayers.Layer.Vector("Highlighted Features", {
         displayInLayerSwitcher: false, 
         transparent: 'true'
         }
@@ -65,10 +69,129 @@ $(document).ready(function() {
 
 	click.events.register("getfeatureinfo", this, showInfo);
     map.addControl(click); 
-	click.activate();
+	click.activate();*/
             
     map.setCenter(new OpenLayers.LonLat(150000.0, 170000.0));
+
+	map.events.register('click', map, executeGetFeatureInfo);
+		
+	function executeGetFeatureInfo(event) {
+
+    mouseLoc = map.getLonLatFromPixel(event.xy);
+
+    var url = clusters.getFullRequestString({
+                REQUEST: "GetFeatureInfo",
+                BBOX: map.getExtent().toBBOX(),
+                X: event.xy.x,
+                Y: event.xy.y,
+                INFO_FORMAT: 'application/vnd.ogc.gml',
+				FORMAT: 'application/vnd.ogc.gml',
+				LAYERS : "NOVA_DOSSIERS",
+                QUERY_LAYERS: "NOVA_DOSSIERS",
+                FEATURE_COUNT: 10,
+                WIDTH: map.size.w,
+                HEIGHT: map.size.h},
+				"http://localhost:8080/Plone/wfs_request?url=http://geoserver.gis.irisnetlab.be/geoserver/wms?");
+
+    OpenLayers.Request.GET({
+    	url: url,
+    	callback: showPointInfo
+	});
+    //Event.stop(event);
+	}
+
+	function showPointInfo(response) {
+	
+		var xmlDoc;
+		if (window.DOMParser)
+		  {
+			  parser=new DOMParser();
+			  xmlDoc=parser.parseFromString(response.responseText,"text/xml");
+		  }
+		else // Internet Explorer
+		  {
+			  xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+			  xmlDoc.async="false";
+			  xmlDoc.loadXML(response.responseText);
+		  } 
+
+
+	var permits = new Array();
+	permits = xmlDoc.getElementsByTagName("nova:NOVA_DOSSIERS");
+	var result = "<div>";
+	var absolute_url  = $('#absolute_url').html();
+	for(i =0; i < permits.length ; i++){
+	if(current_language == 'fr'){
+
+			result += (permits[i].getElementsByTagName("nova:STREETNAMEFR")[0])?permits[i].getElementsByTagName("nova:STREETNAMEFR")[0].textContent+ " ":"";
+
+result +=(permits[i].getElementsByTagName("nova:NUMBERPARTFROM")[0])?permits[i].getElementsByTagName("nova:NUMBERPARTFROM")[0].textContent:"";
+
+result +=(permits[i].getElementsByTagName("nova:NUMBERPARTTO")[0])? " - "+ permits[i].getElementsByTagName("nova:NUMBERPARTTO")[0].textContent:"";
+
+
+result += (permits[i].getElementsByTagName("nova:ZIPCODE")[0])?permits[i].getElementsByTagName("nova:ZIPCODE")[0].textContent+ " ":"" ;
+
+result += (permits[i].getElementsByTagName("nova:MUNICIPALITYFR")[0])?permits[i].getElementsByTagName("nova:MUNICIPALITYFR")[0].textContent:"";
+
+
+result += (permits[i].getElementsByTagName("nova:S_IDADDRESS")[0])?absolute_url+"/wawspublic_view?id=" + permits[i].getElementsByTagName("nova:S_IDADDRESS")[0].textContent:"";
+
+result+= "</div>";
+
+	}else{
+result += (permits[i].getElementsByTagName("nova:STREETNAMENL")[0])?permits[i].getElementsByTagName("nova:STREETNAMENL")[0].textContent+ " ":"";
+
+result +=(permits[i].getElementsByTagName("nova:NUMBERPARTFROM")[0])?permits[i].getElementsByTagName("nova:NUMBERPARTFROM")[0].textContent:"";
+
+result +=(permits[i].getElementsByTagName("nova:NUMBERPARTTO")[0])? " - "+ permits[i].getElementsByTagName("nova:NUMBERPARTTO")[0].textContent:"";
+
+result += "\n";
+
+result += (permits[i].getElementsByTagName("nova:ZIPCODE")[0].textContent)?permits[i].getElementsByTagName("nova:ZIPCODE")[0].textContent+ " ":"" ;
+
+result += (permits[i].getElementsByTagName("nova:MUNICIPALITYNL")[0])?permits[i].getElementsByTagName("nova:MUNICIPALITYNL")[0].textContent:"";
+
+result+= "\n";
+
+result += (permits[i].getElementsByTagName("nova:S_IDADDRESS")[0])?absolute_url+"/wawspublic_view?id=" + permits[i].getElementsByTagName("nova:S_IDADDRESS")[0].textContent:"";
+
+result+= "\n-------------------\n";
+
+
+	}
+		}
+
+addMarker(result);
+	}
  
+function addMarker(popupContentHTML) {
+
+            var feature = new OpenLayers.Feature(markers, new OpenLayers.LonLat(0,0)); 
+            feature.closeBox = true;
+            feature.popupClass =  OpenLayers.Class(OpenLayers.Popup.FramedCloud, {
+            'autoSize': true
+        });
+            feature.data.popupContentHTML = popupContentHTML;
+            feature.data.overflow =  "auto";
+                    
+            var marker = feature.createMarker();
+
+            var markerClick = function (evt) {
+                if (this.popup == null) {
+                    this.popup = this.createPopup(this.closeBox);
+                    map.addPopup(this.popup);
+                    this.popup.show();
+                } else {
+                    this.popup.toggle();
+                }
+                currentPopup = this.popup;
+                OpenLayers.Event.stop(evt);
+            };
+            marker.events.register("mousedown", feature, markerClick);
+
+            markers.addMarker(marker);
+        }
     
 });
 
