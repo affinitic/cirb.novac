@@ -19,7 +19,7 @@ $(document).ready(function() {
         }
     });
     //used for test 
-    $('#key1').val('kkZd');$('#key2').val('rP/R');$('#key3').val('2IbS');
-    $('#key4').val('IB1/');$('#key5').val('bu+x');$('#key6').val('Hg==');
+    $('#key1').val('chKX');$('#key2').val('pTD8');$('#key3').val('9Nd8');
+    $('#key4').val('rB58');$('#key5').val('OoyH');$('#key6').val('9w==');
 
 });

@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 from zope.interface import implements, Interface
 
 from Products.Five import BrowserView
@@ -16,8 +17,6 @@ class IPrivateView(Interface):
     Cas view interface
     """
 
-    def test():
-        """ test method"""
 
 
 class PrivateView(BrowserView):

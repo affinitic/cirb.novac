@@ -1,0 +1,277 @@
+##############################################################################
+#
+# Copyright (c) 2003-2004 Zope Foundation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"POT-Creation-Date: Fri Oct 28 10:42:07 2011\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Zope 3 Developers <zope-dev@zope.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: zope/app/locales/extract.py\n"
+
+#: cirb.novac:/browser/listprivateview.py:52
+#: cirb.novac:/browser/privateview.py:50
+#: cirb.novac:/browser/publicview.py:61
+msgid "No url for novac url"
+msgstr ""
+
+#: cirb.novac:/browser/novacview.py:102
+msgid "No url for cirb.novac.novac_url"
+msgstr ""
+
+#: cirb.novac:/browser/novacview.py:105
+msgid "No url for cirb.urbis.urbis_url"
+msgstr ""
+
+#: cirb.novac:/browser/novacview.py:108
+msgid "No json_file"
+msgstr ""
+
+#: cirb.novac:/browser/novacview.py:52
+#: cirb.novac:/browser/publicview.py:89
+msgid "The server couldn't fulfill the request.<br />Error code: %s"
+msgstr ""
+
+#: cirb.novac:/browser/novacview.py:54
+#: cirb.novac:/browser/publicview.py:93
+msgid "We failed to reach a server.<br /> Reason: %s"
+msgstr ""
+
+#: cirb.novac:/browser/publicview.py:64
+msgid "No folder id"
+msgstr ""
+
+#: cirb.novac:/browser/publicview.py:99
+#: cirb.novac:/browser/publicview.py:142
+msgid "not_available"
+msgstr ""
+
+#: cirb.novac:/browser/templates/listprivateview.pt:24
+msgid "vous_etes_maintenant_connecte"
+msgstr ""
+
+#: cirb.novac:/browser/templates/listprivateview.pt:29
+msgid "logout"
+msgstr ""
+
+#: cirb.novac:/browser/templates/listprivateview.pt:33
+msgid "vos_dossiers_actives"
+msgstr ""
+
+#: cirb.novac:/browser/templates/listprivateview.pt:38
+msgid "type"
+msgstr ""
+
+#: cirb.novac:/browser/templates/listprivateview.pt:39
+msgid "date_d_activation"
+msgstr ""
+
+#: cirb.novac:/browser/templates/listprivateview.pt:51
+msgid "activez_un_dossier"
+msgstr ""
+
+#: cirb.novac:/browser/templates/listprivateview.pt:56
+#. Default: "La toute premi\303\250re fois, il faut activer un dossier pour avoir acc\303\250s aux d\303\251tails"
+msgid "La toute premiere fois, il faut activer un dossier pour avoir acces aux details"
+msgstr ""
+
+#: cirb.novac:/browser/templates/listprivateview.pt:65
+#. Default: "Ins\303\251rez votre cl\303\251 unique pour activer votre dossier"
+msgid "Inserez votre cle unique pour activer votre dossier"
+msgstr ""
+
+#: cirb.novac:/browser/templates/listprivateview.pt:74
+#. Default: "Je suis toujours d'accord avec l'avertissement relatif \303\240 l'usage des donn\303\251es de ma carte d'identit\303\251 \303\251lectronique"
+msgid "avertissement relatif carte d'identite electronique"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:32
+msgid "mon_dossier"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:34
+msgid "login"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:36
+msgid "search_address"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:40
+#: cirb.novac:/browser/templates/novacview.pt:79
+msgid "street_name:"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:41
+#: cirb.novac:/browser/templates/novacview.pt:80
+msgid "number:"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:42
+#: cirb.novac:/browser/templates/novacview.pt:81
+msgid "post_code:"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:47
+msgid "filtres"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:54
+msgid "required"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:59
+msgid "granted"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:64
+msgid "refused"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:69
+msgid "canceled"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:75
+msgid "recherche_dossiers"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:88
+msgid "results"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:106
+msgid "permis"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:110
+msgid "notification_le"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:114
+msgid "validite"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:122
+#: cirb.novac:/browser/templates/publicview.pt:85
+#. Default: "informations_suppl\303\251mentaires"
+msgid "informations_supplementaires"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:125
+#: cirb.novac:/browser/templates/publicview.pt:88
+msgid "documents"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:126
+#: cirb.novac:/browser/templates/publicview.pt:89
+msgid "annexes"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:25
+msgid "Etat d'avancement - Demande de permis d'urbanisme"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:32
+#: cirb.novac:/browser/templates/publicview.pt:48
+msgid "informations_generales"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:35
+#: cirb.novac:/browser/templates/publicview.pt:51
+#: cirb.novac:/browser/templates/listprivateview.pt:37
+msgid "n_dossier"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:38
+#: cirb.novac:/browser/templates/publicview.pt:54
+msgid "reference"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:42
+#: cirb.novac:/browser/templates/publicview.pt:58
+msgid "dossier_depose_a"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:46
+#: cirb.novac:/browser/templates/publicview.pt:62
+msgid "type_de_permis"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:54
+#: cirb.novac:/browser/templates/publicview.pt:66
+#. Default: "Description"
+msgid "description"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:58
+#: cirb.novac:/browser/templates/publicview.pt:70
+msgid "demande_introduite_le"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:62
+#: cirb.novac:/browser/templates/publicview.pt:74
+msgid "langue"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:66
+#: cirb.novac:/browser/templates/publicview.pt:78
+msgid "statut_du_dossier"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:70
+msgid "gestionnaire_du_dossier"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:77
+msgid "parcours"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:80
+msgid "enquete_publiqe"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:84
+msgid "commission_de_concertation"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:88
+msgid "fonctionnaire_delegue"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:92
+msgid "AED"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:99
+#: cirb.novac:/browser/templates/privateview.pt:102
+msgid "decision"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:36
+msgid "detail_de_la_demande"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:38
+msgid "localisation"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:41
+#: cirb.novac:/browser/templates/listprivateview.pt:36
+msgid "address"
+msgstr ""
+

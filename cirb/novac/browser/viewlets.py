@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 from plone.app.layout.viewlets.common import PathBarViewlet
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
