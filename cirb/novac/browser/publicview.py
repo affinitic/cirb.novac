@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 from zope.interface import implements, Interface
 
 from Products.Five import BrowserView
@@ -20,9 +21,6 @@ class IPublicView(Interface):
     """
     Cas view interface
     """
-
-    def test():
-        """ test method"""
 
 
 class PublicView(BrowserView):

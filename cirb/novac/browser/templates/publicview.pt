@@ -82,7 +82,7 @@
 	
 			<table class="detail_table">
 				<tbody><tr>
-					<td class="tableheader" colspan="2" i18n:translate="informations_supplémentaires">informations_supplémentaires</td>
+					<td class="tableheader" colspan="2" i18n:translate="informations_supplementaires">informations_supplémentaires</td>
 				</tr>
 				<tr>
 					<th class="detail_document" i18n:translate="documents">documents</th>

@@ -172,3 +172,7 @@ Finally, let's login back as manager.
 
 
 
+bin/novac-translation-extract
+msginit --locale=fr --input=locales/cirb.novac.pot --output=locales/fr/LC_MESSAGES/cirb.novac.po
+msginit --locale=en --input=locales/cirb.novac.pot --output=locales/en/LC_MESSAGES/cirb.novac.po
+msginit --locale=nl --input=locales/cirb.novac.pot --output=locales/nl/LC_MESSAGES/cirb.novac.po

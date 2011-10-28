@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 from plone.theme.interfaces import IDefaultPloneLayer
 
 
