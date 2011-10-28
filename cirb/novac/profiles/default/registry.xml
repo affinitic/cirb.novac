@@ -5,7 +5,7 @@
             <title>Waws URL</title>
             <description>Url used to Waws connection</description>
         </field>
-        <value>http://ws.irisnetlab.be</value>
+        <value>https://ws.irisnetlab.be</value>
     </record>
     <record name="cirb.novac.json_file">
         <field type="plone.registry.field.URI">
