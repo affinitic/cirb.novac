@@ -92,6 +92,7 @@ class NovacView(BrowserView):
         registry = getUtility(IRegistry)
         novac_url = registry['cirb.novac.novac_url']
         urbis_url = registry['cirb.urbis.urbis_url']
+        urbis_cache_url = registry['cirb.urbis.urbis_cache_url']
         json_file = registry['cirb.novac.json_file']
         error=False
         msg_error=''
@@ -105,7 +106,7 @@ class NovacView(BrowserView):
             error=True
             msg_error=_(u'No json_file')
         private_url='wawslistprivate_view'
-        return {'novac_url':novac_url,'urbis_url':urbis_url,
+        return {'novac_url':novac_url,'urbis_url':urbis_url,'urbis_cache_url':urbis_cache_url,
                 'json_file':json_file,
                 'private_url':private_url,'error':error,'msg_error':msg_error}
     

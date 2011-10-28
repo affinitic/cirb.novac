@@ -10,6 +10,7 @@ $(document).ready(function() {
     $("#accordion").accordion({active: 2});
     
     var url_ws_urbis = $('#ws_urbis').html();
+	var url_ws_urbis_cache = $('#urbis_cache_url').html();
     var url_ws_waws = $('#ws_waws').html();
     var json_file  = $('#json_file').html();
     var portal_url = $('#portal_url').html();
