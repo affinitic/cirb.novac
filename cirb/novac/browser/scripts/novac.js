@@ -2,14 +2,19 @@ OpenLayers.DOTS_PER_INCH = 90.71428571428572;
 OpenLayers.Util.onImageLoadErrorColor = 'transparent';
 var map, layer;
 var filter_geom;
-var markers_layer, features_layer;
+var markers_layer, features_layer, highlightLayer;
 $(document).ready(function() {
+
+
 
     $("#accordion").accordion({active: 2});
     
     var url_ws_urbis = $('#ws_urbis').html();
     var url_ws_waws = $('#ws_waws').html();
     var json_file  = $('#json_file').html();
+    var portal_url = $('#portal_url').html();
+    url = portal_url+"/wfs_request?url="+url_ws_urbis+"&headers=";
+   
     var mapOptions = { 
         resolutions: [34.76915808105469, 17.384579040527345, 8.692289520263673, 4.346144760131836, 2.173072380065918, 1.086536190032959, 0.5432680950164795, 0.2716340475082398, 0.1358170237541199],
         projection: new OpenLayers.Projection('EPSG:31370'),
@@ -19,13 +24,16 @@ $(document).ready(function() {
         controls: []
     };
     map = new OpenLayers.Map('map', mapOptions );
+
     map.addControl(new OpenLayers.Control.PanZoomBar({
             position: new OpenLayers.Pixel(2, 15)
     }));
     map.addControl(new OpenLayers.Control.Navigation());
     
     map.addControl(new OpenLayers.Control.Scale($('scale')));
-    map.addControl(new OpenLayers.Control.MousePosition({element: $('location')}));
+
+	map.addControl(new OpenLayers.Control.LayerSwitcher() );
+
 
     var urbislayer = new OpenLayers.Layer.WMS(
         "urbisFR",url_ws_urbis,
@@ -34,60 +42,44 @@ $(document).ready(function() {
     );
     map.addLayer(urbislayer);
     
-    markers_layer = new OpenLayers.Layer.Markers( "Markers" );
-    map.addLayer(markers_layer);
-    
-    var style = new OpenLayers.Style({
-                    pointRadius: "${radius}",
-                    fillColor: "#ffcc66",
-                    fillOpacity: 0.8,
-                    strokeColor: "#cc6633",
-                    strokeWidth: "${width}",
-                    strokeOpacity: 0.8
-                }, {
-                    context: {
-                        width: function(feature) {
-                            return (feature.cluster) ? 2 : 1;
-                        },
-                        radius: function(feature) {
-                            var pix = 2;
-                            if(feature.cluster) {
-                                pix = Math.min(feature.attributes.count, 7) + 2;
-                            }
-                            return pix;
-                        }
-                    }
-                });
-    features_layer = new OpenLayers.Layer.Vector( "Features", {
-                    strategies: [new OpenLayers.Strategy.BBOX(),
-                                 new OpenLayers.Strategy.Cluster()],
-                    protocol: new OpenLayers.Protocol.HTTP({
-                        url: json_file,
-                        format: new OpenLayers.Format.GeoJSON()
-                        }),
-                    styleMap: new OpenLayers.StyleMap({
-                        "default": style,
-                        "select": {
-                            fillColor: "#8aeeef",
-                            strokeColor: "#32a8a9"
-                            }
-                        })
-                    });
-    map.addLayer(features_layer);
-    
-    var select = new OpenLayers.Control.SelectFeature(
-                    features_layer, {hover: false}
-                );
-    map.addControl(select);
-    select.activate();
-    features_layer.events.on({"featureselected": display});
-    
-    map.setCenter(new OpenLayers.LonLat(150000.0, 170000.0));
-    $("#geocode").click(function() {
-        geocode($("#street").val(), $("#number").val(), $("#post_code").val());        
+	var clusters = new OpenLayers.Layer.WMS("Clusters", url_ws_urbis, 			{layers: 'nova:CLUSTER3KM', transparent: 'true',minScale: 25000});
+    map.addLayer(clusters);
+
+	var points = new OpenLayers.Layer.WMS("Points",url_ws_urbis, 			{layers: 'nova:NOVA_DOSSIERS', transparent: 'true',maxScale: 25000});
+    map.addLayer(points);
+
+	highlightLayer = new OpenLayers.Layer.Vector("Highlighted Features", {
+        displayInLayerSwitcher: false, 
+        transparent: 'true'
+        }
+    );
+   map.addLayer(highlightLayer);
+		
+	var click= new OpenLayers.Control.WMSGetFeatureInfo({
+        url: url_ws_urbis, 
+        title: 'Identify features by clicking',
+        layers: [points],
+        queryVisible: true
     });
+
+	click.events.register("getfeatureinfo", this, showInfo);
+    map.addControl(click); 
+	click.activate();
+            
+    map.setCenter(new OpenLayers.LonLat(150000.0, 170000.0));
+ 
     
 });
+
+function showInfo(evt) {
+        if (evt.features && evt.features.length) {
+             highlightLayer.destroyFeatures();
+             highlightLayer.addFeatures(evt.features);
+             highlightLayer.redraw();
+        } else {
+            alert(evt.text);
+        }
+}
 
 function geocode(street, nbr, post_code) {    
     var ws = new jQuery.SOAPClient({

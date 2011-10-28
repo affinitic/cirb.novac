@@ -23,7 +23,8 @@
             <div id="ws_urbis" tal:content="data/urbis_url" class="hiddenStructure"> ws_urbis </div>
             <div id="ws_waws" tal:content="data/novac_url" class="hiddenStructure"> ws_waws </div>
 	    <div id="json_file" tal:content="data/json_file" class="hiddenStructure"> json_file </div>
-            <div id="absolute_url" tal:content="context/absolute_url" class="hiddenStructure"> portal_url </div>
+            <div id="absolute_url" tal:content="context/absolute_url" class="hiddenStructure"> absolute_url </div>
+	    <div id="portal_url" tal:content="context/portal_url" class="hiddenStructure"> portal_url </div>
             <div id="map_panel"><div id="map"></div></div>
            
             <div id="navigation">

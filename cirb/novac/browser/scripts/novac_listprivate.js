@@ -6,7 +6,7 @@ $(document).ready(function() {
         var url = $('#absolute_url').html()+'/activate_key?key='+key;        
         $.get(url, function(data) {
             var newRow = $("<tr><td>"+data+"</td><td></td><td></td><td></td></tr>");
-            alert(url);
+          
             destTable.append(newRow);
         });
         return false;

@@ -93,6 +93,13 @@
       attribute="activate_key"
       permission="novac.View"
        />
-
+	
+   <browser:page
+      for="*"
+      name="wfs_request"
+      class=".novacview.NovacView"
+      attribute="wfs_request"
+      permission="zope2.View"
+       />
 
 </configure>
