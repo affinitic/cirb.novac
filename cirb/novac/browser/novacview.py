@@ -41,13 +41,32 @@ def called_url(request_url, request_headers): # request_headers is a dict
     """
     oldtimeout = socket.getdefaulttimeout()
     results = ''
-    msg_error=''
     url = request_url
     try:
         socket.setdefaulttimeout(7) # let's wait 7 sec        
         request = urllib2.Request(url,headers=request_headers)
         opener = urllib2.build_opener()
         results = opener.open(request).read()
+    except HTTPError, e:
+        return _('The server couldn\'t fulfill the request.<br />Error code: %s' % e.code)
+    except URLError, e:
+        return _('We failed to reach a server.<br /> Reason: %s'% e.reason)
+    finally:
+        socket.setdefaulttimeout(oldtimeout)
+    return results  
+
+
+def call_put_url(request_url, content_type, data): # request_headers is a dict
+    oldtimeout = socket.getdefaulttimeout()
+    results = ''
+    url = request_url
+    try:
+        opener = urllib2.build_opener(urllib2.HTTPHandler)
+        socket.setdefaulttimeout(7) # let's wait 7 sec        
+        request = urllib2.Request(url, data=data)
+        request.add_header('Content-Type', content_type)
+        request.get_method = lambda: 'PUT'
+        results = opener.open(request)
     except HTTPError, e:
         return _('The server couldn\'t fulfill the request.<br />Error code: %s' % e.code)
     except URLError, e:
