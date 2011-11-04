@@ -13,6 +13,8 @@
     <!--script type="text/javascript" src="jquery-1.6.2.min.js"></script-->    
     <script type="text/javascript" tal:attributes="src string:${portal_url}/++resource++cirb.novac.scripts/jquery-ui.min.js"></script>
     <script type="text/javascript" tal:attributes="src string:${portal_url}/++resource++cirb.novac.scripts/novac.js"></script>
+
+
 </tal:js>
 
 <body>
@@ -26,7 +28,7 @@
             <div id="absolute_url" tal:content="context/absolute_url" class="hiddenStructure"> absolute_url </div>
 	    <div id="portal_url" tal:content="context/portal_url" class="hiddenStructure"> portal_url </div>
  	    <div id="current_language" tal:content="context/Language" class="hiddenStructure"> current_language </div>
-            <div id="map_panel"><div id="map"></div></div>
+            <div id="map_panel"><div id="map" style="cursor: pointer;"></div></div>
            
             <div id="navigation">
                 <div id="accordion">
@@ -43,7 +45,7 @@
                             <tr><td i18n:translate="post_code:">post_code:</td><td><input type="text" id="post_code"/></td></tr>
                         </tbody>
                         </table>
-                        <input type="button" id="geocode" i18n:domain="plone" i18n:attributes="value search;"/>
+                        <input type="button" onClick="searchAddress(getElementById('street').value,getElementById('number').value,getElementById('post_code').value)" id="geocode" i18n:domain="plone" i18n:attributes="value search;"/>
                     </div>
                     <h3><a href="#" i18n:translate="filtres">filtres</a></h3>
                     <div class="filter">
@@ -51,22 +53,22 @@
                         <tbody>
                             <tr>
                                 <td class="color required"></td>
-                                <td><input type="checkbox" id="required"></td>
+                                <td><input type="checkbox" onChange="applyDossierFilter(getElementById('canceled').checked,getElementById('refused').checked,getElementById('required').checked,getElementById('granted').checked)" checked="true" id="required"></td>
                                 <td><label for="required"><tal:block i18n:translate="required">required</tal:block></td>
                             </tr>
                             <tr>
                                 <td class="color granted"></td>
-                                <td><input type="checkbox" id="granted"></td>
+                                <td><input type="checkbox" onChange="applyDossierFilter(getElementById('canceled').checked,getElementById('refused').checked,getElementById('required').checked,getElementById('granted').checked)" checked="true" id="granted"></td>
                                 <td><label for="granted"><tal:block i18n:translate="granted">granted</tal:block></td>
                             </tr>
                             <tr>
                                 <td class="color refused"></td>
-                                <td><input type="checkbox" id="refused"></td>
+                                <td><input type="checkbox" onChange="applyDossierFilter(getElementById('canceled').checked,getElementById('refused').checked,getElementById('required').checked,getElementById('granted').checked)" checked="true" id="refused"></td>
                                 <td><label for="refused"><tal:block i18n:translate="refused">refused</tal:block></td>
                             </tr>
                             <tr>
                                 <td class="color canceled"></td>
-                                <td><input type="checkbox" id="canceled"></td>
+                                <td><input type="checkbox" onChange="applyDossierFilter(getElementById('canceled').checked,getElementById('refused').checked,getElementById('required').checked,getElementById('granted').checked)" checked="true" id="canceled"></td>
                                 <td><label for="canceled"><tal:block i18n:translate="canceled">canceled</tal:block></td>
                             </tr>
                         </tbody>
@@ -82,7 +84,7 @@
                             <tr><td i18n:translate="post_code:">post_code:</td><td><input type="text" id="folder_post_code"/></td></tr>
                         </tbody>
                         </table>
-                        <input type="button" id="folder_geocode" i18n:domain="plone" i18n:attributes="value search;"/>
+                        <input type="button"  id="folder_geocode" i18n:domain="plone" i18n:attributes="value search;"/>
                     </div>
                 </div>
             </div>

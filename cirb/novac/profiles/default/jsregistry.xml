@@ -32,6 +32,11 @@
     id="++resource++cirb.novac.scripts/jquery.soapclient.js"
     cacheable="False" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
+
+  <javascript
+    id="++resource++cirb.novac.scripts/tabber.js"
+    cacheable="False" compression="safe" cookable="False"
+    enabled="True" expression=""  inline="False"/>
     
   <!--javascript
     id="++resource++cirb.novac.scripts/jquery-ui.min.js"

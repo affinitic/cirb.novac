@@ -8,9 +8,13 @@
 </tal:head>
 <tal:css metal:fill-slot="style_slot">
 
+
+
 </tal:css>
 <tal:js metal:fill-slot="javascript_head_slot"> 
     <script type="text/javascript" tal:attributes="src string:${portal_url}/++resource++cirb.novac.scripts/novac_public.js"></script>
+
+
 </tal:js>
 
 <body>
