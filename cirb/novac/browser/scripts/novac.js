@@ -13,7 +13,7 @@ $(document).ready(function() {
 
 
     $("#accordion").accordion({active: 2});
-    
+    //OpenLayers.ImgPath = "http://js.mapbox.com/theme/dark/";
     var url_ws_urbis = $('#ws_urbis').html();
 	//TODO remove the hardcoded url and replace with the configured url in plone.
 	//var url_ws_urbis_cache = $('#urbis_cache_url').html();
@@ -61,6 +61,23 @@ $(document).ready(function() {
 	//create the dossiers layer
 	dossiers = new OpenLayers.Layer.WMS((current_language == 'fr')?"Permis d'urbanisme":"Bouwaanvragen",url_ws_urbis, {layers: 'nova:NOVA_DOSSIERS', transparent: 'true',maxScale: 25000});
  	map.addLayer(dossiers);
+
+var mapOptions2 = {
+            resolutions: [139.76915808105469],
+        projection: new OpenLayers.Projection('EPSG:31370'),
+        maxExtent: new OpenLayers.Bounds(140000,150000,160000,177000),
+        units: "meters", 
+        };
+var jplOverview = urbislayer.clone();
+var controlOptions = {
+            maximized: true,
+size : new OpenLayers.Size(140,120),
+            mapOptions: mapOptions2,
+            layers: [jplOverview]
+        };
+
+        var overview = new OpenLayers.Control.OverviewMap(controlOptions);
+        map.addControl(overview);
 
     map.setCenter(new OpenLayers.LonLat(150000.0, 170000.0));
 	map.events.register('click', map, executeGetFeatureInfo);
