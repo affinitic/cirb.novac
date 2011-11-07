@@ -13,11 +13,9 @@ $(document).ready(function() {
 
 
     $("#accordion").accordion({active: 2});
-    //OpenLayers.ImgPath = "http://js.mapbox.com/theme/dark/";
+    //OpenLayers.ImgPath = "http://localhost:8080/Plone/++resource++cirb.novac.images";
     var url_ws_urbis = $('#ws_urbis').html();
-	//TODO remove the hardcoded url and replace with the configured url in plone.
-	//var url_ws_urbis_cache = $('#urbis_cache_url').html();
-	var url_ws_urbis_cache = "http://geoserver.gis.irisnetlab.be/gwc/service/wms";
+	var url_ws_urbis_cache = $('#urbis_cache_url').html();
     var url_ws_waws = $('#ws_waws').html();
     var json_file  = $('#json_file').html();
     portal_url = $('#portal_url').html();
@@ -288,10 +286,12 @@ function searchAddress(street, number, post_code){
 
 	var parameters="{'language': '"+ $('#current_language').html() +"','address': {'street': {'name':'"+street+"','postcode': '"+post_code+"'},'number': '"+number+"'}}";
 	//TODO make a call to a proxy that can handle post requests
-	mypostrequest.open("POST", portal_url+"/wfs_request?url=http://services.gis.irisnetlab.be/urbis/Rest/Localize/getstreet&headers=", true);
+	my_url = portal_url+"/wfs_post_request?url=http://services.gis.irisnetlab.be/urbis/Rest/Localize/getstreet"
+	//alert(my_url);
+	mypostrequest.open("POST", my_url, true);
 	mypostrequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	//mypostrequest.send("(" + parameters + ")");
-	mypostrequest.send( parameters);
+	mypostrequest.send(parameters);
 
 }
 

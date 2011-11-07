@@ -123,11 +123,11 @@ msgstr "Numéro :"
 #: cirb.novac:/browser/templates/novacview.pt:42
 #: cirb.novac:/browser/templates/novacview.pt:81
 msgid "post_code:"
-msgstr ""
+msgstr "Code postal :"
 
 #: cirb.novac:/browser/templates/novacview.pt:47
 msgid "filtres"
-msgstr "Code postal :"
+msgstr "Filtres"
 
 #: cirb.novac:/browser/templates/novacview.pt:54
 msgid "required"

@@ -75,6 +75,25 @@ def call_put_url(request_url, content_type, data): # request_headers is a dict
         socket.setdefaulttimeout(oldtimeout)
     return results  
 
+def call_post_url(request_url, content_type, params): # request_headers is a dict
+    oldtimeout = socket.getdefaulttimeout()
+    results = ''
+    url = request_url
+    try:
+        opener = urllib2.build_opener(urllib2.HTTPHandler)
+        socket.setdefaulttimeout(7) # let's wait 7 sec        
+        request = urllib2.Request(url)
+        request.add_data(params)
+        request.add_header('Content-Type', content_type)
+        results = opener.open(request)
+    except HTTPError, e:
+        return _('The server couldn\'t fulfill the request.<br />Error code: %s' % e.code)
+    except URLError, e:
+        return _('We failed to reach a server.<br /> Reason: %s'% e.reason)
+    finally:
+        socket.setdefaulttimeout(oldtimeout)
+    return results  
+
 class INovacView(Interface):
     """
     Cas view interface
@@ -125,7 +144,9 @@ class NovacView(BrowserView):
             error=True
             msg_error=_(u'No json_file')
         private_url='wawslistprivate_view'
-        return {'novac_url':novac_url,'urbis_url':urbis_url,'urbis_cache_url':urbis_cache_url,
+        return {'novac_url':novac_url,
+                'urbis_url':urbis_url,
+                'urbis_cache_url':urbis_cache_url,
                 'json_file':json_file,
                 'private_url':private_url,'error':error,'msg_error':msg_error}
     
@@ -135,6 +156,17 @@ class NovacView(BrowserView):
         #url = self.request.form.get('url')
         headers = {'User-Agent': 'Novac/1 +http://www.urbanisme.irisnet.be/'}
         return called_url(url , headers)
+
+    def wfs_post_request(self):        
+        query_string = self.request.environ['QUERY_STRING']
+        url = query_string.replace("url=","")
+        contenttype = "application/x-www-form-urlencoded"
+        params = ""
+        for key in self.request.form.keys():
+            if key is not 'url':
+                params = key
+                
+        return call_post_url(url , contenttype, params)
 
 
 

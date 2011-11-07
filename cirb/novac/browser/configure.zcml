@@ -102,4 +102,11 @@
       permission="zope2.View"
        />
 
+   <browser:page
+      for="*"
+      name="wfs_post_request"
+      class=".novacview.NovacView"
+      attribute="wfs_post_request"
+      permission="zope2.View"
+       />
 </configure>
