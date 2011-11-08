@@ -87,39 +87,4 @@ td.canceled {background-color:blue}
     left:20px;
 }
 
-.olControlOverviewMapContainer {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-}
 
-.olControlOverviewMapElement {
-    padding: 0px;
-    background-color: transparent;
-    border : 1px solid black;
-    -moz-border-radius: 1em 0 0 0;
-}
-
-.olControlOverviewMapMinimizeButton {
-    right: 0px;
-    bottom: 80px;
-}    
-
-.olControlOverviewMapMaximizeButton {
-    right: 0px;
-    bottom: 80px;
-}
-
-.olControlOverviewMapExtentRectangle {
-    overflow: hidden;
-    background-image: url("img/blank.gif");
-    cursor: move;
-    border: 2px dotted red;
-}
-.olControlOverviewMapRectReplacement {
-    overflow: hidden;
-    cursor: move;
-    background-image: url("img/overview_replacement.gif");
-    background-repeat: no-repeat;
-    background-position: center;
-}

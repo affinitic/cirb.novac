@@ -13,12 +13,13 @@ $(document).ready(function() {
 
 
     $("#accordion").accordion({active: 2});
-    //OpenLayers.ImgPath = "http://localhost:8080/Plone/++resource++cirb.novac.images";
+    
     var url_ws_urbis = $('#ws_urbis').html();
 	var url_ws_urbis_cache = $('#urbis_cache_url').html();
     var url_ws_waws = $('#ws_waws').html();
     var json_file  = $('#json_file').html();
     portal_url = $('#portal_url').html();
+    OpenLayers.ImgPath = portal_url+"/++resource++cirb.novac.images/";
     current_language = $('#current_language').html();
     url = portal_url+"/wfs_request?url="+url_ws_urbis+"&headers=";
    
@@ -57,28 +58,37 @@ $(document).ready(function() {
     map.addLayer(clusters1km);
 
 	//create the dossiers layer
-	dossiers = new OpenLayers.Layer.WMS((current_language == 'fr')?"Permis d'urbanisme":"Bouwaanvragen",url_ws_urbis, {layers: 'nova:NOVA_DOSSIERS', transparent: 'true',maxScale: 25000});
+	dossiers = new OpenLayers.Layer.WMS((current_language == 'fr')?"Permis d'urbanisme":"Bouwaanvragen",
+			url_ws_urbis, 
+			{layers: 'nova:NOVA_DOSSIERS', transparent: true, maxScale: 25000, singleTile: true}
+			);
  	map.addLayer(dossiers);
 
-var mapOptions2 = {
-            resolutions: [139.76915808105469],
-        projection: new OpenLayers.Projection('EPSG:31370'),
-        maxExtent: new OpenLayers.Bounds(140000,150000,160000,177000),
-        units: "meters", 
-        };
-var jplOverview = urbislayer.clone();
-var controlOptions = {
-            maximized: true,
-size : new OpenLayers.Size(140,120),
-            mapOptions: mapOptions2,
-            layers: [jplOverview]
-        };
+	var mapOptions2 = {
+		        resolutions: [139.76915808105469],
+		    projection: new OpenLayers.Projection('EPSG:31370'),
+		    maxExtent: new OpenLayers.Bounds(140000,150000,160000,177000),
+		    units: "meters", 
+		    };
+	var jplOverview = urbislayer.clone();
+	var controlOptions = {
+		        maximized: true,
+				size : new OpenLayers.Size(140,120),
+		        mapOptions: mapOptions2,
+		        layers: [jplOverview]
+     };
 
-        var overview = new OpenLayers.Control.OverviewMap(controlOptions);
-        map.addControl(overview);
+    var overview = new OpenLayers.Control.OverviewMap(controlOptions);
+    map.addControl(overview);
 
     map.setCenter(new OpenLayers.LonLat(150000.0, 170000.0));
 	map.events.register('click', map, executeGetFeatureInfo);
+		
+	
+	$("#search_address_button").click(function() {
+		searchAddress($('#street').val(),$('#number').val(),$('#post_code').val());
+	});
+	
 });
 
 
@@ -105,6 +115,13 @@ function executeGetFeatureInfo(event) {
 	});
 }
 
+function getElements(obj, ns, tagname) {
+	var result = new Array();
+	result = obj.getElementsByTagName(tagname);
+	if (result.length == 0) result = obj.getElementsByTagName(ns+":"+tagname);
+	return result;
+}
+
 function showPointInfo(response) {
 	//create an xmlDocument based on the getFeatureInfo response
 	var xmlDoc;
@@ -122,7 +139,7 @@ function showPointInfo(response) {
 
 
 	var permits = new Array();
-	permits = xmlDoc.getElementsByTagName("nova:NOVA_DOSSIERS");
+	permits = getElements(xmlDoc, "nova", "NOVA_DOSSIERS");
 	var result = "<div id='tabber' class='tabber'>";
 	var absolute_url  = $('#absolute_url').html();
 	//build the result html
@@ -132,26 +149,26 @@ function showPointInfo(response) {
 			result += "<div class='tabbertab' title='Permis ";
 			result += i+1;
 			result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Type de permis</td><td>";
-			result += (permits[i].getElementsByTagName("nova:TYPEDOSSIERFR")[0])?permits[i].getElementsByTagName("nova:TYPEDOSSIERFR")[0].textContent+ " ":"";
+			result += (getElements(permits[i], "nova", "TYPEDOSSIERFR")[0])?getElements(permits[i], "nova", "TYPEDOSSIERFR")[0].textContent+ " ":"";
 			result +="</td><tr></tr><td>Adresse :</td><td>";
-			result += (permits[i].getElementsByTagName("nova:STREETNAMEFR")[0])?permits[i].getElementsByTagName("nova:STREETNAMEFR")[0].textContent+ " ":"";
+			result += (getElements(permits[i], "nova", "STREETNAMEFR")[0])?getElements(permits[i], "nova", "STREETNAMEFR")[0].textContent+ " ":"";
 
-			result +=(permits[i].getElementsByTagName("nova:NUMBERPARTFROM")[0])?permits[i].getElementsByTagName("nova:NUMBERPARTFROM")[0].textContent:"";
+			result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?getElements(permits[i], "nova", "NUMBERPARTFROM")[0].textContent:"";
 
-			result +=(permits[i].getElementsByTagName("nova:NUMBERPARTTO")[0])? " - "+ permits[i].getElementsByTagName("nova:NUMBERPARTTO")[0].textContent:"";
+			result +=(getElements(permits[i], "nova", "NUMBERPARTTO")[0])? " - "+ getElements(permits[i], "nova", "NUMBERPARTTO")[0].textContent:"";
 
 			result +="</td></tr><tr><td></td><td>";
-			result += (permits[i].getElementsByTagName("nova:ZIPCODE")[0])?permits[i].getElementsByTagName("nova:ZIPCODE")[0].textContent+ " ":"" ;
+			result += (getElements(permits[i], "nova", "ZIPCODE")[0])?getElements(permits[i], "nova", "ZIPCODE")[0].textContent+ " ":"" ;
 
-			result += (permits[i].getElementsByTagName("nova:MUNICIPALITYFR")[0])?permits[i].getElementsByTagName("nova:MUNICIPALITYFR")[0].textContent:"";
+			result += (getElements(permits[i], "nova", "MUNICIPALITYFR")[0])?getElements(permits[i], "nova", "MUNICIPALITYFR")[0].textContent:"";
 
 			result += "</td></tr><tr><td>Objet de la demande :</td><td>";
-			//TODO add the Object de la demande value
-			/*result += (permits[i].getElementsByTagName("nova:ObjetDeLaDemande")[0])?permits[i].getElementsByTagName("nova:ObjetDeLaDemande")[0].textContent+ " ":"";*/
-			result +="</td><tr></tr><tr><td><a href=&#34;";
-			result += (permits[i].getElementsByTagName("nova:S_IDADDRESS")[0])?absolute_url+"/wawspublic_view?id=" + permits[i].getElementsByTagName("nova:S_IDADDRESS")[0].textContent:"";
+			result += (getElements(permits[i], "nova", "OBJECTFR")[0])?getElements(permits[i], "nova", "OBJECTFR")[0].textContent+ " ":"";
+			
+			result +='</td><tr></tr><tr><td><a href="';
+			result += (getElements(permits[i], "nova", "S_IDADDRESS")[0])?absolute_url+"/wawspublic_view?id=" + getElements(permits[i], "nova", "S_IDADDRESS")[0].textContent:"";
 
-			result+= "&#34;>Pour en savoir plus...<a/></td></tr></table></div>";
+			result+= '">Pour en savoir plus...<a/></td></tr></table></div>';
 
 
 		}else{
@@ -159,26 +176,26 @@ function showPointInfo(response) {
 			result += "<div class='tabbertab' title='Vergunning ";
 			result += i+1;
 			result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Vergunningstype</td><td>";
-			result += (permits[i].getElementsByTagName("nova:TYPEDOSSIERNL")[0])?permits[i].getElementsByTagName("nova:TYPEDOSSIERNL")[0].textContent+ " ":"";
+			result += (getElements(permits[i], "nova", "TYPEDOSSIERNL")[0])?getElements(permits[i], "nova", "TYPEDOSSIERNL")[0].textContent+ " ":"";
 			result +="</td><tr></tr><td>Adres :</td><td>";
-			result += (permits[i].getElementsByTagName("nova:STREETNAMENL")[0])?permits[i].getElementsByTagName("nova:STREETNAMENL")[0].textContent+ " ":"";
+			result += (getElements(permits[i], "nova", "STREETNAMENL")[0])?getElements(permits[i], "nova", "STREETNAMENL")[0].textContent+ " ":"";
 
-			result +=(permits[i].getElementsByTagName("nova:NUMBERPARTFROM")[0])?permits[i].getElementsByTagName("nova:NUMBERPARTFROM")[0].textContent:"";
+			result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?getElements(permits[i], "nova", "NUMBERPARTFROM")[0].textContent:"";
 
-			result +=(permits[i].getElementsByTagName("nova:NUMBERPARTTO")[0])? " - "+ permits[i].getElementsByTagName("nova:NUMBERPARTTO")[0].textContent:"";
+			result +=(getElements(permits[i], "nova", "NUMBERPARTTO")[0])? " - "+ getElements(permits[i], "nova", "NUMBERPARTTO")[0].textContent:"";
 
 			result +="</td></tr><tr><td></td><td>";
-			result += (permits[i].getElementsByTagName("nova:ZIPCODE")[0])?permits[i].getElementsByTagName("nova:ZIPCODE")[0].textContent+ " ":"" ;
+			result += (getElements(permits[i], "nova", "ZIPCODE")[0])?getElements(permits[i], "nova", "ZIPCODE")[0].textContent+ " ":"" ;
 
-			result += (permits[i].getElementsByTagName("nova:MUNICIPALITYNL")[0])?permits[i].getElementsByTagName("nova:MUNICIPALITYNL")[0].textContent:"";
+			result += (getElements(permits[i], "nova", "MUNICIPALITYNL")[0])?getElements(permits[i], "nova", "MUNICIPALITYNL")[0].textContent:"";
 
 			result += "</td></tr><tr><td>Onderwerp van de aanvraag :</td><td>";
-			//TODO add the Object de la demande value			
-/*result += (permits[i].getElementsByTagName("nova:ObjetDeLaDemande")[0])?permits[i].getElementsByTagName("nova:ObjetDeLaDemande")[0].textContent+ " ":"";*/
-			result +="</td><tr></tr><tr><td><a href=&#34;";
-			result += (permits[i].getElementsByTagName("nova:S_IDADDRESS")[0])?absolute_url+"/wawspublic_view?id=" + permits[i].getElementsByTagName("nova:S_IDADDRESS")[0].textContent:"";
+			result += (getElements(permits[i], "nova", "OBJECTNL")[0])?getElements(permits[i], "nova", "OBJECTNL")[0].textContent+ " ":"";
 
-			result+= "&#34;>Meer informatie...<a/></td></tr></table></div>";
+			result += '</td><tr></tr><tr><td><a href="';
+			result += (getElements(permits[i], "nova", "S_IDADDRESS")[0])?absolute_url+"/wawspublic_view?id=" + getElements(permits[i], "nova", "S_IDADDRESS")[0].textContent:"";
+
+			result+= '">Meer informatie...<a/></td></tr></table></div>';
 		}
 	}
 	
@@ -190,7 +207,7 @@ function showPointInfo(response) {
 	//if featureInfo is found then show a popup with the information.
 	if(result != "<div id='tabber' class='tabber'></div>"){
 		
-		currentPopup = new OpenLayers.Popup.FramedCloud("point_info", mouseLoc,new OpenLayers.Size(410,180), result,null,'true');
+		currentPopup = new OpenLayers.Popup.FramedCloud("point_info", mouseLoc, new OpenLayers.Size(410,180), result, null, 'true');
 		currentPopup.autoSize = false;
  		map.addPopup(currentPopup);
 		tabberAutomatic(tabberOptions);
