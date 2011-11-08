@@ -19,7 +19,10 @@ $(document).ready(function() {
         }
     });
     //used for test 
-    $('#key1').val('chKX');$('#key2').val('pTD8');$('#key3').val('9Nd8');
-    $('#key4').val('rB58');$('#key5').val('OoyH');$('#key6').val('9w==');
-
+    /*$('#key1').val('eipu');$('#key2').val('Z3lO');$('#key3').val('LuOd');
+    $('#key4').val('aHiD');$('#key5').val('2+JY');$('#key6').val('Ag==');
+    */
+    $('#key1').val('d6kR');$('#key2').val('UTy/');$('#key3').val('8Fbz');
+    $('#key4').val('KcLE');$('#key5').val('j4Dy');$('#key6').val('dg==');
+    
 });

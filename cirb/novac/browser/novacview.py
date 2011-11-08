@@ -13,7 +13,7 @@ import re, os
 import urllib2, socket
 from urllib2 import URLError, HTTPError
 
-def called_url(request_url, request_headers): # request_headers is a dict
+def called_url(request_url, content_type, params=''): # for exemple : content_type = application/xml
     """
     return from SSO (cas) : 
     {'CONNECTION_TYPE': 'keep-alive', 
@@ -42,9 +42,12 @@ def called_url(request_url, request_headers): # request_headers is a dict
     oldtimeout = socket.getdefaulttimeout()
     results = ''
     url = request_url
+    if params:
+        url = '%s?%s' % (url, params)
     try:
         socket.setdefaulttimeout(7) # let's wait 7 sec        
-        request = urllib2.Request(url,headers=request_headers)
+        request = urllib2.Request(url)
+        request.add_header('Content-Type', content_type)
         opener = urllib2.build_opener()
         results = opener.open(request).read()
     except HTTPError, e:
@@ -154,8 +157,8 @@ class NovacView(BrowserView):
         query_string = self.request.environ['QUERY_STRING']
         url = query_string.replace("url=","")
         #url = self.request.form.get('url')
-        headers = {'User-Agent': 'Novac/1 +http://www.urbanisme.irisnet.be/'}
-        return called_url(url , headers)
+        #headers = {'User-Agent': 'Novac/1 +http://www.urbanisme.irisnet.be/'}
+        return called_url(url , 'text/html')
 
     def wfs_post_request(self):        
         query_string = self.request.environ['QUERY_STRING']
