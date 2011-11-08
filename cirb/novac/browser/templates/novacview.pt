@@ -46,7 +46,7 @@
                             <tr><td i18n:translate="post_code:">post_code:</td><td><input type="text" id="post_code"/></td></tr>
                         </tbody>
                         </table>
-                        <input type="button" onClick="searchAddress(getElementById('street').value,getElementById('number').value,getElementById('post_code').value)" id="geocode" i18n:domain="plone" i18n:attributes="value search;"/>
+                        <input type="button" id="search_address_button" i18n:domain="plone" i18n:attributes="value search;"/>
                     </div>
                     <h3><a href="#" i18n:translate="filtres">filtres</a></h3>
                     <div class="filter">
