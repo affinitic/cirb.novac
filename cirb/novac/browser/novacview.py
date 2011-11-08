@@ -73,7 +73,7 @@ def call_put_url(request_url, content_type, data): # request_headers is a dict
         return _('We failed to reach a server.<br /> Reason: %s'% e.reason)
     finally:
         socket.setdefaulttimeout(oldtimeout)
-    return results  
+    return results
 
 def call_post_url(request_url, content_type, params): # request_headers is a dict
     oldtimeout = socket.getdefaulttimeout()
