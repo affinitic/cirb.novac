@@ -19,6 +19,7 @@
             <div id="ws_waws" tal:content="data/novac_url"> novac_url </div>
         </tal:block>
         <div id="absolute_url" tal:content="context/absolute_url" class="hiddenStructure"> portal_url </div>
+		<div id="dossier_list" tal:content="data/dossier_list" class="hiddenStructure"> dossier_list </div>
         <div id="table" style="padding: 0 1em 1em;">
 			<table class="detail_table" id="dossier_list">
 				<caption i18n:translate="vous_etes_maintenant_connecte">vous_etes_maintenant_connecte</caption>
@@ -38,11 +39,11 @@
 					<th i18n:translate="type">type</th>
 					<th i18n:translate="date_d_activation">date_d_activation</th>
 				</tr>
-				<tr>
-					<td tal:content='data/dossier_list'>dossier_list</td>
-					<td tal:content='data/dossier_list_url'>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
+				<tr tal:repeat="dossier data/results">
+					<td tal:content='dossier/address'><a href="" tal:attributes="href string:${context/absolute_url}/wawsprivate_view?">dossier_list</a></td>					
+					<td tal:content='dossier/ref'>ref</td>
+					<td tal:content='dossier/type_dossier'>typeDossier</td>
+					<td tal:content='dossier/introduce_on'>introduce_on</td>
 				</tr>
 			</tbody></table>
 			<br>

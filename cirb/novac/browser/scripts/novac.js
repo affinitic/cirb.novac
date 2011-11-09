@@ -308,7 +308,8 @@ function searchAddress(street, number, post_code){
 	mypostrequest.open("POST", my_url, true);
 	mypostrequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	//mypostrequest.send("(" + parameters + ")");
-	mypostrequest.send(parameters);
+	results = mypostrequest.send(parameters);
+	$('#results_panel').html(results);
 
 }
 

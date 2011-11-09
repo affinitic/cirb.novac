@@ -54,11 +54,42 @@ class ListprivateView(BrowserView):
         user = self.portal_state.member()
         
         dossier_list_url = '%s%s%s' %(self.novac_url,FOLDER_LIST_WS,"Test")
-        dossier_list = novacview.called_url(dossier_list_url, 'application/xml')
+        dossier_list = novacview.called_url(dossier_list_url, 'application/json')
+        results=[]
+        import json
+        jsondata = json.loads(dossier_list)
+        for properties in jsondata:
+           
+            try:
+                address = '%s, %s %s %s' % (properties['numberFrom'],
+                                        properties['streetName'],
+                                        properties['zipcode'],
+                                        properties['municipality'],)
+            except:
+                address = not_avaiable   
+                
+            type_dossier = self.get_properties(properties,"typeDossier")
+            desc = self.get_properties(properties,'object')
+            ref = self.get_properties(properties,'refNova')
+            folder_filed = self.get_properties(properties,'folderFiled')
+            introduce_on = self.get_properties(properties,'startPublicInquiry')
+            lang = self.get_properties(properties,'lang')
+            status = self.get_properties(properties,'statusPermit')
+          
+            results.append({'address':address, 'type_dossier':type_dossier, 'ref':ref,
+                            'introduce_on':introduce_on})
         
         return {'novac_url':self.novac_url,'error':error,'msg_error':msg_error, 
-                'user':user, 'dossier_list':dossier_list, 'dossier_list_url':dossier_list_url}
-    
+                'user':user, 'dossier_list':dossier_list, 'dossier_list_url':dossier_list_url,
+                'results':results}
+     
+    def get_properties(self, prop, prop_name):
+        msgid = _(u"not_available")
+        not_avaiable = self.context.translate(msgid)
+        try:
+            return prop[prop_name]
+        except:
+            return not_avaiable
     
     # view to activate a dossier with the key
     def activate_key(self):

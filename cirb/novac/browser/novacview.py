@@ -13,7 +13,7 @@ import re, os
 import urllib2, socket
 from urllib2 import URLError, HTTPError
 
-def called_url(request_url, content_type, params=''): # for exemple : content_type = application/xml
+def called_url(request_url, content_type, params='', lang='fr'): # for exemple : content_type = application/xml
     """
     return from SSO (cas) : 
     {'CONNECTION_TYPE': 'keep-alive', 
@@ -48,6 +48,8 @@ def called_url(request_url, content_type, params=''): # for exemple : content_ty
         socket.setdefaulttimeout(7) # let's wait 7 sec        
         request = urllib2.Request(url)
         request.add_header('Content-Type', content_type)
+        request.add_header('ACCEPT', content_type)
+        request.add_header('HTTP_ACCEPT_LANGUAGE', '%s-be' % lang)
         opener = urllib2.build_opener()
         results = opener.open(request).read()
     except HTTPError, e:
@@ -166,7 +168,7 @@ class NovacView(BrowserView):
         contenttype = "application/x-www-form-urlencoded"
         params = ""
         for key in self.request.form.keys():
-            if key is not 'url':
+            if key != 'url':
                 params = key
                 
         return call_post_url(url , contenttype, params)
