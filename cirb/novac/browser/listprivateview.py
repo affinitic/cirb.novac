@@ -70,16 +70,16 @@ class ListprivateView(BrowserView):
             except:
                 address = not_avaiable   
                 
-            type_dossier = self.get_properties(properties,"typeDossier")
-            municipality_owner = self.get_properties(properties,"municipalityOwner")
-            dossier_id = self.get_properties(properties,"id")
-            lang = self.get_properties(properties,"languageRequest")
-            manager = self.get_properties(properties,"manager")
-            desc = self.get_properties(properties,'object')
-            ref = self.get_properties(properties,'refNova')
-            folder_filed = self.get_properties(properties,'pointCC')
-            public_inquiry = self.get_properties(properties,'publicInquiry')
-            specific_reference = self.get_properties(properties,'specificReference')
+            type_dossier = get_properties(self.context, properties,"typeDossier")
+            municipality_owner = get_properties(self.context, properties,"municipalityOwner")
+            dossier_id = get_properties(self.context, properties,"id")
+            lang = get_properties(self.context, properties,"languageRequest")
+            manager = get_properties(self.context, properties,"manager")
+            desc = get_properties(self.context, properties,'object')
+            ref = get_properties(self.context, properties,'refNova')
+            folder_filed = get_properties(self.context, properties,'pointCC')
+            public_inquiry = get_properties(self.context, properties,'publicInquiry')
+            specific_reference = get_properties(self.context, properties,'specificReference')
           
             results.append({'address':address,'id':dossier_id, 'type_dossier':type_dossier, 'ref':ref,
                             'public_inquiry':public_inquiry})
@@ -88,14 +88,6 @@ class ListprivateView(BrowserView):
                 'user':user, 'dossier_list':dossier_list, 'dossier_list_url':dossier_list_url,
                 'results':results}
      
-    def get_properties(self, prop, prop_name):
-        msgid = _(u"not_available")
-        not_avaiable = self.context.translate(msgid)
-        try:
-            return prop[prop_name]
-        except:
-            return not_avaiable
-    
     # view to activate a dossier with the key
     def activate_key(self):
         #key = self.request.form.get('key')

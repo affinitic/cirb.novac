@@ -17,11 +17,13 @@
     <div metal:fill-slot="main" tal:define="data view/private">        
         <tal:block tal:condition="not: data/error" >
             <div id="ws_waws" tal:content="data/novac_url"> novac_url </div>
+			<div id="jsondata" class="hiddenStructure" tal:content="data/jsondata"></div>
+			<div id="history" class="hiddenStructure" tal:content="data/history"></div>
         </tal:block>
         
-        <div tal:content="data/data"></div>
+        
 		<div id="table" style="padding: 0 1em 1em;">
-			<table class="detail_table">
+			<table class="detail_table" tal:define="dos data/results">
 				<caption i18n:translate="Etat d'avancement - Demande de permis d'urbanisme">Etat d'avancement - Demande de permis d'urbanisme</caption>
 				<tbody><tr>
 					<td style="text-align:right;" colspan="2"><img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/user.png" alt="user"> 
@@ -33,42 +35,38 @@
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="n_dossier">n_dossier</th>
-					<td id="n_dossier"></td>
+					<td id="n_dossier" tal:content="dos/dossier_id"></td>
 				</tr><tr>
 					<th i18n:translate="reference">reference</th>
-					<td id="reference">7441</td>
+					<td id="reference" tal:content="dos/ref">7441</td>
 				</tr>
 				<tr>
 					<th i18n:translate="dossier_depose_a">dossier_depose_a</th>
-					<td id="dossier_depose_a">Bruxelles</td>
+					<td id="dossier_depose_a" tal:content="dos/municipality_owner">Bruxelles</td>
 				</tr>
 				<tr>
 					<th i18n:translate="type_de_permis">type_de_permis</th>
-					<td id="type_de_permis"></td>
-				</tr>
-				<tr>
-					<th>Description</th>
-					<td>Transformer ou rénover avec modification du volume</td>
+					<td id="type_de_permis" tal:content="dos/type_dossier"></td>
 				</tr>
 				<tr>
 					<th i18n:translate="description">Description</th>
-					<td id="description"></td>
+					<td id="description" tal:content="dos/desc"></td>
 				</tr>
 				<tr>
 					<th i18n:translate="demande_introduite_le">demande_introduite_le</th>
-					<td id="demande_introduite_le"></td>
+					<td id="demande_introduite_le">???</td>
 				</tr>
 				<tr>
 					<th i18n:translate="langue">langue</th>
-					<td id="langue"></td>
+					<td id="langue" tal:content="dos/lang"></td>
 				</tr>
 				<tr>
 					<th i18n:translate="statut_du_dossier">statut_du_dossier</th>
-					<td id="statut_du_dossier"></td>
+					<td id="statut_du_dossier">???</td>
 				</tr>
 				<tr>
 					<th i18n:translate="gestionnaire_du_dossier">gestionnaire_du_dossier</th>
-					<td id="gestionnaire_du_dossier"></td>
+					<td id="gestionnaire_du_dossier"  tal:content="dos/manager"></td>
 				</tr>
 			</tbody></table>
 			
@@ -78,11 +76,17 @@
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="enquete_publiqe">enquete_publiqe</th>
-					<td id="enquete_publiqe"><img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">&nbsp;&nbsp;début : 30-03-2009 | fin : 13-04-2009</td>
+					<td id="enquete_publiqe">
+						<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">
+						&nbsp;&nbsp;???
+					</td>
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="commission_de_concertation">commission_de_concertation</th>
-					<td id="commission_de_concertation"><img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">&nbsp;&nbsp;22-04-2009</td>
+					<td id="commission_de_concertation">
+						<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">
+						&nbsp;&nbsp;???
+					</td>
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="fonctionnaire_delegue">fonctionnaire_delegue</th>
@@ -100,7 +104,10 @@
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="decision">decision</th>
-					<td id="decision"><img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">&nbsp;&nbsp;OK</td>
+					<td id="decision">
+						<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">
+						&nbsp;&nbsp;???
+					</td>
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="permis">permis</th>

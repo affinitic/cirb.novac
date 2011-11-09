@@ -97,3 +97,11 @@ def call_post_url(request_url, request_headers, params=''): # request_headers is
     finally:
         socket.setdefaulttimeout(oldtimeout)
     return results  
+
+def get_properties(context, prop, prop_name):
+        msgid = _(u"not_available")
+        not_avaiable = context.translate(msgid)
+        try:
+            return prop[prop_name]
+        except:
+            return not_avaiable
