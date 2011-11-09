@@ -24,9 +24,9 @@ $(document).ready(function() {
         projection: new OpenLayers.Projection('EPSG:31370'),
         maxExtent: new OpenLayers.Bounds(16478.795,19244.928,301307.738,304073.87100000004),
         units: "meters", 
-        theme: "++resource++cirb.novac.images/",
         controls: []
     };
+    OpenLayers.ImgPath = portal_url+"/++resource++cirb.novac.images/";
     map = new OpenLayers.Map('map', mapOptions );
     map.addControl(new OpenLayers.Control.PanZoomBar({
             position: new OpenLayers.Pixel(2, 15)

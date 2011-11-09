@@ -57,32 +57,34 @@ class ListprivateView(BrowserView):
         dossier_list = called_url(dossier_list_url, 'application/json')
         results=[]
         import json
-        jsondata = json.loads(dossier_list)
+        jsondata=''
+        try:
+            jsondata = json.loads(dossier_list)
+        except:
+            error=True
+            msg_error=_(u'Not able to decode json file')  
         msgid = _(u"not_available")
         not_avaiable = self.context.translate(msgid)
-        for properties in jsondata:
-           
+        
+        for properties in jsondata:           
+            result={} 
             try:
-                address = '%s, %s %s %s' % (properties['numberFrom'],
-                                        properties['streetName'],
-                                        properties['zipcode'],
-                                        properties['municipality'],)
+                result['address'] = '%s, %s %s %s' % (properties['numberFrom'],
+                                        properties['streetName'], properties['zipcode'], properties['municipality'],)
             except:
-                address = not_avaiable   
-                
-            type_dossier = get_properties(self.context, properties,"typeDossier")
-            municipality_owner = get_properties(self.context, properties,"municipalityOwner")
-            dossier_id = get_properties(self.context, properties,"id")
-            lang = get_properties(self.context, properties,"languageRequest")
-            manager = get_properties(self.context, properties,"manager")
-            desc = get_properties(self.context, properties,'object')
-            ref = get_properties(self.context, properties,'refNova')
-            folder_filed = get_properties(self.context, properties,'pointCC')
-            public_inquiry = get_properties(self.context, properties,'publicInquiry')
-            specific_reference = get_properties(self.context, properties,'specificReference')
+                result['address'] = not_avaiable                   
+            result['type_dossier'] = get_properties(self.context, properties,"typeDossier")
+            result['municipality_owner'] = get_properties(self.context, properties,"municipalityOwner")
+            result['dossier_id'] = get_properties(self.context, properties,"id")
+            result['lang'] = get_properties(self.context, properties,"languageRequest")
+            result['manager'] = get_properties(self.context, properties,"manager")
+            result['desc'] = get_properties(self.context, properties,'object')
+            result['ref'] = get_properties(self.context, properties,'refNova')
+            result['folder_filed'] = get_properties(self.context, properties,'pointCC')
+            result['public_inquiry'] = get_properties(self.context, properties,'publicInquiry')
+            result['specific_reference'] = get_properties(self.context, properties,'specificReference')
           
-            results.append({'address':address,'id':dossier_id, 'type_dossier':type_dossier, 'ref':ref,
-                            'public_inquiry':public_inquiry})
+            results.append(result)
         
         return {'novac_url':self.novac_url,'error':error,'msg_error':msg_error, 
                 'user':user, 'dossier_list':dossier_list, 'dossier_list_url':dossier_list_url,
@@ -99,3 +101,41 @@ class ListprivateView(BrowserView):
         results = call_put_url(activate_url,'application/xml', query_string)
         
         return 'activate_key : %s <br />%s ' % (activate_url, results)
+    
+    def get_table_lines_folder(self):        
+        dossier_list_url = '%s%s%s' %(self.novac_url,FOLDER_LIST_WS,"Test")
+        dossier_list = called_url(dossier_list_url, 'application/json')
+        results=[]
+        import json
+        jsondata = json.loads(dossier_list)
+        msgid = _(u"not_available")
+        not_avaiable = self.context.translate(msgid)
+        table = ''
+        for properties in jsondata:           
+            result={} 
+            try:
+                result['address'] = '%s, %s %s %s' % (properties['numberFrom'],
+                                        properties['streetName'], properties['zipcode'], properties['municipality'],)
+            except:
+                result['address'] = not_avaiable                   
+            result['type_dossier'] = get_properties(self.context, properties,"typeDossier")
+            result['municipality_owner'] = get_properties(self.context, properties,"municipalityOwner")
+            result['dossier_id'] = get_properties(self.context, properties,"id")
+            result['lang'] = get_properties(self.context, properties,"languageRequest")
+            result['manager'] = get_properties(self.context, properties,"manager")
+            result['desc'] = get_properties(self.context, properties,'object')
+            result['ref'] = get_properties(self.context, properties,'refNova')
+            result['folder_filed'] = get_properties(self.context, properties,'pointCC')
+            result['public_inquiry'] = get_properties(self.context, properties,'publicInquiry')
+            result['specific_reference'] = get_properties(self.context, properties,'specificReference')
+          
+            results.append(result)
+            table+='''
+            <tr  id="content_list_folder">
+            <td><a href="%s/wawsprivate_view?id=%s">%s</a></td>
+            <td>%s</td>
+            <td>%s</td>
+            <td>%s</td>
+            </tr>''' % (self.context.absolute_url(), result['dossier_id'], result['address'], result['ref'], result['type_dossier'],'???')
+            
+        return table

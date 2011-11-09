@@ -5,12 +5,16 @@ $(document).ready(function() {
         var key = $('#key1').val()+$('#key2').val()+$('#key3').val()+$('#key4').val()+$('#key5').val()+$('#key6').val();        
         var url = $('#absolute_url').html()+'/activate_key?key='+key;        
         $.get(url, function(data) {
-            var newRow = $("<tr><td>"+data+"</td><td></td><td></td><td></td></tr>");
-          
-            destTable.append(newRow);
+            //reload table with the new 'dossier'
+            reload_table_list_dossier();
         });
         return false;
     });
+    $('#activate_key').click(function () { 
+        
+        return false;
+    });
+    
     
     $("input").keyup(function () {
         var maxLength = $(this).attr('maxlength');
@@ -26,3 +30,10 @@ $(document).ready(function() {
     $('#key4').val('KcLE');$('#key5').val('j4Dy');$('#key6').val('dg==');
     
 });
+
+function reload_table_list_dossier(){
+    var url = $('#absolute_url').html()+'/get_table_lines_folder';        
+    $.get(url, function(data) {
+        $("#content_list_folder").replaceWith(data);  
+    });
+}

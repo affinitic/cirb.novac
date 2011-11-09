@@ -30,7 +30,8 @@ class PrivateView(BrowserView):
         self.context = context
         self.request = request
         registry = getUtility(IRegistry)
-        self.novac_url = registry['cirb.novac.novac_url']
+        self.novac_url = registry['cirb.novac.novac_url']        
+        self.urbis_url = registry['cirb.urbis.urbis_url']
     @property
     def portal_catalog(self):
         return getToolByName(self.context, 'portal_catalog')
@@ -57,15 +58,16 @@ class PrivateView(BrowserView):
         properties = json.loads(jsondata)
         msgid = _(u"not_available")
         not_avaiable = self.context.translate(msgid)
+        results={}
         try:
-            address = '%s, %s %s %s' % (properties['numberFrom'],
+            results['address'] = '%s, %s %s %s' % (properties['numberFrom'],
                                     properties['streetName'],
                                     properties['zipcode'],
                                     properties['municipality'],)
         except:
-            address = not_avaiable   
+            results['address'] = not_avaiable   
         
-        results={}
+        
         results['type_dossier'] = get_properties(self.context, properties,"typeDossier")
         results['municipality_owner'] = get_properties(self.context, properties,"municipalityOwner")
         results['dossier_id'] = get_properties(self.context, properties,"id")
@@ -76,8 +78,10 @@ class PrivateView(BrowserView):
         results['point_cc'] = get_properties(self.context, properties,'pointCC')
         results['public_inquiry'] = get_properties(self.context, properties,'publicInquiry')
         results['specific_reference'] = get_properties(self.context, properties,'specificReference')
+        results['x'] = get_properties(self.context, properties,'x')
+        results['y'] = get_properties(self.context, properties,'y')
      
         
-        return {'novac_url':self.novac_url,'error':error,'msg_error':msg_error,
+        return {'novac_url':self.novac_url, 'urbis_url':self.urbis_url, 'error':error,'msg_error':msg_error,
                 'jsondata':jsondata, 'history':history, 'results':results}
     

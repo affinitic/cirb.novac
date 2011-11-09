@@ -39,16 +39,17 @@
 					<th i18n:translate="type">type</th>
 					<th i18n:translate="date_d_activation">date_d_activation</th>
 				</tr>
-				<tr tal:repeat="dossier data/results">
+				<!--tr tal:repeat="dossier data/results">
 					<td>
-						<a href="" tal:attributes="href string:${context/absolute_url}/wawsprivate_view?id=${dossier/id}">
+						<a href="" tal:attributes="href string:${context/absolute_url}/wawsprivate_view?id=${dossier/dossier_id}">
 							<tal:block tal:content='dossier/address'>dossier_list</tal:block>
 						</a>
 					</td>					
 					<td tal:content='dossier/ref'>ref</td>
 					<td tal:content='dossier/type_dossier'>typeDossier</td>
 					<td>???</td>
-				</tr>
+				</tr-->
+				<tal:block tal:replace=" structure python:view.get_table_lines_folder()"></tal:block>
 			</tbody></table>
 			<br>
 			<table class="detail_table">
@@ -90,6 +91,8 @@
         <tal:block tal:condition="data/error" >
             <div tal:replace="data/error_text">error</div>
         </tal:block>
+		
+		
     </div>
 </body>
 </html>

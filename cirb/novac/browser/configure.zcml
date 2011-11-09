@@ -109,4 +109,13 @@
       attribute="wfs_post_request"
       permission="zope2.View"
        />
+  
+  <browser:page
+      for="*"
+      name="get_table_lines_folder"
+      class=".listprivateview.ListprivateView"
+      attribute="get_table_lines_folder"
+      permission="zope2.View"
+       />
+       
 </configure>
