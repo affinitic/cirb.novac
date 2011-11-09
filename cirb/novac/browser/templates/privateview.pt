@@ -19,7 +19,7 @@
             <div id="ws_waws" tal:content="data/novac_url"> novac_url </div>
         </tal:block>
         
-        
+        <div tal:content="data/data"></div>
 		<div id="table" style="padding: 0 1em 1em;">
 			<table class="detail_table">
 				<caption i18n:translate="Etat d'avancement - Demande de permis d'urbanisme">Etat d'avancement - Demande de permis d'urbanisme</caption>

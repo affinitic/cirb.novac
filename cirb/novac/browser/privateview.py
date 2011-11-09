@@ -8,9 +8,10 @@ from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
 
 from cirb.novac import novacMessageFactory as _
+from cirb.novac.utils import *
 
-PRIVATE_FODLER_WS = '/nova/sso/dossiers/150000?errn=errn3' # ?errn=errn3 used to test
-HISTORY =  '/nova/sso/dossiers/150000/history?errn=errn3' # ?errn=errn3 used to test
+PRIVATE_FODLER_WS = '/nova/sso/dossiers/' # ?errn=errn3 used to test
+HISTORY =  '/history' # ?errn=errn3 used to test
 
 class IPrivateView(Interface):
     """
@@ -28,7 +29,8 @@ class PrivateView(BrowserView):
     def __init__(self, context, request):
         self.context = context
         self.request = request
-
+        registry = getUtility(IRegistry)
+        self.novac_url = registry['cirb.novac.novac_url']
     @property
     def portal_catalog(self):
         return getToolByName(self.context, 'portal_catalog')
@@ -37,14 +39,16 @@ class PrivateView(BrowserView):
     def portal(self):
         return getToolByName(self.context, 'portal_url').getPortalObject()
     
-    def private(self):
-        
-        registry = getUtility(IRegistry)
-        novac_url = registry['cirb.novac.novac_url']
+    def private(self):        
         error=False
         msg_error=''
-        if not novac_url:
+        if not self.novac_url:
             error=True
             msg_error=_(u'No url for novac url')
-        return {'novac_url':novac_url,'error':error,'msg_error':msg_error}
+        dossier_id = self.request.form.get('id')
+        dossier_url = '%s%s%s' %(self.novac_url,PRIVATE_FODLER_WS,dossier_id)
+        dossier = called_url(dossier_url, 'application/json')
+        
+        return {'novac_url':self.novac_url,'error':error,'msg_error':msg_error,
+                'data':dossier}
     

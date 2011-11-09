@@ -14,6 +14,7 @@ from urllib2 import URLError, HTTPError
 from cirb.novac import novacMessageFactory as _
 
 from cirb.novac.browser.novacview import INovacView, NovacView
+from cirb.novac.utils import *
 
 PUB_DOSSIER = 'nova/pub/dossiers'
 
@@ -74,6 +75,8 @@ class PublicView(BrowserView):
             error = True
             msg_error = 'Not num_dossier in url (GET)'
         url = '%s/%s/%s/' % (self.novac_url, PUB_DOSSIER, num_dossier)
+        #TODO use utils method
+        #
         try:
             socket.setdefaulttimeout(7) # let's wait 7 sec            
             
