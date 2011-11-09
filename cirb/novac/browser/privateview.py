@@ -46,9 +46,12 @@ class PrivateView(BrowserView):
             error=True
             msg_error=_(u'No url for novac url')
         dossier_id = self.request.form.get('id')
-        dossier_url = '%s%s%s' %(self.novac_url,PRIVATE_FODLER_WS,dossier_id)
+        dossier_url = '%s%s%s' % (self.novac_url,PRIVATE_FODLER_WS,dossier_id)
         dossier = called_url(dossier_url, 'application/json')
         
+        history_url = '%s%s' % (dossier_url,HISTORY)
+        history = called_url(history_url, 'application/json')
+        
         return {'novac_url':self.novac_url,'error':error,'msg_error':msg_error,
-                'data':dossier}
+                'data':dossier, 'history':history}
     
