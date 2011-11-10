@@ -89,3 +89,50 @@ td.canceled {background-color:blue}
 }
 
 
+
+
+
+#navigation {
+	width: 227px;
+	height: 514px;
+	float: right;
+	border: 1px solid #ddd;
+	padding:0;
+}
+
+/* ACCORDION STYLE */
+
+#accordion {
+	padding: 0;
+	margin: 0;
+}
+
+#accordion h3 {
+	background-color: #eee;
+	text-align: right;
+	font-size: 0.9em;
+	height: 30px;
+	margin: 0;
+	padding: 1em;
+	border-bottom: 1px solid #cc071e;
+}
+
+#accordion a {
+	text-decoration: none;
+	padding:1em 0;
+	color: #222;
+}
+#accordion a:hover {
+	text-decoration:underline;
+	color:#000;
+}
+
+.slice-1 {
+	background: transparent url(++resource++cirb.novac.images/folder.png) no-repeat 10px 12px;
+}
+.slice-2 {
+	background: transparent url(++resource++cirb.novac.images/search.png) no-repeat 10px 12px;
+}
+.slice-3 {
+	background: transparent url(++resource++cirb.novac.images/filter.png) no-repeat 10px 12px;
+}
