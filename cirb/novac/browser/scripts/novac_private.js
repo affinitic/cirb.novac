@@ -1,5 +1,15 @@
 $(document).ready(function() {
-
+    
+    $('#add_mandat').click(function () {        
+        var mandat = $('#input_mandat').val();
+        var url = $('#absolute_url').html()+'/activate_mandat?mandat='+mandat;
+        $.get(url, function(data) {
+            //reload table with the new 'secondary key'
+            reload_table_list_secondary_key();
+        });
+        return false;
+    });    
+    
     var url_ws_urbis = $('#ws_urbis').html();
     var portal_url = $('#portal_url').html();
     var x = $('#x').html();
@@ -62,3 +72,11 @@ $(document).ready(function() {
     
     map.setCenter(address_folder, 5);
 });
+
+function reload_table_list_secondary_key(){
+    var url = $('#absolute_url').html()+'/get_table_lines_secondary_keys';
+    $.get(url, function(data) {
+        $("#secondary_keys").replaceWith(data);
+        alert("data : "+data);
+    });
+}

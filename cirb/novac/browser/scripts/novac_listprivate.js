@@ -1,7 +1,6 @@
 $(document).ready(function() {
     var destTable = $("#dossier_list");
-    $('#activate_key').click(function () {
-        
+    $('#activate_key').click(function () {        
         var key = $('#key1').val()+$('#key2').val()+$('#key3').val()+$('#key4').val()+$('#key5').val()+$('#key6').val();        
         var url = $('#absolute_url').html()+'/activate_key?key='+key;        
         $.get(url, function(data) {
@@ -10,11 +9,6 @@ $(document).ready(function() {
         });
         return false;
     });
-    $('#activate_key').click(function () { 
-        
-        return false;
-    });
-    
     
     $("input").keyup(function () {
         var maxLength = $(this).attr('maxlength');

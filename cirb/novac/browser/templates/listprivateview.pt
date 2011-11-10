@@ -18,7 +18,7 @@
         <tal:block tal:condition="not: data/error" >
             <div id="ws_waws" tal:content="data/novac_url"> novac_url </div>
         </tal:block>
-        <div id="absolute_url" tal:content="context/absolute_url" class="hiddenStructure"> portal_url </div>
+        <div id="absolute_url" tal:content="context/absolute_url" class="hiddenStructure"> absolute_url </div>
 		<div id="dossier_list" tal:content="data/dossier_list" class="hiddenStructure"> dossier_list </div>
         <div id="table" style="padding: 0 1em 1em;">
 			<table class="detail_table" id="dossier_list">

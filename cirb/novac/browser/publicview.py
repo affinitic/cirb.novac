@@ -138,5 +138,4 @@ class PublicView(BrowserView):
                 'error':error, 'msg_error':msg_error, 'called_url':url }
     
     
-  
         

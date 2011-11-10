@@ -118,4 +118,20 @@
       permission="zope2.View"
        />
        
+  <browser:page
+      for="*"
+      name="activate_mandat"
+      class=".privateview.PrivateView"
+      attribute="activate_mandat"
+      permission="zope2.View"
+       />
+       
+  <browser:page
+      for="*"
+      name="get_table_lines_secondary_keys"
+      class=".privateview.PrivateView"
+      attribute="get_table_lines_secondary_keys"
+      permission="zope2.View"
+       />
+       
 </configure>
