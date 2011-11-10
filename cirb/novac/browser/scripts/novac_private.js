@@ -89,7 +89,7 @@ function reload_table_list_secondary_key(){
     var url = $('#absolute_url').html()+'/get_table_lines_secondary_keys?targetID='+targetID;
     $.get(url, function(data) {        
         $('.secondary_key').remove();
-        $('#secondary_keys .title').after(data);
+        $('table#secondary_keys tr.title').after(data);
     });
 }
 

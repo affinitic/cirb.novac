@@ -134,7 +134,7 @@ class ListprivateView(BrowserView):
             
             results.append(result)
             table+='''
-            <tr  id="content_list_folder">
+            <tr  class="content_list_folder">
             <td><a href="%s/wawsprivate_view?id=%s">%s</a></td>
             <td>%s</td>
             <td>%s</td>

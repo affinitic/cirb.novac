@@ -13,7 +13,7 @@ input[type=button] {width:100px; margin: 5px 0px 5px 90px;}
 
 #navigation {float: left; width: 215px; height:502px; border: solid #aaaaaa 1px; padding: 5px; margin: 5px 5px 5px 0px;}
 
-#results_panel {clear:both; border: solid #aaaaaa 1px; padding: 5px; margin:5px; min-height:100px;}
+#results_panel {clear:both; border: solid #ddd 1px; padding: 5px; margin:5px; min-height:100px;}
 #results_panel table {padding: 2px;}
 
 table.urbis_result th {padding:5px;}
@@ -89,7 +89,11 @@ td.canceled {background-color:blue}
 }
 
 
-
+#map_panel {
+	height:514px;
+	width:675px;
+	border:1px solid #dddddd;
+}
 
 
 #navigation {
@@ -105,6 +109,11 @@ td.canceled {background-color:blue}
 #accordion {
 	padding: 0;
 	margin: 0;
+}
+
+.ui-accordion-content {
+	padding:.75em;
+	font-size: .75em;
 }
 
 #accordion h3 {
