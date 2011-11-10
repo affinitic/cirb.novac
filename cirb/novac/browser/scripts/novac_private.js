@@ -2,7 +2,7 @@ $(document).ready(function() {
     
     $('#add_mandat').click(function () {        
         var mandat = $('#input_mandat').val();
-        var url = $('#absolute_url').html()+'/activate_mandat?mandat='+mandat;
+        var url = $('#absolute_url').html()+'/activate_mandat?mandat='+mandat+'&targetID='+getURLParameter('id');
         $.get(url, function(data) {
             //reload table with the new 'secondary key'
             reload_table_list_secondary_key();
@@ -74,9 +74,12 @@ $(document).ready(function() {
 });
 
 function reload_table_list_secondary_key(){
-    var url = $('#absolute_url').html()+'/get_table_lines_secondary_keys';
+    var url = $('#absolute_url').html()+'/get_table_lines_secondary_keys?targetID='+getURLParameter('id');
     $.get(url, function(data) {
         $("#secondary_keys").replaceWith(data);
-        alert("data : "+data);
     });
+}
+
+function getURLParameter(name) {
+    return decodeURI((RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [,null])[1]);
 }

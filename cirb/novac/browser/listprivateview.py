@@ -103,8 +103,11 @@ class ListprivateView(BrowserView):
         return 'activate_key : %s <br />%s ' % (activate_url, results)
     
     def get_table_lines_folder(self):        
+        #errn = urllib.quote(self.request.form.get('errn'))
         dossier_list_url = '%s%s%s' %(self.novac_url,FOLDER_LIST_WS,"Test")
         dossier_list = called_url(dossier_list_url, 'application/json')
+        if not dossier_list:
+            return '<tr id="content_list_folder" style="height: 0px;"><td></td><td></td><td></td><td></td></tr>'
         results=[]
         import json
         jsondata = json.loads(dossier_list)
@@ -112,12 +115,12 @@ class ListprivateView(BrowserView):
         not_avaiable = self.context.translate(msgid)
         table = ''
         for properties in jsondata:           
-            result={} 
+            result={}
             try:
                 result['address'] = '%s, %s %s %s' % (properties['numberFrom'],
                                         properties['streetName'], properties['zipcode'], properties['municipality'],)
             except:
-                result['address'] = not_avaiable                   
+                result['address'] = not_avaiable
             result['type_dossier'] = get_properties(self.context, properties,"typeDossier")
             result['municipality_owner'] = get_properties(self.context, properties,"municipalityOwner")
             result['dossier_id'] = get_properties(self.context, properties,"id")
@@ -128,7 +131,7 @@ class ListprivateView(BrowserView):
             result['folder_filed'] = get_properties(self.context, properties,'pointCC')
             result['public_inquiry'] = get_properties(self.context, properties,'publicInquiry')
             result['specific_reference'] = get_properties(self.context, properties,'specificReference')
-          
+            
             results.append(result)
             table+='''
             <tr  id="content_list_folder">

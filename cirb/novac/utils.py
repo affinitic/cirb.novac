@@ -2,7 +2,7 @@ import re, os
 import urllib2, socket
 from urllib2 import URLError, HTTPError
 import urllib
-
+import logging
 from cirb.novac import novacMessageFactory as _
 
 def called_url(request_url, content_type, params='', lang='fr'): # for exemple : content_type = application/xml
@@ -31,6 +31,7 @@ def called_url(request_url, content_type, params='', lang='fr'): # for exemple :
     __ac="Hd3DxhAw9EpdJ44gF5JC6EqNpL7S4KEP02KGBinNgGs0ZWE3ZmEyOUVuY3J5cHQgODQwNzI2MjU3OTch"', 
     'PATH_TRANSLATED': '/Plone/novac/wawslistprivate_view'}
     """
+    logger = logging.getLogger('cirb.novac.utils.called_url')
     oldtimeout = socket.getdefaulttimeout()
     results = ''
     url = request_url
@@ -45,15 +46,20 @@ def called_url(request_url, content_type, params='', lang='fr'): # for exemple :
         opener = urllib2.build_opener()
         results = opener.open(request).read()
     except HTTPError, e:
-        return _('The server couldn\'t fulfill the request.<br />Error code: %s' % e.code)
+        exception = _('The server couldn\'t fulfill the request. Error code: %s. Url: %s' % (e.code, url))
+        logger.info(exception)
+        return False
     except URLError, e:
-        return _('We failed to reach a server.<br /> Reason: %s'% e.reason)
+        exception =  _('We failed to reach a server.<br />Reason: %s'% e.reason)
+        logger.info(exception)
+        return False
     finally:
         socket.setdefaulttimeout(oldtimeout)
     return results  
 
 
 def call_put_url(request_url, content_type, data): # request_headers is a dict
+    logger = logging.getLogger('cirb.novac.utils.call_put_url')
     oldtimeout = socket.getdefaulttimeout()
     results = ''
     url = request_url
@@ -65,14 +71,19 @@ def call_put_url(request_url, content_type, data): # request_headers is a dict
         request.get_method = lambda: 'PUT'
         results = opener.open(request).read()
     except HTTPError, e:
-        return _('The server couldn\'t fulfill the request.<br />Error code: %s' % e.code)
+        exception = _('The server couldn\'t fulfill the request. Error code: %s. Url: %s' % (e.code, url))
+        logger.info(exception)
+        return False
     except URLError, e:
-        return _('We failed to reach a server.<br />Reason: %s'% e.reason)
+        exception =  _('We failed to reach a server.<br />Reason: %s'% e.reason)
+        logger.info(exception)
+        return False
     finally:
         socket.setdefaulttimeout(oldtimeout)
     return results
 
 def call_post_url(request_url, request_headers, params=''): # request_headers is a list of dict
+    logger = logging.getLogger('cirb.novac.utils.call_post_url')
     oldtimeout = socket.getdefaulttimeout()
     results = ''
     url = request_url
@@ -87,13 +98,16 @@ def call_post_url(request_url, request_headers, params=''): # request_headers is
             try:
                 request.add_header(header.keys()[0], header.values()[0])
             except:
-                #TODO LOG
-                print 'headers bad formated in call_post_url'
+                logger.info(_('headers bad formated'))
         results = opener.open(request).read()
     except HTTPError, e:
-        return _('The server couldn\'t fulfill the request.<br />Error code: %s' % e.code)
+        exception = _('The server couldn\'t fulfill the request. Error code: %s. Url: %s' % (e.code, url))
+        logger.info(exception)
+        return False
     except URLError, e:
-        return _('We failed to reach a server.<br />Reason: %s'% e.reason)
+        exception =  _('We failed to reach a server.<br />Reason: %s'% e.reason)
+        logger.info(exception)
+        return False
     finally:
         socket.setdefaulttimeout(oldtimeout)
     return results  
