@@ -9,10 +9,11 @@ from plone.registry.interfaces import IRegistry
 
 from cirb.novac import novacMessageFactory as _
 from cirb.novac.utils import *
-
+import logging
+logger = logging.getLogger('cirb.novac.browser.privateview')
 PRIVATE_FODLER_WS = '/nova/sso/dossiers/' # ?errn=errn3 used to test
 HISTORY =  '/history' # ?errn=errn3 used to test
-SECONDARY_KEYS = '/waws/sso/ssks?targetID='
+SECONDARY_KEYS = '/waws/sso/ssks/distributed?targetID='
 ADD_SECONDARY_KEY = '/waws/sso/ssks?targetID='
 ADD_SECONDARY_KEY_NAME = '&keyName='
 REVOKE_SECONDARY_KEY = '/waws/sso/ssks/revoke?key='
@@ -57,10 +58,18 @@ class PrivateView(BrowserView):
         #dossier_id = self.request.form.get('id')
         dossier_url = '%s%s%s' % (self.novac_url,PRIVATE_FODLER_WS,self.id_dossier)
         jsondata = called_url(dossier_url, 'application/json')
-        
+        if not jsondata:
+            logger.info('Not able to call ws %s' % dossier_url)
+            error=True
+            msg_error=_(u'Not able to call ws')
+            return {'novac_url':self.novac_url, 'urbis_url':self.urbis_url, 'error':error,'msg_error':msg_error}
         history_url = '%s%s' % (dossier_url,HISTORY)
         history = called_url(history_url, 'application/json')
-        
+        if not history:
+            logger.info('Not able to call ws %s' % history_url)
+            error=True
+            msg_error=_(u'Not able to call ws')
+            return {'novac_url':self.novac_url, 'urbis_url':self.urbis_url, 'error':error,'msg_error':msg_error}
         
         import json
         properties = json.loads(jsondata)
@@ -111,7 +120,7 @@ class PrivateView(BrowserView):
         #key = self.request.form.get('key')
         query_string = self.request.environ['QUERY_STRING']
         key = urllib.quote(self.request.form.get('key'))
-        revoke_mandat = '%s%s%s' %(self.novac_url,REFOKE_SECONDARY_KEY,key)        
+        revoke_mandat = '%s%s%s' %(self.novac_url,REVOKE_SECONDARY_KEY,key)        
         results = call_put_url(revoke_mandat,'application/xml', query_string)
         
         return results
@@ -125,24 +134,24 @@ class PrivateView(BrowserView):
         secondary_keys_url = '%s%s%s' %(self.novac_url,SECONDARY_KEYS,targetID)
         secondary_keys = called_url(secondary_keys_url, 'application/json')
         if not secondary_keys:
-            return '<tr id="secondary_keys" style="height: 0px;"><td></td><td></td><td></td></tr>'
-        print secondary_keys
+            return '<tr class="secondary_key" style="height: 0px;"><td></td><td></td><td></td></tr>'
         results=[]
         import json
-        jsondata = json.loads(secondary_keys)
+        jsondatas = json.loads(secondary_keys)
+        
         table = ''
-        for properties in jsondata:
+        for properties in jsondatas:
             result={}
-            result['mandat'] = get_properties(self.context, properties,"mandat")
+            result['keyName'] = get_properties(self.context, properties,"keyName")
             result['key'] = get_properties(self.context, properties,"key")
           
             results.append(result)
             table+='''
-            <tr id="secondary_keys">
+            <tr class="secondary_key">
             <td>%s</td>
             <td>%s</td>
-            <td><a href="%s/revoke_mandat?targetID=%s">revoke</a></td>
-            </tr>''' % (result['mandat'], result['key'], 
-                        self.context.absolute_url())
+            <td><a href="%s/revoke_mandat?key=%s" class="revoke_mandat">revoke</a></td>
+            </tr>''' % (result['keyName'], result['key'], 
+                        self.context.absolute_url(), urllib.quote(result['key']))
        
         return table

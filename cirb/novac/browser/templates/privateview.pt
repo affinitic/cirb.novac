@@ -26,13 +26,15 @@
 			<div id="absolute_url" tal:content="context/absolute_url" class="hiddenStructure"> absolute_url </div>
         </tal:block>
         
-        
+        <tal:block tal:condition="not: data/error" >
 		<div id="table" style="padding: 0 1em 1em;">
 			<table class="detail_table" tal:define="dos data/results">
 				<caption i18n:translate="Etat d'avancement - Demande de permis d'urbanisme">Etat d'avancement - Demande de permis d'urbanisme</caption>
 				<tbody><tr>
-					<td style="text-align:right;" colspan="2"><img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/user.png" alt="user"> 
-						<a href="login2.html"></a>
+					<td colspan="2" style="text-align:right;" id="username">
+						<p id="user-name"><tal:block tal:content="user"> John </tal:block>
+						<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/user.png" alt="user">
+						&nbsp;|&nbsp;<a tal:attributes="href string:${portal_url}/logout"><tal:block i18n:translate="logout">logout</tal:block></a></p>
 					</td>
 				</tr>
 				<tr>
@@ -56,6 +58,10 @@
 				<tr>
 					<th i18n:translate="description">Description</th>
 					<td id="description" tal:content="dos/desc"></td>
+				</tr>
+				<tr>
+					<th i18n:translate="address">address</th>
+					<td id="address" tal:content="dos/address"></td>
 				</tr>
 				<tr>
 					<th i18n:translate="demande_introduite_le">demande_introduite_le</th>
@@ -164,11 +170,11 @@
 							</tal:block></strong></p>
 						<p class="info"><em><tal:block i18n:translate="un_mandataite_n_a_pas_le_droit_de_creer_une_cle_secondaire">un_mandataite_n_a_pas_le_droit_de_creer_une_cle_secondaire</tal:block><br>
 						<tal:block i18n:translate="vous_pouvez_revoquer_une_cle_secondaire_a_tout_moment">vous_pouvez_revoquer_une_cle_secondaire_a_tout_moment</tal:block></em></p>
-						<table class="detail_table" style="font-size:1em;">
+						<table class="detail_table" id="secondary_keys" style="font-size:1em;">
 							<tbody><tr>
-								<th colspan="3" i18n:translate="vos_cles_secondaires"></th>
+								<th colspan="3" i18n:translate="vos_cles_secondaires">vos_cles_secondaires</th>
 							</tr>
-							<tr>
+							<tr class="title">
 								<th i18n:translate="mandataire">mandataire</th>
 								<th i18n:translate="cle">cle</th>
 								<th i18n:translate="revoquer">revoquer</th>
@@ -186,7 +192,7 @@
 									<label for="mandat" i18n:translate="mandataire">mandataire</label>
 									<input type="text" size="35" id="input_mandat">&nbsp;
 									<span id="add_mandat" style="border:1px solid #bbb;background-color:#ddd;cursor:pointer;padding:.15em .5em;" class="flip2">
-									<img src="images/add.png" alt="add" style="margin:5px 3px 0 0;"><tal:block i18n:translate="ajouter">Ajouter</tal:block></span>
+									<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/add.png" alt="add" style="margin:5px 3px 0 0;"><tal:block i18n:translate="ajouter">Ajouter</tal:block></span>
 								</td>
 						</tr></tbody></table>
 					</div>
@@ -195,9 +201,9 @@
 		</tbody></table>
 				
 		</div>        
-        
+        </tal:block>
         <tal:block tal:condition="data/error" >
-            <div tal:replace="data/error_text">error</div>
+            <div tal:replace="data/msg_error">error</div>
         </tal:block>
     </div>
 </body>

@@ -1,14 +1,27 @@
+var targetID="";
 $(document).ready(function() {
     
     $('#add_mandat').click(function () {        
         var mandat = $('#input_mandat').val();
-        var url = $('#absolute_url').html()+'/activate_mandat?mandat='+mandat+'&targetID='+getURLParameter('id');
+        targetID = getURLParameter('id');
+        var url = $('#absolute_url').html()+'/activate_mandat?mandat='+mandat+'&targetID='+targetID;
         $.get(url, function(data) {
             //reload table with the new 'secondary key'
             reload_table_list_secondary_key();
         });
         return false;
-    });    
+    });
+    
+    $('.revoke_mandat').click(function () {
+        targetID = getURLParameter('id');
+        var url = $(this).attr("href");
+        $.get(url, function(data) {
+            //reload table with the new 'secondary key'
+            //$(this).parent().parent().remove();
+            reload_table_list_secondary_key();
+        });
+        return false;
+    }); 
     
     var url_ws_urbis = $('#ws_urbis').html();
     var portal_url = $('#portal_url').html();
@@ -74,9 +87,10 @@ $(document).ready(function() {
 });
 
 function reload_table_list_secondary_key(){
-    var url = $('#absolute_url').html()+'/get_table_lines_secondary_keys?targetID='+getURLParameter('id');
-    $.get(url, function(data) {
-        $("#secondary_keys").replaceWith(data);
+    var url = $('#absolute_url').html()+'/get_table_lines_secondary_keys?targetID='+targetID;
+    $.get(url, function(data) {        
+        $('.secondary_key').remove();
+        $('#secondary_keys .title').after(data);
     });
 }
 

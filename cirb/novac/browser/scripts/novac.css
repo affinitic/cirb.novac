@@ -59,6 +59,7 @@ td.canceled {background-color:blue}
 .detail_table th {
     background-color: #eee;
 }
+
 .detail_table td a, #id-card a, .back {
     color: #222;
     text-decoration: none;

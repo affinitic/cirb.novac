@@ -80,6 +80,7 @@ def call_put_url(request_url, content_type, data): # request_headers is a dict
         return False
     finally:
         socket.setdefaulttimeout(oldtimeout)
+        logger.info(url)
     return results
 
 def call_post_url(request_url, request_headers, params=''): # request_headers is a list of dict
@@ -110,6 +111,7 @@ def call_post_url(request_url, request_headers, params=''): # request_headers is
         return False
     finally:
         socket.setdefaulttimeout(oldtimeout)
+        logger.info(url)
     return results  
 
 def get_properties(context, prop, prop_name):
