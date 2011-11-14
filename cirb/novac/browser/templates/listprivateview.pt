@@ -18,7 +18,8 @@
         <tal:block tal:condition="not: data/error" >
             <div id="ws_waws" tal:content="data/novac_url"> novac_url </div>
         </tal:block>
-        <div id="absolute_url" tal:content="context/absolute_url" class="hiddenStructure"> portal_url </div>
+        <div id="absolute_url" tal:content="context/absolute_url" class="hiddenStructure"> absolute_url </div>
+		<div id="dossier_list" tal:content="data/dossier_list" class="hiddenStructure"> dossier_list </div>
         <div id="table" style="padding: 0 1em 1em;">
 			<table class="detail_table" id="dossier_list">
 				<caption i18n:translate="vous_etes_maintenant_connecte">vous_etes_maintenant_connecte</caption>
@@ -32,18 +33,13 @@
 				<tr>
 					<td class="tableheader" colspan="4" i18n:translate="vos_dossiers_actives">vos_dossiers_actives</td>
 				</tr>
-				<tr>
+				<tr class="title">
 					<th i18n:translate="address">address</th>
 					<th i18n:translate="n_dossier">n_dossier</th>
 					<th i18n:translate="type">type</th>
 					<th i18n:translate="date_d_activation">date_d_activation</th>
-				</tr>
-				<tr>
-					<td tal:content='data/dossier_list'>dossier_list</td>
-					<td tal:content='data/dossier_list_url'>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
+				</tr>				
+				<tal:block tal:replace="structure python:view.get_table_lines_folder()"></tal:block>
 			</tbody></table>
 			<br>
 			<table class="detail_table">
@@ -85,6 +81,8 @@
         <tal:block tal:condition="data/error" >
             <div tal:replace="data/error_text">error</div>
         </tal:block>
+		
+		
     </div>
 </body>
 </html>

@@ -131,7 +131,7 @@ msgstr "Filtres"
 
 #: cirb.novac:/browser/templates/novacview.pt:54
 msgid "required"
-msgstr "requis"
+msgstr "demandé"
 
 #: cirb.novac:/browser/templates/novacview.pt:59
 msgid "granted"

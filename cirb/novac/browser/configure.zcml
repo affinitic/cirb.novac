@@ -3,8 +3,6 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="cirb.novac">
 
-
-
   <interface
       interface=".interfaces.IThemeSpecific"
       type="zope.publisher.interfaces.browser.IBrowserSkinType"
@@ -22,15 +20,13 @@
       name="cirb.novac.images"
       directory="images"
       layer=".interfaces.INovacCustomization"      
-      />
-  
+      />  
       
   <browser:resourceDirectory
       name="cirb.novac.scripts"
       directory="scripts"
       layer=".interfaces.INovacCustomization"
       />
-
 
   <browser:page
       for="*"
@@ -41,7 +37,6 @@
       permission="zope2.View"
       />
 
-
   <browser:page
       for="*"
       name="wawspublic_view"
@@ -49,8 +44,7 @@
       template="templates/publicview.pt"
       allowed_interface=".publicview.IPublicView"
       permission="zope2.View"
-      />
-      
+      />      
       
   <browser:page
       for="*"
@@ -60,7 +54,6 @@
       allowed_interface=".privateview.IPrivateView"
       permission="novac.View"
       />
-      
       
   <browser:page
       for="*"
@@ -86,13 +79,6 @@
         permission="zope2.View"
         />
         
-    <browser:page
-      for="*"
-      name="activate_key"
-      class=".listprivateview.ListprivateView"
-      attribute="activate_key"
-      permission="novac.View"
-       />
 	
    <browser:page
       for="*"
@@ -109,4 +95,47 @@
       attribute="wfs_post_request"
       permission="zope2.View"
        />
+  
+  <!-- privates folders -->  
+  <browser:page
+      for="*"
+      name="activate_key"
+      class=".listprivateview.ListprivateView"
+      attribute="activate_key"
+      permission="novac.View"
+       />
+       
+  <browser:page
+      for="*"
+      name="get_table_lines_folder"
+      class=".listprivateview.ListprivateView"
+      attribute="get_table_lines_folder"
+      permission="zope2.View"
+       />
+       
+  <!-- private folder -->     
+  <browser:page
+      for="*"
+      name="activate_mandat"
+      class=".privateview.PrivateView"
+      attribute="activate_mandat"
+      permission="zope2.View"
+       />
+  
+  <browser:page
+      for="*"
+      name="revoke_mandat"
+      class=".privateview.PrivateView"
+      attribute="revoke_mandat"
+      permission="zope2.View"
+       />
+       
+  <browser:page
+      for="*"
+      name="get_table_lines_secondary_keys"
+      class=".privateview.PrivateView"
+      attribute="get_table_lines_secondary_keys"
+      permission="zope2.View"
+       />
+       
 </configure>

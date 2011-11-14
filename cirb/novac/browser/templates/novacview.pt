@@ -33,11 +33,11 @@
            
             <div id="navigation">
                 <div id="accordion">
-                    <h3><a href="#" i18n:translate="mon_dossier">mon_dossier</a></h3>
+                    <h3 class="slice-1"><a href="#" i18n:translate="mon_dossier">mon_dossier</a></h3>
                     <div>
                         <a tal:attributes="href data/private_url" i18n:translate="login">login</a>
                     </div>
-                    <h3><a href="#" i18n:translate="search_address">search_address</a></h3>
+                    <h3 class="slice-2"><a href="#" i18n:translate="search_address">search_address</a></h3>
                     <div>
                         <table>
                         <tbody>
@@ -48,7 +48,7 @@
                         </table>
                         <input type="button" id="search_address_button" i18n:domain="plone" i18n:attributes="value search;"/>
                     </div>
-                    <h3><a href="#" i18n:translate="filtres">filtres</a></h3>
+                    <h3 class="slice-3"><a href="#" i18n:translate="filtres">filtres</a></h3>
                     <div class="filter">
                         <table class="filter">
                         <tbody>

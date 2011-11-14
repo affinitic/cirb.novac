@@ -10,22 +10,31 @@
 
 </tal:css>
 <tal:js metal:fill-slot="javascript_head_slot"> 
-    <script type="text/javascript" tal:attributes="src string:${portal_url}/novac_private.js"></script>
+    <script type="text/javascript" tal:attributes="src string:${portal_url}/++resource++cirb.novac.scripts/novac_private.js"></script>
 </tal:js>
 
 <body>
     <div metal:fill-slot="main" tal:define="data view/private">        
         <tal:block tal:condition="not: data/error" >
             <div id="ws_waws" tal:content="data/novac_url"> novac_url </div>
+			<div id="jsondata" class="hiddenStructure" tal:content="data/jsondata"></div>
+			<div id="history" class="hiddenStructure" tal:content="data/history"></div>
+			<div class="hiddenStructure" id="x" tal:content="data/results/x">x</div>
+			<div class="hiddenStructure" id="y" tal:content="data/results/y">y</div>
+			<div class="hiddenStructure" id="portal_url" tal:content="context/portal_url">portal_url</div>
+			<div id="ws_urbis" tal:content="data/urbis_url" class="hiddenStructure"> ws_urbis </div>
+			<div id="absolute_url" tal:content="context/absolute_url" class="hiddenStructure"> absolute_url </div>
         </tal:block>
         
-        
+        <tal:block tal:condition="not: data/error" >
 		<div id="table" style="padding: 0 1em 1em;">
-			<table class="detail_table">
+			<table class="detail_table" tal:define="dos data/results">
 				<caption i18n:translate="Etat d'avancement - Demande de permis d'urbanisme">Etat d'avancement - Demande de permis d'urbanisme</caption>
 				<tbody><tr>
-					<td style="text-align:right;" colspan="2"><img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/user.png" alt="user"> 
-						<a href="login2.html"></a>
+					<td colspan="2" style="text-align:right;" id="username">
+						<p id="user-name"><tal:block tal:content="user"> John </tal:block>
+						<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/user.png" alt="user">
+						&nbsp;|&nbsp;<a tal:attributes="href string:${portal_url}/logout"><tal:block i18n:translate="logout">logout</tal:block></a></p>
 					</td>
 				</tr>
 				<tr>
@@ -33,42 +42,42 @@
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="n_dossier">n_dossier</th>
-					<td id="n_dossier"></td>
+					<td id="n_dossier" tal:content="dos/dossier_id"></td>
 				</tr><tr>
 					<th i18n:translate="reference">reference</th>
-					<td id="reference">7441</td>
+					<td id="reference" tal:content="dos/ref">7441</td>
 				</tr>
 				<tr>
 					<th i18n:translate="dossier_depose_a">dossier_depose_a</th>
-					<td id="dossier_depose_a">Bruxelles</td>
+					<td id="dossier_depose_a" tal:content="dos/municipality_owner">Bruxelles</td>
 				</tr>
 				<tr>
 					<th i18n:translate="type_de_permis">type_de_permis</th>
-					<td id="type_de_permis"></td>
-				</tr>
-				<tr>
-					<th>Description</th>
-					<td>Transformer ou rénover avec modification du volume</td>
+					<td id="type_de_permis" tal:content="dos/type_dossier"></td>
 				</tr>
 				<tr>
 					<th i18n:translate="description">Description</th>
-					<td id="description"></td>
+					<td id="description" tal:content="dos/desc"></td>
+				</tr>
+				<tr>
+					<th i18n:translate="address">address</th>
+					<td id="address" tal:content="dos/address"></td>
 				</tr>
 				<tr>
 					<th i18n:translate="demande_introduite_le">demande_introduite_le</th>
-					<td id="demande_introduite_le"></td>
+					<td id="demande_introduite_le">???</td>
 				</tr>
 				<tr>
 					<th i18n:translate="langue">langue</th>
-					<td id="langue"></td>
+					<td id="langue" tal:content="dos/lang"></td>
 				</tr>
 				<tr>
 					<th i18n:translate="statut_du_dossier">statut_du_dossier</th>
-					<td id="statut_du_dossier"></td>
+					<td id="statut_du_dossier">???</td>
 				</tr>
 				<tr>
 					<th i18n:translate="gestionnaire_du_dossier">gestionnaire_du_dossier</th>
-					<td id="gestionnaire_du_dossier"></td>
+					<td id="gestionnaire_du_dossier"  tal:content="dos/manager"></td>
 				</tr>
 			</tbody></table>
 			
@@ -78,11 +87,17 @@
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="enquete_publiqe">enquete_publiqe</th>
-					<td id="enquete_publiqe"><img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">&nbsp;&nbsp;début : 30-03-2009 | fin : 13-04-2009</td>
+					<td id="enquete_publiqe">
+						<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">
+						&nbsp;&nbsp;???
+					</td>
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="commission_de_concertation">commission_de_concertation</th>
-					<td id="commission_de_concertation"><img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">&nbsp;&nbsp;22-04-2009</td>
+					<td id="commission_de_concertation">
+						<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">
+						&nbsp;&nbsp;???
+					</td>
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="fonctionnaire_delegue">fonctionnaire_delegue</th>
@@ -100,7 +115,10 @@
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="decision">decision</th>
-					<td id="decision"><img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">&nbsp;&nbsp;OK</td>
+					<td id="decision">
+						<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">
+						&nbsp;&nbsp;???
+					</td>
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="permis">permis</th>
@@ -134,12 +152,58 @@
 				</tr>
 			</tbody></table>	
 			
-			<div id="map_panel"><div id="map"></div></div>
+			<div id="container">
+				<div id="map_panel2"><div id="map"></div></div>		
+			</div>
 			
+			<table tal:condition='data/owner_folder' class="detail_table">
+			<tbody>
+			<tr>
+				<td class="tableheader" i18n:translate="gestion_des_cles_secondaires_pour_ce_dossier">gestion_des_cles_secondaires_pour_ce_dossier</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="key">
+						<p><strong>
+							<tal:block i18n:translate="en_tant_que_demandeur_vous_pouvez_generez_une_ou_plusieurs_cles_secondaires_pour_un_ou_plusieurs_mandataires">
+								en_tant_que_demandeur_vous_pouvez_generez_une_ou_plusieurs_cles_secondaires_pour_un_ou_plusieurs_mandataires
+							</tal:block></strong></p>
+						<p class="info"><em><tal:block i18n:translate="un_mandataite_n_a_pas_le_droit_de_creer_une_cle_secondaire">un_mandataite_n_a_pas_le_droit_de_creer_une_cle_secondaire</tal:block><br>
+						<tal:block i18n:translate="vous_pouvez_revoquer_une_cle_secondaire_a_tout_moment">vous_pouvez_revoquer_une_cle_secondaire_a_tout_moment</tal:block></em></p>
+						<table class="detail_table" id="secondary_keys" style="font-size:1em;">
+							<tbody><tr>
+								<th colspan="3" i18n:translate="vos_cles_secondaires">vos_cles_secondaires</th>
+							</tr>
+							<tr class="title">
+								<th i18n:translate="mandataire">mandataire</th>
+								<th i18n:translate="cle">cle</th>
+								<th i18n:translate="revoquer">revoquer</th>
+							</tr>
+							<tal:block tal:content="structure python:view.get_table_lines_secondary_keys()"></tal:block>							
+							
+						</tbody></table>
+						<br />
+						<table class="detail_table" style="font-size:1em;">
+							<tbody><tr>
+								<th i18n:translate="ajouter_une_nouvelle_cle_secondaire">ajouter_une_nouvelle_cle_secondaire</th>
+							</tr>
+							<tr>
+								<td>
+									<label for="mandat" i18n:translate="mandataire">mandataire</label>
+									<input type="text" size="35" id="input_mandat">&nbsp;
+									<span id="add_mandat" style="border:1px solid #bbb;background-color:#ddd;cursor:pointer;padding:.15em .5em;" class="flip2">
+									<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/add.png" alt="add" style="margin:5px 3px 0 0;"><tal:block i18n:translate="ajouter">Ajouter</tal:block></span>
+								</td>
+						</tr></tbody></table>
+					</div>
+				</td>
+			</tr>
+		</tbody></table>
+				
 		</div>        
-        
+        </tal:block>
         <tal:block tal:condition="data/error" >
-            <div tal:replace="data/error_text">error</div>
+            <div tal:replace="data/msg_error">error</div>
         </tal:block>
     </div>
 </body>
