@@ -10,8 +10,6 @@ var dossiers;
 var urbislayer;
 $(document).ready(function() {
 
-
-
     $("#accordion").accordion({active: 2});
     
     var url_ws_urbis = $('#ws_urbis').html();
@@ -28,7 +26,8 @@ $(document).ready(function() {
         projection: new OpenLayers.Projection('EPSG:31370'),
         maxExtent: new OpenLayers.Bounds(16478.795,19244.928,301307.738,304073.87100000004),
         units: "meters", 
-        controls: [new OpenLayers.Control.Navigation(),new OpenLayers.Control.PanZoomBar()]
+        controls: [new OpenLayers.Control.Navigation(),new OpenLayers.Control.PanZoomBar()],
+        theme: portal_url + "/++resource++cirb.novac.scripts/openlayers.css"
     };
     map = new OpenLayers.Map('map', mapOptions );
 	
@@ -50,7 +49,11 @@ $(document).ready(function() {
 	}
 	
     //create the highest cluster layer
-	clusters3km = new OpenLayers.Layer.WMS("Clusters3km", url_ws_urbis,{layers: 'nova:CLUSTER3KM', transparent: 'true',minScale: 50000});
+	clusters3km = new OpenLayers.Layer.WMS(
+		"Clusters3km", 
+		url_ws_urbis,
+		{layers: 'nova:CLUSTER3KM', transparent: 'true',minScale: 50000},
+		{singleTile: true, ratio: 1, isBaseLayer: true});
     map.addLayer(clusters3km);
 
 	//create the lowest cluset layer
@@ -65,17 +68,18 @@ $(document).ready(function() {
  	map.addLayer(dossiers);
 
 	var mapOptions2 = {
-		        resolutions: [139.76915808105469],
+		    resolutions: [139.76915808105469],
 		    projection: new OpenLayers.Projection('EPSG:31370'),
 		    maxExtent: new OpenLayers.Bounds(140000,150000,160000,177000),
 		    units: "meters", 
+		    theme: portal_url + "/++resource++cirb.novac.scripts/openlayers.css"
 		    };
 	var jplOverview = urbislayer.clone();
 	var controlOptions = {
 		        maximized: true,
 				size : new OpenLayers.Size(140,120),
 		        mapOptions: mapOptions2,
-		        layers: [jplOverview]
+		        layers: [jplOverview],
      };
 
     var overview = new OpenLayers.Control.OverviewMap(controlOptions);
