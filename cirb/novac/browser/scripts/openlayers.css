@@ -86,8 +86,9 @@ div.olControlMousePosition {
 
 .olControlOverviewMapElement {
     padding: 2px 2px 2px 2px;
-    background-color: #000000;
+    background-color: #FFFFFF;
     -moz-border-radius: 1em 0 0 0;
+    border: solid 2px #000000;
 }
 
 .olControlOverviewMapMinimizeButton {
@@ -104,7 +105,8 @@ div.olControlMousePosition {
 
 .olControlOverviewMapExtentRectangle {
     overflow: hidden;
-    background-image: url("++resource++cirb.novac.images/blank.gif");
+    background: transparent;
+    /*background-image: url("++resource++cirb.novac.images/blank.gif");*/
     cursor: move;
     border: 2px dotted red;
 }

@@ -40,50 +40,61 @@ $(document).ready(function() {
         );
         map.addLayer(urbislayer);
     }else{
-    urbislayer = new OpenLayers.Layer.WMS(
-        "urbisNL",url_ws_urbis_cache,
-        {layers: 'urbisNL', format: 'image/png' },
-        { tileSize: new OpenLayers.Size(256,256) }
-    );
-    map.addLayer(urbislayer);
+        urbislayer = new OpenLayers.Layer.WMS(
+            "urbisNL",url_ws_urbis_cache,
+            {layers: 'urbisNL', format: 'image/png' },
+            { tileSize: new OpenLayers.Size(256,256) }
+        );
+        map.addLayer(urbislayer);
     }
 
     //create the highest cluster layer
 	clusters3km = new OpenLayers.Layer.WMS(
 		"Clusters3km", 
 		url_ws_urbis,
-		{layers: 'nova:CLUSTER3KM', transparent: 'true',minScale: 50000},
-		{singleTile: true, ratio: 1, isBaseLayer: true});
+		{layers: 'nova:CLUSTER3KM', transparent: 'true'},
+		{singleTile: true, ratio: 1.25, isBaseLayer: false, minScale: 50000});
     map.addLayer(clusters3km);
 
     //create the lowest cluset layer
-    var clusters1km = new OpenLayers.Layer.WMS("Clusters1km", url_ws_urbis,{layers: 'nova:CLUSTER1KM', transparent: 'true',minScale: 25000,maxScale:50000});
+    var clusters1km = new OpenLayers.Layer.WMS(
+        "Clusters1km", 
+        url_ws_urbis,
+        {layers: 'nova:CLUSTER1KM', transparent: 'true'},
+        {singleTile: true, ratio: 1.25, isBaseLayer: false, minScale: 25000});
     map.addLayer(clusters1km);
 
 
 	//create the dossiers layer
-	dossiers = new OpenLayers.Layer.WMS((current_language == 'fr')?"Permis d'urbanisme":"Bouwaanvragen",
-			url_ws_urbis, 
-			{layers: 'nova:NOVA_DOSSIERS', transparent: true, maxScale: 25000, singleTile: true}
-			);
+	dossiers = new OpenLayers.Layer.WMS(
+	    (current_language == 'fr')?"Permis d'urbanisme":"Bouwaanvragen",
+		url_ws_urbis, 
+		{layers: 'nova:NOVA_DOSSIERS', transparent: true},
+		{singleTile: true, ratio: 1.25, isBaseLayer: false, maxScale: 25000});
  	map.addLayer(dossiers);
 
+    //add overview map
 	var mapOptions2 = {
-		    resolutions: [139.76915808105469],
+		    resolutions: [142.857],
 		    projection: new OpenLayers.Projection('EPSG:31370'),
-		    maxExtent: new OpenLayers.Bounds(140000,150000,160000,177000),
+		    maxExtent: new OpenLayers.Bounds(140000,153000,160000,173000),
 		    units: "meters", 
 		    theme: portal_url + "/++resource++cirb.novac.scripts/openlayers.css"
 		    };
-	var jplOverview = urbislayer.clone();
+	//var jplOverview = urbislayer.clone();
+	var jplOverview = new OpenLayers.Layer.WMS(
+        "Municipalities", 
+        url_ws_urbis,
+        {layers: 'urbis:URB_A_MU ', transparent: 'true'},
+        {singleTile: true, ratio: 1, isBaseLayer: true});
 	var controlOptions = {
 		        maximized: true,
-				size : new OpenLayers.Size(140,120),
+				size : new OpenLayers.Size(140,140),
 		        mapOptions: mapOptions2,
 		        layers: [jplOverview],
+		        maximized: false,
+		        autoPan: false
      };
-
-
     var overview = new OpenLayers.Control.OverviewMap(controlOptions);
     map.addControl(overview);
 
