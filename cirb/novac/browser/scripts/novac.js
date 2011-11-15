@@ -8,6 +8,8 @@ var clusters3km;
 var current_language;
 var dossiers;
 var urbislayer;
+var address_data;
+
 $(document).ready(function() {
 
     $("#accordion").accordion({active: 0}, "option", "fillSpace", true );
@@ -47,6 +49,14 @@ $(document).ready(function() {
         );
         map.addLayer(urbislayer);
     }
+    
+    //municipalities layer
+    var municipalities = new OpenLayers.Layer.WMS(
+        "Municipalities", 
+        url_ws_urbis,
+        {layers: 'urbis:URB_A_MU ', styles: 'nova_municipalities', transparent: 'true'},
+        {singleTile: true, ratio: 1.25, isBaseLayer: false});
+    map.addLayer(municipalities);
 
     //create the highest cluster layer
 	clusters3km = new OpenLayers.Layer.WMS(
@@ -165,7 +175,7 @@ function showPointInfo(response) {
     if(current_language == 'fr'){
         result += "<div class='tabbertab' title='Permis ";
         result += i+1;
-        result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Type de permis</td><td>";
+        result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Type de permis:</td><td>";
         result += (getElements(permits[i], "nova", "TYPEDOSSIERFR")[0])?getElements(permits[i], "nova", "TYPEDOSSIERFR")[0].textContent+ " ":"";
         result +="</td><tr></tr><td>Adresse :</td><td>";
         result += (getElements(permits[i], "nova", "STREETNAMEFR")[0])?getElements(permits[i], "nova", "STREETNAMEFR")[0].textContent+ " ":"";
@@ -192,10 +202,11 @@ function showPointInfo(response) {
 
     result += "<div class='tabbertab' title='Vergunning ";
     result += i+1;
-    result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Vergunningstype</td><td>";
+    result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Vergunningstype:</td><td>";
     result += (getElements(permits[i], "nova", "TYPEDOSSIERNL")[0])?getElements(permits[i], "nova", "TYPEDOSSIERNL")[0].textContent+ " ":"";
     result +="</td><tr></tr><td>Adres :</td><td>";
     result += (getElements(permits[i], "nova", "STREETNAMENL")[0])?getElements(permits[i], "nova", "STREETNAMENL")[0].textContent+ " ":"";
+
 
     result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?getElements(permits[i], "nova", "NUMBERPARTFROM")[0].textContent:"";
 
@@ -343,9 +354,10 @@ function searchAddress(street, number, post_code){
         type: "POST",
         url: my_url,
         data: parameters,
-        dataType: "json",
-        success:  function(data) {
-            $('#results_panel').html('success<br />'+data+'<br />'+my_url+'<br />'+ parameters);
+        dataType: "text",
+        success:  function(json_data) {
+            address_data = json_data;
+            $('#results_panel').html('success<br />'+json_data+'<br />'+my_url+'<br />'+ parameters);
         },
         error:  function(data) {
             $('#results_panel').html('error <br />'+data+'<br />'+my_url+'<br />'+ parameters);
