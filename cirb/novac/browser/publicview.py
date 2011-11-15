@@ -77,63 +77,48 @@ class PublicView(BrowserView):
         url = '%s/%s/%s/' % (self.novac_url, PUB_DOSSIER, num_dossier)
         #TODO use utils method
         #
-        try:
-            socket.setdefaulttimeout(7) # let's wait 7 sec            
-            
-            request = urllib2.Request(url,headers={'content-type': 'application/json', 
-                                                   'ACCEPT': 'application/json'})            
-            #request.add_header('User-Agent', 'Cas/1 +http://www.cirb.irisnet.be/')
-            opener = urllib2.build_opener()
-            data_from_url = opener.open(request).read()
-        except HTTPError, e:
-            msg_error = _('The server couldn\'t fulfill the request.<br />Error code: %s' % e.code)
-            error=True
-            return {'data':data, 'error':error, 'msg_error':msg_error, 'called_url':url}
-        except URLError, e:
-            msg_error = _('We failed to reach a server.<br /> Reason: %s'% e.reason)
-            error=True
-            return {'data':data, 'error':error, 'msg_error':msg_error, 'called_url':url}
-        finally:
-            socket.setdefaulttimeout(oldtimeout)
+        data_from_url = called_url(url, [{'Content-Type': 'application/json'},{'ACCEPT': 'application/json'}])
         
-        msgid = _(u"not_available")
-        not_avaiable = self.context.translate(msgid)
         
-        import json
-        data = json.loads(data_from_url)
-        try:
-            geometry = data['geometry']
-            properties = data['properties']
-        except:
-            geometry=None
-            properties=None
-        try:
-            address = '%s, %s %s %s' % (properties['numberFrom'],
-                                    properties['streetName'],
-                                    properties['zipCode'],
-                                    properties['municipality'],)
-        except:
-            address = not_avaiable   
-            
-        type_dossier = get_properties(self.context, properties,"typeDossier")
-        desc = get_properties(self.context, properties,'object')
-        ref = get_properties(self.context, properties,'novaRef')
-        folder_filed = get_properties(self.context, properties,'folderFiled')
-        introduce_on = get_properties(self.context, properties,'startPublicInquiry')
-        lang = get_properties(self.context, properties,'lang')
-        status = get_properties(self.context, properties,'statusPermit')
-       
-        try:
-            x = str(geometry['x'])
-            y = str(geometry['y'])
-        except:
-            x = '150000.0'
-            y = '170000.0'
-            
-        results = {'address':address, 'type_dossier':type_dossier,'desc':desc,'ref':ref, 
-                 'num_dossier':num_dossier, 'folder_filed':folder_filed, 'introduce_on':introduce_on,
-                 'lang':lang, 'status':status, 'x':x, 'y':y}
-        
+        if data_from_url:
+            import json
+            data = json.loads(data_from_url)
+            try:
+                geometry = data['geometry']
+                properties = data['properties']
+            except:
+                geometry=None
+                properties=None
+            try:
+                address = '%s, %s %s %s' % (properties['numberFrom'],
+                                        properties['streetName'],
+                                        properties['zipCode'],
+                                        properties['municipality'],)
+            except:
+                address = not_avaiable   
+                
+            type_dossier = get_properties(self.context, properties,"typeDossier")
+            desc = get_properties(self.context, properties,'object')
+            ref = get_properties(self.context, properties,'novaRef')
+            folder_filed = get_properties(self.context, properties,'folderFiled')
+            introduce_on = get_properties(self.context, properties,'startPublicInquiry')
+            lang = get_properties(self.context, properties,'lang')
+            status = get_properties(self.context, properties,'statusPermit')
+           
+            try:
+                x = str(geometry['x'])
+                y = str(geometry['y'])
+            except:
+                x = '150000.0'
+                y = '170000.0'
+                
+            results = {'address':address, 'type_dossier':type_dossier,'desc':desc,'ref':ref, 
+                     'num_dossier':num_dossier, 'folder_filed':folder_filed, 'introduce_on':introduce_on,
+                     'lang':lang, 'status':status, 'x':x, 'y':y}
+        else:
+            error = True
+            msg_error = 'Num dossier %s is unknowed or empty' %num_dossier
+            return  {'error':error, 'msg_error':msg_error, 'called_url':url}
         return {'data':data, 'rest_service':self.rest_service, 'results':results,
                 'error':error, 'msg_error':msg_error, 'called_url':url }
     

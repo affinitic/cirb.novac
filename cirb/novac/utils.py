@@ -27,11 +27,11 @@ def called_url(request_url, request_headers, params='', lang='fr'): # for exempl
         results = opener.open(request).read()
     except HTTPError, e:
         exception = _('The server couldn\'t fulfill the request. Error code: %s. Url: %s' % (e.code, url))
-        logger.info(exception)
+        logger.error(exception)
         return False
     except URLError, e:
         exception =  _('We failed to reach a server.<br />Reason: %s'% e.reason)
-        logger.info(exception)
+        logger.error(exception)
         return False
     finally:
         socket.setdefaulttimeout(oldtimeout)

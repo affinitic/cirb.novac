@@ -122,8 +122,7 @@ class PrivateView(BrowserView):
         key = urllib.quote(self.request.form.get('key'))
         revoke_mandat = '%s%s%s' %(self.novac_url,REVOKE_SECONDARY_KEY,key)        
         results = call_put_url(revoke_mandat,[{'Content-Type':'application/xml'}], query_string)
-        if results=='':
-            results=True
+        
         return results
     
     def get_table_lines_secondary_keys(self):
