@@ -54,7 +54,7 @@ class ListprivateView(BrowserView):
         user = self.portal_state.member()
         
         dossier_list_url = '%s%s%s' %(self.novac_url,FOLDER_LIST_WS,"Test")
-        dossier_list = called_url(dossier_list_url, [{'Content-Type':'application/json'}, {'':''}])
+        dossier_list = called_url(dossier_list_url, [{'Content-Type':'application/json'}, {'ACCEPT':'application/json'}])
         results=[]
         import json
         jsondata=''
