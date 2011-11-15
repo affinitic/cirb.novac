@@ -25,10 +25,10 @@ table.urbis_result td {padding:10px; font-weight: normal;}
 /*** Navigation ***/
 table.filter td{border-width:5px; border-color:transparent;}
 td.color {height:25px; width:25px;}
-td.required {background-color:yellow}
-td.granted {background-color:green}
-td.refused {background-color:red}
-td.canceled {background-color:blue}
+td.required {background-color:#FFB500}
+td.granted {background-color:#118E40}
+td.refused {background-color:#C1001E}
+td.canceled {background-color:#19487C}
 
 
 
