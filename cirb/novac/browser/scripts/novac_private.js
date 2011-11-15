@@ -15,6 +15,7 @@ $(document).ready(function() {
     $('.revoke_mandat').click(function () {
         targetID = getURLParameter('id');
         var url = $(this).attr("href");
+        $(this).attr("href","#");
         $.get(url, function(data) {
             //reload table with the new 'secondary key'
             reload_table_list_secondary_key();

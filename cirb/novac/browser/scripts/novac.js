@@ -10,7 +10,7 @@ var dossiers;
 var urbislayer;
 $(document).ready(function() {
 
-    $("#accordion").accordion({active: 2});
+    $("#accordion").accordion({active: 0}, "option", "fillSpace", true );
 
     var url_ws_urbis = $('#ws_urbis').html();
     var url_ws_urbis_cache = $('#urbis_cache_url').html();

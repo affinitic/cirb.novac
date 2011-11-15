@@ -76,8 +76,9 @@
                         </table>                        
                     
                     </div>
-                    <!--h3><a href="#" i18n:translate="recherche_dossiers">recherche_dossiers</a></h3>
-                    <div>
+                    <h3 class="slice-2"><a href="#" i18n:translate="recherche_dossiers">recherche_dossiers</a></h3>
+					<div>&nbsp;</div>
+                    <!--div>
                         <table>
                         <tbody>
                             <tr><td i18n:translate="street_name:">street_name:</td><td><input type="text" id="folder_street" /></td></tr>

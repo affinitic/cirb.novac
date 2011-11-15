@@ -79,7 +79,7 @@
 		</div>
         
         <tal:block tal:condition="data/error" >
-            <div tal:replace="data/error_text">error</div>
+            <div tal:replace="data/msg_error">error</div>
         </tal:block>
 		
 		

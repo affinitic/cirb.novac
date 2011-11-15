@@ -54,7 +54,7 @@ class ListprivateView(BrowserView):
         user = self.portal_state.member()
         
         dossier_list_url = '%s%s%s' %(self.novac_url,FOLDER_LIST_WS,"Test")
-        dossier_list = called_url(dossier_list_url, 'application/json')
+        dossier_list = called_url(dossier_list_url, [{'Content-Type':'application/json'}, {'':''}])
         results=[]
         import json
         jsondata=''
@@ -98,14 +98,15 @@ class ListprivateView(BrowserView):
         
         activate_url = '%s%s%s' %(self.novac_url,ACTIVATION,urllib.quote(key))
         #activate_url = activate_url.encode('utf-8')
-        results = call_put_url(activate_url,'application/xml', query_string)
+        results = call_put_url(activate_url,[{'Content-Type':'application/xml'},{'RNHEAD':'Test'}], query_string)
         
         return 'activate_key : %s <br />%s ' % (activate_url, results)
     
     def get_table_lines_folder(self):        
         #errn = urllib.quote(self.request.form.get('errn'))
-        dossier_list_url = '%s%s%s' %(self.novac_url,FOLDER_LIST_WS,"Test")
-        dossier_list = called_url(dossier_list_url, 'application/json')
+        dossier_list_url = '%s%s' %(self.novac_url,FOLDER_LIST_WS)
+        dossier_list = called_url(dossier_list_url, [{'Content-Type':'application/json'}, {'ACCEPT':'application/json'}, {'RNHEAD':'Test'}], params="")
+        print dossier_list
         if not dossier_list:
             return '<tr id="content_list_folder" style="height: 0px;"><td></td><td></td><td></td><td></td></tr>'
         results=[]

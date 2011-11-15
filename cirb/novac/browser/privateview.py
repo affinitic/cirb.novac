@@ -57,14 +57,14 @@ class PrivateView(BrowserView):
             msg_error=_(u'No id folder in get method')
         #dossier_id = self.request.form.get('id')
         dossier_url = '%s%s%s' % (self.novac_url,PRIVATE_FODLER_WS,self.id_dossier)
-        jsondata = called_url(dossier_url, 'application/json')
+        jsondata = called_url(dossier_url, [{'Content-Type':'application/json'},{'ACCEPT':'application/json'}, {'RNHEAD':'Test'}])
         if not jsondata:
             logger.info('Not able to call ws %s' % dossier_url)
             error=True
             msg_error=_(u'Not able to call ws')
             return {'novac_url':self.novac_url, 'urbis_url':self.urbis_url, 'error':error,'msg_error':msg_error}
         history_url = '%s%s' % (dossier_url,HISTORY)
-        history = called_url(history_url, 'application/json')
+        history = called_url(history_url,[{'Content-Type':'application/json'}, {'ACCEPT':'application/json'}])
         if not history:
             logger.info('Not able to call ws %s' % history_url)
             error=True
@@ -112,7 +112,7 @@ class PrivateView(BrowserView):
         activate_mandat = '%s%s%s%s%s' %(self.novac_url,ADD_SECONDARY_KEY,targetID,
                                      ADD_SECONDARY_KEY_NAME,mandat)
         
-        results = call_put_url(activate_mandat,'application/xml', query_string)
+        results = call_put_url(activate_mandat,[{'Content-Type':'application/xml'}], query_string)
         
         return results
 
@@ -121,7 +121,7 @@ class PrivateView(BrowserView):
         query_string = self.request.environ['QUERY_STRING']
         key = urllib.quote(self.request.form.get('key'))
         revoke_mandat = '%s%s%s' %(self.novac_url,REVOKE_SECONDARY_KEY,key)        
-        results = call_put_url(revoke_mandat,'application/xml', query_string)
+        results = call_put_url(revoke_mandat,[{'Content-Type':'application/xml'}], query_string)
         if results=='':
             results=True
         return results
@@ -133,7 +133,7 @@ class PrivateView(BrowserView):
             targetID = urllib.quote(self.request.form.get('targetID'))
                 
         secondary_keys_url = '%s%s%s' %(self.novac_url,SECONDARY_KEYS,targetID)
-        secondary_keys = called_url(secondary_keys_url, 'application/json')
+        secondary_keys = called_url(secondary_keys_url, [{'Content-Type':'application/json'}, {'ACCEPT':'application/json'},{'RNHEAD':'Test'}])
         if not secondary_keys:
             return '<tr class="secondary_key" style="height: 0px;"><td></td><td></td><td></td></tr>'
         results=[]
