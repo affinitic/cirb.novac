@@ -193,7 +193,7 @@ function showPointInfo(response) {
     result += (getElements(permits[i], "nova", "OBJECTFR")[0])?getElements(permits[i], "nova", "OBJECTFR")[0].textContent+ " ":"";
 
     result +='</td><tr></tr><tr><td><a href="';
-    result += (getElements(permits[i], "nova", "S_IDADDRESS")[0])?absolute_url+"/wawspublic_view?id=" + getElements(permits[i], "nova", "S_IDADDRESS")[0].textContent:"";
+    result += (permits[i].getAttribute("fid"))?absolute_url+"/wawspublic_view?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
 
     result+= '">Pour en savoir plus...<a/></td></tr></table></div>';
 
@@ -221,7 +221,7 @@ function showPointInfo(response) {
     result += (getElements(permits[i], "nova", "OBJECTNL")[0])?getElements(permits[i], "nova", "OBJECTNL")[0].textContent+ " ":"";
 
     result += '</td><tr></tr><tr><td><a href="';
-    result += (getElements(permits[i], "nova", "S_IDADDRESS")[0])?absolute_url+"/wawspublic_view?id=" + getElements(permits[i], "nova", "S_IDADDRESS")[0].textContent:"";
+    result += (permits[i].getAttribute("fid"))?absolute_url+"/wawspublic_view?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
 
     result+= '">Meer informatie...<a/></td></tr></table></div>';
 }
