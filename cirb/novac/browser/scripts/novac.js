@@ -285,7 +285,7 @@ function applyDossierFilter(canceled,refused,demanded,granted){
 
 function searchAddress(street, number, post_code){
 
-    var mypostrequest=new ajaxRequest();
+    /*var mypostrequest=new ajaxRequest();
     mypostrequest.onreadystatechange=function(){
         if (mypostrequest.readyState==4){
             if (mypostrequest.status==200 || window.location.href.indexOf("http")==-1){
@@ -302,36 +302,44 @@ function searchAddress(street, number, post_code){
                             }
                         }else{
                             //no features found.alert user?
+                        }
+                    }else{
+                        //error occured
+                    }
+                }catch(err){
+                    //handle exception?
+                }
+            }
+            else{
+                alert("An error has occured making the request");
+            }
+        }
+    }*/
 
+    //var parameters="{'language': '"+ $('#current_language').html() +"','address': {'street': {'name':'"+street+"','postcode': '"+post_code+"'},'number': '"+number+"'}}";
+    var parameters = {
+        'url': 'http://services.gis.irisnetlab.be/urbis/Rest/Localize/getstreet',
+        'language': "'" + $('#current_language').html() + "'",
+        'address': {'street': {'name':"'"+street+"'",'postcode': "'"+post_code+"'"}, 'number': "'"+number+"'"}
     }
-}else{
-    //error occured
-
-    }
-}catch(err){
-    //handle exception?
-}
-}
-else{
-    alert("An error has occured making the request");
-}
-}
-}
-
-    var parameters="{'language': '"+ $('#current_language').html() +"','address': {'street': {'name':'"+street+"','postcode': '"+post_code+"'},'number': '"+number+"'}}";
+    
     //TODO make a call to a proxy that can handle post requests
-    var my_url = portal_url+"/wfs_post_request?url=http://services.gis.irisnetlab.be/urbis/Rest/Localize/getstreet&json=True"
-    var ws_url = 'http://services.gis.irisnetlab.be/urbis/Rest/Localize/getstreet'
+    var my_url = portal_url+"/wfs_post_request"
+    //var ws_url = 'http://services.gis.irisnetlab.be/urbis/Rest/Localize/getstreet'
     //alert(my_url);
+    
+    /*
     mypostrequest.open("POST", my_url, true);
     mypostrequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     //mypostrequest.send("(" + parameters + ")");
     results = mypostrequest.send(parameters);
-    //alert(results+" ------ "+my_url);.
+    //alert(results+" ------ "+my_url);
+    */
+    
     // bsuttor test
     $.ajax({
         type: "POST",
-        url: ws_url,
+        url: my_url,
         data: parameters,
         contentType: "application/json",
         dataType: "json",
