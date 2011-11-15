@@ -318,9 +318,11 @@ function searchAddress(street, number, post_code){
 
     //var parameters="{'language': '"+ $('#current_language').html() +"','address': {'street': {'name':'"+street+"','postcode': '"+post_code+"'},'number': '"+number+"'}}";
     var parameters = {
-        'url': 'http://services.gis.irisnetlab.be/urbis/Rest/Localize/getstreet',
-        'language': "'" + $('#current_language').html() + "'",
-        'address': {'street': {'name':"'"+street+"'",'postcode': "'"+post_code+"'"}, 'number': "'"+number+"'"}
+        url: 'http://services.gis.irisnetlab.be/urbis/Rest/Localize/getstreet',
+	    language: $('#current_language').html(),
+        street: street,
+		postcode:post_code,
+		number:number
     }
     
     //TODO make a call to a proxy that can handle post requests
@@ -341,7 +343,6 @@ function searchAddress(street, number, post_code){
         type: "POST",
         url: my_url,
         data: parameters,
-        contentType: "application/json",
         dataType: "json",
         success:  function(data) {
             $('#results_panel').html('success<br />'+data+'<br />'+my_url+'<br />'+ parameters);

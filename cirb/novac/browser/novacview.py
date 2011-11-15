@@ -84,18 +84,24 @@ class NovacView(BrowserView):
         #url = query_string.replace("url=","")
         url = self.request.form.get('url')
         jsonheader = self.request.form.get('json')
+        lang = self.request.form.get('language')
+        street = self.request.form.get('street')
+        post_code = self.request.form.get('postcode')
+        number = self.request.form.get('number')
+        
         header=[]
         header.append({"Content-Type":"application/x-www-form-urlencoded"})
         if jsonheader:
             header=[]
             header.append({"Content-Type":"application/json"})
             header.append({"ACCEPT":"application/json"})
-        params = ""
-        for key in self.request.form.keys():
-            if key != 'url' and key != 'json':
-                params = key
-                
-        return call_post_url(url , header, params)
+        params = {}
+       
+        params['language'] = lang
+        params['address'] = {'street':{'name':street, 'postcode':post_code}, 'number':number}
+        import json
+        data = json.dumps(params)
+        return call_post_url(url , header, data)
 
 
 

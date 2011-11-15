@@ -93,8 +93,7 @@ def call_post_url(request_url, request_headers, params=''): # request_headers is
         socket.setdefaulttimeout(7) # let's wait 7 sec        
         request = urllib2.Request(url)
         if params:
-            import json
-            request.add_data(json.dumps(params))
+            request.add_data(params)
         for header in request_headers:
             try:
                 request.add_header(header.keys()[0], header.values()[0])
