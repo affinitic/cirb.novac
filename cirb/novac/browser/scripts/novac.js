@@ -8,7 +8,6 @@ var clusters3km;
 var current_language;
 var dossiers;
 var urbislayer;
-var address_data;
 
 $(document).ready(function() {
 
@@ -359,11 +358,17 @@ function searchAddress(street, number, post_code){
         data: parameters,
         dataType: "text",
         success:  function(json_data) {
-            address_data = json_data;
-            $('#results_panel').html('success<br />'+json_data+'<br />'+my_url+'<br />'+ parameters);
+            var address_data = $.parseJSON(json_data);
+            var x =Number(address_data.result[0].point.x);
+            var y =Number(address_data.result[0].point.y);
+            if(!(isNaN(x) || isNaN(y)))
+            {
+                map.setCenter(new OpenLayers.LonLat(x,y), 6);
+
+            }
         },
         error:  function(data) {
-            $('#results_panel').html('error <br />'+data+'<br />'+my_url+'<br />'+ parameters);
+            
         },
     });
     
