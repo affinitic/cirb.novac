@@ -27,7 +27,7 @@
  margin:0;
  padding: 3px 0;
  border-bottom: 1px solid #778;
- font: bold 12px Verdana, sans-serif;
+ font: bold 11px Verdana, sans-serif;
  margin-left: 0em;
 }
 
@@ -109,8 +109,10 @@ ul.tabbernav li.tabberactive a:hover
  overflow:auto;
 }
 
-#OpenLayers.Control.PanZoomBar_3_zoomout {
-position: absolute; left: 13px; top: 82px; width: 18px; height: 18px;
+.tabbertab table td {
+  vertical-align: top;
 }
+
+
 
 

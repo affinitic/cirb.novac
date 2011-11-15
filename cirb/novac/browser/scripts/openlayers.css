@@ -270,6 +270,7 @@ div.olControlSaveFeaturesItemInactive {
 .olFramedCloudPopupContent {
     padding: 5px;
     overflow: auto;
+    font-size: 10px;
 }
 
 .olControlNoSelect {
@@ -432,4 +433,9 @@ span.olGoogleAttribution.hybrid a, span.olGoogleAttribution.satellite a {
 }
 .olControlEditingToolbar .olControlDrawFeaturePolygonItemActive {
     background-position: -26px -24px;
+}
+
+
+#OpenLayers.Control.PanZoomBar_3_zoomout {
+position: absolute; left: 13px; top: 82px; width: 18px; height: 18px;
 }
