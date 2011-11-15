@@ -92,13 +92,12 @@ class ListprivateView(BrowserView):
      
     # view to activate a dossier with the key
     def activate_key(self):
-        #key = self.request.form.get('key')
-        query_string = self.request.environ['QUERY_STRING']
-        key = query_string.replace('key=','')
-        
-        activate_url = '%s%s%s' %(self.novac_url,ACTIVATION,urllib.quote(key))
+        key = urllib.quote_plus(self.request.form.get('key'))
+        #query_string = self.request.environ['QUERY_STRING']
+        #key = query_string.replace('key=','')
+        activate_url = '%s%s%s' %(self.novac_url,ACTIVATION,key)
         #activate_url = activate_url.encode('utf-8')
-        results = call_put_url(activate_url,[{'Content-Type':'application/xml'},{'RNHEAD':'Test'}], query_string)
+        results = call_put_url(activate_url,[{'Content-Type':'application/xml'},{'RNHEAD':'Test'}], urllib.quote_plus(query_string))
         
         return 'activate_key : %s <br />%s ' % (activate_url, results)
     
@@ -106,7 +105,7 @@ class ListprivateView(BrowserView):
         #errn = urllib.quote(self.request.form.get('errn'))
         dossier_list_url = '%s%s' %(self.novac_url,FOLDER_LIST_WS)
         dossier_list = called_url(dossier_list_url, [{'Content-Type':'application/json'}, {'ACCEPT':'application/json'}, {'RNHEAD':'Test'}], params="")
-        print dossier_list
+        #print dossier_list
         if not dossier_list:
             return '<tr id="content_list_folder" style="height: 0px;"><td></td><td></td><td></td><td></td></tr>'
         results=[]

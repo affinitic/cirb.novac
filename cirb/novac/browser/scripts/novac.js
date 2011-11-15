@@ -12,7 +12,7 @@ var address_data;
 
 $(document).ready(function() {
 
-    $("#accordion").accordion({active: 0}, "option", "fillSpace", true );
+    $("#accordion").accordion({active: 1}, "option", "fillSpace", true );
 
     var url_ws_urbis = $('#ws_urbis').html();
     var url_ws_urbis_cache = $('#urbis_cache_url').html();
@@ -113,6 +113,9 @@ $(document).ready(function() {
 
 
     $("#search_address_button").click(function() {
+        searchAddress($('#street').val(),$('#number').val(),$('#post_code').val());
+    });
+	$("#search_address_button").click(function() {
         searchAddress($('#street').val(),$('#number').val(),$('#post_code').val());
     });
 
