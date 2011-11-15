@@ -47,6 +47,14 @@ $(document).ready(function() {
         );
         map.addLayer(urbislayer);
     }
+    
+    //municipalities layer
+    var municipalities = new OpenLayers.Layer.WMS(
+        "Municipalities", 
+        url_ws_urbis,
+        {layers: 'urbis:URB_A_MU ', styles: 'nova_municipalities', transparent: 'true'},
+        {singleTile: true, ratio: 1.25, isBaseLayer: false});
+    map.addLayer(municipalities);
 
     //create the highest cluster layer
 	clusters3km = new OpenLayers.Layer.WMS(
@@ -196,6 +204,7 @@ function showPointInfo(response) {
     result += (getElements(permits[i], "nova", "TYPEDOSSIERNL")[0])?getElements(permits[i], "nova", "TYPEDOSSIERNL")[0].textContent+ " ":"";
     result +="</td><tr></tr><td>Adres :</td><td>";
     result += (getElements(permits[i], "nova", "STREETNAMENL")[0])?getElements(permits[i], "nova", "STREETNAMENL")[0].textContent+ " ":"";
+
 
     result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?getElements(permits[i], "nova", "NUMBERPARTFROM")[0].textContent:"";
 
