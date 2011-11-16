@@ -5,6 +5,7 @@ from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 from zope.component import getMultiAdapter
 
+
 from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
 
@@ -141,5 +142,5 @@ class ListprivateView(BrowserView):
             <td>%s</td>
             <td>%s</td>
             </tr>''' % (self.context.absolute_url(), result['dossier_id'], result['address'], result['ref'], result['type_dossier'],'???')
-            
+        #print get_user()
         return table

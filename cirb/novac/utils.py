@@ -5,6 +5,9 @@ import urllib
 import logging
 from cirb.novac import novacMessageFactory as _
 
+from AccessControl import getSecurityManager
+
+
 def called_url(request_url, request_headers, params='', lang='fr'): # for exemple : content_type = application/xml
     """
     """
@@ -104,3 +107,7 @@ def get_properties(context, prop, prop_name):
             return prop[prop_name]
         except:
             return not_avaiable
+        
+def get_user():
+    user = getSecurityManager().getUser()
+    return user
