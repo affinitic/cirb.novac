@@ -117,7 +117,7 @@ class PublicView(BrowserView):
                      'lang':lang, 'status':status, 'x':x, 'y':y}
         else:
             error = True
-            msg_error = 'Num dossier %s is unknowed or empty' %num_dossier
+            msg_error = 'Num dossier %s is unknown or empty' %num_dossier
             return  {'error':error, 'msg_error':msg_error, 'called_url':url}
         return {'data':data, 'rest_service':self.rest_service, 'results':results,
                 'error':error, 'msg_error':msg_error, 'called_url':url }
