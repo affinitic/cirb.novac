@@ -66,9 +66,7 @@
 									<input type="text" size="4" maxlength="4" id='key4'>-
 									<input type="text" size="4" maxlength="4" id='key5'>-
 									<input type="text" size="4" maxlength="4" id='key6'>
-							<p><input type="checkbox" checked="checked">&nbsp;<em>
-							<tal:block i18n:translate="avertissement relatif carte d'identite electronique">Je suis toujours d'accord avec l'avertissement relatif à l'usage des données de ma carte d'identité électronique</tal:block>
-							</em></p>
+							<p>&nbsp;</p>
 							
 								<span style="border:1px solid #bbb;background-color:#ddd;cursor:pointer;padding:.15em .5em;">
 								<a style="color:#222;text-decoration:none;border-bottom:0;" href="#" id="activate_key">Activer</a></span><br><br>
