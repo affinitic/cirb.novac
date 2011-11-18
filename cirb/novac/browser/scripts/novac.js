@@ -11,7 +11,12 @@ var urbislayer;
 
 $(document).ready(function() {
 
-    $("#accordion").accordion({active: 1}, "option", "fillSpace", true );
+    $("#accordion").accordion({		
+		header : "h3",		
+		active : false,		
+		collapsible : true,		
+		autoHeight : false		
+	}); 
 
     var url_ws_urbis = $('#ws_urbis').html();
     var url_ws_urbis_cache = $('#urbis_cache_url').html();
