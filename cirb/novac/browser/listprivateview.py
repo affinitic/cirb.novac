@@ -101,14 +101,16 @@ class ListprivateView(BrowserView):
         key = urllib.quote_plus(query_string.replace('key=',''))
         activate_url = '%s%s%s' %(self.novac_url,ACTIVATION,key)
         #activate_url = activate_url.encode('utf-8')
-        results = call_put_url(activate_url,[{'Content-Type':'application/xml'},{'RNHEAD':'Test'}], 'key=%s' % key)
+        user = get_user(self.request)
+        results = call_put_url(activate_url,[{'Content-Type':'application/xml'},{'RNHEAD':user['id']}], 'key=%s' % key)
         
         return 'activate_key : %s <br />%s ' % (activate_url, results)
     
     def get_table_lines_folder(self):        
         #errn = urllib.quote(self.request.form.get('errn'))
         dossier_list_url = '%s%s' %(self.novac_url,FOLDER_LIST_WS)
-        dossier_list = called_url(dossier_list_url, [{'Content-Type':'application/json'}, {'ACCEPT':'application/json'}, {'RNHEAD':'Test'}], params="")
+        user = get_user(self.request)
+        dossier_list = called_url(dossier_list_url, [{'Content-Type':'application/json'}, {'ACCEPT':'application/json'}, {'RNHEAD':user['id']}], params="")
         #print dossier_list
         if not dossier_list:
             return '<tr id="content_list_folder" style="height: 0px;"><td></td><td></td><td></td><td></td></tr>'

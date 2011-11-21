@@ -57,7 +57,8 @@ class PrivateView(BrowserView):
             msg_error=_(u'No id folder in get method')
         #dossier_id = self.request.form.get('id')
         dossier_url = '%s%s%s' % (self.novac_url,PRIVATE_FODLER_WS,self.id_dossier)
-        jsondata = called_url(dossier_url, [{'Content-Type':'application/json'},{'ACCEPT':'application/json'}, {'RNHEAD':'Test'}])
+        user = get_user(self.request)
+        jsondata = called_url(dossier_url, [{'Content-Type':'application/json'},{'ACCEPT':'application/json'}, {'RNHEAD':user['id']}])
         if not jsondata:
             logger.info('Not able to call ws %s' % dossier_url)
             error=True
@@ -132,7 +133,8 @@ class PrivateView(BrowserView):
             targetID = urllib.quote(self.request.form.get('targetID'))
                 
         secondary_keys_url = '%s%s%s' %(self.novac_url,SECONDARY_KEYS,targetID)
-        secondary_keys = called_url(secondary_keys_url, [{'Content-Type':'application/json'}, {'ACCEPT':'application/json'},{'RNHEAD':'Test'}])
+        user = get_user(self.request)
+        secondary_keys = called_url(secondary_keys_url, [{'Content-Type':'application/json'}, {'ACCEPT':'application/json'},{'RNHEAD':user['id']}])
         if not secondary_keys:
             return '<tr class="secondary_key" style="height: 0px;"><td></td><td></td><td></td></tr>'
         results=[]
