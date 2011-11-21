@@ -13,6 +13,8 @@ from cirb.novac import novacMessageFactory as _
 from cirb.novac.utils import *
 import urllib
 
+from zope.annotation.interfaces import IAnnotations
+
 FOLDER_LIST_WS = '/nova/sso/dossiers?errn=' # ?errn=errn3 used to test
 ACTIVATION = '/waws/sso/activate?key=' # ?errn=errn3 used to test
 
@@ -52,9 +54,9 @@ class ListprivateView(BrowserView):
             msg_error=_(u'No url for novac url')        
         self.portal_state = getMultiAdapter((self.context, self.request),
                                             name=u'plone_portal_state')
-        user = self.portal_state.member()
+        user = get_user(self.request)
         
-        dossier_list_url = '%s%s%s' %(self.novac_url,FOLDER_LIST_WS,"Test")
+        dossier_list_url = '%s%s%s' %(self.novac_url,FOLDER_LIST_WS,user['id'])
         dossier_list = called_url(dossier_list_url, [{'Content-Type':'application/json'}, {'ACCEPT':'application/json'}])
         results=[]
         import json
@@ -88,7 +90,7 @@ class ListprivateView(BrowserView):
             results.append(result)
         
         return {'novac_url':self.novac_url,'error':error,'msg_error':msg_error, 
-                'user':user, 'dossier_list':dossier_list, 'dossier_list_url':dossier_list_url,
+                'user':user['name'], 'dossier_list':dossier_list, 'dossier_list_url':dossier_list_url,
                 'results':results}
      
     # view to activate a dossier with the key

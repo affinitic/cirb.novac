@@ -108,6 +108,8 @@ def get_properties(context, prop, prop_name):
         except:
             return not_avaiable
         
-def get_user():
+def get_user(request):
     user = getSecurityManager().getUser()
-    return user
+    from zope.annotation.interfaces import IAnnotations
+    enn = IAnnotations(request)
+    return {'name':'%s %s' % (enn['CAS']['firstname'], enn['CAS']['lastname']), 'id':user}
