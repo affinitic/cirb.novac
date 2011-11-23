@@ -29,6 +29,7 @@
  border-bottom: 1px solid #778;
  font: bold 11px Verdana, sans-serif;
  margin-left: 0em;
+ white-space: nowrap;
 }
 
 #tabber ul.tabbernav li

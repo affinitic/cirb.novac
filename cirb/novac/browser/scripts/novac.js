@@ -178,63 +178,62 @@ function showPointInfo(response) {
     var absolute_url  = $('#absolute_url').html();
     //build the result html
     for(i =0; i < permits.length ; i++){
+		if(current_language == 'fr'){
+		    result += "<div class='tabbertab' title='Permis ";
+		    result += i+1;
+		    result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Type de permis:</td><td>";
+		    result += (getElements(permits[i], "nova", "TYPEDOSSIERFR")[0])?getElements(permits[i], "nova", "TYPEDOSSIERFR")[0].textContent+ " ":"";
+		    result +="</td><tr></tr><td>Adresse :</td><td>";
+		    result += (getElements(permits[i], "nova", "STREETNAMEFR")[0])?getElements(permits[i], "nova", "STREETNAMEFR")[0].textContent+ " ":"";
 
-    if(current_language == 'fr'){
-        result += "<div class='tabbertab' title='Permis ";
-        result += i+1;
-        result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Type de permis:</td><td>";
-        result += (getElements(permits[i], "nova", "TYPEDOSSIERFR")[0])?getElements(permits[i], "nova", "TYPEDOSSIERFR")[0].textContent+ " ":"";
-        result +="</td><tr></tr><td>Adresse :</td><td>";
-        result += (getElements(permits[i], "nova", "STREETNAMEFR")[0])?getElements(permits[i], "nova", "STREETNAMEFR")[0].textContent+ " ":"";
+			result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?getElements(permits[i], "nova", "NUMBERPARTFROM")[0].textContent:"";
 
-    result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?getElements(permits[i], "nova", "NUMBERPARTFROM")[0].textContent:"";
+			result +=(getElements(permits[i], "nova", "NUMBERPARTTO")[0])? " - "+ getElements(permits[i], "nova", "NUMBERPARTTO")[0].textContent:"";
 
-    result +=(getElements(permits[i], "nova", "NUMBERPARTTO")[0])? " - "+ getElements(permits[i], "nova", "NUMBERPARTTO")[0].textContent:"";
+			result +="</td></tr><tr><td></td><td>";
+			result += (getElements(permits[i], "nova", "ZIPCODE")[0])?getElements(permits[i], "nova", "ZIPCODE")[0].textContent+ " ":"" ;
 
-    result +="</td></tr><tr><td></td><td>";
-    result += (getElements(permits[i], "nova", "ZIPCODE")[0])?getElements(permits[i], "nova", "ZIPCODE")[0].textContent+ " ":"" ;
+			result += (getElements(permits[i], "nova", "MUNICIPALITYFR")[0])?getElements(permits[i], "nova", "MUNICIPALITYFR")[0].textContent:"";
 
-    result += (getElements(permits[i], "nova", "MUNICIPALITYFR")[0])?getElements(permits[i], "nova", "MUNICIPALITYFR")[0].textContent:"";
+			result += "</td></tr><tr><td>Objet de la demande :</td><td>";
+			result += (getElements(permits[i], "nova", "OBJECTFR")[0])?getElements(permits[i], "nova", "OBJECTFR")[0].textContent+ " ":"";
 
-    result += "</td></tr><tr><td>Objet de la demande :</td><td>";
-    result += (getElements(permits[i], "nova", "OBJECTFR")[0])?getElements(permits[i], "nova", "OBJECTFR")[0].textContent+ " ":"";
+			result +='</td><tr></tr><tr><td><a target="_blank" href="';
+			result += (permits[i].getAttribute("fid"))?absolute_url+"/wawspublic_view?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
 
-    result +='</td><tr></tr><tr><td><a href="';
-    result += (permits[i].getAttribute("fid"))?absolute_url+"/wawspublic_view?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
-
-    result+= '">Pour en savoir plus...<a/></td></tr></table></div>';
-
-
-    }else{
-
-    result += "<div class='tabbertab' title='Vergunning ";
-    result += i+1;
-    result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Vergunningstype:</td><td>";
-    result += (getElements(permits[i], "nova", "TYPEDOSSIERNL")[0])?getElements(permits[i], "nova", "TYPEDOSSIERNL")[0].textContent+ " ":"";
-    result +="</td><tr></tr><td>Adres :</td><td>";
-    result += (getElements(permits[i], "nova", "STREETNAMENL")[0])?getElements(permits[i], "nova", "STREETNAMENL")[0].textContent+ " ":"";
+			result+= '">Pour en savoir plus...<a/></td></tr></table></div>';
 
 
-    result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?getElements(permits[i], "nova", "NUMBERPARTFROM")[0].textContent:"";
+		}else{
 
-    result +=(getElements(permits[i], "nova", "NUMBERPARTTO")[0])? " - "+ getElements(permits[i], "nova", "NUMBERPARTTO")[0].textContent:"";
+			result += "<div class='tabbertab' title='Vergunning ";
+			result += i+1;
+			result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Vergunningstype:</td><td>";
+			result += (getElements(permits[i], "nova", "TYPEDOSSIERNL")[0])?getElements(permits[i], "nova", "TYPEDOSSIERNL")[0].textContent+ " ":"";
+			result +="</td><tr></tr><td>Adres :</td><td>";
+			result += (getElements(permits[i], "nova", "STREETNAMENL")[0])?getElements(permits[i], "nova", "STREETNAMENL")[0].textContent+ " ":"";
 
-    result +="</td></tr><tr><td></td><td>";
-    result += (getElements(permits[i], "nova", "ZIPCODE")[0])?getElements(permits[i], "nova", "ZIPCODE")[0].textContent+ " ":"" ;
 
-    result += (getElements(permits[i], "nova", "MUNICIPALITYNL")[0])?getElements(permits[i], "nova", "MUNICIPALITYNL")[0].textContent:"";
+			result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?getElements(permits[i], "nova", "NUMBERPARTFROM")[0].textContent:"";
 
-    result += "</td></tr><tr><td>Onderwerp van de aanvraag :</td><td>";
-    result += (getElements(permits[i], "nova", "OBJECTNL")[0])?getElements(permits[i], "nova", "OBJECTNL")[0].textContent+ " ":"";
+			result +=(getElements(permits[i], "nova", "NUMBERPARTTO")[0])? " - "+ getElements(permits[i], "nova", "NUMBERPARTTO")[0].textContent:"";
 
-    result += '</td><tr></tr><tr><td><a href="';
-    result += (permits[i].getAttribute("fid"))?absolute_url+"/wawspublic_view?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
+			result +="</td></tr><tr><td></td><td>";
+			result += (getElements(permits[i], "nova", "ZIPCODE")[0])?getElements(permits[i], "nova", "ZIPCODE")[0].textContent+ " ":"" ;
 
-    result+= '">Meer informatie...<a/></td></tr></table></div>';
-}
-}
+			result += (getElements(permits[i], "nova", "MUNICIPALITYNL")[0])?getElements(permits[i], "nova", "MUNICIPALITYNL")[0].textContent:"";
 
-    result+= "</div>";
+			result += "</td></tr><tr><td>Onderwerp van de aanvraag :</td><td>";
+			result += (getElements(permits[i], "nova", "OBJECTNL")[0])?getElements(permits[i], "nova", "OBJECTNL")[0].textContent+ " ":"";
+
+			result += '</td><tr></tr><tr><td><a target="_blank" href="';
+			result += (permits[i].getAttribute("fid"))?absolute_url+"/wawspublic_view?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
+
+			result += '">Meer informatie...<a/></td></tr></table></div>';
+		}
+	}
+
+    result += "</div>";
     //if there is allready a popup then close it (only 1 popup at a time)
     if(currentPopup){
         currentPopup.hide();
