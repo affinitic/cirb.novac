@@ -7,7 +7,7 @@ var portal_url;
 var clusters3km;
 var current_language;
 var dossiers;
-var urbislayer;
+var urbislayer, addressResult;
 
 $(document).ready(function() {
 
@@ -86,6 +86,19 @@ $(document).ready(function() {
 		{layers: 'nova:NOVA_DOSSIERS', transparent: true},
 		{singleTile: true, ratio: 1.25, isBaseLayer: false, maxScale: 25000});
  	map.addLayer(dossiers);
+
+	
+	//add vector layer for the address point
+	var defaultStyle = new OpenLayers.Style({
+		'pointRadius': 20,
+	  	'fillColor': '#BBBBFF',
+	  	'fillOpacity': 0.3,
+	  	'strokeColor': '#444444'
+	});
+	var styleMap = new OpenLayers.StyleMap({'default': defaultStyle});
+	addressResult = new OpenLayers.Layer.Vector("Address",{styleMap: styleMap});
+	map.addLayer(addressResult);
+
 
     //add overview map
 	var mapOptions2 = {
@@ -368,7 +381,8 @@ function searchAddress(street, number, post_code){
             if(!(isNaN(x) || isNaN(y)))
             {
                 map.setCenter(new OpenLayers.LonLat(x,y), 6);
-
+				addressResult.removeAllFeatures();
+				addressResult.addFeatures([new OpenLayers.Feature.Vector(new OpenLayers.Geometry.Point(x,y))]);
             }
         },
         error:  function(data) {
