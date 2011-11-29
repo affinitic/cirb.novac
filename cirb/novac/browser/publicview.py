@@ -97,30 +97,24 @@ class PublicView(BrowserView):
             except:
                 address = not_avaiable   
     
-            table = ["id","novaRef","typeDossier","object","streetName","numberFrom",
-                     "numberTo","zipCode",
-                     "municipality","publicInquiry","startPublicInquiry",
-                     "endPublicInquiry","statusPermit","codeDossier",
-                     "pointCC","dateCC","languageRequest","dateDossierComplet",
-                     "dateNotifDecision","dateDeadline","municipalityOwner","specificReference"]
-            type_dossier = get_properties(self.context, properties,"typeDossier")
-            desc = get_properties(self.context, properties,'object')
-            ref = get_properties(self.context, properties,'novaRef')
-            folder_filed = get_properties(self.context, properties,'folderFiled')
-            introduce_on = get_properties(self.context, properties,'startPublicInquiry')
-            lang = get_properties(self.context, properties,'lang')
-            status = get_properties(self.context, properties,'statusPermit')
-           
+            table_ids = ["id","novaRef","typeDossier","object","streetName",
+                         "numberFrom", "numberTo","zipCode", "municipality",
+                         "publicInquiry","startPublicInquiry","endPublicInquiry",
+                         "statusPermit","codeDossier", "pointCC","dateCC",
+                         "languageRequest","dateDossierComplet","dateNotifDecision",
+                         "dateDeadline","municipalityOwner","specificReference"]
+            results = {}
+            results['address'] = address
+            results['num_dossier'] = num_dossier
+            for t in table_ids:
+                results[t] =  get_properties(self.context, properties, t)
             try:
-                x = str(geometry['x'])
-                y = str(geometry['y'])
+                results['x'] = str(geometry['x'])
+                results['y'] = str(geometry['y'])
             except:
-                x = '150000.0'
-                y = '170000.0'
+                results['x']  = '150000.0'
+                results['y']  = '170000.0'
                 
-            results = {'address':address, 'type_dossier':type_dossier,'desc':desc,'ref':ref, 
-                     'num_dossier':num_dossier, 'folder_filed':folder_filed, 'introduce_on':introduce_on,
-                     'lang':lang, 'status':status, 'x':x, 'y':y}
         else:
             error = True
             msg_error = 'Num dossier %s is unknown or empty' %num_dossier

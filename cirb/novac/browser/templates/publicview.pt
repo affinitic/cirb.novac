@@ -50,34 +50,88 @@
 					<td id="n_dossier"  tal:content='json/results/num_dossier'></td>
 				</tr><tr>
 					<th i18n:translate="reference">reference</th>
-					<td id="reference" tal:content='json/results/ref'></td>
+					<td id="reference" tal:content='json/results/novaRef'></td>
 				</tr>
 				<tr>
 					<th i18n:translate="dossier_depose_a">dossier_depose_a</th>
-					<td id="dossier_depose_a" tal:content='json/results/folder_filed'>></td>
+					<td id="dossier_depose_a" tal:content='json/results/municipalityOwner'></td>
 				</tr>
 				<tr>
 					<th i18n:translate="type_de_permis">type_de_permis</th>
-					<td id="type_de_permis" tal:content='json/results/type_dossier'></td>
+					<td id="type_de_permis" tal:content='json/results/typeDossier'></td>
 				</tr>
 				<tr>
 					<th i18n:translate="description">Description</th>
-					<td id="desc" tal:content='json/results/desc'></td>
+					<td id="desc" tal:content='json/results/object'></td>
 				</tr>
 				<tr>
 					<th i18n:translate="demande_introduite_le">demande_introduite_le</th>
-					<td id="demande_introduite_le" tal:content='json/results/introduce_on'></td>
+					<td id="demande_introduite_le" tal:content='json/results/startPublicInquiry'></td>
 				</tr>
 				<tr>
 					<th i18n:translate="langue">langue</th>
-					<td id="langue" tal:content='json/results/lang'></td>
+					<td id="langue" tal:content='json/results/languageRequest'></td>
 				</tr>
 				<tr>
 					<th i18n:translate="statut_du_dossier">statut_du_dossier</th>
-					<td id="statut_du_dossier" tal:content='json/results/status'></td>
+					<td id="statut_du_dossier" tal:content='json/results/statusPermit'></td>
 				</tr>
 			</tbody></table>
-	
+			
+			 <table class="detail_table">
+				<tbody><tr>
+					<td class="tableheader" colspan="2" i18n:translate="parcours">parcours</td>
+				</tr>
+				<tr>
+					<th class="set_width" i18n:translate="enquete_publique">enquete_publique</th>
+					<td id="enquete_publique">
+						<tal:block condition="python:json.get('results').get('publicInquiry')=='Oui'">
+							<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">
+							<tal:block tal:content="json/results/startPublicInquiry"> startPublicInquiry</tal:block>&nbsp;<tal:block tal:content="json/results/endPublicInquiry">endPublicInquiry </tal:block>
+						</tal:block>
+						<tal:block condition="python:json.get('results').get('publicInquiry')=='Non'">
+							X
+						</tal:block>
+					</td>
+				</tr>
+				<tr>
+					<th class="set_width" i18n:translate="commission_de_concertation">commission_de_concertation</th>
+					<td id="commission_de_concertation">
+						<tal:block condition="python:json.get('results').get('pointCC')=='Oui'">
+							<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">
+							<tal:block tal:content="json/results/dateCC"> dateCC</tal:block>
+						</tal:block>
+						<tal:block condition="python:json.get('results').get('pointCC')=='Non'">
+							X
+						</tal:block>
+					</td>
+				</tr>
+				
+			</tbody></table>
+			<table class="detail_table">
+				<tbody><tr>
+					<td class="tableheader" colspan="2" i18n:translate="decision">decision</td>
+				</tr>
+				<tr>
+					<th class="set_width" i18n:translate="decision">decision</th>
+					<td id="decision">
+						<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">
+						&nbsp;&nbsp;???
+					</td>
+				</tr>
+				<tr>
+					<th class="set_width" i18n:translate="permis">permis</th>
+					<td id="permis" tal:content="json/results/dateDossierComplet">&nbsp;</td>
+				</tr>
+				<tr>
+					<th class="set_width" i18n:translate="notification_le">notification_le</th>
+					<td id="notification_le" tal:content="json/results/dateNotifDecision">&nbsp;</td>
+				</tr>
+				<tr>
+					<th class="set_width" i18n:translate="validite">validite</th>
+					<td id="validite" tal:content="json/results/dateDeadline">&nbsp;</td>
+				</tr>
+			</tbody></table>
 			<!--table class="detail_table">
 				<tbody><tr>
 					<td class="tableheader" colspan="2" i18n:translate="informations_supplementaires">informations_supplémentaires</td>
