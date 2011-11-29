@@ -130,7 +130,6 @@ td.canceled {background-color:#19487C}
 	text-decoration: none;
 	padding:1em 0;
 	color: #222;
-    border-bottom: 0 solid #ccc;
 }
 #accordion a:hover {
 	text-decoration:underline;
