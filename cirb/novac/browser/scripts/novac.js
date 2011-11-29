@@ -153,7 +153,8 @@ function executeGetFeatureInfo(event) {
         QUERY_LAYERS: "NOVA_DOSSIERS",
         FEATURE_COUNT: 10,
         WIDTH: map.size.w,
-        HEIGHT: map.size.h},
+        HEIGHT: map.size.h,
+        CQL_FILTER: dossiers.params.CQL_FILTER},
         portal_url+"/wfs_request?url=http://geoserver.gis.irisnetlab.be/geoserver/wms?");
     //Execute the GetFeatureInfo request and callback the showPointInfo function
     OpenLayers.Request.GET({
