@@ -24,7 +24,7 @@
     enabled="True" expression=""  inline="False"/>
 -->
   <javascript
-    id="++resource++cirb.novac.scripts/OpenLayers-2.10.js"
+    id="++resource++cirb.novac.scripts/OpenLayers-2.11.js"
     cacheable="False" compression="none" cookable="False"
     enabled="True" expression=""  inline="False"/>
     
