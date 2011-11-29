@@ -79,7 +79,8 @@ class PublicView(BrowserView):
         #
         data_from_url = called_url(url, [{'Content-Type': 'application/json'},{'ACCEPT': 'application/json'}])
         
-        
+        msgid = _(u"not_available")
+        not_avaiable = self.context.translate(msgid)
         if data_from_url:
             import json
             data = json.loads(data_from_url)
