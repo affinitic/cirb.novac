@@ -65,7 +65,7 @@ class PrivateView(BrowserView):
             msg_error=_(u'Not able to call ws')
             return {'novac_url':self.novac_url, 'urbis_url':self.urbis_url, 'error':error,'msg_error':msg_error}
         history_url = '%s%s' % (dossier_url,HISTORY)
-        history = called_url(history_url,[{'Content-Type':'application/json'}, {'ACCEPT':'application/json'}])
+        history = called_url(history_url,[{'Content-Type':'application/json'}, {'ACCEPT':'application/json'}, {'RNHEAD':user['id']}])
         if not history:
             logger.info('Not able to call ws %s' % history_url)
             error=True
