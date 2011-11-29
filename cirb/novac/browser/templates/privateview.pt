@@ -182,7 +182,21 @@
 				</td>
 			</tr>
 		</tbody></table>
-				
+		
+			<table class="detail_table">
+				<tbody><tr>
+					<td class="tableheader" colspan="2" i18n:translate="historique_consultation">historique_consultation</td>
+				</tr>
+				<tr>
+					<th class="set_width" i18n:translate="date">date</th>
+					<th class="name" i18n:translate="name">name</th>
+				</tr>
+				<tr tal:repeat="h ">
+					<td>permis</th>
+					<td>&nbsp;</td>
+				</tr>
+			</tbody></table>
+			
 		</div>        
         </tal:block>
         <tal:block tal:condition="data/error" >

@@ -99,12 +99,18 @@ class PrivateView(BrowserView):
         results['x'] = get_properties(self.context, properties,'x')
         results['y'] = get_properties(self.context, properties,'y')
      
-        
+        h_prop = json.loads(history)
+        h_res = []
+        for prop in h_prop:
+            consultationDate = get_properties(self.context, prop,"consultationDate")
+            keyName = get_properties(self.context, prop,"keyName")
+            h_res.append({'consultationDate':consultationDate, 'keyName':keyName})
+            
         owner_folder = True
         
         return {'novac_url':self.novac_url, 'urbis_url':self.urbis_url, 'error':error,'msg_error':msg_error,
                 'jsondata':jsondata, 'history':history, 'results':results,
-                'owner_folder':owner_folder,}
+                'owner_folder':owner_folder,'h_res':h_res}
     
     def activate_mandat(self):
         mandat = urllib.quote(self.request.form.get('mandat'))
