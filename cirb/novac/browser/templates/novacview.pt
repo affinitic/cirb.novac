@@ -53,12 +53,12 @@
                         <table class="filter">
                         <tbody>
                             <tr>
-                                <td class="type U"></td>
+                                <td i18n:attributes="class type_U"></td>
                                 <td><input type="checkbox" onChange="applyDossierFilter()" checked="true" id="type_u"></td>
                                 <td><label for="type_u"><tal:block i18n:translate="urbanisme">urbanisme</tal:block></td>
                             </tr>
                             <tr>
-                                <td class="type L"></td>
+                                <td i18n:attributes="class type_L"></td>
                                 <td><input type="checkbox" onChange="applyDossierFilter()" checked="true" id="type_l"></td>
                                 <td><label for="type_l"><tal:block i18n:translate="lotir">lotir</tal:block></td>
                             </tr>
