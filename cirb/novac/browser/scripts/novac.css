@@ -157,13 +157,13 @@ table.filter {
 
 table.filter td { text-align: left;}
 
-td.type_U { background: transparent url(++resource++cirb.novac.images/circle-letter-u.png) no-repeat 5px 7px; }
-td.type_S { background: transparent url(++resource++cirb.novac.images/circle-letter-s.png) no-repeat 5px 7px; }
-td.type_L { background: transparent url(++resource++cirb.novac.images/circle-letter-l.png) no-repeat 5px 7px; }
-td.type_V { background: transparent url(++resource++cirb.novac.images/circle-letter-v.png) no-repeat 5px 7px; }
+td.type_U { background: transparent url(++resource++cirb.novac.images/circle-letter-u.png) no-repeat 5px 7px; width:25px; }
+td.type_S { background: transparent url(++resource++cirb.novac.images/circle-letter-s.png) no-repeat 5px 7px; width:25px; }
+td.type_L { background: transparent url(++resource++cirb.novac.images/circle-letter-l.png) no-repeat 5px 7px; width:25px; }
+td.type_V { background: transparent url(++resource++cirb.novac.images/circle-letter-v.png) no-repeat 5px 7px; width:25px; }
 
-td.required { background: transparent url(++resource++cirb.novac.images/circle-yellow.png) no-repeat 5px 7px; }
-td.granted { background: transparent url(++resource++cirb.novac.images/circle-green.png) no-repeat 5px 7px; }
-td.refused { background: transparent url(++resource++cirb.novac.images/circle-orange.png) no-repeat 5px 7px; }
-td.canceled { background: transparent url(++resource++cirb.novac.images/circle-blue.png) no-repeat 5px 7px; }
+td.required { background: transparent url(++resource++cirb.novac.images/circle-yellow.png) no-repeat 5px 7px; width:25px; }
+td.granted { background: transparent url(++resource++cirb.novac.images/circle-green.png) no-repeat 5px 7px; width:25px; }
+td.refused { background: transparent url(++resource++cirb.novac.images/circle-orange.png) no-repeat 5px 7px; width:25px; }
+td.canceled { background: transparent url(++resource++cirb.novac.images/circle-blue.png) no-repeat 5px 7px; width:25px; }
 
