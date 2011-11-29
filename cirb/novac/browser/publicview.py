@@ -96,7 +96,13 @@ class PublicView(BrowserView):
                                         properties['municipality'],)
             except:
                 address = not_avaiable   
-                
+    
+            table = ["id","novaRef","typeDossier","object","streetName","numberFrom",
+                     "numberTo","zipCode",
+                     "municipality","publicInquiry","startPublicInquiry",
+                     "endPublicInquiry","statusPermit","codeDossier",
+                     "pointCC","dateCC","languageRequest","dateDossierComplet",
+                     "dateNotifDecision","dateDeadline","municipalityOwner","specificReference"]
             type_dossier = get_properties(self.context, properties,"typeDossier")
             desc = get_properties(self.context, properties,'object')
             ref = get_properties(self.context, properties,'novaRef')
