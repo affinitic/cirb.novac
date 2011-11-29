@@ -155,7 +155,7 @@ table.filter {
     width:100%;
 }
 
-table.filter td { text-align: left; min-width:20px;}
+table.filter td { text-align: left; width:20px;}
 
 td.type_U { background: transparent url(++resource++cirb.novac.images/circle-letter-u.png) no-repeat 5px 7px; width:20px; }
 td.type_S { background: transparent url(++resource++cirb.novac.images/circle-letter-s.png) no-repeat 5px 7px; width:20px; }
