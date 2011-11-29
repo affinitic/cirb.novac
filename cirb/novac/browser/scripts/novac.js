@@ -279,36 +279,43 @@ function showPointInfo(response) {
 
 
 
-function applyDossierFilter(canceled,refused,demanded,granted){
+function applyDossierFilter(){
     var cql = "";
+    
+    var type_dossier = "TYPEDOSSIER IS NULL";
     //create a cql filter based on the filter checkboxes
-    if(canceled){
-        cql += "STATUT_PERMIS IS NULL";
+    if($('#type_u').is(':checked')) {
+    	if(type_dossier != "") type_dossier += " OR ";
+    	type_dossier += "TYPEDOSSIER = 'U'";
     }
-    if(refused){
-        if(cql == ""){
-        cql += "STATUT_PERMIS = 'REFUSE'";
-        }else{
-            cql += " OR STATUT_PERMIS = 'REFUSE'";
-        }
+    if($('#type_l').is(':checked')) {
+    	if(type_dossier != "") type_dossier += " OR ";
+    	type_dossier += "TYPEDOSSIER = 'L'";
     }
-    if(demanded){
-        if(cql == ""){
-        cql += "STATUT_PERMIS = 'DEMANDE'";
-        }else{
-            cql += " OR STATUT_PERMIS = 'DEMANDE'";
-        }
+    if(type_dossier != "") cql += "(" + type_dossier + ")";
+    
+    var statut_permis = "STATUT_PERMIS IS NULL";
+    if($('#canceled').is(':checked')){
+    	if(statut_permis != "") statut_permis += " OR ";
+        statut_permis += "STATUT_PERMIS = 'ANNULE'";
     }
-    if(granted){
-        if(cql == ""){
-        cql += "STATUT_PERMIS = 'OCTROYE'";
-        }else{
-            cql += " OR STATUT_PERMIS = 'OCTROYE'";
-        }
+    if($('#refused').is(':checked')){
+        if(statut_permis != "") statut_permis += " OR ";
+    	statut_permis += "STATUT_PERMIS = 'REFUSE'";
     }
-    if(cql == ""){
-        cql = "STATUT_PERMIS IS NOT NULL AND STATUT_PERMIS <> 'REFUSE' AND STATUT_PERMIS <> 'DEMANDE' AND STATUT_PERMIS <> 'OCTROYE'";
+    if($('#required').is(':checked')){
+        if(statut_permis != "") statut_permis += " OR ";
+    	statut_permis += "STATUT_PERMIS = 'DEMANDE'";
     }
+    if($('#granted').is(':checked')){
+        if(statut_permis != "") statut_permis += " OR ";
+    	statut_permis += "STATUT_PERMIS = 'OCTROYE'";
+    }
+    if(statut_permis != "") {
+    	if(cql != "") cql += " AND ";
+    	cql += "(" + statut_permis + ")";
+    }
+    
     //apply the cql filter
     dossiers.mergeNewParams({'CQL_FILTER': cql});
 }
