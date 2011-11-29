@@ -98,11 +98,11 @@ class ListprivateView(BrowserView):
         # TODO return 'Bad Key' if 500 is returned by ws
         #key = urllib.quote_plus(self.request.form.get('key'))
         query_string = self.request.environ['QUERY_STRING']
-        key = urllib.quote_plus(query_string.replace('key=',''))
-        activate_url = '%s%s%s' %(self.novac_url,ACTIVATION,key)
-        #activate_url = activate_url.encode('utf-8')
+        key = urllib.quote_plus(query_string.replace('key=',''))        
         user = get_user(self.request)
-        results = call_put_url(activate_url,[{'Content-Type':'application/xml'},{'RNHEAD':user['id']}], 'key=%s' % key)
+        activate_url = '%s%s%s&RNHEAD=%s' %(self.novac_url,ACTIVATION,key, user['id'])
+        #activate_url = activate_url.encode('utf-8')
+        results = call_put_url(activate_url,[{'Content-Type':'application/xml'},{'RNHEAD':user['id']}], 'key=%s&RNHEAD=%s' % (key,user['id']))
         
         return 'activate_key : %s <br />%s ' % (activate_url, results)
     

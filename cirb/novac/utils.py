@@ -7,6 +7,7 @@ from cirb.novac import novacMessageFactory as _
 
 from AccessControl import getSecurityManager
 
+__all__=["called_url", "call_put_url", "call_post_url", "get_properties", "get_user"]
 
 def called_url(request_url, request_headers, params='', lang='fr'): # for exemple : content_type = application/xml
     """
@@ -109,7 +110,13 @@ def get_properties(context, prop, prop_name):
             return not_avaiable
         
 def get_user(request):
-    user = getSecurityManager().getUser()
+    user={}    
     from zope.annotation.interfaces import IAnnotations
     enn = IAnnotations(request)
-    return {'name':'%s %s' % (enn['CAS']['firstname'], enn['CAS']['lastname']), 'id':user}
+    try:
+        user['name'] = '%s %s' % (enn['CAS']['firstname'], enn['CAS']['lastname'])
+        user['id'] = user
+    except:
+        user['name'] = getSecurityManager().getUser().getUserName()
+        user['id'] = getSecurityManager().getUser()
+    return user

@@ -135,23 +135,6 @@
 			</tbody></table>
 			
 			
-			<table class="detail_table">
-				<tbody><tr>
-					<td class="tableheader" colspan="2" i18n:translate="informations_supplementaires">informations_supplémentaires</td>
-				</tr>
-				<tr>
-					<th class="detail_document" i18n:translate="documents">documents</th>
-					<th class="detail_attachment" i18n:translate="annexes">annexes</th>
-				</tr><tr>
-					<td>TODO : titre du document <img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/pdf_icon.gif" alt="pdf icon"></td>
-					<td>TODO : titre de l'annexe <img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/pdf_icon.gif" alt="pdf icon"></td>
-				</tr>
-				<tr>
-					<td>TODO : titre du document <img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/pdf_icon.gif" alt="pdf icon"></td>
-					<td>&nbsp;</td>
-				</tr>
-			</tbody></table>	
-			
 			<div id="container">
 				<div id="map_panel2"><div id="map"></div></div>		
 			</div>
