@@ -46,7 +46,7 @@
                             <tr><td i18n:translate="post_code:">post_code:</td><td><input type="text" id="post_code"/></td></tr>
                         </tbody>
                         </table>
-                        <input type="button" id="search_address_button" i18n:domain="plone" i18n:attributes="value search;"/>
+                        <input type="button" id="search_address_button" i18n:attributes="value search"/>
                     </div>
                     <h3 class="slice-3"><a href="#" i18n:translate="filtres">filtres</a></h3>
                     <div class="filter">
@@ -76,26 +76,14 @@
                         </table>                        
                     
                     </div>
-                    <h3 class="slice-2"><a href="#" i18n:translate="recherche_dossiers">recherche_dossiers</a></h3>
-					<div>&nbsp;</div>
-                    <!--div>
-                        <table>
-                        <tbody>
-                            <tr><td i18n:translate="street_name:">street_name:</td><td><input type="text" id="folder_street" /></td></tr>
-                            <tr><td i18n:translate="number:">number:</td><td><input type="text" id="folder_number" /></td></tr>
-                            <tr><td i18n:translate="post_code:">post_code:</td><td><input type="text" id="folder_post_code"/></td></tr>
-                        </tbody>
-                        </table>
-                        <input type="button"  id="folder_geocode" i18n:domain="plone" i18n:attributes="value search;"/>
-                    </div-->
+                    
                 </div>
             </div>
-            <div id="results_panel" i18n:translate="results">results</div>
+            <!--div id="results_panel" i18n:translate="results">results</div-->
         </tal:block>
         <tal:block tal:condition="data/error" >
             <div tal:content="data/error_text">error</div>
         </tal:block>
-        <div class="footer">UrbIS®©</div>
     </div>
 </body>
 </html>
