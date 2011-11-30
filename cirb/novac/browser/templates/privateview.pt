@@ -4,7 +4,7 @@
     i18n:domain="cirb.novac">
 
 <tal:head metal:fill-slot="head_slot">      
-    <meta http-equiv="imagetoolbar" content="no">
+    <meta http-equiv="imagetoolbar" content="no" />
 </tal:head>
 <tal:css metal:fill-slot="style_slot">
 
@@ -35,7 +35,7 @@
             <tbody><tr>
                 <td colspan="2" style="text-align:right;" id="username">
                     <p id="user-name"><tal:block tal:content="user"> John </tal:block>
-                    <img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/user.png" alt="user">
+                    <img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/user.png" alt="user" />
                     &nbsp;|&nbsp;<a tal:attributes="href string:${portal_url}/logout"><tal:block i18n:translate="logout">logout</tal:block></a></p>
                 </td>
             </tr>
@@ -91,11 +91,11 @@
 			<th class="set_width" i18n:translate="enquete_publique">enquete_publique</th>
 			<td id="enquete_publique">
 				<tal:block condition="python:data.get('results').get('publicInquiry')=='Oui'">
-					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">
+					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check" />
 					<tal:block tal:content="data/results/startPublicInquiry"> startPublicInquiry</tal:block>&nbsp;<tal:block tal:content="data/results/endPublicInquiry">endPublicInquiry </tal:block>
 				</tal:block>
 				<tal:block condition="python:data.get('results').get('publicInquiry')=='Non'">
-					X
+					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/delete.png" alt="no" />
 				</tal:block>
 			</td>
 		</tr>
@@ -103,11 +103,11 @@
 			<th class="set_width" i18n:translate="commission_de_concertation">commission_de_concertation</th>
 			<td id="commission_de_concertation">
 				<tal:block condition="python:data.get('results').get('pointCC')=='Oui'">
-					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check">
+					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="yes" />
 					<tal:block tal:content="data/results/dateCC"> dateCC</tal:block>
 				</tal:block>
 				<tal:block condition="python:data.get('results').get('pointCC')=='Non'">
-					X
+					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/delete.png" alt="no" />
 				</tal:block>
 			</td>
 		</tr>

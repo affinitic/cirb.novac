@@ -291,12 +291,12 @@ msgstr "Adres"
 #: cirb.novac:/browser/templates/privateview.pt:69
 #: cirb.novac:/browser/templates/publicview.pt:68
 msgid "demande_introduite_le"
-msgstr ""
+msgstr "Aanvraag ingediend op"
 
 #: cirb.novac:/browser/templates/privateview.pt:73
 #: cirb.novac:/browser/templates/publicview.pt:72
 msgid "langue"
-msgstr ""
+msgstr "Taal"
 
 #: cirb.novac:/browser/templates/privateview.pt:77
 #: cirb.novac:/browser/templates/publicview.pt:76
