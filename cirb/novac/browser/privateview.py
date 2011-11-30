@@ -85,21 +85,18 @@ class PrivateView(BrowserView):
         except:
             results['address'] = not_avaiable   
         
+        # in public novaRef instead of refNova
+        table_ids = ["id","refNova","typeDossier","object","streetName",
+                         "numberFrom", "numberTo","zipCode", "municipality",
+                         "publicInquiry","startPublicInquiry","endPublicInquiry",
+                         "statusPermit","codeDossier", "pointCC","dateCC",
+                         "languageRequest","dateDossierComplet","dateNotifDecision",
+                         "dateDeadline","municipalityOwner","specificReference", 
+                         "manager", "isOwner", "x", "y"]
         
-        results['type_dossier'] = get_properties(self.context, properties,"typeDossier")
-        results['municipality_owner'] = get_properties(self.context, properties,"municipalityOwner")
-        results['dossier_id'] = get_properties(self.context, properties,"id")
-        results['lang'] = get_properties(self.context, properties,"languageRequest")
-        results['manager'] = get_properties(self.context, properties,"manager")
-        results['desc'] = get_properties(self.context, properties,'object')
-        results['ref'] = get_properties(self.context, properties,'refNova')
-        results['point_cc'] = get_properties(self.context, properties,'pointCC')
-        results['public_inquiry'] = get_properties(self.context, properties,'publicInquiry')
-        results['specific_reference'] = get_properties(self.context, properties,'specificReference')
-        results['x'] = get_properties(self.context, properties,'x')
-        results['y'] = get_properties(self.context, properties,'y')
+        for t in table_ids:
+            results[t] =  get_properties(self.context, properties, t)
         
-        isOwner = get_properties(self.context, properties,'isOwner')
         
         h_prop = json.loads(history)
         h_res = []
@@ -113,8 +110,7 @@ class PrivateView(BrowserView):
         
         
         return {'novac_url':self.novac_url, 'urbis_url':self.urbis_url, 'error':error,'msg_error':msg_error,
-                'jsondata':jsondata, 'history':history, 'results':results,
-                'isOwner':isOwner,'h_res':h_res}
+                'jsondata':jsondata, 'history':history, 'results':results, 'h_res':h_res}
     
     def activate_mandat(self):
         mandat = urllib.quote(self.request.form.get('mandat'))

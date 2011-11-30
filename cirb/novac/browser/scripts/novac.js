@@ -9,7 +9,7 @@ var current_language;
 var dossiers;
 var urbislayer, addressResult;
 
-$(document).ready(function() {
+$(window).bind("load", function() {
 
     $("#accordion").accordion({		
 		header : "h3",		
@@ -145,8 +145,8 @@ function executeGetFeatureInfo(event) {
     var url = clusters3km.getFullRequestString({
         REQUEST: "GetFeatureInfo",
         BBOX: map.getExtent().toBBOX(),
-        X: event.xy.x,
-        Y: event.xy.y,
+        X: Math.round(event.xy.x),
+        Y: Math.round(event.xy.y),
         INFO_FORMAT: 'application/vnd.ogc.gml',
         FORMAT: 'application/vnd.ogc.gml',
         LAYERS : "NOVA_DOSSIERS",
@@ -165,8 +165,8 @@ function executeGetFeatureInfo(event) {
 
 function getElements(obj, ns, tagname) {
     var result = new Array();
-    result = obj.getElementsByTagName(tagname);
-    if (result.length == 0) result = obj.getElementsByTagName(ns+":"+tagname);
+    result = obj.getElementsByTagName(ns+":"+tagname)
+    if (result.length == 0) result = obj.getElementsByTagName(tagname);
     return result;
 }
 
@@ -196,21 +196,21 @@ function showPointInfo(response) {
 		    result += "<div class='tabbertab' title='Permis ";
 		    result += i+1;
 		    result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Type de permis:</td><td>";
-		    result += (getElements(permits[i], "nova", "TYPEDOSSIERFR")[0])?getElements(permits[i], "nova", "TYPEDOSSIERFR")[0].textContent+ " ":"";
+		    result += (getElements(permits[i], "nova", "TYPEDOSSIERFR")[0])?$(getElements(permits[i], "nova", "TYPEDOSSIERFR")[0]).text()+ " ":"";
 		    result +="</td><tr></tr><td>Adresse :</td><td>";
-		    result += (getElements(permits[i], "nova", "STREETNAMEFR")[0])?getElements(permits[i], "nova", "STREETNAMEFR")[0].textContent+ " ":"";
+		    result += (getElements(permits[i], "nova", "STREETNAMEFR")[0])?$(getElements(permits[i], "nova", "STREETNAMEFR")[0]).text()+ " ":"";
 
-			result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?getElements(permits[i], "nova", "NUMBERPARTFROM")[0].textContent:"";
+			result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?$(getElements(permits[i], "nova", "NUMBERPARTFROM")[0]).text():"";
 
-			result +=(getElements(permits[i], "nova", "NUMBERPARTTO")[0])? " - "+ getElements(permits[i], "nova", "NUMBERPARTTO")[0].textContent:"";
+			result +=(getElements(permits[i], "nova", "NUMBERPARTTO")[0])? " - "+ $(getElements(permits[i], "nova", "NUMBERPARTTO")[0]).text():"";
 
 			result +="</td></tr><tr><td></td><td>";
-			result += (getElements(permits[i], "nova", "ZIPCODE")[0])?getElements(permits[i], "nova", "ZIPCODE")[0].textContent+ " ":"" ;
+			result += (getElements(permits[i], "nova", "ZIPCODE")[0])?$(getElements(permits[i], "nova", "ZIPCODE")[0]).text()+ " ":"" ;
 
-			result += (getElements(permits[i], "nova", "MUNICIPALITYFR")[0])?getElements(permits[i], "nova", "MUNICIPALITYFR")[0].textContent:"";
+			result += (getElements(permits[i], "nova", "MUNICIPALITYFR")[0])?$(getElements(permits[i], "nova", "MUNICIPALITYFR")[0]).text():"";
 
 			result += "</td></tr><tr><td>Objet de la demande :</td><td>";
-			result += (getElements(permits[i], "nova", "OBJECTFR")[0])?getElements(permits[i], "nova", "OBJECTFR")[0].textContent+ " ":"";
+			result += (getElements(permits[i], "nova", "OBJECTFR")[0])?$(getElements(permits[i], "nova", "OBJECTFR")[0]).text()+ " ":"";
 
 			result +='</td><tr></tr><tr><td><a target="_blank" href="';
 			result += (permits[i].getAttribute("fid"))?absolute_url+"/wawspublic_view?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
@@ -223,22 +223,22 @@ function showPointInfo(response) {
 			result += "<div class='tabbertab' title='Vergunning ";
 			result += i+1;
 			result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Vergunningstype:</td><td>";
-			result += (getElements(permits[i], "nova", "TYPEDOSSIERNL")[0])?getElements(permits[i], "nova", "TYPEDOSSIERNL")[0].textContent+ " ":"";
+			result += (getElements(permits[i], "nova", "TYPEDOSSIERNL")[0])?$(getElements(permits[i], "nova", "TYPEDOSSIERNL")[0]).text()+ " ":"";
 			result +="</td><tr></tr><td>Adres :</td><td>";
-			result += (getElements(permits[i], "nova", "STREETNAMENL")[0])?getElements(permits[i], "nova", "STREETNAMENL")[0].textContent+ " ":"";
+			result += (getElements(permits[i], "nova", "STREETNAMENL")[0])?$(getElements(permits[i], "nova", "STREETNAMENL")[0]).text()+ " ":"";
 
 
-			result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?getElements(permits[i], "nova", "NUMBERPARTFROM")[0].textContent:"";
+			result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?$(getElements(permits[i], "nova", "NUMBERPARTFROM")[0]).text():"";
 
-			result +=(getElements(permits[i], "nova", "NUMBERPARTTO")[0])? " - "+ getElements(permits[i], "nova", "NUMBERPARTTO")[0].textContent:"";
+			result +=(getElements(permits[i], "nova", "NUMBERPARTTO")[0])? " - "+ $(getElements(permits[i], "nova", "NUMBERPARTTO")[0]).text():"";
 
 			result +="</td></tr><tr><td></td><td>";
-			result += (getElements(permits[i], "nova", "ZIPCODE")[0])?getElements(permits[i], "nova", "ZIPCODE")[0].textContent+ " ":"" ;
+			result += (getElements(permits[i], "nova", "ZIPCODE")[0])?$(getElements(permits[i], "nova", "ZIPCODE")[0]).text()+ " ":"" ;
 
-			result += (getElements(permits[i], "nova", "MUNICIPALITYNL")[0])?getElements(permits[i], "nova", "MUNICIPALITYNL")[0].textContent:"";
+			result += (getElements(permits[i], "nova", "MUNICIPALITYNL")[0])?$(getElements(permits[i], "nova", "MUNICIPALITYNL")[0]).text():"";
 
 			result += "</td></tr><tr><td>Onderwerp van de aanvraag :</td><td>";
-			result += (getElements(permits[i], "nova", "OBJECTNL")[0])?getElements(permits[i], "nova", "OBJECTNL")[0].textContent+ " ":"";
+			result += (getElements(permits[i], "nova", "OBJECTNL")[0])?$(getElements(permits[i], "nova", "OBJECTNL")[0]).text()+ " ":"";
 
 			result += '</td><tr></tr><tr><td><a target="_blank" href="';
 			result += (permits[i].getAttribute("fid"))?absolute_url+"/wawspublic_view?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
