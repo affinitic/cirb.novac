@@ -70,7 +70,7 @@ msgstr "Vous êtes maintenant connecté"
 
 #: cirb.novac:/browser/templates/listprivateview.pt:34
 msgid "vos_dossiers_actives"
-msgstr "Vos dossier activés"
+msgstr "Vos dossiers activés"
 
 #: cirb.novac:/browser/templates/listprivateview.pt:39
 msgid "type"
@@ -98,11 +98,11 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:36
 msgid "mon_dossier"
-msgstr "mon dossier"
+msgstr "Mon dossier"
 
 #: cirb.novac:/browser/templates/novacview.pt:38
 msgid "login"
-msgstr "Login"
+msgstr "Se connecter"
 
 #: cirb.novac:/browser/templates/novacview.pt:40
 msgid "search_address"
@@ -133,7 +133,7 @@ msgid "type_U"
 msgstr "type_U"
 
 #: cirb.novac:/browser/templates/novacview.pt:58
-msgid "urbanisme"
+msgid "permis d'urbanisme"
 msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:61
@@ -141,7 +141,7 @@ msgid "type_L"
 msgstr "type_L"
 
 #: cirb.novac:/browser/templates/novacview.pt:63
-msgid "lotir"
+msgid "permis de lotir"
 msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:72
@@ -150,15 +150,15 @@ msgstr "demandé"
 
 #: cirb.novac:/browser/templates/novacview.pt:77
 msgid "granted"
-msgstr ""
+msgstr "octroyé"
 
 #: cirb.novac:/browser/templates/novacview.pt:82
 msgid "refused"
-msgstr ""
+msgstr "refusé"
 
 #: cirb.novac:/browser/templates/novacview.pt:87
 msgid "canceled"
-msgstr ""
+msgstr "annulé"
 
 #: cirb.novac:/browser/templates/privateview.pt:103
 #: cirb.novac:/browser/templates/publicview.pt:98
@@ -189,23 +189,23 @@ msgstr "Validité"
 
 #: cirb.novac:/browser/templates/privateview.pt:157
 msgid "gestion_des_cles_secondaires_pour_ce_dossier"
-msgstr ""
+msgstr "Gestion des clés secondaires pour ce dossier"
 
 #: cirb.novac:/browser/templates/privateview.pt:163
 msgid "en_tant_que_demandeur_vous_pouvez_generez_une_ou_plusieurs_cles_secondaires_pour_un_ou_plusieurs_mandataires"
-msgstr ""
+msgstr "En tant que demandeur, vous pouvez générer une ou plusieurs clés secondaires pour un ou plusieurs mandataires."
 
 #: cirb.novac:/browser/templates/privateview.pt:166
 msgid "un_mandataite_n_a_pas_le_droit_de_creer_une_cle_secondaire"
-msgstr ""
+msgstr "Un mandataire n'a pas le droit de créer une clé secondaire."
 
 #: cirb.novac:/browser/templates/privateview.pt:167
 msgid "vous_pouvez_revoquer_une_cle_secondaire_a_tout_moment"
-msgstr ""
+msgstr "Vous pouvez révoquer une clé secondaire à tout moment."
 
 #: cirb.novac:/browser/templates/privateview.pt:170
 msgid "vos_cles_secondaires"
-msgstr ""
+msgstr "Vos clés secondaires"
 
 #: cirb.novac:/browser/templates/privateview.pt:173
 #: cirb.novac:/browser/templates/privateview.pt:189
@@ -214,15 +214,15 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/privateview.pt:174
 msgid "cle"
-msgstr ""
+msgstr "clé"
 
 #: cirb.novac:/browser/templates/privateview.pt:175
 msgid "revoquer"
-msgstr ""
+msgstr "révoquer"
 
 #: cirb.novac:/browser/templates/privateview.pt:185
 msgid "ajouter_une_nouvelle_cle_secondaire"
-msgstr ""
+msgstr "Ajouter une nouvelle clé secondaire"
 
 #. Default: "Ajouter"
 #: cirb.novac:/browser/templates/privateview.pt:192
@@ -231,7 +231,7 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/privateview.pt:201
 msgid "historique_consultation"
-msgstr ""
+msgstr "Historique de consultation"
 
 #: cirb.novac:/browser/templates/privateview.pt:204
 msgid "date"
@@ -239,7 +239,7 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/privateview.pt:205
 msgid "name"
-msgstr ""
+msgstr "nom"
 
 #: cirb.novac:/browser/templates/privateview.pt:34
 msgid "Etat d'avancement - Demande de permis d'urbanisme"
@@ -274,7 +274,7 @@ msgstr "Dossier déposé à"
 #: cirb.novac:/browser/templates/privateview.pt:57
 #: cirb.novac:/browser/templates/publicview.pt:60
 msgid "type_de_permis"
-msgstr ""
+msgstr "type de permis"
 
 #. Default: "Description"
 #: cirb.novac:/browser/templates/privateview.pt:61
@@ -315,7 +315,7 @@ msgstr "Parcours"
 #: cirb.novac:/browser/templates/privateview.pt:91
 #: cirb.novac:/browser/templates/publicview.pt:86
 msgid "enquete_publique"
-msgstr ""
+msgstr "enquête publique"
 
 #: cirb.novac:/browser/templates/publicview.pt:34
 msgid "detail_de_la_demande"

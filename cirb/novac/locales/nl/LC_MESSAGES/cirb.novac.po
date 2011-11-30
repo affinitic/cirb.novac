@@ -38,7 +38,7 @@ msgstr ""
 #: cirb.novac:/browser/listprivateview.py:120
 #: cirb.novac:/browser/privateview.py:77 cirb.novac:/utils.py:105
 msgid "not_available"
-msgstr ""
+msgstr "niet beschikbaar"
 
 #: cirb.novac:/browser/novacview.py:61
 msgid "No url for cirb.novac.novac_url"
@@ -66,11 +66,11 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/listprivateview.pt:25
 msgid "vous_etes_maintenant_connecte"
-msgstr ""
+msgstr "U bent nu aangemeld"
 
 #: cirb.novac:/browser/templates/listprivateview.pt:34
 msgid "vos_dossiers_actives"
-msgstr ""
+msgstr "Uw geactiveerde dossiers"
 
 #: cirb.novac:/browser/templates/listprivateview.pt:39
 msgid "type"
@@ -78,55 +78,55 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/listprivateview.pt:40
 msgid "date_d_activation"
-msgstr ""
+msgstr "datum van activatie"
 
 #: cirb.novac:/browser/templates/listprivateview.pt:47
 msgid "activez_un_dossier"
-msgstr ""
+msgstr "activeer een dossier"
 
 #. Default: "La toute premi\303\250re fois, il faut activer un dossier pour avoir acc\303\250s aux d\303\251tails"
 #: cirb.novac:/browser/templates/listprivateview.pt:52
 msgid ""
 "La toute premiere fois, il faut activer un dossier pour avoir acces aux "
 "details"
-msgstr ""
+msgstr "De allereerste keer moet u een dossier activeren om toegang te krijgen tot de details."
 
 #. Default: "Ins\303\251rez votre cl\303\251 unique pour activer votre dossier"
 #: cirb.novac:/browser/templates/listprivateview.pt:61
 msgid "Inserez votre cle unique pour activer votre dossier"
-msgstr ""
+msgstr "Voor de unieke sleutelcode in om uw dossier de activeren"
 
 #: cirb.novac:/browser/templates/novacview.pt:36
 msgid "mon_dossier"
-msgstr ""
+msgstr "Mijn dossier"
 
 #: cirb.novac:/browser/templates/novacview.pt:38
 msgid "login"
-msgstr ""
+msgstr "Aanmelden"
 
 #: cirb.novac:/browser/templates/novacview.pt:40
 msgid "search_address"
-msgstr ""
+msgstr "Adres opzoeken"
 
 #: cirb.novac:/browser/templates/novacview.pt:44
 msgid "street_name:"
-msgstr ""
+msgstr "Straat"
 
 #: cirb.novac:/browser/templates/novacview.pt:45
 msgid "number:"
-msgstr ""
+msgstr "Nummer"
 
 #: cirb.novac:/browser/templates/novacview.pt:46
 msgid "post_code:"
-msgstr ""
+msgstr "Postcode"
 
 #: cirb.novac:/browser/templates/novacview.pt:49
 msgid "search"
-msgstr ""
+msgstr "zoeken"
 
 #: cirb.novac:/browser/templates/novacview.pt:51
 msgid "filtres"
-msgstr ""
+msgstr "Filters"
 
 #: cirb.novac:/browser/templates/novacview.pt:56
 msgid "type_U"
@@ -134,7 +134,7 @@ msgstr "type_S"
 
 #: cirb.novac:/browser/templates/novacview.pt:58
 msgid "urbanisme"
-msgstr ""
+msgstr "Stedenbouwkundige vergunning"
 
 #: cirb.novac:/browser/templates/novacview.pt:61
 msgid "type_L"
@@ -142,151 +142,151 @@ msgstr "type_V"
 
 #: cirb.novac:/browser/templates/novacview.pt:63
 msgid "lotir"
-msgstr ""
+msgstr "Verkavelingsvergunning"
 
 #: cirb.novac:/browser/templates/novacview.pt:72
 msgid "required"
-msgstr ""
+msgstr "Aangevraagd"
 
 #: cirb.novac:/browser/templates/novacview.pt:77
 msgid "granted"
-msgstr ""
+msgstr "Toegekend"
 
 #: cirb.novac:/browser/templates/novacview.pt:82
 msgid "refused"
-msgstr ""
+msgstr "Geweigerd"
 
 #: cirb.novac:/browser/templates/novacview.pt:87
 msgid "canceled"
-msgstr ""
+msgstr "Geannuleerd"
 
 #: cirb.novac:/browser/templates/privateview.pt:103
 #: cirb.novac:/browser/templates/publicview.pt:98
 msgid "commission_de_concertation"
-msgstr ""
+msgstr "overlegcommissie"
 
 #: cirb.novac:/browser/templates/privateview.pt:125
 #: cirb.novac:/browser/templates/privateview.pt:128
 #: cirb.novac:/browser/templates/publicview.pt:113
 #: cirb.novac:/browser/templates/publicview.pt:116
 msgid "decision"
-msgstr ""
+msgstr "beslissing"
 
 #: cirb.novac:/browser/templates/privateview.pt:135
 #: cirb.novac:/browser/templates/publicview.pt:123
 msgid "permis"
-msgstr ""
+msgstr "vergunning"
 
 #: cirb.novac:/browser/templates/privateview.pt:139
 #: cirb.novac:/browser/templates/publicview.pt:127
 msgid "notification_le"
-msgstr ""
+msgstr "medegedeeld op"
 
 #: cirb.novac:/browser/templates/privateview.pt:143
 #: cirb.novac:/browser/templates/publicview.pt:131
 msgid "validite"
-msgstr ""
+msgstr "geldigheid"
 
 #: cirb.novac:/browser/templates/privateview.pt:157
 msgid "gestion_des_cles_secondaires_pour_ce_dossier"
-msgstr ""
+msgstr "Beheer van secundaire sleutelcodes voor dit dossier"
 
 #: cirb.novac:/browser/templates/privateview.pt:163
 msgid "en_tant_que_demandeur_vous_pouvez_generez_une_ou_plusieurs_cles_secondaires_pour_un_ou_plusieurs_mandataires"
-msgstr ""
+msgstr "Als aanvrager kunt u één of meerdere secundaire sleutelcodes aanmaken voor één of meer gemachtigden."
 
 #: cirb.novac:/browser/templates/privateview.pt:166
 msgid "un_mandataite_n_a_pas_le_droit_de_creer_une_cle_secondaire"
-msgstr ""
+msgstr "Een gemachtigde kan geen secundaire sleutelcodes aanmaken."
 
 #: cirb.novac:/browser/templates/privateview.pt:167
 msgid "vous_pouvez_revoquer_une_cle_secondaire_a_tout_moment"
-msgstr ""
+msgstr "U kunt deze secundaire sleutelcodes op elk moment herroepen"
 
 #: cirb.novac:/browser/templates/privateview.pt:170
 msgid "vos_cles_secondaires"
-msgstr ""
+msgstr "Uw secundaire sleutelcodes"
 
 #: cirb.novac:/browser/templates/privateview.pt:173
 #: cirb.novac:/browser/templates/privateview.pt:189
 msgid "mandataire"
-msgstr ""
+msgstr "gemachtigde"
 
 #: cirb.novac:/browser/templates/privateview.pt:174
 msgid "cle"
-msgstr ""
+msgstr "sleutelcode"
 
 #: cirb.novac:/browser/templates/privateview.pt:175
 msgid "revoquer"
-msgstr ""
+msgstr "herroepen"
 
 #: cirb.novac:/browser/templates/privateview.pt:185
 msgid "ajouter_une_nouvelle_cle_secondaire"
-msgstr ""
+msgstr "Een nieuwe secundaire sleutelcode aanmaken"
 
 #. Default: "Ajouter"
 #: cirb.novac:/browser/templates/privateview.pt:192
 msgid "ajouter"
-msgstr ""
+msgstr "aanmaken"
 
 #: cirb.novac:/browser/templates/privateview.pt:201
 msgid "historique_consultation"
-msgstr ""
+msgstr "Historiek van raadpleging"
 
 #: cirb.novac:/browser/templates/privateview.pt:204
 msgid "date"
-msgstr ""
+msgstr "datum"
 
 #: cirb.novac:/browser/templates/privateview.pt:205
 msgid "name"
-msgstr ""
+msgstr "naam"
 
 #: cirb.novac:/browser/templates/privateview.pt:34
 msgid "Etat d'avancement - Demande de permis d'urbanisme"
-msgstr ""
+msgstr "Status van de voortgang - aanvraag tot stedenbouwkundige vergunning"
 
 #: cirb.novac:/browser/templates/privateview.pt:39
 #: cirb.novac:/browser/templates/listprivateview.pt:30
 msgid "logout"
-msgstr ""
+msgstr "Afmelden"
 
 #: cirb.novac:/browser/templates/privateview.pt:43
 #: cirb.novac:/browser/templates/publicview.pt:46
 msgid "informations_generales"
-msgstr ""
+msgstr "Algemene informatie"
 
 #: cirb.novac:/browser/templates/privateview.pt:46
 #: cirb.novac:/browser/templates/publicview.pt:49
 #: cirb.novac:/browser/templates/listprivateview.pt:38
 msgid "n_dossier"
-msgstr ""
+msgstr "Dossiernummer"
 
 #: cirb.novac:/browser/templates/privateview.pt:49
 #: cirb.novac:/browser/templates/publicview.pt:52
 msgid "reference"
-msgstr ""
+msgstr "Referentie"
 
 #: cirb.novac:/browser/templates/privateview.pt:53
 #: cirb.novac:/browser/templates/publicview.pt:56
 msgid "dossier_depose_a"
-msgstr ""
+msgstr "Dossier ingediend te"
 
 #: cirb.novac:/browser/templates/privateview.pt:57
 #: cirb.novac:/browser/templates/publicview.pt:60
 msgid "type_de_permis"
-msgstr ""
+msgstr "Type vergunning"
 
 #. Default: "Description"
 #: cirb.novac:/browser/templates/privateview.pt:61
 #: cirb.novac:/browser/templates/publicview.pt:64
 msgid "description"
-msgstr ""
+msgstr "Beschrijving"
 
 #: cirb.novac:/browser/templates/privateview.pt:65
 #: cirb.novac:/browser/templates/publicview.pt:39
 #: cirb.novac:/browser/templates/listprivateview.pt:37
 msgid "address"
-msgstr ""
+msgstr "Adres"
 
 #: cirb.novac:/browser/templates/privateview.pt:69
 #: cirb.novac:/browser/templates/publicview.pt:68
@@ -301,29 +301,29 @@ msgstr ""
 #: cirb.novac:/browser/templates/privateview.pt:77
 #: cirb.novac:/browser/templates/publicview.pt:76
 msgid "statut_du_dossier"
-msgstr ""
+msgstr "Status van het dossier"
 
 #: cirb.novac:/browser/templates/privateview.pt:81
 msgid "gestionnaire_du_dossier"
-msgstr ""
+msgstr "Dossierbeheerder"
 
 #: cirb.novac:/browser/templates/privateview.pt:88
 #: cirb.novac:/browser/templates/publicview.pt:83
 msgid "parcours"
-msgstr ""
+msgstr "Traject"
 
 #: cirb.novac:/browser/templates/privateview.pt:91
 #: cirb.novac:/browser/templates/publicview.pt:86
 msgid "enquete_publique"
-msgstr ""
+msgstr "Openbaar onderzoek"
 
 #: cirb.novac:/browser/templates/publicview.pt:34
 msgid "detail_de_la_demande"
-msgstr ""
+msgstr "Detail van de aanvraag"
 
 #: cirb.novac:/browser/templates/publicview.pt:36
 msgid "localisation"
-msgstr ""
+msgstr "Lokalisatie"
 
 #: cirb.novac:/utils.py:28 cirb.novac:/utils.py:58 cirb.novac:/utils.py:89
 msgid "headers bad formated"
