@@ -59,7 +59,7 @@
             </tr>
             <tr>
                 <th i18n:translate="description">Description</th>
-                <td id="description" tal:content="dos/object"></td>
+                <td id="descr" tal:content="dos/object"></td>
             </tr>
             <tr>
                 <th i18n:translate="address">address</th>
