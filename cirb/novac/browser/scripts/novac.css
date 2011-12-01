@@ -146,7 +146,7 @@ table.filter td{border-width:5px; padding:.4em; border-color:transparent;}
 /*** SEARCH ADDRESS ***/
 
 #street, #number, #post_code { border: 1px solid #ccc; }
-#search_address_button { border: 1px solid #4C4C4C; cursor:pointer;}
+#search_address_button { border: 1px solid #4C4C4C; cursor:pointer; }
 
 
 /*** FILTERS ***/
