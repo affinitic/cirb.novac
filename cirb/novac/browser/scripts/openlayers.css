@@ -254,6 +254,29 @@ div.olControlSaveFeaturesItemInactive {
     background-position: 0 18px;
 }
 
+.olControlPanel {
+    top: 10px;
+    left: 5px;
+} 
+.olControlPanel .olControlZoomInItemInactive {
+    background-image: url(++resource++cirb.novac.images/zoom-plus-mini.png);
+    position: absolute;
+    top: 15px;
+    left: 2px;
+    height: 18px;
+    width: 18px;
+    cursor: pointer;
+}
+.olControlPanel .olControlZoomOutItemInactive {
+    background-image: url(++resource++cirb.novac.images/zoom-minus-mini.png);
+    position: absolute;
+    top: 33px;
+    left: 2px;
+    height: 18px;
+    width: 18px;
+    cursor: pointer;
+}
+
 /* 
  * When a potential text is bigger than the image it move the image
  * with some headers (closes #3154) 
