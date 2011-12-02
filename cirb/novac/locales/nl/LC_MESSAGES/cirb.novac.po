@@ -163,29 +163,29 @@ msgstr "Geannuleerd"
 #: cirb.novac:/browser/templates/privateview.pt:103
 #: cirb.novac:/browser/templates/publicview.pt:98
 msgid "commission_de_concertation"
-msgstr "overlegcommissie"
+msgstr "Overlegcommissie"
 
 #: cirb.novac:/browser/templates/privateview.pt:125
 #: cirb.novac:/browser/templates/privateview.pt:128
 #: cirb.novac:/browser/templates/publicview.pt:113
 #: cirb.novac:/browser/templates/publicview.pt:116
 msgid "decision"
-msgstr "beslissing"
+msgstr "Beslissing"
 
 #: cirb.novac:/browser/templates/privateview.pt:135
 #: cirb.novac:/browser/templates/publicview.pt:123
 msgid "permis"
-msgstr "vergunning"
+msgstr "Vergunning"
 
 #: cirb.novac:/browser/templates/privateview.pt:139
 #: cirb.novac:/browser/templates/publicview.pt:127
 msgid "notification_le"
-msgstr "medegedeeld op"
+msgstr "Medegedeeld op"
 
 #: cirb.novac:/browser/templates/privateview.pt:143
 #: cirb.novac:/browser/templates/publicview.pt:131
 msgid "validite"
-msgstr "geldigheid"
+msgstr "Geldigheid"
 
 #: cirb.novac:/browser/templates/privateview.pt:157
 msgid "gestion_des_cles_secondaires_pour_ce_dossier"
