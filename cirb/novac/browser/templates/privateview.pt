@@ -92,11 +92,11 @@
 			<th class="set_width" i18n:translate="enquete_publique">enquete_publique</th>
 			<td id="enquete_publique">
 				<tal:block condition="python:data.get('results').get('publicInquiry')=='Oui'">
-					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="check" />
-					<tal:block tal:content="data/results/startPublicInquiry"> startPublicInquiry</tal:block>&nbsp;<tal:block tal:content="data/results/endPublicInquiry">endPublicInquiry </tal:block>
+					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="yes" i18n:attributes="title yes" />&nbsp;(<span i18n:translate="de">de</span>&nbsp;
+					<tal:block tal:content="data/results/startPublicInquiry"> startPublicInquiry</tal:block>&nbsp;<span i18n:translate="a">à</span>&nbsp;<tal:block tal:content="data/results/endPublicInquiry">endPublicInquiry </tal:block>)
 				</tal:block>
 				<tal:block condition="python:data.get('results').get('publicInquiry')=='Non'">
-					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/delete.png" alt="no" />
+					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/delete.png" alt="no" i18n:attributes="title no" />
 				</tal:block>
 			</td>
 		</tr>
@@ -104,11 +104,11 @@
 			<th class="set_width" i18n:translate="commission_de_concertation">commission_de_concertation</th>
 			<td id="commission_de_concertation">
 				<tal:block condition="python:data.get('results').get('pointCC')=='Oui'">
-					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="yes" />
-					<tal:block tal:content="data/results/dateCC"> dateCC</tal:block>
+					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="yes" i18n:attributes="title yes" />&nbsp;(<span i18n:translate="date">date</span>&nbsp;:&nbsp;
+					<tal:block tal:content="data/results/dateCC"> dateCC</tal:block>)
 				</tal:block>
 				<tal:block condition="python:data.get('results').get('pointCC')=='Non'">
-					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/delete.png" alt="no" />
+					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/delete.png" alt="no" i18n:attributes="title no" />
 				</tal:block>
 			</td>
 		</tr>
