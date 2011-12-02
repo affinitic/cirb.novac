@@ -58,14 +58,14 @@ $(document).ready(function() {
     });
     map.addLayer(ortho2009);
     
-    var icon_url = portal_url+'/++resource++cirb.novac.images/marker.png';
+    icon_url = portal_url+'/++resource++cirb.novac.images/map_pin.png';
     var size = new OpenLayers.Size(21,25);
     var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-    var icon_marker = new OpenLayers.Icon(icon_url, size, offset);
+    icon_marker = new OpenLayers.Icon(icon_url, size, offset);
     var size = new OpenLayers.Size(21,25);
     address_folder = new OpenLayers.LonLat(x, y);
     markers_layer = new OpenLayers.Layer.Markers( "Markers" );
-    markers_layer.addMarker(new OpenLayers.Marker(address_folder), icon_marker);
+    markers_layer.addMarker(new OpenLayers.Marker(address_folder, icon_marker));
     map.addLayer(markers_layer);
     
     var style = new OpenLayers.Style({
