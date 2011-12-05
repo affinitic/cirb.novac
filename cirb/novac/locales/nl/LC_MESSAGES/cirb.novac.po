@@ -102,7 +102,7 @@ msgstr "Mijn dossier"
 
 #: cirb.novac:/browser/templates/novacview.pt:38
 msgid "login"
-msgstr "Aanmelden"
+msgstr "Aanmelden met eID-kaart"
 
 #: cirb.novac:/browser/templates/novacview.pt:40
 msgid "search_address"
