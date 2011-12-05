@@ -11,7 +11,7 @@ from plone.registry.interfaces import IRegistry
 
 from cirb.novac import novacMessageFactory as _
 from cirb.novac.utils import *
-import urllib
+import urllib, logging
 
 from zope.annotation.interfaces import IAnnotations
 
@@ -95,11 +95,13 @@ class ListprivateView(BrowserView):
      
     # view to activate a dossier with the key
     def activate_key(self):
+        logger = logging.getLogger('cirb.novac.browser.listprivate.activate_key')
         # TODO return 'Bad Key' if 500 is returned by ws
-        key = urllib.quote_plus(self.request.form.get('key'))
+        key = urllib.quote_plus(self.request.form.get('key'))        
         #query_string = self.request.environ['QUERY_STRING']
         #key = urllib.quote_plus(query_string.replace('key=',''))        
         user = get_user(self.request)
+        logger.info("key : %s - user : %s" % (key, user['id']))
         activate_url = '%s%s%s&RNHEAD=%s' %(self.novac_url,ACTIVATION,key, user['id'])
         #activate_url = activate_url.encode('utf-8')
         results = call_put_url(activate_url,[{'Content-Type':'application/xml'},{'RNHEAD':user['id']}], 'key=%s&RNHEAD=%s' % (key,user['id']))
