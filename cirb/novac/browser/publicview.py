@@ -12,6 +12,7 @@ import urllib2, socket
 from urllib2 import URLError, HTTPError
 
 from cirb.novac import novacMessageFactory as _
+import logging
 
 from cirb.novac.browser.novacview import INovacView, NovacView
 from cirb.novac.utils import *
