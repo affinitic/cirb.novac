@@ -56,8 +56,8 @@ class ListprivateView(BrowserView):
                                             name=u'plone_portal_state')
         user = get_user(self.request)
         
-        dossier_list_url = '%s%s%s' %(self.novac_url,FOLDER_LIST_WS,user['id'])
-        dossier_list = called_url(dossier_list_url, [{'Content-Type':'application/json'}, {'ACCEPT':'application/json'}])
+        dossier_list_url = '%s%s%s' %(self.novac_url,FOLDER_LIST_WS,user['id'])   
+        dossier_list = called_url(dossier_list_url, [{'Content-Type':'application/json'}, {'ACCEPT':'application/json'}, {'lang':self.context.Language()}], lang=self.context.Language())
         results=[]
         import json
         jsondata=''
@@ -110,7 +110,7 @@ class ListprivateView(BrowserView):
         #errn = urllib.quote(self.request.form.get('errn'))
         dossier_list_url = '%s%s' %(self.novac_url,FOLDER_LIST_WS)
         user = get_user(self.request)
-        dossier_list = called_url(dossier_list_url, [{'Content-Type':'application/json'}, {'ACCEPT':'application/json'}, {'RNHEAD':user['id']}], params="")
+        dossier_list = called_url(dossier_list_url, [{'Content-Type':'application/json'}, {'ACCEPT':'application/json'}, {'RNHEAD':user['id']}, {'lang':self.context.Language()}], lang=self.context.Language(), params="")
         #print dossier_list
         if not dossier_list:
             return '<tr id="content_list_folder" style="height: 0px;"><td></td><td></td><td></td><td></td></tr>'

@@ -77,7 +77,7 @@
 		</div>
         
         <tal:block tal:condition="data/error" >
-            <div tal:replace="data/msg_error">error</div>
+            <div tal:replace="data/msg_error" class="hiddenStructure">error</div>
         </tal:block>
 		
 		

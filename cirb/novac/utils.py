@@ -115,8 +115,8 @@ def get_user(request):
     enn = IAnnotations(request)
     try:
         user['name'] = '%s %s' % (enn['CAS']['firstname'], enn['CAS']['lastname'])
-        user['id'] = user
+        user['id'] = getSecurityManager().getUser().getId()
     except:
         user['name'] = getSecurityManager().getUser().getUserName()
-        user['id'] = getSecurityManager().getUser()
+        user['id'] = getSecurityManager().getUser().getId()
     return user

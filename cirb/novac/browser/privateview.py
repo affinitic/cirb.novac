@@ -10,6 +10,7 @@ from plone.registry.interfaces import IRegistry
 from cirb.novac import novacMessageFactory as _
 from cirb.novac.utils import *
 import logging
+import urllib
 logger = logging.getLogger('cirb.novac.browser.privateview')
 PRIVATE_FODLER_WS = '/nova/sso/dossiers/' # ?errn=errn3 used to test
 HISTORY =  '/history' # ?errn=errn3 used to test
@@ -58,14 +59,14 @@ class PrivateView(BrowserView):
         #dossier_id = self.request.form.get('id')
         dossier_url = '%s%s%s' % (self.novac_url,PRIVATE_FODLER_WS,self.id_dossier)
         user = get_user(self.request)
-        jsondata = called_url(dossier_url, [{'Content-Type':'application/json'},{'ACCEPT':'application/json'}, {'RNHEAD':user['id']}])
+        jsondata = called_url(dossier_url, [{'Content-Type':'application/json'},{'ACCEPT':'application/json'}, {'RNHEAD':user['id']}, {'lang':self.context.Language()}], lang=self.context.Language())
         if not jsondata:
             logger.info('Not able to call ws %s' % dossier_url)
             error=True
             msg_error=_(u'Not able to call ws')
             return {'novac_url':self.novac_url, 'urbis_url':self.urbis_url, 'error':error,'msg_error':msg_error}
         history_url = '%s%s' % (dossier_url,HISTORY)
-        history = called_url(history_url,[{'Content-Type':'application/json'}, {'ACCEPT':'application/json'}, {'RNHEAD':user['id']}])
+        history = called_url(history_url,[{'Content-Type':'application/json'}, {'ACCEPT':'application/json'}, {'RNHEAD':user['id']}, {'lang':self.context.Language()}], lang=self.context.Language())
         if not history:
             logger.info('Not able to call ws %s' % history_url)
             error=True
@@ -140,7 +141,7 @@ class PrivateView(BrowserView):
                 
         secondary_keys_url = '%s%s%s' %(self.novac_url,SECONDARY_KEYS,targetID)
         user = get_user(self.request)
-        secondary_keys = called_url(secondary_keys_url, [{'Content-Type':'application/json'}, {'ACCEPT':'application/json'},{'RNHEAD':user['id']}])
+        secondary_keys = called_url(secondary_keys_url, [{'Content-Type':'application/json'}, {'ACCEPT':'application/json'},{'RNHEAD':user['id']}, {'lang':self.context.Language()}], lang=self.context.Language())
         if not secondary_keys:
             return '<tr class="secondary_key" style="height: 0px;"><td></td><td></td><td></td></tr>'
         results=[]

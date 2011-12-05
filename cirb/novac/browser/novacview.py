@@ -77,7 +77,7 @@ class NovacView(BrowserView):
         url = query_string.replace("url=","")
         #url = self.request.form.get('url')
         #headers = {'User-Agent': 'Novac/1 +http://www.urbanisme.irisnet.be/'}
-        return called_url(url , [{'Content-Type':'text/html'}])
+        return called_url(url , [{'Content-Type':'text/html'}, {'lang':self.context.Language()}], lang=self.context.Language())
 
     def wfs_post_request(self):        
         query_string = self.request.environ['QUERY_STRING']

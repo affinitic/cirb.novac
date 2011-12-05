@@ -77,7 +77,7 @@ class PublicView(BrowserView):
         url = '%s/%s/%s/' % (self.novac_url, PUB_DOSSIER, num_dossier)
         #TODO use utils method
         #
-        data_from_url = called_url(url, [{'Content-Type': 'application/json'},{'ACCEPT': 'application/json'}])
+        data_from_url = called_url(url, [{'Content-Type': 'application/json'},{'ACCEPT': 'application/json'}, {'lang':self.context.Language()}], lang=self.context.Language())
         
         msgid = _(u"not_available")
         not_avaiable = self.context.translate(msgid)
