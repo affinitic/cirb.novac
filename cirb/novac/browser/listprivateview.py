@@ -96,9 +96,9 @@ class ListprivateView(BrowserView):
     # view to activate a dossier with the key
     def activate_key(self):
         # TODO return 'Bad Key' if 500 is returned by ws
-        #key = urllib.quote_plus(self.request.form.get('key'))
-        query_string = self.request.environ['QUERY_STRING']
-        key = urllib.quote_plus(query_string.replace('key=',''))        
+        key = urllib.quote_plus(self.request.form.get('key'))
+        #query_string = self.request.environ['QUERY_STRING']
+        #key = urllib.quote_plus(query_string.replace('key=',''))        
         user = get_user(self.request)
         activate_url = '%s%s%s&RNHEAD=%s' %(self.novac_url,ACTIVATION,key, user['id'])
         #activate_url = activate_url.encode('utf-8')

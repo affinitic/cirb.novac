@@ -65,6 +65,7 @@ class PublicView(BrowserView):
         
     
     def python_json(self):
+        logger = logging.getLogger('cirb.novac.browser.publicview.python_json')
         oldtimeout = socket.getdefaulttimeout()
         data = ''
         msg_error=''
@@ -78,7 +79,7 @@ class PublicView(BrowserView):
         #TODO use utils method
         #
         data_from_url = called_url(url, [{'Content-Type': 'application/json'},{'ACCEPT': 'application/json'}, {'lang':self.context.Language()}], lang=self.context.Language())
-        
+        logger.info(self.context.Language())
         msgid = _(u"not_available")
         not_avaiable = self.context.translate(msgid)
         if data_from_url:
