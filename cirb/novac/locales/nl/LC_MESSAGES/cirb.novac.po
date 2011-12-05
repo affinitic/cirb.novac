@@ -175,7 +175,7 @@ msgstr "Beslissing"
 #: cirb.novac:/browser/templates/privateview.pt:135
 #: cirb.novac:/browser/templates/publicview.pt:123
 msgid "permis"
-msgstr "Vergunning"
+msgstr "Dossier volledig"
 
 #: cirb.novac:/browser/templates/privateview.pt:139
 #: cirb.novac:/browser/templates/publicview.pt:127

@@ -83,11 +83,15 @@
 					<td class="tableheader" colspan="2" i18n:translate="parcours">parcours</td>
 				</tr>
 				<tr>
+					<th class="set_width" i18n:translate="permis">permis</th>
+					<td id="permis" tal:content="json/results/dateDossierComplet">&nbsp;</td>
+				</tr>
+				<tr>
 					<th class="set_width" i18n:translate="enquete_publique">enquete_publique</th>
 					<td id="enquete_publique">
 						<tal:block condition="python:json.get('results').get('publicInquiry')=='Oui'">
-							<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="yes" i18n:attributes="title yes" />&nbsp;(<span i18n:translate="de">de</span>&nbsp;
-							<tal:block tal:content="json/results/startPublicInquiry">startPublicInquiry</tal:block>&nbsp;<span i18n:translate="a">à</span>&nbsp;<tal:block tal:content="json/results/endPublicInquiry">endPublicInquiry </tal:block>)
+							<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="yes" i18n:attributes="title yes" />&nbsp;(
+							<tal:block tal:content="json/results/startPublicInquiry">startPublicInquiry</tal:block>&nbsp;-&nbsp;<tal:block tal:content="json/results/endPublicInquiry">endPublicInquiry </tal:block>)
 						</tal:block>
 						<tal:block condition="python:json.get('results').get('publicInquiry')=='Non'">
 							<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/delete.png" alt="no" i18n:attributes="title no" />
@@ -119,10 +123,6 @@
 						&nbsp;&nbsp;???
 					</td>
 				</tr-->
-				<tr>
-					<th class="set_width" i18n:translate="permis">permis</th>
-					<td id="permis" tal:content="json/results/dateDossierComplet">&nbsp;</td>
-				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="notification_le">notification_le</th>
 					<td id="notification_le" tal:content="json/results/dateNotifDecision">&nbsp;</td>

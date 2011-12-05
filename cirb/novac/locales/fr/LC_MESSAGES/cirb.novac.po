@@ -175,7 +175,7 @@ msgstr "Décision"
 #: cirb.novac:/browser/templates/privateview.pt:135
 #: cirb.novac:/browser/templates/publicview.pt:123
 msgid "permis"
-msgstr "Permis"
+msgstr "Dossier complet"
 
 #: cirb.novac:/browser/templates/privateview.pt:139
 #: cirb.novac:/browser/templates/publicview.pt:127
@@ -315,7 +315,7 @@ msgstr "Parcours"
 #: cirb.novac:/browser/templates/privateview.pt:91
 #: cirb.novac:/browser/templates/publicview.pt:86
 msgid "enquete_publique"
-msgstr "enquête publique"
+msgstr "Enquête publique"
 
 #: cirb.novac:/browser/templates/publicview.pt:34
 msgid "detail_de_la_demande"

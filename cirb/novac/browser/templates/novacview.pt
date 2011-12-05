@@ -20,7 +20,7 @@
 <body>
        
     <div metal:fill-slot="main" tal:define="data view/novac">	
-	    <div tal:content="context/Description">desc</div>
+	    <div id="desc" tal:content="context/Description">desc</div>
         <tal:block tal:condition="not: data/error" >
             <div id="ws_urbis" tal:content="data/urbis_url" class="hiddenStructure"> ws_urbis </div>
             <div id="ws_waws" tal:content="data/novac_url" class="hiddenStructure"> ws_waws </div>

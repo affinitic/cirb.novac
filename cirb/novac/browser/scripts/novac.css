@@ -7,7 +7,7 @@ div#ws_urbis, div#ws_waws {height:0px;width:0px;overflow:hidden;}
 
 input[type=button] {width:100px; margin: 5px 0px 5px 90px;}
 
-#map_panel {float: left; height:502px; width:670px; border: solid #aaaaaa 1px; padding: 0px; margin: 5px 5px 5px 5px;}
+#map_panel {float: left; height:502px; width:670px; border: solid #aaaaaa 1px; padding: 0px; margin: 5px 5px 15em 5px;}
 #map_panel2 {float: left; height:300px; width:908px; border: solid #aaaaaa 1px; padding: 0px; margin: 5px 0px 5px 0px;}
 #map {height:100%;}
 
@@ -26,7 +26,7 @@ table.urbis_result td {padding:10px; font-weight: normal;}
 table.filter td{border-width:5px; padding:.4em; border-color:transparent;}
 
 
-
+#desc { font-size:16px;font-weight:bold;padding:0 0 1em 0.4em;}
 
 /*** Tempaltes ***/
 .detail_table {
@@ -171,3 +171,4 @@ td.canceled { background: transparent url(++resource++cirb.novac.images/circle-b
 table.filter label { font-weight:normal; }
 
 table.filter input#type_u, table.filter input#type_l, table.filter input#required, table.filter input#granted, table.filter input#refused, table.filter input#canceled { margin-top:3px; }
+
