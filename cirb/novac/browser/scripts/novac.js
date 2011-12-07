@@ -295,22 +295,22 @@ function applyDossierFilter(){
     }
     if(type_dossier != "") cql += "(" + type_dossier + ")";
     
-    var statut_permis = "STATUT_PERMIS IS NULL";
+    var statut_permis = "STATUT_PERMIS_FR IS NULL";
     if($('#canceled').is(':checked')){
     	if(statut_permis != "") statut_permis += " OR ";
-        statut_permis += "STATUT_PERMIS = 'ANNULE'";
+        statut_permis += "STATUT_PERMIS_FR = 'Annulé'";
     }
     if($('#refused').is(':checked')){
         if(statut_permis != "") statut_permis += " OR ";
-    	statut_permis += "STATUT_PERMIS = 'REFUSE'";
+    	statut_permis += "STATUT_PERMIS_FR = 'Refusé'";
     }
     if($('#required').is(':checked')){
         if(statut_permis != "") statut_permis += " OR ";
-    	statut_permis += "STATUT_PERMIS = 'DEMANDE'";
+    	statut_permis += "STATUT_PERMIS_FR = 'Demandé'";
     }
     if($('#granted').is(':checked')){
         if(statut_permis != "") statut_permis += " OR ";
-    	statut_permis += "STATUT_PERMIS = 'OCTROYE'";
+    	statut_permis += "STATUT_PERMIS_FR = 'Octroyé'";
     }
     if(statut_permis != "") {
     	if(cql != "") cql += " AND ";
