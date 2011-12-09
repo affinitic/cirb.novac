@@ -45,10 +45,10 @@
             </tr>
             <tr>
                 <th class="set_width" i18n:translate="n_dossier">n_dossier</th>
-                <td id="n_dossier" tal:content="dos/id"></td>
+                <td id="n_dossier" tal:content="dos/refNova"></td>
             </tr><tr>
                 <th i18n:translate="reference">reference</th>
-                <td id="reference" tal:content="dos/refNova">7441</td>
+                <td id="reference" tal:content="dos/specificReference">7441</td>
             </tr>
             <tr>
                 <th i18n:translate="dossier_depose_a">dossier_depose_a</th>
@@ -140,10 +140,10 @@
             <th class="set_width" i18n:translate="notification_le">notification_le</th>
             <td id="notification_le" tal:content="data/results/dateNotifDecision">&nbsp;</td>
         </tr>
-        <tr>
+        <!--tr>
             <th class="set_width" i18n:translate="validite">validite</th>
             <td id="validite" tal:content="data/results/dateDeadline">&nbsp;</td>
-        </tr>
+        </tr-->
     </tbody></table>
 
 

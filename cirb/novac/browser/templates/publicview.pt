@@ -47,10 +47,10 @@
 				</tr>
 				<tr>
 					<th class="set_width" i18n:translate="n_dossier">n_dossier</th>
-					<td id="n_dossier"  tal:content='json/results/num_dossier'></td>
+					<td id="n_dossier"  tal:content='json/results/novaRef'></td>
 				</tr><tr>
 					<th i18n:translate="reference">reference</th>
-					<td id="reference" tal:content='json/results/novaRef'></td>
+					<td id="reference" tal:content='json/results/specificReference'></td>
 				</tr>
 				<tr>
 					<th i18n:translate="dossier_depose_a">dossier_depose_a</th>
@@ -127,10 +127,10 @@
 					<th class="set_width" i18n:translate="notification_le">notification_le</th>
 					<td id="notification_le" tal:content="json/results/dateNotifDecision">&nbsp;</td>
 				</tr>
-				<tr>
+				<!--tr>
 					<th class="set_width" i18n:translate="validite">validite</th>
 					<td id="validite" tal:content="json/results/dateDeadline">&nbsp;</td>
-				</tr>
+				</tr-->
 			</tbody></table>
 			<!--table class="detail_table">
 				<tbody><tr>
