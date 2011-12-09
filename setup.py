@@ -19,11 +19,6 @@ long_description = (
     + '\n' +
     read('CHANGES.txt')
     + '\n' +
-    'Detailed Documentation\n'
-    '**********************\n'
-    + '\n' +
-    read('cirb', 'novac', 'README.txt')
-    + '\n' +
     'Contributors\n'
     '************\n'
     + '\n' +
@@ -32,7 +27,7 @@ long_description = (
     'Download\n'
     '********\n')
 
-tests_require = ['zope.testing']
+
 
 setup(name='cirb.novac',
       version=version,
@@ -55,16 +50,17 @@ setup(name='cirb.novac',
       include_package_data=True,
       zip_safe=False,
       install_requires=['setuptools',
+                        'Plone',
                         # -*- Extra requirements: -*-
                         ],
-      tests_require=tests_require,
-      extras_require=dict(tests=tests_require),
-      test_suite='cirb.novac.tests.test_docs.test_suite',
+      extras_require = {
+        'test': [
+                'plone.testing',
+            ]
+      },
       entry_points="""
       # -*- entry_points -*-
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      #setup_requires=["PasteScript"],
-      #paster_plugins=["ZopeSkel"],
       )

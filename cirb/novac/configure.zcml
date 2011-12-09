@@ -22,9 +22,6 @@
   
   <i18n:registerTranslations directory="locales" />
   
-      
-  
-  <!--cmf:registerDirectory name="novac" directory="skins" recursive="True" /-->
   
   <!-- -*- extra stuff goes here -*- -->
   

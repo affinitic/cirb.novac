@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import re, os
 import urllib2, socket
 from urllib2 import URLError, HTTPError
@@ -7,7 +8,7 @@ from cirb.novac import novacMessageFactory as _
 
 from AccessControl import getSecurityManager
 
-__all__=["called_url", "call_put_url", "call_post_url", "get_properties", "get_user"]
+__all__=["called_url", "call_put_url", "call_post_url", "get_properties", "get_user", "update_dossiers"]
 
 def called_url(request_url, request_headers, params='', lang='fr'): # for exemple : content_type = application/xml
     """
@@ -102,21 +103,78 @@ def call_post_url(request_url, request_headers, params=''): # request_headers is
     return results  
 
 def get_properties(context, prop, prop_name):
-        msgid = _(u"not_available")
-        not_avaiable = context.translate(msgid)
-        try:
-            return prop[prop_name]
-        except:
-            return not_avaiable
-        
-def get_user(request):
+    msgid = _(u"not_available")
+    not_avaiable = context.translate(msgid)
+    try:
+        return prop[prop_name]
+    except:
+        return not_avaiable
+
+def get_user(request, context=None):
     user={}    
     from zope.annotation.interfaces import IAnnotations
     enn = IAnnotations(request)
     try:
         user['name'] = '%s %s' % (enn['CAS']['firstname'], enn['CAS']['lastname'])
         user['id'] = getSecurityManager().getUser().getId()
+        #context.setMemberProperties({'firstname': enn['CAS']['firstname'], 'lastname':enn['CAS']['lastname']})
     except:
+        #import pdb; pdb.set_trace()
         user['name'] = getSecurityManager().getUser().getUserName()
         user['id'] = getSecurityManager().getUser().getId()
     return user
+
+
+
+
+class Dossier(dict):
+    def __init__(self, value, field_list, not_available):
+        super(Dossier, self).__init__(value)
+        self.field_list = field_list
+        self.not_available = not_available
+        
+    def update(self):
+        self.update_address()
+        self.update_fields_availability()
+
+    def update_address(self):
+        address = []
+        nf = self.get('numberFrom', '')
+        if nf:
+            address.append('%s,' % nf)
+        
+        sn = self.get('streetName', '')
+        if sn:
+            address.append(sn)
+            
+        zc = self.get('zipcode', '')
+        if zc:
+            address.append(zc)
+            
+        muni = self.get('municipality', '')
+        if muni:
+            address.append(muni)
+            
+        if not address:
+            self['address'] = self.not_available
+        else:
+            self['address'] = u' '.join(address)
+
+    def update_fields_availability(self):
+        for fieldname in self.field_list:
+            self.update_field_availability(fieldname)
+            
+    def update_field_availability(self, fieldname):
+        value = self.get(fieldname, '')
+        if not value:
+            self[fieldname] = self.not_available
+
+
+def update_dossiers(dossier_mapping_list, field_list, not_available):
+    dossier_list = []    
+    for mapping in dossier_mapping_list:
+        dossier = Dossier(mapping, field_list, not_available)
+        dossier.update()
+        dossier_list.append(dossier)
+    return dossier_list
+        
