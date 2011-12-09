@@ -111,17 +111,14 @@ def get_properties(context, prop, prop_name):
         return not_avaiable
 
 def get_user(request, context=None):
-    user={}    
-    from zope.annotation.interfaces import IAnnotations
-    enn = IAnnotations(request)
-    try:
-        user['name'] = '%s %s' % (enn['CAS']['firstname'], enn['CAS']['lastname'])
-        user['id'] = getSecurityManager().getUser().getId()
-        #context.setMemberProperties({'firstname': enn['CAS']['firstname'], 'lastname':enn['CAS']['lastname']})
-    except:
-        #import pdb; pdb.set_trace()
+    user={}  
+    import pdb; pdb.set_trace()
+    fullname = context.portal_membership.getPersonalPortrait(getSecurityManager().getUser().getId()).getProperty('fullname')
+    if fullname:
+        user['name'] = fullname
+    else:
         user['name'] = getSecurityManager().getUser().getUserName()
-        user['id'] = getSecurityManager().getUser().getId()
+    user['id'] = getSecurityManager().getUser().getId()
     return user
 
 
