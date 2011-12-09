@@ -175,7 +175,7 @@ msgstr "Beslissing"
 #: cirb.novac:/browser/templates/privateview.pt:135
 #: cirb.novac:/browser/templates/publicview.pt:123
 msgid "permis"
-msgstr "Dossier volledig"
+msgstr "Dossier volledig verklaard op"
 
 #: cirb.novac:/browser/templates/privateview.pt:139
 #: cirb.novac:/browser/templates/publicview.pt:127
@@ -264,7 +264,7 @@ msgstr "Dossiernummer"
 #: cirb.novac:/browser/templates/privateview.pt:49
 #: cirb.novac:/browser/templates/publicview.pt:52
 msgid "reference"
-msgstr "Referentie"
+msgstr "Gemeentelijke referentie"
 
 #: cirb.novac:/browser/templates/privateview.pt:53
 #: cirb.novac:/browser/templates/publicview.pt:56
@@ -280,7 +280,7 @@ msgstr "Type vergunning"
 #: cirb.novac:/browser/templates/privateview.pt:61
 #: cirb.novac:/browser/templates/publicview.pt:64
 msgid "description"
-msgstr "Beschrijving"
+msgstr "Voorwerp van de aanvraag"
 
 #: cirb.novac:/browser/templates/privateview.pt:65
 #: cirb.novac:/browser/templates/publicview.pt:39

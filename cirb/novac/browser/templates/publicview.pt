@@ -64,10 +64,12 @@
 					<th i18n:translate="description">Description</th>
 					<td id="desc" tal:content='json/results/object'></td>
 				</tr>
+<!--
 				<tr>
 					<th i18n:translate="demande_introduite_le">demande_introduite_le</th>
 					<td id="demande_introduite_le" tal:content='json/results/startPublicInquiry'></td>
 				</tr>
+-->
 				<tr>
 					<th i18n:translate="langue">langue</th>
 					<td id="langue" tal:content='json/results/languageRequest'></td>

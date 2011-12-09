@@ -264,7 +264,7 @@ msgstr "N° dossier"
 #: cirb.novac:/browser/templates/privateview.pt:49
 #: cirb.novac:/browser/templates/publicview.pt:52
 msgid "reference"
-msgstr "Référence"
+msgstr "Référence communale"
 
 #: cirb.novac:/browser/templates/privateview.pt:53
 #: cirb.novac:/browser/templates/publicview.pt:56
@@ -280,7 +280,7 @@ msgstr "type de permis"
 #: cirb.novac:/browser/templates/privateview.pt:61
 #: cirb.novac:/browser/templates/publicview.pt:64
 msgid "description"
-msgstr ""
+msgstr "Objet de la demande"
 
 #: cirb.novac:/browser/templates/privateview.pt:65
 #: cirb.novac:/browser/templates/publicview.pt:39

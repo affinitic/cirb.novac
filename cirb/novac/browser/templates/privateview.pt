@@ -66,10 +66,12 @@
                 <th i18n:translate="address">address</th>
                 <td id="address" tal:content="dos/address"></td>
             </tr>
+<!--
             <tr>
                 <th i18n:translate="demande_introduite_le">demande_introduite_le</th>
                 <td id="demande_introduite_le" tal:content="dos/startPublicInquiry"></td>
             </tr>
+-->
             <tr>
                 <th i18n:translate="langue">langue</th>
                 <td id="langue" tal:content="dos/languageRequest"></td>
