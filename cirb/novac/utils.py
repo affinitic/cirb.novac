@@ -111,8 +111,7 @@ def get_properties(context, prop, prop_name):
         return not_avaiable
 
 def get_user(request, context=None):
-    user={}  
-    import pdb; pdb.set_trace()
+    user={} 
     fullname = context.portal_membership.getPersonalPortrait(getSecurityManager().getUser().getId()).getProperty('fullname')
     if fullname:
         user['name'] = fullname
