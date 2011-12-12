@@ -10,10 +10,11 @@ from AccessControl import getSecurityManager
 
 __all__=["called_url", "call_put_url", "call_post_url", "get_properties", "get_user", "update_dossiers"]
 
+logger = logging.getLogger('cirb.novac.utils')
+
 def called_url(request_url, request_headers, params='', lang='fr'): # for exemple : content_type = application/xml
     """
     """
-    logger = logging.getLogger('cirb.novac.utils.called_url')
     oldtimeout = socket.getdefaulttimeout()
     results = ''
     url = request_url
@@ -154,7 +155,11 @@ class Dossier(dict):
         if not address:
             self['address'] = self.not_available
         else:
-            self['address'] = u' '.join(address)
+            try:
+                self['address'] = u' '.join(address)
+            except UnicodeDecodeError, e:
+                self['address'] = ' '.join(address)                
+                logger.exception(' : %s.' % e.reason)
 
     def update_fields_availability(self):
         for fieldname in self.field_list:

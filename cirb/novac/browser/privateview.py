@@ -9,6 +9,8 @@ from plone.registry.interfaces import IRegistry
 
 from cirb.novac import novacMessageFactory as _
 from cirb.novac.utils import *
+from cirb.novac.browser.novacview import INovacView, NovacView
+
 import logging
 import urllib
 logger = logging.getLogger('cirb.novac.browser.privateview')
@@ -19,14 +21,13 @@ ADD_SECONDARY_KEY = '/waws/sso/ssks?targetID='
 ADD_SECONDARY_KEY_NAME = '&keyName='
 REVOKE_SECONDARY_KEY = '/waws/sso/ssks/revoke?key='
 
-class IPrivateView(Interface):
+class IPrivateView(INovacView):
     """
     Cas view interface
     """
 
 
-
-class PrivateView(BrowserView):
+class PrivateView(NovacView):
     """
     Cas browser view
     """
@@ -46,6 +47,12 @@ class PrivateView(BrowserView):
     @property
     def portal(self):
         return getToolByName(self.context, 'portal_url').getPortalObject()
+    
+    def view_name(self):
+        return "Private"
+    
+    def second_level(self):
+        return "Listprivate"
     
     def private(self):        
         error=False

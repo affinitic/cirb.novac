@@ -14,7 +14,6 @@
     <script type="text/javascript" tal:attributes="src string:${portal_url}/++resource++cirb.novac.scripts/jquery-ui.min.js"></script>
     <script type="text/javascript" tal:attributes="src string:${portal_url}/++resource++cirb.novac.scripts/novac.js"></script>
 
-
 </tal:js>
 
 <body>

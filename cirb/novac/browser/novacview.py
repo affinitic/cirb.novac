@@ -10,18 +10,17 @@ from plone.registry.interfaces import IRegistry
 from cirb.novac import novacMessageFactory as _
 
 from cirb.novac.utils import *
-
+from cirb.novac.browser.interfaces import INovacCustomization
 import re, os
 import urllib2, socket
 from urllib2 import URLError, HTTPError
 
+LISTPRIVATE='listprivate'
 
-class INovacView(Interface):
+class INovacView(INovacCustomization):
     """
     Cas view interface
     """
-
-
 
 
 class NovacView(BrowserView):
@@ -33,6 +32,11 @@ class NovacView(BrowserView):
     def __init__(self, context, request):
         self.context = context
         self.request = request
+        registry = getUtility(IRegistry)
+        self.novac_url = registry['cirb.novac.novac_url']
+        self.urbis_url = registry['cirb.urbis.urbis_url']
+        self.urbis_cache_url = registry['cirb.urbis.urbis_cache_url']
+        self.json_file = registry['cirb.novac.json_file']
 
     @property
     def portal_catalog(self):
@@ -43,34 +47,36 @@ class NovacView(BrowserView):
         return getToolByName(self.context, 'portal_url').getPortalObject()
     
     def view_name(self):
-        return "novac"
+        return ""
+    
+    def second_level(self):
+        return ""
     
     def novac(self):
         """
         novac method
         """
-        registry = getUtility(IRegistry)
-        novac_url = registry['cirb.novac.novac_url']
-        urbis_url = registry['cirb.urbis.urbis_url']
-        urbis_cache_url = registry['cirb.urbis.urbis_cache_url']
-        json_file = registry['cirb.novac.json_file']
+        
         error=False
         msg_error=''
-        if not novac_url:
+        if not self.novac_url:
             error=True
             msg_error=_(u'No url for cirb.novac.novac_url')
-        if not urbis_url:
+        if not self.urbis_url:
             error=True
             msg_error=_(u'No url for cirb.urbis.urbis_url')
-        if not json_file:
+        if not self.urbis_cache_url:
+            error=True
+            msg_error=_(u'No url for cirb.urbis.urbis_cache_url')
+        if not self.json_file:
             error=True
             msg_error=_(u'No json_file')
-        private_url='wawslistprivate_view'
-        return {'novac_url':novac_url,
-                'urbis_url':urbis_url,
-                'urbis_cache_url':urbis_cache_url,
-                'json_file':json_file,
-                'private_url':private_url,'error':error,'msg_error':msg_error}
+        
+        return {'novac_url':self.novac_url,
+                'urbis_url':self.urbis_url,
+                'urbis_cache_url':self.urbis_cache_url,
+                'json_file':self.json_file,
+                'private_url':LISTPRIVATE,'error':error,'msg_error':msg_error}
     
     def wfs_request(self):        
         query_string = self.request.environ['QUERY_STRING']
@@ -96,11 +102,16 @@ class NovacView(BrowserView):
             header.append({"Content-Type":"application/json"})
             header.append({"ACCEPT":"application/json"})
         params = {}
-       
+        data = None
         params['language'] = lang
         params['address'] = {'street':{'name':street, 'postcode':post_code}, 'number':number}
         import json
-        data = json.dumps(params)
+        try:
+            data = json.dumps(params)
+        except ValueError, e:
+            self.logger.error('Json value error : %s.' % e.message)
+        except SyntaxError, e:
+            self.logger.error('Json bad formatted : %s.' % e.message)
         return call_post_url(url , header, data)
 
 

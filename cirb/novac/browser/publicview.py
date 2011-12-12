@@ -16,22 +16,22 @@ import logging
 
 from cirb.novac.browser.novacview import INovacView, NovacView
 from cirb.novac.utils import *
+from cirb.novac.browser.interfaces import INovacCustomization
 
 PUB_DOSSIER = 'nova/pub/dossiers'
 
-class IPublicView(Interface):
+class IPublicView(INovacView):
     """
     Cas view interface
     """
 
 
-class PublicView(BrowserView):
+class PublicView(NovacView):
     """
     Cas browser view
     """
     implements(IPublicView)
     
-    novac_url=''
     
     def __init__(self, context, request):
         self.context = context
@@ -49,7 +49,7 @@ class PublicView(BrowserView):
         return getToolByName(self.context, 'portal_url').getPortalObject()
 
     def view_name(self):
-        return "public"
+        return "Public"
         
     def public(self):
         folder_id = self.request.form.get('id')

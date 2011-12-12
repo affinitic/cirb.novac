@@ -11,7 +11,7 @@
 </tal:css>
 <tal:js metal:fill-slot="javascript_head_slot"> 
 	<script type="text/javascript" tal:attributes="src string:${portal_url}/++resource++cirb.novac.scripts/map.js"></script>
-    <script type="text/javascript" tal:attributes="src string:${portal_url}/++resource++cirb.novac.scripts/novac_private.js"></script>
+    <script type="text/javascript" tal:attributes="src string:${portal_url}/++resource++cirb.novac.scripts/privateview.js"></script>
 </tal:js>
 
 <body>

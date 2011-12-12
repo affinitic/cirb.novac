@@ -213,7 +213,7 @@ function showPointInfo(response) {
 			result += (getElements(permits[i], "nova", "OBJECTFR")[0])?$(getElements(permits[i], "nova", "OBJECTFR")[0]).text()+ " ":"";
 
 			result +='</td><tr></tr><tr><td><a target="_blank" href="';
-			result += (permits[i].getAttribute("fid"))?absolute_url+"/wawspublic_view?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
+			result += (permits[i].getAttribute("fid"))?absolute_url+"/public?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
 
 			result+= '">Pour en savoir plus...<a/></td></tr></table></div>';
 

@@ -11,6 +11,8 @@ from plone.registry.interfaces import IRegistry
 
 from cirb.novac import novacMessageFactory as _
 from cirb.novac.utils import *
+from cirb.novac.browser.novacview import INovacView, NovacView
+
 import urllib, logging, json
 
 from zope.annotation.interfaces import IAnnotations
@@ -18,14 +20,14 @@ from zope.annotation.interfaces import IAnnotations
 FOLDER_LIST_WS = '/nova/sso/dossiers?errn=' # ?errn=errn3 used to test
 ACTIVATION = '/waws/sso/activate?key=' # ?errn=errn3 used to test
 
-class IListprivateView(Interface):
+class IListprivateView(INovacView):
     """
     Cas view interface
     """
 
 
 
-class ListprivateView(BrowserView):
+class ListprivateView(NovacView):
     """
     Cas browser view
     """
@@ -45,6 +47,9 @@ class ListprivateView(BrowserView):
     @property
     def portal(self):
         return getToolByName(self.context, 'portal_url').getPortalObject()
+    
+    def view_name(self):
+        return "Listprivate"
     
     def listprivate(self):
         
@@ -136,16 +141,16 @@ class ListprivateView(BrowserView):
                          "languageRequest","dateDossierComplet","specificReference", 
                          "municipalityOwner", "manager"]
         
-        results = update_dossiers(jsondata, table_ids, not_available)        
+        results = update_dossiers(jsondata, table_ids, not_available)
         return make_table_rows(self.context.absolute_url(), results)
 
 
 def make_table_rows(absolute_url, dossiers):
     table = ''
     for dossier in dossiers:
-        table+='''
+        table += '''
 <tr  class="content_list_folder">
-    <td><a href="%s/wawsprivate_view?id=%s">%s</a></td>
+    <td><a href="%s/private?id=%s">%s</a></td>
     <td>%s</td>
     <td>%s</td>
     <td>%s</td>

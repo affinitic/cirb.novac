@@ -28,6 +28,8 @@
       layer=".interfaces.INovacCustomization"
       />
 
+
+
   <browser:page
       for="*"
       name="novac_view"
@@ -39,7 +41,7 @@
 
   <browser:page
       for="*"
-      name="wawspublic_view"
+      name="public"
       class=".publicview.PublicView"
       template="templates/publicview.pt"
       allowed_interface=".publicview.IPublicView"
@@ -48,7 +50,7 @@
       
   <browser:page
       for="*"
-      name="wawsprivate_view"
+      name="private"
       class=".privateview.PrivateView"
       template="templates/privateview.pt"
       allowed_interface=".privateview.IPrivateView"
@@ -57,12 +59,13 @@
       
   <browser:page
       for="*"
-      name="wawslistprivate_view"
+      name="listprivate"
       class=".listprivateview.ListprivateView"
       template="templates/listprivateview.pt"
       allowed_interface=".listprivateview.IListprivateView"
       permission="novac.View"
       />
+      
       
    <!-- used to change default folder view with an interface -->
    <browser:defaultView
@@ -72,7 +75,7 @@
       
    <browser:viewlet
         name="plone.path_bar"
-        view=".publicview.PublicView"
+        view=".novacview.NovacView"
         manager="plone.app.layout.viewlets.interfaces.IAboveContent"
         layer=".interfaces.INovacCustomization"
         class=".viewlets.BreatcrumbViewlet"
@@ -96,7 +99,7 @@
       permission="zope2.View"
        />
   
-  <!-- privates folders -->  
+  <!-- list private folders -->  
   <browser:page
       for="*"
       name="activate_key"
