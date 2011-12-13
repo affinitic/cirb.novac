@@ -2,7 +2,7 @@ $(document).ready(function() {
     var destTable = $("#dossier_list");
     $('#activate_key').click(function () {        
         var key = $('#key1').val()+$('#key2').val()+$('#key3').val()+$('#key4').val()+$('#key5').val()+$('#key6').val();        
-        var url = $('#absolute_url').html()+'/activate_key?key='+key;                
+        var url = '/activate_key?key='+key;                
         $.get(url, function(data) {
             //reload table with the new 'dossier'
             reload_table_list_dossier();
@@ -41,7 +41,8 @@ $(document).ready(function() {
 });
 
 function reload_table_list_dossier(){
-    var url = $('#absolute_url').html()+'/get_table_lines_folder';        
+    //var url = $('#absolute_url').html()+'/get_table_lines_folder';
+    var url = '/get_table_lines_folder';
     $.get(url, function(data) { 
         $('.content_list_folder').remove();
         $('table#dossier_list tr.title').after(data);

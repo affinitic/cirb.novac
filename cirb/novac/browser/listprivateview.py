@@ -49,10 +49,9 @@ class ListprivateView(NovacView):
         return getToolByName(self.context, 'portal_url').getPortalObject()
     
     def view_name(self):
-        return "Listprivate"
+        return _(u"Listprivate")
     
-    def listprivate(self):
-        
+    def listprivate(self):        
         error=False
         msg_error=''
         if not self.novac_url:

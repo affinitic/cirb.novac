@@ -49,7 +49,7 @@ class PublicView(NovacView):
         return getToolByName(self.context, 'portal_url').getPortalObject()
 
     def view_name(self):
-        return "Public"
+        return _(u"Public")
         
     def public(self):
         folder_id = self.request.form.get('id')

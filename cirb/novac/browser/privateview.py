@@ -49,10 +49,10 @@ class PrivateView(NovacView):
         return getToolByName(self.context, 'portal_url').getPortalObject()
     
     def view_name(self):
-        return "Private"
+        return _(u"Private")
     
     def second_level(self):
-        return "Listprivate"
+        return _(u"Listprivate")
     
     def private(self):        
         error=False
