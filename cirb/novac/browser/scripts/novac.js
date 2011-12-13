@@ -81,9 +81,9 @@ $(window).bind("load", function() {
 
 	//create the dossiers layer
 	dossiers = new OpenLayers.Layer.WMS(
-	    (current_language == 'fr')?"Permis d'urbanisme":"Bouwaanvragen",
+	    (current_language == 'nl')?"Bouwaanvragen":"Permis d'urbanisme",
 		url_ws_urbis, 
-		{layers: 'nova:NOVA_DOSSIERS', transparent: true},
+		{layers: 'nova:NOVA_DOSSIERS', styles:(current_language == 'nl')?"nova_dossiers_nl":"nova_dossiers_fr",transparent: true},
 		{singleTile: true, ratio: 1.25, isBaseLayer: false, maxScale: 25000});
  	map.addLayer(dossiers);
 
