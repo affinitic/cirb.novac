@@ -190,6 +190,7 @@ function showPointInfo(response) {
     permits = getElements(xmlDoc, "nova", "NOVA_DOSSIERS");
     var result = "<div id='tabber' class='tabber'>";
     var absolute_url  = $('#absolute_url').html();
+	var publicurl = "public"
     //build the result html
     for(i =0; i < permits.length ; i++){
 		if(current_language == 'fr'){
@@ -213,7 +214,7 @@ function showPointInfo(response) {
 			result += (getElements(permits[i], "nova", "OBJECTFR")[0])?$(getElements(permits[i], "nova", "OBJECTFR")[0]).text()+ " ":"";
 
 			result +='</td><tr></tr><tr><td><a target="_blank" href="';
-			result += (permits[i].getAttribute("fid"))?absolute_url+"/public?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
+			result += (permits[i].getAttribute("fid"))?absolute_url+"/"+publicurl+"?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
 
 			result+= '">Pour en savoir plus...<a/></td></tr></table></div>';
 
@@ -241,7 +242,7 @@ function showPointInfo(response) {
 			result += (getElements(permits[i], "nova", "OBJECTNL")[0])?$(getElements(permits[i], "nova", "OBJECTNL")[0]).text()+ " ":"";
 
 			result += '</td><tr></tr><tr><td><a target="_blank" href="';
-			result += (permits[i].getAttribute("fid"))?absolute_url+"/wawspublic_view?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
+			result += (permits[i].getAttribute("fid"))?absolute_url+"/"+publicurl+"?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
 
 			result += '">Meer informatie...<a/></td></tr></table></div>';
 		}
