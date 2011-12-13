@@ -4,6 +4,7 @@ var map;
 var filter_geom , markers_layer, tabberOptions;
 var mouseLoc, currentPopup ;
 var portal_url;
+var url_gis;
 var clusters3km;
 var current_language;
 var dossiers;
@@ -18,14 +19,12 @@ $(window).bind("load", function() {
 		autoHeight : false		
 	}); 
 
-    var url_ws_urbis = $('#ws_urbis').html();
-    var url_ws_urbis_cache = $('#urbis_cache_url').html();
+    portal_url = $('#portal_url').html();
+    url_gis = portal_url + "/gis/";
     var url_ws_waws = $('#ws_waws').html();
     var json_file  = $('#json_file').html();
-    portal_url = $('#portal_url').html();
     OpenLayers.ImgPath = portal_url+"/++resource++cirb.novac.images/";
     current_language = $('#current_language').html();
-    url = portal_url+"/wfs_request?url="+url_ws_urbis+"&headers=";
 
     var mapOptions = { 
         resolutions: [34.76915808105469, 17.384579040527345, 8.692289520263673, 4.346144760131836, 2.173072380065918, 1.086536190032959, 0.5432680950164795, 0.2716340475082398, 0.1358170237541199],
@@ -40,14 +39,16 @@ $(window).bind("load", function() {
     //set the baselayer based on the language
     if(current_language == 'fr'){
         urbislayer = new OpenLayers.Layer.WMS(
-            "urbisFR",url_ws_urbis_cache,
+            "urbisFR",
+            url_gis+"geoserver/gwc/service/wms",
             {layers: 'urbisFR', format: 'image/png' },
             { tileSize: new OpenLayers.Size(256,256) }
         );
         map.addLayer(urbislayer);
     }else{
         urbislayer = new OpenLayers.Layer.WMS(
-            "urbisNL",url_ws_urbis_cache,
+            "urbisNL", 
+            url_gis+"geoserver/gwc/service/wms",
             {layers: 'urbisNL', format: 'image/png' },
             { tileSize: new OpenLayers.Size(256,256) }
         );
@@ -57,7 +58,7 @@ $(window).bind("load", function() {
     //municipalities layer
     var municipalities = new OpenLayers.Layer.WMS(
         "Municipalities", 
-        url_ws_urbis,
+        url_gis+"geoserver/wms",
         {layers: 'urbis:URB_A_MU ', styles: 'nova_municipalities', transparent: 'true'},
         {singleTile: true, ratio: 1.25, isBaseLayer: false});
     map.addLayer(municipalities);
@@ -65,7 +66,7 @@ $(window).bind("load", function() {
     //create the highest cluster layer
 	clusters3km = new OpenLayers.Layer.WMS(
 		"Clusters3km", 
-		url_ws_urbis,
+		url_gis+"geoserver/wms",
 		{layers: 'nova:CLUSTER3KM', transparent: 'true'},
 		{singleTile: true, ratio: 1.25, isBaseLayer: false, minScale: 50000});
     map.addLayer(clusters3km);
@@ -73,7 +74,7 @@ $(window).bind("load", function() {
     //create the lowest cluset layer
     var clusters1km = new OpenLayers.Layer.WMS(
         "Clusters1km", 
-        url_ws_urbis,
+        url_gis+"geoserver/wms",
         {layers: 'nova:CLUSTER1KM', transparent: 'true'},
         {singleTile: true, ratio: 1.25, isBaseLayer: false, minScale: 25000});
     map.addLayer(clusters1km);
@@ -82,7 +83,7 @@ $(window).bind("load", function() {
 	//create the dossiers layer
 	dossiers = new OpenLayers.Layer.WMS(
 	    (current_language == 'nl')?"Bouwaanvragen":"Permis d'urbanisme",
-		url_ws_urbis, 
+		url_gis+"geoserver/wms", 
 		{layers: 'nova:NOVA_DOSSIERS', styles:(current_language == 'nl')?"nova_dossiers_nl":"nova_dossiers_fr",transparent: true},
 		{singleTile: true, ratio: 1.25, isBaseLayer: false, maxScale: 25000});
  	map.addLayer(dossiers);
@@ -111,7 +112,7 @@ $(window).bind("load", function() {
 	//var jplOverview = urbislayer.clone();
 	var jplOverview = new OpenLayers.Layer.WMS(
         "Municipalities", 
-        url_ws_urbis,
+        url_gis+"geoserver/wms",
         {layers: 'urbis:URB_A_MU ', transparent: 'true'},
         {singleTile: true, ratio: 1, isBaseLayer: true});
 	var controlOptions = {
@@ -155,7 +156,7 @@ function executeGetFeatureInfo(event) {
         WIDTH: map.size.w,
         HEIGHT: map.size.h,
         CQL_FILTER: dossiers.params.CQL_FILTER},
-        portal_url+"/wfs_request?url=http://geoserver.gis.irisnetlab.be/geoserver/wms?");
+        url_gis+"geoserver/wms?");
     //Execute the GetFeatureInfo request and callback the showPointInfo function
     OpenLayers.Request.GET({
         url: url,
@@ -357,7 +358,7 @@ function searchAddress(street, number, post_code){
 
     //var parameters="{'language': '"+ $('#current_language').html() +"','address': {'street': {'name':'"+street+"','postcode': '"+post_code+"'},'number': '"+number+"'}}";
     var parameters = {
-        url: 'http://services.gis.irisnetlab.be/urbis/Rest/Localize/getstreet',
+        url: url_gis+"services/urbis/Rest/Localize/getstreet",
 	    language: $('#current_language').html(),
         street: street,
 		postcode:post_code,
@@ -365,7 +366,7 @@ function searchAddress(street, number, post_code){
     }
     
     //TODO make a call to a proxy that can handle post requests
-    var my_url = portal_url+"/wfs_post_request"
+    var my_url = url_gis+"services/urbis/Rest/Localize/getstreet"; //portal_url+"/wfs_post_request"
     //var ws_url = 'http://services.gis.irisnetlab.be/urbis/Rest/Localize/getstreet'
     //alert(my_url);
     
