@@ -358,11 +358,11 @@ function searchAddress(street, number, post_code){
 
     //var parameters="{'language': '"+ $('#current_language').html() +"','address': {'street': {'name':'"+street+"','postcode': '"+post_code+"'},'number': '"+number+"'}}";
     var parameters = {
-        url: url_gis+"services/urbis/Rest/Localize/getstreet",
+        //url: url_gis+"services/urbis/Rest/Localize/getstreet",
 	    language: $('#current_language').html(),
         street: street,
-		postcode:post_code,
-		number:number
+		postcode: post_code,
+		number: number
     }
     
     //TODO make a call to a proxy that can handle post requests
@@ -382,7 +382,8 @@ function searchAddress(street, number, post_code){
     $.ajax({
         type: "POST",
         url: my_url,
-        data: parameters,
+        //data: parameters,
+        data: "{'language':'"+$('#current_language').html()+"','address':{'street':{'name':'"+street+"','postcode':'"+post_code+"'},'number':'"+number+"'}}",
         dataType: "text",
         success:  function(json_data) {
             var address_data = $.parseJSON(json_data);
