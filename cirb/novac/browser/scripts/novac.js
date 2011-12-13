@@ -4,7 +4,7 @@ var map;
 var filter_geom , markers_layer, tabberOptions;
 var mouseLoc, currentPopup ;
 var portal_url;
-var url_gis;
+var gis_url;
 var clusters3km;
 var current_language;
 var dossiers;
@@ -20,7 +20,7 @@ $(window).bind("load", function() {
 	}); 
 
     portal_url = $('#portal_url').html();
-    url_gis = portal_url + "/gis/";
+    gis_url = portal_url + "/gis/";
     var url_ws_waws = $('#ws_waws').html();
     var json_file  = $('#json_file').html();
     OpenLayers.ImgPath = portal_url+"/++resource++cirb.novac.images/";
@@ -40,7 +40,7 @@ $(window).bind("load", function() {
     if(current_language == 'fr'){
         urbislayer = new OpenLayers.Layer.WMS(
             "urbisFR",
-            url_gis+"geoserver/gwc/service/wms",
+            gis_url+"geoserver/gwc/service/wms",
             {layers: 'urbisFR', format: 'image/png' },
             { tileSize: new OpenLayers.Size(256,256) }
         );
@@ -48,7 +48,7 @@ $(window).bind("load", function() {
     }else{
         urbislayer = new OpenLayers.Layer.WMS(
             "urbisNL", 
-            url_gis+"geoserver/gwc/service/wms",
+            gis_url+"geoserver/gwc/service/wms",
             {layers: 'urbisNL', format: 'image/png' },
             { tileSize: new OpenLayers.Size(256,256) }
         );
@@ -58,7 +58,7 @@ $(window).bind("load", function() {
     //municipalities layer
     var municipalities = new OpenLayers.Layer.WMS(
         "Municipalities", 
-        url_gis+"geoserver/wms",
+        gis_url+"geoserver/wms",
         {layers: 'urbis:URB_A_MU ', styles: 'nova_municipalities', transparent: 'true'},
         {singleTile: true, ratio: 1.25, isBaseLayer: false});
     map.addLayer(municipalities);
@@ -66,7 +66,7 @@ $(window).bind("load", function() {
     //create the highest cluster layer
 	clusters3km = new OpenLayers.Layer.WMS(
 		"Clusters3km", 
-		url_gis+"geoserver/wms",
+		gis_url+"geoserver/wms",
 		{layers: 'nova:CLUSTER3KM', transparent: 'true'},
 		{singleTile: true, ratio: 1.25, isBaseLayer: false, minScale: 50000});
     map.addLayer(clusters3km);
@@ -74,7 +74,7 @@ $(window).bind("load", function() {
     //create the lowest cluset layer
     var clusters1km = new OpenLayers.Layer.WMS(
         "Clusters1km", 
-        url_gis+"geoserver/wms",
+        gis_url+"geoserver/wms",
         {layers: 'nova:CLUSTER1KM', transparent: 'true'},
         {singleTile: true, ratio: 1.25, isBaseLayer: false, minScale: 25000});
     map.addLayer(clusters1km);
@@ -83,7 +83,7 @@ $(window).bind("load", function() {
 	//create the dossiers layer
 	dossiers = new OpenLayers.Layer.WMS(
 	    (current_language == 'nl')?"Bouwaanvragen":"Permis d'urbanisme",
-		url_gis+"geoserver/wms", 
+		gis_url+"geoserver/wms", 
 		{layers: 'nova:NOVA_DOSSIERS', styles:(current_language == 'nl')?"nova_dossiers_nl":"nova_dossiers_fr",transparent: true},
 		{singleTile: true, ratio: 1.25, isBaseLayer: false, maxScale: 25000});
  	map.addLayer(dossiers);
@@ -112,7 +112,7 @@ $(window).bind("load", function() {
 	//var jplOverview = urbislayer.clone();
 	var jplOverview = new OpenLayers.Layer.WMS(
         "Municipalities", 
-        url_gis+"geoserver/wms",
+        gis_url+"geoserver/wms",
         {layers: 'urbis:URB_A_MU ', transparent: 'true'},
         {singleTile: true, ratio: 1, isBaseLayer: true});
 	var controlOptions = {
@@ -156,7 +156,7 @@ function executeGetFeatureInfo(event) {
         WIDTH: map.size.w,
         HEIGHT: map.size.h,
         CQL_FILTER: dossiers.params.CQL_FILTER},
-        url_gis+"geoserver/wms?");
+        gis_url+"geoserver/wms?");
     //Execute the GetFeatureInfo request and callback the showPointInfo function
     OpenLayers.Request.GET({
         url: url,
@@ -325,64 +325,18 @@ function applyDossierFilter(){
 
 function searchAddress(street, number, post_code){
 
-    /*var mypostrequest=new ajaxRequest();
-    mypostrequest.onreadystatechange=function(){
-        if (mypostrequest.readyState==4){
-            if (mypostrequest.status==200 || window.location.href.indexOf("http")==-1){
-                try{
-                    var geo_response = eval( "(" + mypostrequest.responseText + ")" );
-                    if(!geo_response.error){
-                        if(geo_response.result)
-                        {
-                            var x =Number(geo_response.result[0].point.x);
-                            var y =Number(geo_response.result[0].point.y);
-                            if(!(isNaN(x) || isNaN(y)))
-                            {
-                                map.setCenter(new OpenLayers.LonLat(x,y), 6);
-                            }
-                        }else{
-                            //no features found.alert user?
-                        }
-                    }else{
-                        //error occured
-                    }
-                }catch(err){
-                    //handle exception?
-                }
-            }
-            else{
-                alert("An error has occured making the request");
-            }
-        }
-    }*/
-
-    //var parameters="{'language': '"+ $('#current_language').html() +"','address': {'street': {'name':'"+street+"','postcode': '"+post_code+"'},'number': '"+number+"'}}";
     var parameters = {
-        //url: url_gis+"services/urbis/Rest/Localize/getstreet",
 	    language: $('#current_language').html(),
         street: street,
 		postcode: post_code,
 		number: number
     }
     
-    //TODO make a call to a proxy that can handle post requests
-    var my_url = url_gis+"services/urbis/Rest/Localize/getstreet"; //portal_url+"/wfs_post_request"
-    //var ws_url = 'http://services.gis.irisnetlab.be/urbis/Rest/Localize/getstreet'
-    //alert(my_url);
-    
-    /*
-    mypostrequest.open("POST", my_url, true);
-    mypostrequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    //mypostrequest.send("(" + parameters + ")");
-    results = mypostrequest.send(parameters);
-    //alert(results+" ------ "+my_url);
-    */
-    
-    // bsuttor test
+
+    var my_url = gis_url+"services/urbis/Rest/Localize/getstreet";
     $.ajax({
         type: "POST",
         url: my_url,
-        //data: parameters,
         data: "{'language':'"+$('#current_language').html()+"','address':{'street':{'name':'"+street+"','postcode':'"+post_code+"'},'number':'"+number+"'}}",
         dataType: "text",
         success:  function(json_data) {
@@ -404,100 +358,5 @@ function searchAddress(street, number, post_code){
 
 }
 
-function ajaxRequest(){
-    var activexmodes=["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"]; //activeX versions to check for in IE
-    if (window.ActiveXObject){ //Test for support for ActiveXObject in IE first (as XMLHttpRequest in IE7 is broken)
-        for (var i=0; i<activexmodes.length; i++){
-            try{
-                return new ActiveXObject(activexmodes[i]);
-            }
-        catch(e){
-            //suppress error
-        }
-        }
-    }
-    else if (window.XMLHttpRequest) // if Mozilla, Safari etc
-        return new XMLHttpRequest();
-    else
-        return false;
-}
 
 
-function geocode(street, nbr, post_code) {    
-    var ws = new jQuery.SOAPClient({
-        url 		: "/WSGeoLoc", 
-        methode 	: "getXYCoord", 
-        data		: {
-            language: "all",
-            address: {
-                street: {name: street, postCode: post_code},
-                number: nbr
-            }
-        }, 
-        async		: true, 
-        success		: function(data, xml_data)
-            {
-                set_xy(data);
-            }, 
-        error		: function(sr)
-            {
-                if (console) console.log("error: " + sr); 
-            }
-        });
-    ws.exec();
-}
-
-function set_xy(data) {
-    coord_x = data.point.x;
-    coord_y = data.point.y;
-    point = new OpenLayers.LonLat(coord_x,coord_y);
-    markers_layer.clearMarkers();
-    markers_layer.addMarker(new OpenLayers.Marker(point));
-    map.setCenter(point,5);
-    filter_geom = new OpenLayers.Geometry.Point(coord_x,coord_y);
-}
-
-
-/*function set_result(data) {
-    var absolute_url  = $('#absolute_url').html();
-    var url = absolute_url+"/wawspublic_view?id=";
-    var table = "<table class=\"urbis_result\"><tbody>";
-    var header = "<tr>";
-    var content = "<tr>";
-    $.each(data, function(key, attribute) {
-        if (key == "id") {
-            header += "<th>" + key + "</th>";
-            content += "<td><a href='"+url+attribute+"'>" + attribute + "</a></td>";
-
-    }
-    else {
-        header += "<th>" + key + "</th>";
-        content += "<td>" + attribute + "</td>";
-    }
-});    
-table += header+'</tr>';
-table += content+'</tr>';
-table += "</tbody></table>";
-$("#results_panel").html("Results <br />" + table);
-}*/
-
-/*function display(event) {
-    var feature = event.feature;
-    if (feature.cluster.length > 1) {
-        if (map.getZoom() < 8) {
-            map.setCenter(new OpenLayers.LonLat(feature.geometry.x, feature.geometry.y), map.getZoom()+2);
-        }
-    } else {
-        set_result(feature.cluster[0].attributes);
-    }
-}*/
-
-/*function showInfo(evt) {
-    if (evt.features && evt.features.length) {
-        highlightLayer.destroyFeatures();
-        highlightLayer.addFeatures(evt.features);
-        highlightLayer.redraw();
-    } else {
-        alert(evt.text);
-    }
-}*/
