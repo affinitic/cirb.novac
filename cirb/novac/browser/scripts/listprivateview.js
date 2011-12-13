@@ -43,7 +43,7 @@ $(document).ready(function() {
 function reload_table_list_dossier(){
     //var url = $('#absolute_url').html()+'/get_table_lines_folder';
     var url = '/get_table_lines_folder';
-    $.get(url, function(data) { 
+    $.get(url, function(data) {
         $('.content_list_folder').remove();
         $('table#dossier_list tr.title').after(data);
     });

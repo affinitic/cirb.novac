@@ -37,6 +37,7 @@ class NovacView(BrowserView):
         self.urbis_url = registry['cirb.urbis.urbis_url']
         self.urbis_cache_url = registry['cirb.urbis.urbis_cache_url']
         self.json_file = registry['cirb.novac.json_file']
+            
 
     @property
     def portal_catalog(self):
@@ -56,7 +57,6 @@ class NovacView(BrowserView):
         """
         novac method
         """
-        
         error=False
         msg_error=''
         if not self.novac_url:

@@ -40,6 +40,7 @@ class PublicView(NovacView):
         self.novac_url = registry['cirb.novac.novac_url']
         self.urbis_url = registry['cirb.urbis.urbis_url']
         self.rest_service = registry['cirb.novac.rest_service']
+        
     @property
     def portal_catalog(self):
         return getToolByName(self.context, 'portal_catalog')
