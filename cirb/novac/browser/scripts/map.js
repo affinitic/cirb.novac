@@ -6,7 +6,8 @@ var markers_layer, features_layer;
 function map_init() {
     var url_ws_urbis = $('#ws_urbis').html();
     var url_ws_urbis_cache = $('#urbis_cache_url').html();
-    OpenLayers.ImgPath = "/++resource++cirb.novac.images/";
+    gis_url = portal_url + "/gis/";
+    OpenLayers.ImgPath = portal_url+"/++resource++cirb.novac.images/";
     var x = $('#x').html();
     var y = $('#y').html();
     var mapOptions = {
@@ -34,7 +35,7 @@ function map_init() {
     }
     var ortho2009 = new OpenLayers.Layer.WMTS({
         name: "urbis ortho 2009",
-        url: "http://geoserver.gis.irisnetlab.be/gwc/service/wmts",
+        url: gis_url+"geoserver/gwc/service/wmts",
         layer: "urbis:ortho2009",
         matrixSet: "EPSG:31370",
         matrixIds: matrixIds,
