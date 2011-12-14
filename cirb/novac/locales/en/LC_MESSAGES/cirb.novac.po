@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: Tue Dec 13 08:52:17 2011\n"
+"POT-Creation-Date: Wed Dec 14 16:04:15 2011\n"
 "PO-Revision-Date: 2011-10-28 10:45+0200\n"
 "Last-Translator: bsuttor <bsuttor@cirb.irisnet.be>\n"
 "Language-Team: English\n"
@@ -25,85 +25,93 @@ msgstr ""
 "Generated-By: zope/app/locales/extract.py\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: cirb.novac:/browser/listprivateview.py:52
-#: cirb.novac:/browser/privateview.py:55
+#: cirb.novac:/browser/listprivateview.py:105
+#: cirb.novac:/browser/privateview.py:105
+#: cirb.novac:/browser/privateview.py:176 cirb.novac:/browser/publicview.py:86
+#: cirb.novac:/utils.py:104
+msgid "not_available"
+msgstr "not_available"
+
+#: cirb.novac:/browser/listprivateview.py:48
+#: cirb.novac:/browser/privateview.py:51
 msgid "Listprivate"
 msgstr ""
 
 #: cirb.novac:/browser/listprivateview.py:59
-#: cirb.novac:/browser/privateview.py:62 cirb.novac:/browser/publicview.py:60
-msgid "No url for novac url"
-msgstr "No url for novac url"
-
-#: cirb.novac:/browser/listprivateview.py:73
-msgid "Not able to decode json file"
+msgid "User undefined."
 msgstr ""
 
-#: cirb.novac:/browser/listprivateview.py:74
-#: cirb.novac:/browser/listprivateview.py:133
-#: cirb.novac:/browser/privateview.py:85 cirb.novac:/browser/publicview.py:84
-#: cirb.novac:/utils.py:107
-msgid "not_available"
-msgstr "not_available"
+#: cirb.novac:/browser/listprivateview.py:81
+msgid "Not able to activate a dossier."
+msgstr ""
 
 #: cirb.novac:/browser/novacview.py:64
 msgid "No url for cirb.novac.novac_url"
 msgstr "No url for cirb.novac.novac_url"
 
-#: cirb.novac:/browser/novacview.py:67
+#: cirb.novac:/browser/novacview.py:68
 msgid "No url for cirb.urbis.urbis_url"
 msgstr "No url for cirb.urbis.urbis_url"
 
-#: cirb.novac:/browser/novacview.py:70
+#: cirb.novac:/browser/novacview.py:71
 msgid "No url for cirb.urbis.urbis_cache_url"
 msgstr ""
 
-#: cirb.novac:/browser/novacview.py:73
+#: cirb.novac:/browser/novacview.py:74
 msgid "No json_file"
 msgstr "No json_file"
 
-#: cirb.novac:/browser/privateview.py:52
+#: cirb.novac:/browser/privateview.py:48
 msgid "Private"
 msgstr ""
 
-#: cirb.novac:/browser/privateview.py:65
+#: cirb.novac:/browser/privateview.py:61
+msgid "No url for novac url"
+msgstr "No url for novac url"
+
+#: cirb.novac:/browser/privateview.py:64
 msgid "No id folder in get method"
 msgstr ""
 
-#: cirb.novac:/browser/privateview.py:73 cirb.novac:/browser/privateview.py:80
+#: cirb.novac:/browser/privateview.py:71 cirb.novac:/browser/privateview.py:86
 msgid "Not able to call ws"
 msgstr ""
 
-#: cirb.novac:/browser/publicview.py:52
+#: cirb.novac:/browser/privateview.py:76 cirb.novac:/browser/privateview.py:91
+#: cirb.novac:/browser/publicview.py:73
+msgid "Not able to read this json : %s"
+msgstr ""
+
+#: cirb.novac:/browser/publicview.py:50
 msgid "Public"
 msgstr ""
 
-#: cirb.novac:/browser/publicview.py:63
-msgid "No folder id"
-msgstr "No folder id"
+#: cirb.novac:/browser/publicview.py:68
+msgid "Not able to call this dossier : %s"
+msgstr ""
 
-#: cirb.novac:/browser/templates/listprivateview.pt:25
+#: cirb.novac:/browser/templates/listprivateview.pt:24
 msgid "vous_etes_maintenant_connecte"
 msgstr "vous_etes_maintenant_connecte"
 
-#: cirb.novac:/browser/templates/listprivateview.pt:34
+#: cirb.novac:/browser/templates/listprivateview.pt:33
 msgid "vos_dossiers_actives"
 msgstr "vos_dossiers_actives"
 
-#: cirb.novac:/browser/templates/listprivateview.pt:39
+#: cirb.novac:/browser/templates/listprivateview.pt:38
 msgid "type"
 msgstr "type"
 
-#: cirb.novac:/browser/templates/listprivateview.pt:40
+#: cirb.novac:/browser/templates/listprivateview.pt:39
 msgid "date_d_activation"
 msgstr "date_d_activation"
 
-#: cirb.novac:/browser/templates/listprivateview.pt:47
+#: cirb.novac:/browser/templates/listprivateview.pt:46
 msgid "activez_un_dossier"
 msgstr "activez_un_dossier"
 
 #. Default: "La toute premi\303\250re fois, il faut activer un dossier pour avoir acc\303\250s aux d\303\251tails"
-#: cirb.novac:/browser/templates/listprivateview.pt:52
+#: cirb.novac:/browser/templates/listprivateview.pt:51
 msgid ""
 "La toute premiere fois, il faut activer un dossier pour avoir acces aux "
 "details"
@@ -112,7 +120,7 @@ msgstr ""
 "details"
 
 #. Default: "Ins\303\251rez votre cl\303\251 unique pour activer votre dossier"
-#: cirb.novac:/browser/templates/listprivateview.pt:61
+#: cirb.novac:/browser/templates/listprivateview.pt:60
 msgid "Inserez votre cle unique pour activer votre dossier"
 msgstr "Inserez votre cle unique pour activer votre dossier"
 
@@ -182,36 +190,36 @@ msgstr "canceled"
 
 #: cirb.novac:/browser/templates/privateview.pt:101
 #: cirb.novac:/browser/templates/privateview.pt:113
-#: cirb.novac:/browser/templates/publicview.pt:95
-#: cirb.novac:/browser/templates/publicview.pt:107
+#: cirb.novac:/browser/templates/publicview.pt:99
+#: cirb.novac:/browser/templates/publicview.pt:111
 msgid "yes"
 msgstr ""
 
 #: cirb.novac:/browser/templates/privateview.pt:105
 #: cirb.novac:/browser/templates/privateview.pt:117
-#: cirb.novac:/browser/templates/publicview.pt:99
-#: cirb.novac:/browser/templates/publicview.pt:111
+#: cirb.novac:/browser/templates/publicview.pt:103
+#: cirb.novac:/browser/templates/publicview.pt:115
 msgid "no"
 msgstr ""
 
 #: cirb.novac:/browser/templates/privateview.pt:110
-#: cirb.novac:/browser/templates/publicview.pt:104
+#: cirb.novac:/browser/templates/publicview.pt:108
 msgid "commission_de_concertation"
 msgstr "commission_de_concertation"
 
 #: cirb.novac:/browser/templates/privateview.pt:113
 #: cirb.novac:/browser/templates/privateview.pt:207
-#: cirb.novac:/browser/templates/publicview.pt:107
+#: cirb.novac:/browser/templates/publicview.pt:111
 msgid "date"
 msgstr ""
 
 #: cirb.novac:/browser/templates/privateview.pt:132
-#: cirb.novac:/browser/templates/publicview.pt:119
+#: cirb.novac:/browser/templates/publicview.pt:123
 msgid "decision"
 msgstr "decision"
 
 #: cirb.novac:/browser/templates/privateview.pt:142
-#: cirb.novac:/browser/templates/publicview.pt:129
+#: cirb.novac:/browser/templates/publicview.pt:133
 msgid "notification_le"
 msgstr "notification_le"
 
@@ -270,55 +278,55 @@ msgid "Etat d'avancement - Demande de permis d'urbanisme"
 msgstr "Etat d'avancement - Demande de permis d'urbanisme"
 
 #: cirb.novac:/browser/templates/privateview.pt:40
-#: cirb.novac:/browser/templates/listprivateview.pt:30
+#: cirb.novac:/browser/templates/listprivateview.pt:29
 msgid "logout"
 msgstr "logout"
 
 #: cirb.novac:/browser/templates/privateview.pt:44
-#: cirb.novac:/browser/templates/publicview.pt:46
+#: cirb.novac:/browser/templates/publicview.pt:50
 msgid "informations_generales"
 msgstr "informations_generales"
 
 #: cirb.novac:/browser/templates/privateview.pt:47
-#: cirb.novac:/browser/templates/publicview.pt:49
-#: cirb.novac:/browser/templates/listprivateview.pt:38
+#: cirb.novac:/browser/templates/publicview.pt:53
+#: cirb.novac:/browser/templates/listprivateview.pt:37
 msgid "n_dossier"
 msgstr "n_dossier"
 
 #: cirb.novac:/browser/templates/privateview.pt:50
-#: cirb.novac:/browser/templates/publicview.pt:52
+#: cirb.novac:/browser/templates/publicview.pt:56
 msgid "reference"
 msgstr "reference"
 
 #: cirb.novac:/browser/templates/privateview.pt:54
-#: cirb.novac:/browser/templates/publicview.pt:56
+#: cirb.novac:/browser/templates/publicview.pt:60
 msgid "dossier_depose_a"
 msgstr "dossier_depose_a"
 
 #: cirb.novac:/browser/templates/privateview.pt:58
-#: cirb.novac:/browser/templates/publicview.pt:60
+#: cirb.novac:/browser/templates/publicview.pt:64
 msgid "type_de_permis"
 msgstr "type_de_permis"
 
 #. Default: "Description"
 #: cirb.novac:/browser/templates/privateview.pt:62
-#: cirb.novac:/browser/templates/publicview.pt:64
+#: cirb.novac:/browser/templates/publicview.pt:68
 msgid "description"
 msgstr "description"
 
 #: cirb.novac:/browser/templates/privateview.pt:66
-#: cirb.novac:/browser/templates/publicview.pt:39
-#: cirb.novac:/browser/templates/listprivateview.pt:37
+#: cirb.novac:/browser/templates/publicview.pt:43
+#: cirb.novac:/browser/templates/listprivateview.pt:36
 msgid "address"
 msgstr "address"
 
 #: cirb.novac:/browser/templates/privateview.pt:76
-#: cirb.novac:/browser/templates/publicview.pt:74
+#: cirb.novac:/browser/templates/publicview.pt:78
 msgid "langue"
 msgstr "langue"
 
 #: cirb.novac:/browser/templates/privateview.pt:80
-#: cirb.novac:/browser/templates/publicview.pt:78
+#: cirb.novac:/browser/templates/publicview.pt:82
 msgid "statut_du_dossier"
 msgstr "statut_du_dossier"
 
@@ -327,40 +335,43 @@ msgid "gestionnaire_du_dossier"
 msgstr "gestionnaire_du_dossier"
 
 #: cirb.novac:/browser/templates/privateview.pt:91
-#: cirb.novac:/browser/templates/publicview.pt:85
+#: cirb.novac:/browser/templates/publicview.pt:89
 msgid "parcours"
 msgstr "parcours"
 
 #: cirb.novac:/browser/templates/privateview.pt:94
-#: cirb.novac:/browser/templates/publicview.pt:88
+#: cirb.novac:/browser/templates/publicview.pt:92
 msgid "permis"
 msgstr "permis"
 
 #: cirb.novac:/browser/templates/privateview.pt:98
-#: cirb.novac:/browser/templates/publicview.pt:92
+#: cirb.novac:/browser/templates/publicview.pt:96
 msgid "enquete_publique"
 msgstr ""
 
-#: cirb.novac:/browser/templates/publicview.pt:34
+#: cirb.novac:/browser/templates/publicview.pt:38
 msgid "detail_de_la_demande"
 msgstr "detail_de_la_demande"
 
-#: cirb.novac:/browser/templates/publicview.pt:36
+#: cirb.novac:/browser/templates/publicview.pt:40
 msgid "localisation"
 msgstr "localisation"
 
-#: cirb.novac:/utils.py:30 cirb.novac:/utils.py:60 cirb.novac:/utils.py:91
+#: cirb.novac:/utils.py:28 cirb.novac:/utils.py:57 cirb.novac:/utils.py:88
 msgid "headers bad formated"
 msgstr ""
 
 #. Default: ""
-#: cirb.novac:/utils.py:35 cirb.novac:/utils.py:64 cirb.novac:/utils.py:94
+#: cirb.novac:/utils.py:32 cirb.novac:/utils.py:61 cirb.novac:/utils.py:91
 msgid "The server couldn't fulfill the request. Error code: %s. Url: %s"
 msgstr ""
 
-#: cirb.novac:/utils.py:39 cirb.novac:/utils.py:68 cirb.novac:/utils.py:98
+#: cirb.novac:/utils.py:36 cirb.novac:/utils.py:65 cirb.novac:/utils.py:95
 msgid "We failed to reach a server.<br />Reason: %s"
 msgstr ""
+
+#~ msgid "No folder id"
+#~ msgstr "No folder id"
 
 #~ msgid "validite"
 #~ msgstr "validite"
