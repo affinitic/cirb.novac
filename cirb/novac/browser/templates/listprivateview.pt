@@ -14,13 +14,12 @@
 </tal:js>
 
 <body>
-    <div metal:fill-slot="main" tal:define="data view/listprivate">        
-        <tal:block tal:condition="not: data/error" >
-            <div id="ws_waws" tal:content="data/novac_url"> novac_url </div>
-        </tal:block>
-        <div id="absolute_url" tal:content="context/absolute_url" class="hiddenStructure"> absolute_url </div>
-		<div id="dossier_list" tal:content="data/dossier_list" class="hiddenStructure"> dossier_list </div>
-        <div id="table" style="padding: 0 1em 1em;">
+    <div metal:fill-slot="main" tal:define="data view/listprivate; urls view/utils_url">        
+        <tal:block tal:condition="not: urls/error" >
+            <div class="hiddenStructure" id="ws_waws" tal:content="urls/novac_url"> novac_url </div>			
+			<div class="hiddenStructure" id="absolute_url" tal:content="context/absolute_url">  absolute_url </div>	
+        </tal:block>	
+        <div tal:condition="not: data/error" id="table" style="padding: 0 1em 1em;">
 			<table class="detail_table" id="dossier_list">
 				<caption i18n:translate="vous_etes_maintenant_connecte">vous_etes_maintenant_connecte</caption>
 				<tbody><tr>

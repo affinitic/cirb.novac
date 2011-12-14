@@ -15,23 +15,23 @@
 </tal:js>
 
 <body>
-    <div metal:fill-slot="main" tal:define="data view/private">        
+    <div metal:fill-slot="main" tal:define="data view/private; urls view/utils_url">        
         <tal:block tal:condition="not: data/error" >
-            <div id="ws_waws" tal:content="data/novac_url"> novac_url </div>
-            <div id="jsondata" class="hiddenStructure" tal:content="data/jsondata"></div>
-            <div id="history" class="hiddenStructure" tal:content="data/history"></div>
-            <div class="hiddenStructure" id="x" tal:content="data/results/x">x</div>
-            <div class="hiddenStructure" id="y" tal:content="data/results/y">y</div>
+            <div class="hiddenStructure" id="ws_waws" tal:content="urls/novac_url"> novac_url </div>
+            <div class="hiddenStructure" id="jsondata"  tal:content="data/jsondata"></div>
+            <div class="hiddenStructure" id="jsonhistory"  tal:content="data/jsonhistory"></div>
+            <div class="hiddenStructure" id="x" tal:content="data/x">x</div>
+            <div class="hiddenStructure" id="y" tal:content="data/y">y</div>
             <div class="hiddenStructure" id="portal_url" tal:content="context/portal_url">portal_url</div>
-            <div id="ws_urbis" tal:content="data/urbis_url" class="hiddenStructure"> ws_urbis </div>
+            <div id="ws_urbis" tal:content="urls/urbis_url" class="hiddenStructure"> ws_urbis </div>
             <div id="absolute_url" tal:content="context/absolute_url" class="hiddenStructure"> absolute_url </div>
-            <div id="isOwner" tal:content="data/results/isOwner" class="hiddenStructure"> isOwner </div>
+            <div id="isOwner" tal:content="data/isOwner" class="hiddenStructure"> isOwner </div>
 
     </tal:block>
 
     <tal:block tal:condition="not: data/error" >
     <div id="table" style="padding: 0 1em 1em;">
-        <table class="detail_table" tal:define="dos data/results">
+        <table class="detail_table" tal:define="dos data">
             <caption i18n:translate="Etat d'avancement - Demande de permis d'urbanisme">Etat d'avancement - Demande de permis d'urbanisme</caption>
             <tbody><tr>
                 <td colspan="2" style="text-align:right;" id="username">
@@ -92,16 +92,16 @@
 		</tr>
         <tr>
             <th class="set_width" i18n:translate="permis">permis</th>
-            <td id="permis" tal:content="data/results/dateDossierComplet">&nbsp;</td>
+            <td id="permis" tal:content="data/dateDossierComplet">&nbsp;</td>
         </tr>
 		<tr>
 			<th class="set_width" i18n:translate="enquete_publique">enquete_publique</th>
 			<td id="enquete_publique">
-				<tal:block condition="python:data.get('results').get('publicInquiry')=='Oui'">
+				<tal:block condition="python:data.get('publicInquiry')=='Oui'">
 					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="yes" i18n:attributes="title yes" />&nbsp;(
-					<tal:block tal:content="data/results/startPublicInquiry">startPublicInquiry</tal:block>&nbsp;-&nbsp;<tal:block tal:content="data/results/endPublicInquiry">endPublicInquiry </tal:block>)
+					<tal:block tal:content="data/startPublicInquiry">startPublicInquiry</tal:block>&nbsp;-&nbsp;<tal:block tal:content="data/endPublicInquiry">endPublicInquiry </tal:block>)
 				</tal:block>
-				<tal:block condition="python:data.get('results').get('publicInquiry')=='Non'">
+				<tal:block condition="python:data.get('publicInquiry')=='Non'">
 					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/delete.png" alt="no" i18n:attributes="title no" />
 				</tal:block>
 			</td>
@@ -109,11 +109,11 @@
 		<tr>
 			<th class="set_width" i18n:translate="commission_de_concertation">commission_de_concertation</th>
 			<td id="commission_de_concertation">
-				<tal:block condition="python:data.get('results').get('pointCC')=='Oui'">
+				<tal:block condition="python:data.get('pointCC')=='Oui'">
 					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="yes" i18n:attributes="title yes" />&nbsp;(<span i18n:translate="date">date</span>&nbsp;:&nbsp;
 					<tal:block tal:content="data/results/dateCC"> dateCC</tal:block>)
 				</tal:block>
-				<tal:block condition="python:data.get('results').get('pointCC')=='Non'">
+				<tal:block condition="python:data.get('pointCC')=='Non'">
 					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/delete.png" alt="no" i18n:attributes="title no" />
 				</tal:block>
 			</td>
@@ -140,11 +140,11 @@
         </tr-->
         <tr>
             <th class="set_width" i18n:translate="notification_le">notification_le</th>
-            <td id="notification_le" tal:content="data/results/dateNotifDecision">&nbsp;</td>
+            <td id="notification_le" tal:content="data/dateNotifDecision">&nbsp;</td>
         </tr>
         <!--tr>
             <th class="set_width" i18n:translate="validite">validite</th>
-            <td id="validite" tal:content="data/results/dateDeadline">&nbsp;</td>
+            <td id="validite" tal:content="data/dateDeadline">&nbsp;</td>
         </tr-->
     </tbody></table>
 
@@ -154,7 +154,7 @@
     </div>
 
 
-    <table tal:condition='data/results/isOwner' class="detail_table">
+    <table tal:condition='data/isOwner' class="detail_table">
     <tbody>
     <tr>
         <td class="tableheader" i18n:translate="gestion_des_cles_secondaires_pour_ce_dossier">gestion_des_cles_secondaires_pour_ce_dossier</td>

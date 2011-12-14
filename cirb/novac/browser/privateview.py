@@ -13,7 +13,6 @@ from cirb.novac.browser.novacview import INovacView, NovacView
 
 import logging
 import urllib
-logger = logging.getLogger('cirb.novac.browser.privateview')
 PRIVATE_FODLER_WS = '/nova/sso/dossiers/' # ?errn=errn3 used to test
 HISTORY =  '/history' # ?errn=errn3 used to test
 SECONDARY_KEYS = '/waws/sso/ssks/distributed?targetID='
@@ -33,11 +32,8 @@ class PrivateView(NovacView):
     """
     implements(IPrivateView)
     def __init__(self, context, request):
-        self.context = context
-        self.request = request
-        registry = getUtility(IRegistry)
-        self.novac_url = registry['cirb.novac.novac_url']
-        self.urbis_url = registry['cirb.urbis.urbis_url']
+        super(PrivateView, self).__init__(context, request)
+        self.logger = logging.getLogger('cirb.novac.browser.privatecview')
         self.id_dossier = self.request.form.get('id')
         
     @property
@@ -53,6 +49,9 @@ class PrivateView(NovacView):
     
     def second_level(self):
         return _(u"Listprivate")
+
+    def private_error(self, msg_error):
+        return {'error':True,'msg_error':msg_error}
     
     def private(self):        
         error=False
@@ -64,34 +63,47 @@ class PrivateView(NovacView):
             error=True
             msg_error=_(u'No id folder in get method')
         #dossier_id = self.request.form.get('id')
-        dossier_url = '%s%s%s' % (self.novac_url,PRIVATE_FODLER_WS,self.id_dossier)
-        user = get_user(self.request)
-        jsondata = called_url(dossier_url, [{'Content-Type':'application/json'},{'ACCEPT':'application/json'}, {'RNHEAD':user['id']}, {'lang':self.context.Language()}], lang=self.context.Language())
-        if not jsondata:
-            logger.info('Not able to call ws %s' % dossier_url)
-            error=True
-            msg_error=_(u'Not able to call ws')
-            return {'novac_url':self.novac_url, 'urbis_url':self.urbis_url, 'error':error,'msg_error':msg_error}
-        history_url = '%s%s' % (dossier_url,HISTORY)
-        history = called_url(history_url,[{'Content-Type':'application/json'}, {'ACCEPT':'application/json'}, {'RNHEAD':user['id']}, {'lang':self.context.Language()}], lang=self.context.Language())
-        if not history:
-            logger.info('Not able to call ws %s' % history_url)
-            error=True
-            msg_error=_(u'Not able to call ws')
-            return {'novac_url':self.novac_url, 'urbis_url':self.urbis_url, 'error':error,'msg_error':msg_error}
+        dossier_url = '%s%s%s' % (self.novac_url, PRIVATE_FODLER_WS, self.id_dossier)        
+     
+        json_from_ws = self.called_ws(dossier_url)
+        if not json_from_ws:
+            self.logger.error = ('Not able to call ws %s' % dossier_url)
+            msg_error = _(u'Not able to call ws')
+            return self.private_error(msg_error)
         
-        import json
-        properties = json.loads(jsondata)
+        jsondata = json_processing(json_from_ws)
+        if not jsondata:
+            msg_error = _(u'Not able to read this json : %s' % jsondata)
+            return self.private_error(msg_error)
+        
+        results = self.dossier_processing(jsondata)
+        
+        # Historic of dossier
+        history_url = '%s%s' % (dossier_url, HISTORY)
+        history = self.called_ws(history_url)
+        if not history:
+            self.logger.info('Not able to call ws %s' % history_url)
+            msg_error = _(u'Not able to call ws')
+            return self.private_error(msg_error)
+        
+        jsonhistory = json_processing(history)
+        if not jsonhistory:
+            msg_error = _(u'Not able to read this json : %s' % jsonhistory)
+            return self.private_error(msg_error)
+        
+        history_ids = ['consultationDate','keyName']
+        historys = update_dossiers(jsonhistory, history_ids, "not_available", has_address=False)
+        h_res = self.formated_history_date(historys)
+        
+        results['jsondata'] = jsondata
+        results['jsonhistory'] = jsonhistory
+        results['error'] = False
+        results['h_res'] = h_res
+        return results
+    
+    def dossier_processing(self, jsondata):
         msgid = _(u"not_available")
-        not_avaiable = self.context.translate(msgid)
-        results={}
-        try:
-            results['address'] = '%s, %s %s %s' % (properties['numberFrom'],
-                                    properties['streetName'],
-                                    properties['zipcode'],
-                                    properties['municipality'],)
-        except:
-            results['address'] = not_avaiable   
+        not_available = self.context.translate(msgid)
         
         # in public novaRef instead of refNova
         table_ids = ["id","refNova","typeDossier","object","streetName",
@@ -102,23 +114,16 @@ class PrivateView(NovacView):
                          "dateDeadline","municipalityOwner","specificReference", 
                          "manager", "isOwner", "x", "y"]
         
-        for t in table_ids:
-            results[t] =  get_properties(self.context, properties, t)
-        
-        
-        h_prop = json.loads(history)
+        return Dossier(jsondata, table_ids, not_available, has_address=True)
+             
+    def formated_history_date(self, historys):
         h_res = []
-        for prop in h_prop:
+        for history in historys:
             from datetime import datetime
-            d = datetime.fromtimestamp(float(get_properties(self.context, prop,"consultationDate"))/1000)
-            consultationDate = d.strftime("%d/%m/%y %H:%M")
-            keyName = get_properties(self.context, prop,"keyName")
-            h_res.append({'consultationDate':consultationDate, 'keyName':keyName})
-            
-        
-        
-        return {'novac_url':self.novac_url, 'urbis_url':self.urbis_url, 'error':error,'msg_error':msg_error,
-                'jsondata':jsondata, 'history':history, 'results':results, 'h_res':h_res}
+            d = datetime.fromtimestamp(float(history["consultationDate"])/1000)
+            history['consultationDate'] = d.strftime("%d/%m/%y %H:%M")
+            h_res.append(history)
+        return h_res
     
     def activate_mandat(self):
         mandat = urllib.quote(self.request.form.get('mandat'))
@@ -147,33 +152,53 @@ class PrivateView(NovacView):
             targetID = urllib.quote(self.request.form.get('targetID'))
                 
         secondary_keys_url = '%s%s%s' %(self.novac_url,SECONDARY_KEYS,targetID)
-        user = get_user(self.request)
-        secondary_keys = called_url(secondary_keys_url, [{'Content-Type':'application/json'}, {'ACCEPT':'application/json'},{'RNHEAD':user['id']}, {'lang':self.context.Language()}], lang=self.context.Language())
-        if not secondary_keys:
-            return '<tr class="secondary_key" style="height: 0px;"><td></td><td></td><td></td></tr>'
-        results=[]
-        import json
-        jsondatas = json.loads(secondary_keys)
+        secondary_keys = self.called_ws(secondary_keys_url)
         
-        table = ''
-        for properties in jsondatas:
-            result={}
-            result['keyName'] = get_properties(self.context, properties,"keyName")
-            result['key'] = get_properties(self.context, properties,"key")
+        empty_table = '<tr class="secondary_key" style="height: 0px;"><td></td><td></td><td></td></tr>'
+        if not secondary_keys:
+            return empty_table
+        
+        jsondata = json_processing(secondary_keys)
+        if not jsondata:
+            return empty_table
+                
+        keys = self.secondarykeys_processing(jsondata)
+        formatted_keys = self.generate_formatted_keys(keys)
           
-            results.append(result)
+        return make_table_rows(self.context.absolute_url(), formatted_keys)
+    
+    def called_ws(self, url):
+        user = get_user(self.request)
+        headers = [{'Content-Type':'application/json'},{'ACCEPT':'application/json'}, {'RNHEAD':user['id']}, {'Accept-Language':'%s-be' % self.context.Language()}]
+        return called_url(url, headers)        
+    
+    def secondarykeys_processing(self, jsondata):
+        msgid = _(u"not_available")
+        not_available = self.context.translate(msgid)
+        
+        table_ids = ["keyName","key"]
+        
+        return update_dossiers(jsondata, table_ids, not_available, has_address=False)
+        
+    def generate_formatted_keys(self, keys):
+        results=[]
+        for key in keys:
             formatted_key = ''
-            for i in range(len(result['key'])):
+            for i in range(len(key['key'])):
                 if i % 4 == 0 and i != 0:
                     formatted_key += " - "                
-                formatted_key += result['key'][i]
-
-            table+='''
-            <tr class="secondary_key">
-            <td>%s</td>
-            <td>%s</td>
-            <td><a href="%s/revoke_mandat?key=%s" class="revoke_mandat">revoke</a></td>
-            </tr>''' % (result['keyName'], formatted_key, 
-                        self.context.absolute_url(), urllib.quote(result['key']))
-       
-        return table
+                formatted_key += key['key'][i]
+            key['formatted_key'] = formatted_key  
+            results.append(key)
+        return results
+                
+def make_table_rows(absolute_url, dossiers):
+    table = ''
+    for dossier in dossiers:
+        table+='''
+<tr class="secondary_key">
+    <td>%s</td>
+    <td>%s</td>
+    <td><a href="%s/revoke_mandat?key=%s" class="revoke_mandat">revoke</a></td>
+</tr>''' % (dossier['keyName'], dossier['formatted_key'], absolute_url, urllib.quote_plus(dossier['key']))       
+    return table

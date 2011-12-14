@@ -13,6 +13,7 @@ from urllib2 import URLError, HTTPError
 
 from cirb.novac import novacMessageFactory as _
 import logging
+import json
 
 from cirb.novac.browser.novacview import INovacView, NovacView
 from cirb.novac.utils import *
@@ -34,12 +35,8 @@ class PublicView(NovacView):
     
     
     def __init__(self, context, request):
-        self.context = context
-        self.request = request
-        registry = getUtility(IRegistry)
-        self.novac_url = registry['cirb.novac.novac_url']
-        self.urbis_url = registry['cirb.urbis.urbis_url']
-        self.rest_service = registry['cirb.novac.rest_service']
+        super(PublicView, self).__init__(context, request)
+        self.logger = logging.getLogger('cirb.novac.browser.publicview')
         
     @property
     def portal_catalog(self):
@@ -50,81 +47,64 @@ class PublicView(NovacView):
         return getToolByName(self.context, 'portal_url').getPortalObject()
 
     def view_name(self):
-        return _(u"Public")
-        
-    def public(self):
-        folder_id = self.request.form.get('id')
-        error=False
-        msg_error=''
-        if not self.novac_url:
-            error=True
-            msg_error=_(u'No url for novac url')
-        if not folder_id:
-            error=True
-            msg_error=_(u'No folder id')
-        
-        return {'novac_url':self.novac_url,'urbis_url':self.urbis_url ,'folder_id':folder_id,'error':error,'msg_error':msg_error}
-        
+        return _(u"Public")    
     
-    def python_json(self):
-        logger = logging.getLogger('cirb.novac.browser.publicview.python_json')
-        oldtimeout = socket.getdefaulttimeout()
-        data = ''
-        msg_error=''
-        error=False
+    def public_error(self, msg_error):
+        self.logger.error(msg_error)        
+        return {"error":True, "msg_error":msg_error}
+    
+    def public(self):
+        error = False
         try:
             num_dossier = self.request.form.get('id')
         except:
-            error = True
-            msg_error = 'Not num_dossier in url (GET)'
+            msg_error = u'Not num_dossier in url (GET)'
+            return self.public_error(msg_error)
+        
         url = '%s/%s/%s/' % (self.novac_url, PUB_DOSSIER, num_dossier)
-        #TODO use utils method
-        #
-        data_from_url = called_url(url, [{'Content-Type': 'application/json'},{'ACCEPT': 'application/json'}, {'lang':self.context.Language()}], lang=self.context.Language())
-        logger.info(self.context.Language())
-        msgid = _(u"not_available")
-        not_avaiable = self.context.translate(msgid)
-        if data_from_url:
-            import json
-            data = json.loads(data_from_url)
-            try:
-                geometry = data['geometry']
-                properties = data['properties']
-            except:
-                geometry=None
-                properties=None
-            try:
-                address = '%s, %s %s %s' % (properties['numberFrom'],
-                                        properties['streetName'],
-                                        properties['zipCode'],
-                                        properties['municipality'],)
-            except:
-                address = not_avaiable   
+        
+        json_from_ws = self.call_ws(url)
+        if not json_from_ws:
+            msg_error = _(u'Not able to call this dossier : %s' % url)
+            return self.public_error(msg_error)
+        
+        jsondata = json_processing(json_from_ws)
+        if not jsondata:
+            msg_error = _(u'Not able to read this json : %s' % jsondata)
+            return self.public_error(msg_error)
+        
+        results = self.dossier_processing(jsondata)
+        #data and celled_url used for test
+        return {'data':jsondata, 'results':results,'error':error,'called_url':url}
     
-            table_ids = ["id","novaRef","typeDossier","object","streetName",
+    
+    def call_ws(self, url):
+        headers = [{'Content-Type':'application/json'},{'ACCEPT':'application/json'}, {'Accept-Language':'%s-be' % self.context.Language()}]
+        return called_url(url, headers)
+    
+    def dossier_processing(self, jsondata):
+        msgid = _(u"not_available")
+        not_available = self.context.translate(msgid)
+        
+        table_ids = ["id","novaRef","typeDossier","object","streetName",
                          "numberFrom", "numberTo","zipCode", "municipality",
                          "publicInquiry","startPublicInquiry","endPublicInquiry",
                          "statusPermit","codeDossier", "pointCC","dateCC",
                          "languageRequest","dateDossierComplet","dateNotifDecision",
                          "dateDeadline","municipalityOwner","specificReference"]
-            results = {}
-            results['address'] = address
-            results['num_dossier'] = num_dossier
-            for t in table_ids:
-                results[t] =  get_properties(self.context, properties, t)
-            try:
-                results['x'] = str(geometry['x'])
-                results['y'] = str(geometry['y'])
-            except:
-                results['x']  = '150000.0'
-                results['y']  = '170000.0'
-                
+        
+        geometry = jsondata.get('geometry', None)
+        if geometry:
+            geo_results = Dossier(geometry, ["x","y"], not_available, has_address=False)
         else:
-            error = True
-            msg_error = 'Num dossier %s is unknown or empty' %num_dossier
-            return  {'error':error, 'msg_error':msg_error, 'called_url':url}
-        return {'data':data, 'rest_service':self.rest_service, 'results':results,
-                'error':error, 'msg_error':msg_error, 'called_url':url }
-    
+            self.logger.error("public url return a no excpected json, no 'geometry' parameter")        
+        
+        dossier = jsondata.get('properties', None)
+        if dossier:
+            dos_results = Dossier(dossier, table_ids, not_available, has_address=True)
+        else:
+            self.logger.error("public url return a no excpected json, no 'properties' parameter")
+        
+        return dict(dos_results.items() + geo_results.items())   
     
         

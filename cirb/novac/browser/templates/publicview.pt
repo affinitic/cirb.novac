@@ -19,16 +19,20 @@
 
 <body>
 
-    <div metal:fill-slot="main" tal:define="data view/public; json view/python_json">    
-		<div id="ws_urbis" tal:content="data/urbis_url" class="hiddenStructure"> ws_urbis </div>
+    <div metal:fill-slot="main" tal:define="urls view/utils_url; json view/public">    
 	
-        <div  tal:condition="not: json/error" id="table" style="padding: 0 1em 1em;">
-		    <div class='hiddenStructure' id="ws_waws" tal:content="data/novac_url"> novac_url </div>
-			<div class='hiddenStructure' id="json" tal:content="json/data"> python_json </div> 
-			<div id="ws_waws" tal:content="json/called_url"> novac_url </div>
-			<div class="hiddenStructure" id="x" tal:content="json/results/x">x</div>
+        <div  tal:condition="not: json/error"  id="table" 
+		style="padding: 0 1em 1em;" tal:attributes="
+			data-x json/results/x;
+			data-y json/results/y;
+			data_portal_url context/portal_url;">
+		
+		    <div class="hiddenStructure" id="x" tal:content="json/results/x">x</div>
 			<div class="hiddenStructure" id="y" tal:content="json/results/y">y</div>
-			<div class="hiddenStructure" id="portal_url" tal:content="context/portal_url">portal_url</div>
+			<div class="hiddenStructure" id="ws_urbis"  tal:content="urls/urbis_url" > ws_urbis </div>
+		    <div class="hiddenStructure" id="ws_waws" tal:content="urls/novac_url"> novac_url </div>
+			<div class="hiddenStructure" id="json" tal:content="json/data"> data </div>
+			<div class="hiddenStructure" id="portal_url" tal:content="context/portal_url">portal_url</div>			
 			
 			<table class="detail_table">
 				<caption i18n:translate="detail_de_la_demande">detail_de_la_demande</caption>
@@ -158,9 +162,6 @@
 
 		</div>
         
-        <tal:block tal:condition="data/error" >
-            <div tal:replace="data/error_text">error</div>
-        </tal:block>
 		<tal:block tal:condition="json/error" >
             <div tal:replace="json/msg_error">error</div>
         </tal:block>
