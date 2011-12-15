@@ -4,11 +4,12 @@ $(document).ready(function() {
     $('#add_mandat').click(function () {        
         var mandat = $('#input_mandat').val();
         targetID = getURLParameter('id');
-        var url = $('#absolute_url').html()+'/activate_mandat?mandat='+mandat+'&targetID='+targetID;
+        var url = $('#absolute_url').html()+'/activate_mandat?mandat='+mandat+'&targetID='+targetID;        
         $.get(url, function(data) {
             //reload table with the new 'secondary key'
             reload_table_list_secondary_key();
         });
+        $('#input_mandat').val("");
         return false;
     });
     
