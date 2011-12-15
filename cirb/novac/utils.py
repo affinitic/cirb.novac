@@ -110,12 +110,15 @@ def get_properties(context, prop, prop_name):
 
 def get_user(request, context=None):
     user={} 
-    #fullname = context.portal_membership.getPersonalPortrait(getSecurityManager().getUser().getId()).getProperty('fullname')
-    #if fullname:
-    #    user['name'] = fullname
-    #else:
-    user['name'] = getSecurityManager().getUser().getUserName()
-    user['id'] = getSecurityManager().getUser().getId()
+    authuser = ""
+    if context:
+        authuser = context.portal_membership.getAuthenticatedMember()
+    if authuser:
+        user['name'] = authuser.getProperty("fullname")
+        user['id'] = authuser.getUserName()
+    else:
+        user['name'] = getSecurityManager().getUser().getUserName()
+        user['id'] = getSecurityManager().getUser().getId()
     if not user.get('id', False):
         return False
     return user
