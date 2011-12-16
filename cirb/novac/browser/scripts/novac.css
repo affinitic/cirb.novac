@@ -1,6 +1,9 @@
 
 #header {}
 
+#portal-personaltools-wrapper {display:none;}
+.section-novac #portal-breadcrumbs {font-size:.8em;}
+
 div#ws_urbis, div#ws_waws {height:0px;width:0px;overflow:hidden;}
 
 #geocoding_panel, #drilling_panel {padding: 5px;}
