@@ -35,7 +35,7 @@ msgstr "niet beschikbaar"
 #: cirb.novac:/browser/listprivateview.py:48
 #: cirb.novac:/browser/privateview.py:51
 msgid "Listprivate"
-msgstr ""
+msgstr "Mijn dossier(s)"
 
 #: cirb.novac:/browser/listprivateview.py:59
 msgid "User undefined."
@@ -84,7 +84,7 @@ msgstr ""
 
 #: cirb.novac:/browser/publicview.py:50
 msgid "Public"
-msgstr ""
+msgstr "Publiek"
 
 #: cirb.novac:/browser/publicview.py:68
 msgid "Not able to call this dossier : %s"
@@ -193,14 +193,14 @@ msgstr "Geannuleerd"
 #: cirb.novac:/browser/templates/publicview.pt:99
 #: cirb.novac:/browser/templates/publicview.pt:111
 msgid "yes"
-msgstr ""
+msgstr "Ja"
 
 #: cirb.novac:/browser/templates/privateview.pt:105
 #: cirb.novac:/browser/templates/privateview.pt:117
 #: cirb.novac:/browser/templates/publicview.pt:103
 #: cirb.novac:/browser/templates/publicview.pt:115
 msgid "no"
-msgstr ""
+msgstr "Neen"
 
 #: cirb.novac:/browser/templates/privateview.pt:110
 #: cirb.novac:/browser/templates/publicview.pt:108
@@ -210,7 +210,7 @@ msgstr "Overlegcommissie"
 #: cirb.novac:/browser/templates/privateview.pt:110
 #: cirb.novac:/browser/templates/publicview.pt:108
 msgid "tooltip_commission_de_concertation"
-msgstr ""
+msgstr "Raadgevende instelling die bestaat uit vertegenwoordigers van de gemeente en van de gewestelijke besturen en instellingen die te maken hebben met ruimtelijke ordening (BROH [Stedenbouw en Erfgoed], BIM, GOMB). De commissie komt samen en brengt een advies uit over de vergunningsaanvragen waarvoor dat advies is vereist. Dat advies helpt de overheid die belast is met de aflevering van de vergunning, bij het nemen van haar beslissing. Het advies van de overlegcommissie is raadgevend. In het kader van een vergunningsaanvraag kan het OC-advies enkel gevraagd worden in de gevallen van de uitputtende opsomming in de stedenbouwkundige regelgeving."
 
 #: cirb.novac:/browser/templates/privateview.pt:113
 #: cirb.novac:/browser/templates/privateview.pt:207
@@ -354,7 +354,7 @@ msgstr "Dossier volledig verklaard op"
 #: cirb.novac:/browser/templates/privateview.pt:98
 #: cirb.novac:/browser/templates/publicview.pt:96
 msgid "tooltip_enquete_public"
-msgstr ""
+msgstr "Periode, die doorgaans 15 dagen duurt, tijdens dewelke de burgers de dossiers van de vergunningsaanvraag in kwestie kunnen inzien. Openbare onderzoeken worden georganiseerd door de gemeenten. Ze worden bekendgemaakt aan de hand van rode affisches die aangeplakt worden in de buurt van het goed waarop de vergunningsaanvraag betrekking heeft. Het openbaar onderzoek maakt deel uit van de speciale regelen van openbaarmaking."
 
 #: cirb.novac:/browser/templates/privateview.pt:98
 #: cirb.novac:/browser/templates/publicview.pt:96

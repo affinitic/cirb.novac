@@ -35,7 +35,7 @@ msgstr "Non disponible"
 #: cirb.novac:/browser/listprivateview.py:48
 #: cirb.novac:/browser/privateview.py:51
 msgid "Listprivate"
-msgstr ""
+msgstr "Mon (mes) dossier(s)"
 
 #: cirb.novac:/browser/listprivateview.py:59
 msgid "User undefined."
@@ -63,7 +63,7 @@ msgstr "pas de fichier json"
 
 #: cirb.novac:/browser/privateview.py:48
 msgid "Private"
-msgstr ""
+msgstr "Privé"
 
 #: cirb.novac:/browser/privateview.py:61
 msgid "No url for novac url"
@@ -84,7 +84,7 @@ msgstr ""
 
 #: cirb.novac:/browser/publicview.py:50
 msgid "Public"
-msgstr ""
+msgstr "Publique"
 
 #: cirb.novac:/browser/publicview.py:68
 msgid "Not able to call this dossier : %s"
@@ -136,15 +136,15 @@ msgstr "Recherche d'adresse"
 
 #: cirb.novac:/browser/templates/novacview.pt:43
 msgid "street_name:"
-msgstr "Rue :"
+msgstr "Rue&nbsp;:"
 
 #: cirb.novac:/browser/templates/novacview.pt:44
 msgid "number:"
-msgstr "Numéro :"
+msgstr "Numéro&nbsp;:"
 
 #: cirb.novac:/browser/templates/novacview.pt:45
 msgid "post_code:"
-msgstr "Code postal :"
+msgstr "Code postal&nbsp;:"
 
 #: cirb.novac:/browser/templates/novacview.pt:48
 msgid "search"
@@ -191,14 +191,14 @@ msgstr "annulé"
 #: cirb.novac:/browser/templates/publicview.pt:99
 #: cirb.novac:/browser/templates/publicview.pt:111
 msgid "yes"
-msgstr ""
+msgstr "Oui"
 
 #: cirb.novac:/browser/templates/privateview.pt:105
 #: cirb.novac:/browser/templates/privateview.pt:117
 #: cirb.novac:/browser/templates/publicview.pt:103
 #: cirb.novac:/browser/templates/publicview.pt:115
 msgid "no"
-msgstr ""
+msgstr "Non"
 
 #: cirb.novac:/browser/templates/privateview.pt:110
 #: cirb.novac:/browser/templates/publicview.pt:108
@@ -208,7 +208,7 @@ msgstr "Commission de concertation"
 #: cirb.novac:/browser/templates/privateview.pt:110
 #: cirb.novac:/browser/templates/publicview.pt:108
 msgid "tooltip_commission_de_concertation"
-msgstr ""
+msgstr "Instance consultative composée de représentants de la commune et des administrations et instances régionales liées à l’aménagement du territoire (AATL [urbanisme et patrimoine], IBGE, SDRB). La commission se réunit et remet un avis sur les demandes de permis pour lesquelles celui-ci est requis. Cet avis aide l’autorité chargée de la délivrance du permis à prendre sa décision. L’avis de la commission de concertation est consultatif. Dans le cadre d’une demande de permis, l’avis CC ne peut être sollicité que dans les cas limitativement énumérés par la réglementation urbanistique."
 
 #: cirb.novac:/browser/templates/privateview.pt:113
 #: cirb.novac:/browser/templates/privateview.pt:207
@@ -352,7 +352,7 @@ msgstr "Dossier complet"
 #: cirb.novac:/browser/templates/privateview.pt:98
 #: cirb.novac:/browser/templates/publicview.pt:96
 msgid "tooltip_enquete_public"
-msgstr ""
+msgstr "Période, de 15 à 30 jours, pendant laquelle les citoyens peuvent consulter les dossiers de demande de permis soumis à enquête. Les enquêtes publiques sont organisées par les communes. Elles sont signalées par des affiches rouges placées à proximité du bien faisant l’objet de la demande de permis. L’enquête publique fait partie des mesures particulières de publicité."
 
 #: cirb.novac:/browser/templates/privateview.pt:98
 #: cirb.novac:/browser/templates/publicview.pt:96
