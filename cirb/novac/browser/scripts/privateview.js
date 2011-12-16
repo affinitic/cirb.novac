@@ -19,12 +19,14 @@ $(document).ready(function() {
         $(this).attr("href","#");
         $.get(url, function(data) {
             //reload table with the new 'secondary key'
+            // TODO wait before reload
             reload_table_list_secondary_key();
         });
         return false;
     }); 
     
     map_init();
+    tooltip_init();
     
 });
 

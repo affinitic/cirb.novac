@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: Wed Dec 14 16:04:15 2011\n"
+"POT-Creation-Date: Fri Dec 16 14:58:33 2011\n"
 "PO-Revision-Date: 2011-10-28 10:45+0200\n"
 "Last-Translator: bsuttor <bsuttor@cirb.irisnet.be>\n"
 "Language-Team: English\n"
@@ -207,6 +207,11 @@ msgstr ""
 msgid "commission_de_concertation"
 msgstr "commission_de_concertation"
 
+#: cirb.novac:/browser/templates/privateview.pt:110
+#: cirb.novac:/browser/templates/publicview.pt:108
+msgid "tooltip_commission_de_concertation"
+msgstr ""
+
 #: cirb.novac:/browser/templates/privateview.pt:113
 #: cirb.novac:/browser/templates/privateview.pt:207
 #: cirb.novac:/browser/templates/publicview.pt:111
@@ -343,6 +348,11 @@ msgstr "parcours"
 #: cirb.novac:/browser/templates/publicview.pt:92
 msgid "permis"
 msgstr "permis"
+
+#: cirb.novac:/browser/templates/privateview.pt:98
+#: cirb.novac:/browser/templates/publicview.pt:96
+msgid "tooltip_enquete_public"
+msgstr ""
 
 #: cirb.novac:/browser/templates/privateview.pt:98
 #: cirb.novac:/browser/templates/publicview.pt:96
