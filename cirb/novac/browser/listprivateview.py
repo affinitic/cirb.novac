@@ -71,7 +71,9 @@ class ListprivateView(NovacView):
         key = urllib.quote_plus(self.request.form.get('key'))
         #query_string = self.request.environ['QUERY_STRING']
         #key = urllib.quote_plus(query_string.replace('key=',''))        
-        user = get_user(self.request)
+        user = get_user(self.request, self.context)
+        if not user:
+            self.logger.error('User is not logged')
         self.logger.info("key : %s - user : %s" % (key, user['id']))
         activate_url = '%s%s%s&RNHEAD=%s' %(self.novac_url,ACTIVATION,key, user['id'])
         #activate_url = activate_url.encode('utf-8')
@@ -79,7 +81,7 @@ class ListprivateView(NovacView):
         results = call_put_url(activate_url, headers, 'key=%s&RNHEAD=%s' % (key, user['id']))
         if not results:
             msg_error = _(u"Not able to activate a dossier.")
-            return listprivate_error(msg_error)
+            return self.listprivate_error(msg_error)
         return {"error":True,}
     
     def get_table_lines_folder(self):

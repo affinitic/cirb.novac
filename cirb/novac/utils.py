@@ -112,8 +112,9 @@ def get_user(request, context=None):
     user={} 
     authuser = ""
     if context:
-        authuser = context.portal_membership.getAuthenticatedMember()
-        
+        if context.portal_membership.isAnonymousUser():
+            return False        
+        authuser = context.portal_membership.getAuthenticatedMember()        
     if authuser and authuser.getUserName() != 'admin':
         user['name'] = authuser.getProperty("fullname")
         user['id'] = authuser.getUserName()
