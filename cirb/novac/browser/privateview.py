@@ -94,7 +94,11 @@ class PrivateView(NovacView):
         history_ids = ['consultationDate','keyName']
         historys = update_dossiers(jsonhistory, history_ids, "not_available", has_address=False)
         h_res = self.formated_history_date(historys)
-        
+        user = get_user(self.request, self.context)
+        if not user:
+            msg_error = _('User undefined.')
+            return self.listprivate_error(msg_error)
+        results['user'] = user['name']        
         results['jsondata'] = jsondata
         results['jsonhistory'] = jsonhistory
         results['error'] = False

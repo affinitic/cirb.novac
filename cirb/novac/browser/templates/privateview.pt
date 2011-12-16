@@ -35,7 +35,7 @@
             <caption i18n:translate="Etat d'avancement - Demande de permis d'urbanisme">Etat d'avancement - Demande de permis d'urbanisme</caption>
             <tbody><tr>
                 <td colspan="2" style="text-align:right;" id="username">
-                    <p id="user-name"><tal:block tal:content="user"> John </tal:block>
+                    <p id="user-name"><tal:block tal:content="data/user"> John </tal:block>
                     <img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/user.png" alt="user" />
                     &nbsp;|&nbsp;<a tal:attributes="href string:${portal_url}/logout"><tal:block i18n:translate="logout">logout</tal:block></a></p>
                 </td>
