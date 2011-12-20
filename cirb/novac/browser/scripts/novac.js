@@ -80,7 +80,7 @@ $(window).bind("load", function() {
 		"Clusters3km", 
 		gis_url+"geoserver/wms",
 		{layers: 'nova:CLUSTER3KM', transparent: 'true'},
-		{singleTile: true, ratio: 1.25, isBaseLayer: false, minScale: 50000});
+		{singleTile: true, ratio: 1.25, isBaseLayer: false});
     map.addLayer(clusters3km);
 
     //create the lowest cluset layer
@@ -88,7 +88,7 @@ $(window).bind("load", function() {
         "Clusters1km", 
         gis_url+"geoserver/wms",
         {layers: 'nova:CLUSTER1KM', transparent: 'true'},
-        {singleTile: true, ratio: 1.25, isBaseLayer: false, minScale: 25000});
+        {singleTile: true, ratio: 1.25, isBaseLayer: false});
     map.addLayer(clusters1km);
 
 
@@ -97,7 +97,7 @@ $(window).bind("load", function() {
 	    (current_language == 'nl')?"Bouwaanvragen":"Permis d'urbanisme",
 		gis_url+"geoserver/wms", 
 		{layers: 'nova:NOVA_DOSSIERS', styles:(current_language == 'nl')?"nova_dossiers_nl":"nova_dossiers_fr",transparent: true},
-		{singleTile: true, ratio: 1.25, isBaseLayer: false, maxScale: 25000});
+		{singleTile: true, ratio: 1.25, isBaseLayer: false, maxResolution: 7.0});
  	map.addLayer(dossiers);
 
 	
@@ -188,7 +188,12 @@ $(window).bind("load", function() {
                 cql_filter += " AND (" + dossiers.params.CQL_FILTER + ")";
             dossiers.mergeNewParams({'CQL_FILTER': cql_filter});
         }
-            
+        
+        clusters3km.setVisibility(false);
+        clusters1km.setVisibility(false);
+        dossiers.maxResolution = 35.0;
+        dossiers.redraw();
+        
     });
 
 
