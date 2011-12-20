@@ -173,6 +173,14 @@ $(window).bind("load", function() {
             ep_filter += ")";
             cql_filter += " AND " + ep_filter;
         }
+        if ($("#datecc_from").val() != "") {
+            if (cql_filter.length > 1) cql_filter += " AND";
+            cql_filter += " DATECC >= dateParse('dd/MM/yyyy','" + $("#datecc_from").val() + "')";
+        }
+        if ($("#datecc_to").val() != "") {
+            if (cql_filter.length > 1) cql_filter += " AND";
+            cql_filter += " DATECC <= dateParse('dd/MM/yyyy','" + $("#datecc_to").val() + "')";
+        }
         cql_filter += ")";
         
         if (cql_filter.length > 2) {

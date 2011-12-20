@@ -155,8 +155,8 @@
 						        <input type="radio" name="ep" value="all" checked/> Tous
 						
 						        <h5 style="font-size:1.2em;">Date Commission de Consertation</h5>
-						        de <input type="text" size="2" style="width:22px;" />&nbsp;&nbsp;<input type="text" size="2" style="width:22px;" />&nbsp;&nbsp;<input type="text" size="4" style="width:44px;" /><br />
-						        &nbsp;à&nbsp;&nbsp;<input type="text" size="2" style="width:22px;" />&nbsp;&nbsp;<input type="text" size="2" style="width:22px;" />&nbsp;&nbsp;<input type="text" size="4" style="width:44px;" />
+						        de <input id="datecc_from" type="text" maxlength="10" style="width:80px;" /> dd/mm/yyyy <br />
+						        &nbsp;à&nbsp;&nbsp;<input id="datecc_to" type="text" maxlength="10" style="width:80px;" /> dd/mm/yyyy 
 						
 						        <p><input type="checkbox"> Afficher sous forme de liste ?</p>
 						        <hr class="gray" />
