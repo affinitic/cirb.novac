@@ -6,7 +6,6 @@ var markers_layer, features_layer;
 function map_init() {
     var url_ws_urbis = $('#ws_urbis').html();
     var url_ws_urbis_cache = $('#urbis_cache_url').html();
-    portal_url = $('#portal_url').html();
     gis_url = portal_url + "/gis/";
     OpenLayers.ImgPath = portal_url+"/++resource++cirb.novac.images/";
     var x = $('#x').html();
@@ -15,9 +14,9 @@ function map_init() {
         resolutions: [1112.61305859375, 556.306529296875, 278.1532646484375, 139.07663232421876, 69.53831616210938, 34.76915808105469, 17.384579040527345, 8.692289520263673, 4.346144760131836, 2.173072380065918, 1.086536190032959, 0.5432680950164795, 0.2716340475082398],
         projection: new OpenLayers.Projection('EPSG:31370'),
         maxExtent: new OpenLayers.Bounds(16478.795,19244.928,301307.738,304073.87100000004),
-        units: "meters", 
+        units: "meters",
         controls: [],
-        theme: portal_url + "/++resource++cirb.novac.scripts/openlayers.css"
+        theme: "/++resource++cirb.novac.scripts/openlayers.css"
     };
     map = new OpenLayers.Map('map', mapOptions );
     
@@ -48,7 +47,7 @@ function map_init() {
     });
     map.addLayer(ortho2009);
     
-    var icon_url = portal_url+'/++resource++cirb.novac.images/map_pin.png';
+    var icon_url = '/++resource++cirb.novac.images/map_pin.png';
     var size = new OpenLayers.Size(32,32);
     var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
     var icon_marker = new OpenLayers.Icon(icon_url, size, offset);

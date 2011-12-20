@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-import re, os
+import re, os, json
 import urllib2, socket
 from urllib2 import URLError, HTTPError
 import urllib
@@ -8,11 +8,9 @@ from cirb.novac import novacMessageFactory as _
 
 from AccessControl import getSecurityManager
 
-__all__=["called_url", "call_put_url", "call_post_url", "get_properties", "get_user", "update_dossiers"]
-
 logger = logging.getLogger('cirb.novac.utils')
 
-def called_url(request_url, request_headers, params='', lang='fr'): # for exemple : content_type = application/xml
+def called_url(request_url, request_headers, params=''): # for exemple : content_type = application/xml
     """
     """
     oldtimeout = socket.getdefaulttimeout()
@@ -28,7 +26,6 @@ def called_url(request_url, request_headers, params='', lang='fr'): # for exempl
                 request.add_header(header.keys()[0], header.values()[0])
             except:
                 logger.info(_('headers bad formated'))
-        request.add_header('HTTP_ACCEPT_LANGUAGE', '%s-be' % lang)
         opener = urllib2.build_opener()
         results = opener.open(request).read()
     except HTTPError, e:
@@ -113,45 +110,53 @@ def get_properties(context, prop, prop_name):
 
 def get_user(request, context=None):
     user={} 
-    #fullname = context.portal_membership.getPersonalPortrait(getSecurityManager().getUser().getId()).getProperty('fullname')
-    #if fullname:
-    #    user['name'] = fullname
-    #else:
-    user['name'] = getSecurityManager().getUser().getUserName()
-    user['id'] = getSecurityManager().getUser().getId()
+    authuser = ""
+    if context:
+        if context.portal_membership.isAnonymousUser():
+            return False        
+        authuser = context.portal_membership.getAuthenticatedMember()        
+    if authuser and authuser.getUserName() != 'admin':
+        user['name'] = authuser.getProperty("fullname")
+        user['id'] = authuser.getUserName()
+    else:
+        user['name'] = getSecurityManager().getUser().getUserName()
+        user['id'] = getSecurityManager().getUser().getId()
+    if not user.get('id', False):
+        return False
     return user
 
 
 
-
 class Dossier(dict):
-    def __init__(self, value, field_list, not_available):
+    def __init__(self, value, field_list, not_available, has_address=False):
         super(Dossier, self).__init__(value)
         self.field_list = field_list
-        self.not_available = not_available
+        self.not_available = not_available        
+        self.has_address = has_address
+        self.update()
         
     def update(self):
-        self.update_address()
+        if self.has_address:
+            self.update_address()
         self.update_fields_availability()
 
     def update_address(self):
         address = []
         nf = self.get('numberFrom', '')
         if nf:
-            address.append('%s,' % nf)
-        
+            address.append('%s,' % nf)        
         sn = self.get('streetName', '')
         if sn:
-            address.append(sn)
-            
+            address.append(sn)            
         zc = self.get('zipcode', '')
         if zc:
             address.append(zc)
-            
+        zc = self.get('zipCode', '')
+        if zc:
+            address.append(zc)              
         muni = self.get('municipality', '')
         if muni:
-            address.append(muni)
-            
+            address.append(muni)            
         if not address:
             self['address'] = self.not_available
         else:
@@ -171,11 +176,29 @@ class Dossier(dict):
             self[fieldname] = self.not_available
 
 
-def update_dossiers(dossier_mapping_list, field_list, not_available):
+def update_dossiers(dossier_mapping_list, field_list, not_available, has_address=False):
     dossier_list = []    
     for mapping in dossier_mapping_list:
-        dossier = Dossier(mapping, field_list, not_available)
+        dossier = Dossier(mapping, field_list, not_available, has_address)
         dossier.update()
         dossier_list.append(dossier)
     return dossier_list
-        
+    
+    
+
+def json_processing(json_from_ws):
+    """
+    >>> json_processing({"item":"bier"})
+    False
+    """
+    try:
+        jsondata = json.loads(json_from_ws)
+    except ValueError, e:
+        msg_error = 'Json value error : %s.' % e.message
+        logger.error(msg_error)
+        return False
+    except SyntaxError, e:
+        msg_error = 'Json bad formatted : %s.' % e.message
+        logger.error(msg_error)
+        return False
+    return jsondata

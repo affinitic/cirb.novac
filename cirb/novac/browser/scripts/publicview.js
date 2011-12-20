@@ -13,5 +13,5 @@ $(document).ready(function() {
     //alert(called_url + " : "+result);
     
     map_init();
-    
+    tooltip_init();
 });
