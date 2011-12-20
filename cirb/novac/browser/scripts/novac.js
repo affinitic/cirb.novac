@@ -157,11 +157,11 @@ $(window).bind("load", function() {
         }
         if ($("input[name='ep']:checked").val() == "no") {
             if (cql_filter.length > 1) cql_filter += " AND"; 
-            cql_filter += " MPP = 'non'";
+            cql_filter += " MPP = 'Non'";
         }
         else if ($("input[name='ep']:checked").val() == "yes") {
             if (cql_filter.length > 1) cql_filter += " AND"; 
-            cql_filter += " MPP = 'oui'";
+            cql_filter += " MPP = 'Oui'";
             var ep_filter = "(";
             $("input[name='ep_status']").each(function(index,element) {
                 if ($(element).is(":checked")) {
@@ -169,8 +169,9 @@ $(window).bind("load", function() {
                     ep_filter += " STATUT_ENQUETE_NL='"+$(element).val()+"'";
                 }
             });
+            if (ep_filter.length == 1) ep_filter += " STATUT_ENQUETE_NL IS NULL ";
             ep_filter += ")";
-            if (ep_filter.length > 2) cql_filter += " AND " + ep_filter;
+            cql_filter += " AND " + ep_filter;
         }
         cql_filter += ")";
         
