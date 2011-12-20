@@ -342,17 +342,20 @@ function applyDossierFilter(){
     }
     
     //advanced filter
-    if ($("#commune").val() != 0) cql_filter += "ZIPCODE=" + $("#commune").val();
+    if ($("#commune").val() != 0) {
+        if(cql_filter != "") cql_filter += " AND ";
+        cql_filter += "ZIPCODE=" + $("#commune").val();
+    }
     if ($("#typedossier").val() != 0) {
-        if (cql_filter.length > 1) cql_filter += " AND"; 
+        if(cql_filter != "") cql_filter += " AND"; 
         cql_filter += " SUBTYPEDOSSIER=" + $("#typedossier").val();
     }
     if ($("input[name='ep']:checked").val() == "no") {
-        if (cql_filter.length > 1) cql_filter += " AND"; 
+        if(cql_filter != "") cql_filter += " AND"; 
         cql_filter += " MPP = 'Non'";
     }
     else if ($("input[name='ep']:checked").val() == "yes") {
-        if (cql_filter.length > 1) cql_filter += " AND"; 
+        if(cql_filter != "") cql_filter += " AND"; 
         cql_filter += " MPP = 'Oui'";
         var ep_filter = "(";
         $("input[name='ep_status']").each(function(index,element) {
@@ -366,11 +369,11 @@ function applyDossierFilter(){
         cql_filter += " AND " + ep_filter;
     }
     if ($("#datecc_from").val() != "") {
-        if (cql_filter.length > 1) cql_filter += " AND";
+        if(cql_filter != "") cql_filter += " AND";
         cql_filter += " DATECC >= dateParse('dd/MM/yyyy','" + $("#datecc_from").val() + "')";
     }
     if ($("#datecc_to").val() != "") {
-        if (cql_filter.length > 1) cql_filter += " AND";
+        if(cql_filter != "") cql_filter += " AND";
         cql_filter += " DATECC <= dateParse('dd/MM/yyyy','" + $("#datecc_to").val() + "')";
     }
     
