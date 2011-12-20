@@ -149,46 +149,6 @@ $(window).bind("load", function() {
     $("#search_dossiers").click(function() {
         applyDossierFilter();
         
-        var cql_filter = "(";
-        if ($("#commune").val() != 0) cql_filter += "ZIPCODE=" + $("#commune").val();
-        if ($("#typedossier").val() != 0) {
-            if (cql_filter.length > 1) cql_filter += " AND"; 
-            cql_filter += " SUBTYPEDOSSIER=" + $("#typedossier").val();
-        }
-        if ($("input[name='ep']:checked").val() == "no") {
-            if (cql_filter.length > 1) cql_filter += " AND"; 
-            cql_filter += " MPP = 'Non'";
-        }
-        else if ($("input[name='ep']:checked").val() == "yes") {
-            if (cql_filter.length > 1) cql_filter += " AND"; 
-            cql_filter += " MPP = 'Oui'";
-            var ep_filter = "(";
-            $("input[name='ep_status']").each(function(index,element) {
-                if ($(element).is(":checked")) {
-                    if (ep_filter.length > 1) ep_filter += " OR";
-                    ep_filter += " STATUT_ENQUETE_NL='"+$(element).val()+"'";
-                }
-            });
-            if (ep_filter.length == 1) ep_filter += " STATUT_ENQUETE_NL IS NULL ";
-            ep_filter += ")";
-            cql_filter += " AND " + ep_filter;
-        }
-        if ($("#datecc_from").val() != "") {
-            if (cql_filter.length > 1) cql_filter += " AND";
-            cql_filter += " DATECC >= dateParse('dd/MM/yyyy','" + $("#datecc_from").val() + "')";
-        }
-        if ($("#datecc_to").val() != "") {
-            if (cql_filter.length > 1) cql_filter += " AND";
-            cql_filter += " DATECC <= dateParse('dd/MM/yyyy','" + $("#datecc_to").val() + "')";
-        }
-        cql_filter += ")";
-        
-        if (cql_filter.length > 2) {
-            if (dossiers.params.CQL_FILTER) 
-                cql_filter += " AND (" + dossiers.params.CQL_FILTER + ")";
-            dossiers.mergeNewParams({'CQL_FILTER': cql_filter});
-        }
-        
         clusters3km.setVisibility(false);
         clusters1km.setVisibility(false);
         dossiers.maxResolution = 35.0;
@@ -343,10 +303,10 @@ function showPointInfo(response) {
 
 
 function applyDossierFilter(){
-    var cql = "";
+    var cql_filter = "";
     
+    //type and status filter
     var type_dossier = "TYPEDOSSIER IS NULL";
-    //create a cql filter based on the filter checkboxes
     if($('#type_u').is(':checked')) {
     	if(type_dossier != "") type_dossier += " OR ";
     	type_dossier += "TYPEDOSSIER = 'U'";
@@ -355,8 +315,10 @@ function applyDossierFilter(){
     	if(type_dossier != "") type_dossier += " OR ";
     	type_dossier += "TYPEDOSSIER = 'L'";
     }
-    if(type_dossier != "") cql += "(" + type_dossier + ")";
-    
+    if(type_dossier != "") {
+        if (cql_filter != "") cql_filter += " AND ";
+        cql_filter += "(" + type_dossier + ")";
+    }
     var statut_permis = "STATUT_PERMIS_FR IS NULL";
     if($('#canceled').is(':checked')){
     	if(statut_permis != "") statut_permis += " OR ";
@@ -375,12 +337,48 @@ function applyDossierFilter(){
     	statut_permis += "STATUT_PERMIS_FR = 'Octroyé'";
     }
     if(statut_permis != "") {
-    	if(cql != "") cql += " AND ";
-    	cql += "(" + statut_permis + ")";
+    	if(cql_filter != "") cql_filter += " AND ";
+    	cql_filter += "(" + statut_permis + ")";
     }
     
-    //apply the cql filter
-    dossiers.mergeNewParams({'CQL_FILTER': cql});
+    //advanced filter
+    if ($("#commune").val() != 0) cql_filter += "ZIPCODE=" + $("#commune").val();
+    if ($("#typedossier").val() != 0) {
+        if (cql_filter.length > 1) cql_filter += " AND"; 
+        cql_filter += " SUBTYPEDOSSIER=" + $("#typedossier").val();
+    }
+    if ($("input[name='ep']:checked").val() == "no") {
+        if (cql_filter.length > 1) cql_filter += " AND"; 
+        cql_filter += " MPP = 'Non'";
+    }
+    else if ($("input[name='ep']:checked").val() == "yes") {
+        if (cql_filter.length > 1) cql_filter += " AND"; 
+        cql_filter += " MPP = 'Oui'";
+        var ep_filter = "(";
+        $("input[name='ep_status']").each(function(index,element) {
+            if ($(element).is(":checked")) {
+                if (ep_filter.length > 1) ep_filter += " OR";
+                ep_filter += " STATUT_ENQUETE_NL='"+$(element).val()+"'";
+            }
+        });
+        if (ep_filter.length == 1) ep_filter += " STATUT_ENQUETE_NL IS NULL ";
+        ep_filter += ")";
+        cql_filter += " AND " + ep_filter;
+    }
+    if ($("#datecc_from").val() != "") {
+        if (cql_filter.length > 1) cql_filter += " AND";
+        cql_filter += " DATECC >= dateParse('dd/MM/yyyy','" + $("#datecc_from").val() + "')";
+    }
+    if ($("#datecc_to").val() != "") {
+        if (cql_filter.length > 1) cql_filter += " AND";
+        cql_filter += " DATECC <= dateParse('dd/MM/yyyy','" + $("#datecc_to").val() + "')";
+    }
+    
+    //apply filter
+    if (cql_filter != "") {
+        dossiers.mergeNewParams({'CQL_FILTER': cql_filter});
+    } 
+
 }
 
 function searchAddress(street, number, post_code){
