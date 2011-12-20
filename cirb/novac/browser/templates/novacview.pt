@@ -53,12 +53,12 @@
                         <tbody>
                             <tr>
                                 <td i18n:attributes="class type_U"></td>
-                                <td style="width:16px;"><input type="checkbox" onChange="applyDossierFilter()" checked="true" id="type_u"></td>
+                                <td style="width:16px;"><input type="checkbox" checked="true" id="type_u"></td>
                                 <td><label for="type_u"><tal:block i18n:translate="urbanisme">urbanisme</tal:block></td>
                             </tr>
                             <tr>
                                 <td i18n:attributes="class type_L"></td>
-                                <td style="width:16px;"><input type="checkbox" onChange="applyDossierFilter()" checked="true" id="type_l"></td>
+                                <td style="width:16px;"><input type="checkbox" checked="true" id="type_l"></td>
                                 <td><label for="type_l"><tal:block i18n:translate="lotir">lotir</tal:block></td>
                             </tr>
                         </tbody>
@@ -67,22 +67,22 @@
                         <tbody>
                             <tr>
                                 <td class="color required"></td>
-                                <td style="width:16px;"><input type="checkbox" onChange="applyDossierFilter()" checked="true" id="required" /></td>
+                                <td style="width:16px;"><input type="checkbox" checked="true" id="required" /></td>
                                 <td><label for="required"><tal:block i18n:translate="required">required</tal:block></td>
                             </tr>
                             <tr>
                                 <td class="color granted"></td>
-                                <td style="width:16px;"><input type="checkbox" onChange="applyDossierFilter()" checked="true" id="granted" /></td>
+                                <td style="width:16px;"><input type="checkbox" checked="true" id="granted" /></td>
                                 <td><label for="granted"><tal:block i18n:translate="granted">granted</tal:block></td>
                             </tr>
                             <tr>
                                 <td class="color refused"></td>
-                                <td style="width:16px;"><input type="checkbox" onChange="applyDossierFilter()" checked="true" id="refused" /></td>
+                                <td style="width:16px;"><input type="checkbox" checked="true" id="refused" /></td>
                                 <td><label for="refused"><tal:block i18n:translate="refused">refused</tal:block></td>
                             </tr>
                             <tr>
                                 <td class="color canceled"></td>
-                                <td style="width:16px;"><input type="checkbox" onChange="applyDossierFilter()" checked="true" id="canceled" /></td>
+                                <td style="width:16px;"><input type="checkbox" checked="true" id="canceled" /></td>
                                 <td><label for="canceled"><tal:block i18n:translate="canceled">canceled</tal:block></td>
                             </tr>
                         </tbody>
@@ -158,9 +158,11 @@
 						        de <input id="datecc_from" type="text" maxlength="10" style="width:80px;" /> dd/mm/yyyy <br />
 						        &nbsp;à&nbsp;&nbsp;<input id="datecc_to" type="text" maxlength="10" style="width:80px;" /> dd/mm/yyyy 
 						
+						        <!--
 						        <p><input type="checkbox"> Afficher sous forme de liste ?</p>
 						        <hr class="gray" />
 						        <a class="knop" href="index.html">Reset</a>&nbsp;&nbsp;<input type="button" id="search_dossiers" class="knop" value="Rechercher"/>
+						        -->
 					        </div>
 				        </div>
                     

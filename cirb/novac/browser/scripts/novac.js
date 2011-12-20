@@ -5,9 +5,9 @@ var filter_geom , markers_layer, tabberOptions;
 var mouseLoc, currentPopup ;
 var portal_url;
 var gis_url;
-var clusters3km;
-var current_language;
+var clusters1km, clusters3km;
 var dossiers;
+var current_language;
 var urbislayer, addressResult;
 
 $(window).bind("load", function() {
@@ -84,7 +84,7 @@ $(window).bind("load", function() {
     map.addLayer(clusters3km);
 
     //create the lowest cluset layer
-    var clusters1km = new OpenLayers.Layer.WMS(
+    clusters1km = new OpenLayers.Layer.WMS(
         "Clusters1km", 
         gis_url+"geoserver/wms",
         {layers: 'nova:CLUSTER1KM', transparent: 'true'},
@@ -146,14 +146,12 @@ $(window).bind("load", function() {
         searchAddress($('#street').val(),$('#number').val(),$('#post_code').val());
     });
 
-    $("#search_dossiers").click(function() {
+    $(".filter input[type='radio'], .filter input[type='checkbox']").click(function() {
         applyDossierFilter();
-        
-        clusters3km.setVisibility(false);
-        clusters1km.setVisibility(false);
-        dossiers.maxResolution = 35.0;
-        dossiers.redraw();
-        
+    });
+    
+    $(".filter select, .filter input[type='text']").change(function() {
+        applyDossierFilter();
     });
 
 
@@ -302,7 +300,7 @@ function showPointInfo(response) {
 
 
 
-function applyDossierFilter(){
+function applyDossierFilter() {
     var cql_filter = "";
     
     //type and status filter
@@ -380,7 +378,12 @@ function applyDossierFilter(){
     //apply filter
     if (cql_filter != "") {
         dossiers.mergeNewParams({'CQL_FILTER': cql_filter});
-    } 
+    }
+    
+    clusters3km.setVisibility(false);
+    clusters1km.setVisibility(false);
+    dossiers.maxResolution = 35.0;
+    dossiers.redraw();
 
 }
 
