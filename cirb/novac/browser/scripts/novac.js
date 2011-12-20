@@ -17,7 +17,19 @@ $(window).bind("load", function() {
 		active : false,		
 		collapsible : true,		
 		autoHeight : false		
-	}); 
+	});
+	$("#accordion2").accordion({ 
+		header      : "h4",
+		active      : false,
+		collapsible : true,
+		autoHeight  : false
+	});
+	$("input[name='ep'][value='yes']").click(function() { 
+        $("#ep_status_div").slideDown();
+    });
+    $("input[name='ep'][value!='yes']").click(function() { 
+        $("#ep_status_div").slideUp();
+    });
 
     portal_url = $('#portal_url').html();
     gis_url = portal_url + "/gis/";
@@ -130,12 +142,46 @@ $(window).bind("load", function() {
     map.events.register('click', map, executeGetFeatureInfo);
 
 
-    $("#search_address_button").click(function() {
-        searchAddress($('#street').val(),$('#number').val(),$('#post_code').val());
-    });
 	$("#search_address_button").click(function() {
         searchAddress($('#street').val(),$('#number').val(),$('#post_code').val());
     });
+
+    $("#search_dossiers").click(function() {
+        applyDossierFilter();
+        
+        var cql_filter = "(";
+        if ($("#commune").val() != 0) cql_filter += "ZIPCODE=" + $("#commune").val();
+        if ($("#typedossier").val() != 0) {
+            if (cql_filter.length > 1) cql_filter += " AND"; 
+            cql_filter += " SUBTYPEDOSSIER=" + $("#typedossier").val();
+        }
+        if ($("input[name='ep']:checked").val() == "no") {
+            if (cql_filter.length > 1) cql_filter += " AND"; 
+            cql_filter += " MPP = 'non'";
+        }
+        else if ($("input[name='ep']:checked").val() == "yes") {
+            if (cql_filter.length > 1) cql_filter += " AND"; 
+            cql_filter += " MPP = 'oui'";
+            var ep_filter = "(";
+            $("input[name='ep_status']").each(function(index,element) {
+                if ($(element).is(":checked")) {
+                    if (ep_filter.length > 1) ep_filter += " OR";
+                    ep_filter += " STATUT_ENQUETE_NL='"+$(element).val()+"'";
+                }
+            });
+            ep_filter += ")";
+            if (ep_filter.length > 2) cql_filter += ep_filter;
+        }
+        cql_filter += ")";
+        
+        if (cql_filter.length > 2) {
+            if (dossiers.params.CQL_FILTER) 
+                cql_filter += " AND (" + dossiers.params.CQL_FILTER + ")";
+            dossiers.mergeNewParams({'CQL_FILTER': cql_filter});
+        }
+            
+    });
+
 
 });
 

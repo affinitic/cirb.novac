@@ -30,7 +30,7 @@
 			<div id="urbis_cache_url" tal:content="data/urbis_cache_url" class="hiddenStructure"> urbis_cache_url </div>
             <div id="map_panel"><div id="map" style="cursor: pointer;"></div></div>
            
-            <div id="navigation">
+            <div id="navigation" style="overflow: auto;">
                 <div id="accordion">
                     <h3 class="slice-1"><a href="#" i18n:translate="mon_dossier">mon_dossier</a></h3>
                     <div>
@@ -87,6 +87,82 @@
                             </tr>
                         </tbody>
                         </table>                        
+                    
+                        <div id="accordion2">
+					        <h4><a href="#">Tous les filtres</a></h4>
+					        <div>
+						        <select id="commune" name="commune" style="width:180px;">
+							        <option value="0" selected> Toutes les communes </option>
+							        <option value="1070"> Anderlecht </option>
+							        <option value="1160"> Auderghem </option>
+							        <option value="1082"> Berchem-Sainte-Agathe </option>
+							        <option value="1000"> Bruxelles </option>
+							        <option value="1040"> Etterbeek </option>
+							        <option value="1140"> Evere </option>
+							        <option value="1190"> Forest </option>
+							        <option value="1083"> Ganshoren </option>
+							        <option value="1050"> Ixelles </option>
+							        <option value="1090"> Jette </option>
+							        <option value="1081"> Koekelberg </option>
+							        <option value="1080"> Molenbeek-Saint-Jean </option>
+							        <option value="1060"> Saint-Gilles </option>
+							        <option value="1210"> Saint-Josse-ten-Noode </option>
+							        <option value="1030"> Schaerbeek </option>
+							        <option value="1180"> Uccle </option>
+							        <option value="1170"> Watermael-Boitsfort </option>
+							        <option value="1200"> Woluwe-Saint-Lambert </option>
+							        <option value="1150"> Woluwe-Saint-Pierre </option>
+						        </select>
+						        <br /><br />
+						
+						        <select id="typedossier" name="typedossier" style="width:180px;">
+							        <option value="0" selected> Tous les types de dossier </option>
+							        <option value="1"> Abattage d'arbres </option>
+                                    <option value="2"> Autorisation communale </option> 
+                                    <option value="3"> Certificat d'urbanisme délivré par le FD </option>
+                                    <option value="4"> Certificat d'urbanisme privé </option>
+                                    <option value="5"> Enseigne </option>
+                                    <option value="6"> Panneau publicitaire </option>
+                                    <option value="7"> Permis de lotir </option>
+                                    <option value="8"> Permis d'urbanisme délivré par le FD </option>
+                                    <option value="9"> Permis d'urbanisme privé </option>
+                                    <option value="10"> Permis d'urbanisme privé - procédure mixte </option>
+                                    <option value="11"> Permis d'urbanisme unique délivré par le FD </option>
+						        </select>
+						        <br /><br />
+						
+						        <h5 style="font-size:1.2em;">Enquête publique ?</h5>
+						        <div id="accordion3" style="font-size:1.2em;">
+							        <input type="radio" name="ep" value="yes"/> Oui 
+								        <div id="ep_status_div" style="display:none;">
+									        <table class="filters" style="font-size:1.2em;">
+										        <tr>
+											        <td><input type="checkbox" name="ep_status" value="A" class="checkbox" checked="checked" /></td>
+											        <td>En cours</td>
+										        </tr>
+										        <tr>
+											        <td><input type="checkbox" name="ep_status" value="Afgesloten" class="checkbox" checked="checked" /></td>
+											        <td>terminé</td>
+										        </tr>
+										        <tr>
+											        <td><input type="checkbox" name="ep_status" value="C" class="checkbox" checked="checked" /></td>
+											        <td>planifié</td>
+										        </tr>
+									        </table>
+								        </div>
+						        </div>
+						        <input type="radio" name="ep" value="no"/> Non <br />
+						        <input type="radio" name="ep" value="all" checked/> Tous
+						
+						        <h5 style="font-size:1.2em;">Date Commission de Consertation</h5>
+						        de <input type="text" size="2" style="width:22px;" />&nbsp;&nbsp;<input type="text" size="2" style="width:22px;" />&nbsp;&nbsp;<input type="text" size="4" style="width:44px;" /><br />
+						        &nbsp;à&nbsp;&nbsp;<input type="text" size="2" style="width:22px;" />&nbsp;&nbsp;<input type="text" size="2" style="width:22px;" />&nbsp;&nbsp;<input type="text" size="4" style="width:44px;" />
+						
+						        <p><input type="checkbox"> Afficher sous forme de liste ?</p>
+						        <hr class="gray" />
+						        <a class="knop" href="index.html">Reset</a>&nbsp;&nbsp;<input type="button" id="search_dossiers" class="knop" value="Rechercher"/>
+					        </div>
+				        </div>
                     
                     </div>
                     
