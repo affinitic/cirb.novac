@@ -170,7 +170,7 @@ $(window).bind("load", function() {
                 }
             });
             ep_filter += ")";
-            if (ep_filter.length > 2) cql_filter += ep_filter;
+            if (ep_filter.length > 2) cql_filter += " AND " + ep_filter;
         }
         cql_filter += ")";
         
