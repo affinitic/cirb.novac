@@ -155,9 +155,6 @@ $(window).bind("load", function() {
     });
 
     $("#reset_filter").click(function() {
-        clusters3km.setVisibility(true);
-        clusters1km.setVisibility(true);
-        dossiers.maxResolution = 7.0;
         
         $(".filter input[type='checkbox']").attr('checked', true);
         $("#commune").val(0);
@@ -167,6 +164,11 @@ $(window).bind("load", function() {
         $("#datecc_to").val("");
         
         dossiers.mergeNewParams({'CQL_FILTER': null});
+        
+        clusters3km.setVisibility(true);
+        clusters1km.setVisibility(true);
+        dossiers.maxResolution = 7.0;
+        
         dossiers.redraw();
     });
 
