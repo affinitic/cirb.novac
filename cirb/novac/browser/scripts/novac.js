@@ -11,7 +11,7 @@ var current_language;
 var urbislayer, addressResult;
 
 function executeGetFeatureInfo(event) {
-    mouseLoc = map.getLonLatFromPixel(event.xy);
+    mouseLoc = map.getLonLatFromPixel(map.events.getMousePosition(event));
     
     var zoom = map.getZoom();
     if (zoom < 3) {
@@ -23,8 +23,8 @@ function executeGetFeatureInfo(event) {
     var url = clusters3km.getFullRequestString({
         REQUEST: "GetFeatureInfo",
         BBOX: map.getExtent().toBBOX(),
-        X: Math.round(event.xy.x),
-        Y: Math.round(event.xy.y),
+        X: Math.round(mouseLoc.x),
+        Y: Math.round(mouseLoc.y),
         INFO_FORMAT: 'application/vnd.ogc.gml',
         FORMAT: 'application/vnd.ogc.gml',
         LAYERS : "NOVA_DOSSIERS",
