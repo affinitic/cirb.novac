@@ -44,7 +44,7 @@ function map_init() {
     var urbis_base = new OpenLayers.Layer.WMTS({
         name: "urbis base map",
         url: gis_url+"geoserver/gwc/service/wmts",
-        layer: (current_language == 'nl')?"urbis:urbisNL":"urbis:urbisFR",
+        layer: (current_language == 'nl')?"urbisNL":"urbisFR",
         matrixSet: "EPSG:31370",
         matrixIds: matrixIds,
         serverResolutions: [1112.61305859375, 556.306529296875, 278.1532646484375, 139.07663232421876, 69.53831616210938, 34.76915808105469, 17.384579040527345, 8.692289520263673, 4.346144760131836, 2.173072380065918, 1.086536190032959, 0.5432680950164795, 0.2716340475082398, 0.1358170237541199, 0.06790851187705994, 0.03395425593852997],
