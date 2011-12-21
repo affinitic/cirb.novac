@@ -141,6 +141,8 @@ function showPointInfo(response) {
 }
 
 var applyDossierFilter = function(event) {
+    if (console) console.log("apply filter");
+
     var cql_filter = "";
     
     //type and status filter
@@ -427,8 +429,8 @@ $(window).bind("load", function() {
         $("#datecc_from").val("");
         $("#datecc_to").val("");
         
-        dossiers.mergeNewParams({'CQL_FILTER': null});
         dossiers.maxResolution = 7.0;
+        dossiers.mergeNewParams({'CQL_FILTER': null});
         
         clusters3km.setVisibility(true);
         clusters1km.setVisibility(true);
@@ -436,7 +438,6 @@ $(window).bind("load", function() {
         $(".filter input[type='radio'], .filter input[type='checkbox']").bind("click", applyDossierFilter);
         $(".filter select, .filter input[type='text']").bind("change", applyDossierFilter);
         
-        dossiers.redraw();
     });
 
 });
