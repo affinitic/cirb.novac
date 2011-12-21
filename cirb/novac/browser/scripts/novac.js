@@ -10,171 +10,6 @@ var dossiers;
 var current_language;
 var urbislayer, addressResult;
 
-$(window).bind("load", function() {
-
-    $("#accordion").accordion({		
-		header : "h3",		
-		active : false,		
-		collapsible : true,		
-		autoHeight : false		
-	});
-	$("#accordion2").accordion({ 
-		header      : "h4",
-		active      : false,
-		collapsible : true,
-		autoHeight  : false
-	});
-	$("input[name='ep'][value='yes']").click(function() { 
-        $("#ep_status_div").slideDown();
-    });
-    $("input[name='ep'][value!='yes']").click(function() { 
-        $("#ep_status_div").slideUp();
-    });
-
-    portal_url = $('#portal_url').html();
-    gis_url = portal_url + "/gis/";
-    var url_ws_waws = $('#ws_waws').html();
-    var json_file  = $('#json_file').html();
-    OpenLayers.ImgPath = portal_url+"/++resource++cirb.novac.images/";
-    current_language = $('#current_language').html();
-
-    var mapOptions = { 
-        resolutions: [34.76915808105469, 17.384579040527345, 8.692289520263673, 4.346144760131836, 2.173072380065918, 1.086536190032959, 0.5432680950164795, 0.2716340475082398, 0.1358170237541199],
-        projection: new OpenLayers.Projection('EPSG:31370'),
-        maxExtent: new OpenLayers.Bounds(16478.795,19244.928,301307.738,304073.87100000004),
-        units: "meters", 
-        controls: [new OpenLayers.Control.Navigation(),new OpenLayers.Control.PanZoomBar()],
-        theme: portal_url + "/++resource++cirb.novac.scripts/openlayers.css"
-    };
-    map = new OpenLayers.Map('map', mapOptions );
-
-    //set the baselayer based on the language
-    if(current_language == 'fr'){
-        urbislayer = new OpenLayers.Layer.WMS(
-            "urbisFR",
-            gis_url+"geoserver/gwc/service/wms",
-            {layers: 'urbisFR', format: 'image/png' },
-            { tileSize: new OpenLayers.Size(256,256) }
-        );
-        map.addLayer(urbislayer);
-    }else{
-        urbislayer = new OpenLayers.Layer.WMS(
-            "urbisNL", 
-            gis_url+"geoserver/gwc/service/wms",
-            {layers: 'urbisNL', format: 'image/png' },
-            { tileSize: new OpenLayers.Size(256,256) }
-        );
-        map.addLayer(urbislayer);
-    }
-    
-    //municipalities layer
-    var municipalities = new OpenLayers.Layer.WMS(
-        "Municipalities", 
-        gis_url+"geoserver/wms",
-        {layers: 'urbis:URB_A_MU ', styles: 'nova_municipalities', transparent: 'true'},
-        {singleTile: true, ratio: 1.25, isBaseLayer: false});
-    map.addLayer(municipalities);
-
-    //create the highest cluster layer
-	clusters3km = new OpenLayers.Layer.WMS(
-		"Clusters3km", 
-		gis_url+"geoserver/wms",
-		{layers: 'nova:CLUSTER3KM', transparent: 'true'},
-		{singleTile: true, ratio: 1.25, isBaseLayer: false});
-    map.addLayer(clusters3km);
-
-    //create the lowest cluset layer
-    clusters1km = new OpenLayers.Layer.WMS(
-        "Clusters1km", 
-        gis_url+"geoserver/wms",
-        {layers: 'nova:CLUSTER1KM', transparent: 'true'},
-        {singleTile: true, ratio: 1.25, isBaseLayer: false});
-    map.addLayer(clusters1km);
-
-
-	//create the dossiers layer
-	dossiers = new OpenLayers.Layer.WMS(
-	    (current_language == 'nl')?"Bouwaanvragen":"Permis d'urbanisme",
-		gis_url+"geoserver/wms", 
-		{layers: 'nova:NOVA_DOSSIERS', styles:(current_language == 'nl')?"nova_dossiers_nl":"nova_dossiers_fr",transparent: true},
-		{singleTile: true, ratio: 1.25, isBaseLayer: false, maxResolution: 7.0});
- 	map.addLayer(dossiers);
-
-	
-	//add vector layer for the address point
-	var defaultStyle = new OpenLayers.Style({
-		'pointRadius': 20,
-	  	'fillColor': '#BBBBFF',
-	  	'fillOpacity': 0.3,
-	  	'strokeColor': '#444444'
-	});
-	var styleMap = new OpenLayers.StyleMap({'default': defaultStyle});
-	addressResult = new OpenLayers.Layer.Vector("Address",{styleMap: styleMap});
-	map.addLayer(addressResult);
-
-
-    //add overview map
-	var mapOptions2 = {
-		    resolutions: [142.857],
-		    projection: new OpenLayers.Projection('EPSG:31370'),
-		    maxExtent: new OpenLayers.Bounds(140000,153000,160000,173000),
-		    units: "meters", 
-		    theme: portal_url + "/++resource++cirb.novac.scripts/openlayers.css"
-		    };
-	//var jplOverview = urbislayer.clone();
-	var jplOverview = new OpenLayers.Layer.WMS(
-        "Municipalities", 
-        gis_url+"geoserver/wms",
-        {layers: 'urbis:URB_A_MU ', transparent: 'true'},
-        {singleTile: true, ratio: 1, isBaseLayer: true});
-	var controlOptions = {
-		        maximized: true,
-				size : new OpenLayers.Size(140,140),
-		        mapOptions: mapOptions2,
-		        layers: [jplOverview],
-		        maximized: false,
-		        autoPan: false
-     };
-    var overview = new OpenLayers.Control.OverviewMap(controlOptions);
-    map.addControl(overview);
-
-    map.setCenter(new OpenLayers.LonLat(150000.0, 170000.0));
-    map.events.register('click', map, executeGetFeatureInfo);
-
-
-	$("#search_address_button").click(function() {
-        searchAddress($('#street').val(),$('#number').val(),$('#post_code').val());
-    });
-
-    $(".filter input[type='radio'], .filter input[type='checkbox']").click(function() {
-        applyDossierFilter();
-    });
-    
-    $(".filter select, .filter input[type='text']").change(function() {
-        applyDossierFilter();
-    });
-
-    $("#reset_filter").click(function() {
-        
-        $(".filter input[type='checkbox']").attr('checked', true);
-        $("#commune").val(0);
-        $("#typedossier").val(0);
-        $("input[name='ep'][value='all']").click();
-        $("#datecc_from").val("");
-        $("#datecc_to").val("");
-        
-        dossiers.mergeNewParams({'CQL_FILTER': null});
-        
-        clusters3km.setVisibility(true);
-        clusters1km.setVisibility(true);
-        dossiers.maxResolution = 7.0;
-        
-        dossiers.redraw();
-    });
-
-});
-
-
 function executeGetFeatureInfo(event) {
     mouseLoc = map.getLonLatFromPixel(event.xy);
     
@@ -305,7 +140,7 @@ function showPointInfo(response) {
     }
 }
 
-function applyDossierFilter() {
+var applyDossierFilter = function(event) {
     var cql_filter = "";
     
     //type and status filter
@@ -437,5 +272,173 @@ function searchAddress(street, number, post_code){
 
 }
 
+
+
+$(window).bind("load", function() {
+
+    $("#accordion").accordion({		
+		header : "h3",		
+		active : false,		
+		collapsible : true,		
+		autoHeight : false		
+	});
+	$("#accordion2").accordion({ 
+		header      : "h4",
+		active      : false,
+		collapsible : true,
+		autoHeight  : false
+	});
+	$("input[name='ep'][value='yes']").click(function() { 
+        $("#ep_status_div").slideDown();
+    });
+    $("input[name='ep'][value!='yes']").click(function() { 
+        $("#ep_status_div").slideUp();
+    });
+
+    portal_url = $('#portal_url').html();
+    gis_url = portal_url + "/gis/";
+    var url_ws_waws = $('#ws_waws').html();
+    var json_file  = $('#json_file').html();
+    OpenLayers.ImgPath = portal_url+"/++resource++cirb.novac.images/";
+    current_language = $('#current_language').html();
+
+    var mapOptions = { 
+        resolutions: [34.76915808105469, 17.384579040527345, 8.692289520263673, 4.346144760131836, 2.173072380065918, 1.086536190032959, 0.5432680950164795, 0.2716340475082398, 0.1358170237541199],
+        projection: new OpenLayers.Projection('EPSG:31370'),
+        maxExtent: new OpenLayers.Bounds(16478.795,19244.928,301307.738,304073.87100000004),
+        units: "meters", 
+        controls: [new OpenLayers.Control.Navigation(),new OpenLayers.Control.PanZoomBar()],
+        theme: portal_url + "/++resource++cirb.novac.scripts/openlayers.css"
+    };
+    map = new OpenLayers.Map('map', mapOptions );
+
+    //set the baselayer based on the language
+    if(current_language == 'fr'){
+        urbislayer = new OpenLayers.Layer.WMS(
+            "urbisFR",
+            gis_url+"geoserver/gwc/service/wms",
+            {layers: 'urbisFR', format: 'image/png' },
+            { tileSize: new OpenLayers.Size(256,256) }
+        );
+        map.addLayer(urbislayer);
+    }else{
+        urbislayer = new OpenLayers.Layer.WMS(
+            "urbisNL", 
+            gis_url+"geoserver/gwc/service/wms",
+            {layers: 'urbisNL', format: 'image/png' },
+            { tileSize: new OpenLayers.Size(256,256) }
+        );
+        map.addLayer(urbislayer);
+    }
+    
+    //municipalities layer
+    var municipalities = new OpenLayers.Layer.WMS(
+        "Municipalities", 
+        gis_url+"geoserver/wms",
+        {layers: 'urbis:URB_A_MU ', styles: 'nova_municipalities', transparent: 'true'},
+        {singleTile: true, ratio: 1.25, isBaseLayer: false});
+    map.addLayer(municipalities);
+
+    //create the highest cluster layer
+	clusters3km = new OpenLayers.Layer.WMS(
+		"Clusters3km", 
+		gis_url+"geoserver/wms",
+		{layers: 'nova:CLUSTER3KM', transparent: 'true'},
+		{singleTile: true, ratio: 1.25, isBaseLayer: false});
+    map.addLayer(clusters3km);
+
+    //create the lowest cluset layer
+    clusters1km = new OpenLayers.Layer.WMS(
+        "Clusters1km", 
+        gis_url+"geoserver/wms",
+        {layers: 'nova:CLUSTER1KM', transparent: 'true'},
+        {singleTile: true, ratio: 1.25, isBaseLayer: false});
+    map.addLayer(clusters1km);
+
+
+	//create the dossiers layer
+	dossiers = new OpenLayers.Layer.WMS(
+	    (current_language == 'nl')?"Bouwaanvragen":"Permis d'urbanisme",
+		gis_url+"geoserver/wms", 
+		{layers: 'nova:NOVA_DOSSIERS', styles:(current_language == 'nl')?"nova_dossiers_nl":"nova_dossiers_fr",transparent: true},
+		{singleTile: true, ratio: 1.25, isBaseLayer: false, maxResolution: 7.0});
+ 	map.addLayer(dossiers);
+
+	
+	//add vector layer for the address point
+	var defaultStyle = new OpenLayers.Style({
+		'pointRadius': 20,
+	  	'fillColor': '#BBBBFF',
+
+	  	'fillOpacity': 0.3,
+	  	'strokeColor': '#444444'
+	});
+	var styleMap = new OpenLayers.StyleMap({'default': defaultStyle});
+	addressResult = new OpenLayers.Layer.Vector("Address",{styleMap: styleMap});
+	map.addLayer(addressResult);
+
+
+    //add overview map
+	var mapOptions2 = {
+		    resolutions: [142.857],
+		    projection: new OpenLayers.Projection('EPSG:31370'),
+		    maxExtent: new OpenLayers.Bounds(140000,153000,160000,173000),
+		    units: "meters", 
+		    theme: portal_url + "/++resource++cirb.novac.scripts/openlayers.css"
+		    };
+	//var jplOverview = urbislayer.clone();
+	var jplOverview = new OpenLayers.Layer.WMS(
+        "Municipalities", 
+        gis_url+"geoserver/wms",
+        {layers: 'urbis:URB_A_MU ', transparent: 'true'},
+        {singleTile: true, ratio: 1, isBaseLayer: true});
+	var controlOptions = {
+		        maximized: true,
+				size : new OpenLayers.Size(140,140),
+		        mapOptions: mapOptions2,
+		        layers: [jplOverview],
+		        maximized: false,
+		        autoPan: false
+     };
+    var overview = new OpenLayers.Control.OverviewMap(controlOptions);
+    map.addControl(overview);
+
+    map.setCenter(new OpenLayers.LonLat(150000.0, 170000.0));
+    map.events.register('click', map, executeGetFeatureInfo);
+
+
+	$("#search_address_button").click(function() {
+        searchAddress($('#street').val(),$('#number').val(),$('#post_code').val());
+    });
+
+    $(".filter input[type='radio'], .filter input[type='checkbox']").bind("click", applyDossierFilter);
+    $(".filter select, .filter input[type='text']").bind("change", applyDossierFilter);
+
+    $("#reset_filter").click(function() {
+        
+        $(".filter input[type='radio'], .filter input[type='checkbox']").unbind("click", applyDossierFilter);
+        $(".filter select, .filter input[type='text']").unbind("change", applyDossierFilter);
+        
+        $(".filter input[type='checkbox']").attr('checked', true);
+        $("#commune").val(0);
+        $("#typedossier").val(0);
+        $("input[name='ep'][value='all']").attr('checked', true);
+        $("#ep_status_div").slideUp();
+        $("#datecc_from").val("");
+        $("#datecc_to").val("");
+        
+        dossiers.mergeNewParams({'CQL_FILTER': null});
+        dossiers.maxResolution = 7.0;
+        
+        clusters3km.setVisibility(true);
+        clusters1km.setVisibility(true);
+        
+        $(".filter input[type='radio'], .filter input[type='checkbox']").bind("click", applyDossierFilter);
+        $(".filter select, .filter input[type='text']").bind("change", applyDossierFilter);
+        
+        dossiers.redraw();
+    });
+
+});
 
 
