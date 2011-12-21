@@ -160,6 +160,13 @@ $(window).bind("load", function() {
 
 function executeGetFeatureInfo(event) {
     mouseLoc = map.getLonLatFromPixel(event.xy);
+    
+    var zoom = map.getZoom();
+    if (zoom < 3) {
+        map.setCenter(mouseLoc, zoom+2);
+        return;
+    }
+    
     //prepare the getFeatureInfo request
     var url = clusters3km.getFullRequestString({
         REQUEST: "GetFeatureInfo",
@@ -274,31 +281,12 @@ function showPointInfo(response) {
     }
     //if featureInfo is found then show a popup with the information.
     if(result != "<div id='tabber' class='tabber'></div>"){
-
-    currentPopup = new OpenLayers.Popup.FramedCloud("point_info", mouseLoc, new OpenLayers.Size(410,180), result, null, 'true');
-    currentPopup.autoSize = false;
-        map.addPopup(currentPopup);
-    tabberAutomatic(tabberOptions);
-}else{
-    //Zoom to point
-    var zoom = map.getZoom();
-    if(zoom >= 4 ){
-        if(zoom <= 5){
-            map.setCenter(mouseLoc, zoom+1);
-        }else{
-            map.setCenter(mouseLoc, zoom);
-        }
-    }else{
-        if(zoom > 1){
-            map.setCenter(mouseLoc, 4);
-        }else{
-            map.setCenter(mouseLoc, 2);
-        }
+        currentPopup = new OpenLayers.Popup.FramedCloud("point_info", mouseLoc, new OpenLayers.Size(410,180), result, null, 'true');
+        currentPopup.autoSize = false;
+            map.addPopup(currentPopup);
+        tabberAutomatic(tabberOptions);
     }
 }
-}
-
-
 
 function applyDossierFilter() {
     var cql_filter = "";
