@@ -141,8 +141,6 @@ function showPointInfo(response) {
 }
 
 var applyDossierFilter = function(event) {
-    if (console) console.log("apply filter");
-
     var cql_filter = "";
     
     //type and status filter
@@ -429,8 +427,10 @@ $(window).bind("load", function() {
         $("#datecc_from").val("");
         $("#datecc_to").val("");
         
+        dossiers.setVisibility(false);
         dossiers.maxResolution = 7.0;
         dossiers.mergeNewParams({'CQL_FILTER': null});
+        dossiers.setVisibility(true);
         
         clusters3km.setVisibility(true);
         clusters1km.setVisibility(true);
