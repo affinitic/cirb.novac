@@ -117,17 +117,17 @@
 						
 						        <select id="typedossier" name="typedossier" style="width:180px;">
 							        <option value="0" selected> <tal:block i18n:translate="Tous_les_types_de_dossier">Tous les types de dossier</tal:block> </option>
-							        <option value="1"> <tal:block i18n:translate="Abattage_d_arbres">Abattage d'arbres</tal:block> </option>
-                                    <option value="2"> <tal:block i18n:translate="Autorisation_communale">Autorisation communale</tal:block> </option> 
-                                    <option value="3"> <tal:block i18n:translate="Certificat_d_urbanisme_delivre_par_le_FD">Certificat d'urbanisme délivré par le FD</tal:block> </option>
-                                    <option value="4"> <tal:block i18n:translate="Certificat_d_urbanisme_prive">Certificat d'urbanisme privé</tal:block> </option>
-                                    <option value="5"> <tal:block i18n:translate="Enseigne">Enseigne</tal:block> </option>
-                                    <option value="6"> <tal:block i18n:translate="Panneau_publicitaire">Panneau publicitaire</tal:block> </option>
-                                    <option value="7"> <tal:block i18n:translate="Permis_de_lotir">Permis de lotir</tal:block> </option>
-                                    <option value="8"> <tal:block i18n:translate="Permis_d_urbanisme_delivre_par_le_FD">Permis d'urbanisme délivré par le FD</tal:block> </option>
-                                    <option value="9"> <tal:block i18n:translate="Permis_d_urbanisme_prive">Permis d'urbanisme privé</tal:block> </option>
-                                    <option value="10"> <tal:block i18n:translate="Permis_d_urbanisme_prive_procedure_mixte">Permis d'urbanisme privé - procédure mixte</tal:block> </option>
-                                    <option value="11"> <tal:block i18n:translate="Permis_d_urbanisme_unique_delivre_par_le_FD">Permis d'urbanisme unique délivré par le FD</tal:block> </option>
+							        <option value="AA"> <tal:block i18n:translate="Abattage_d_arbres">Abattage d'arbres</tal:block> </option>
+                                    <option value="AC"> <tal:block i18n:translate="Autorisation_communale">Autorisation communale</tal:block> </option> 
+                                    <option value="CPFD"> <tal:block i18n:translate="Certificat_d_urbanisme_delivre_par_le_FD">Certificat d'urbanisme délivré par le FD</tal:block> </option>
+                                    <option value="CU"> <tal:block i18n:translate="Certificat_d_urbanisme_prive">Certificat d'urbanisme privé</tal:block> </option>
+                                    <option value="ENS"> <tal:block i18n:translate="Enseigne">Enseigne</tal:block> </option>
+                                    <option value="PP"> <tal:block i18n:translate="Panneau_publicitaire">Panneau publicitaire</tal:block> </option>
+                                    <option value="PL"> <tal:block i18n:translate="Permis_de_lotir">Permis de lotir</tal:block> </option>
+                                    <option value="PFD"> <tal:block i18n:translate="Permis_d_urbanisme_delivre_par_le_FD">Permis d'urbanisme délivré par le FD</tal:block> </option>
+                                    <option value="PU"> <tal:block i18n:translate="Permis_d_urbanisme_prive">Permis d'urbanisme privé</tal:block> </option>
+                                    <option value="PUM"> <tal:block i18n:translate="Permis_d_urbanisme_prive_procedure_mixte">Permis d'urbanisme privé - procédure mixte</tal:block> </option>
+                                    <option value="PFU"> <tal:block i18n:translate="Permis_d_urbanisme_unique_delivre_par_le_FD">Permis d'urbanisme unique délivré par le FD</tal:block> </option>
 						        </select>
 						        <br /><br />
 						
@@ -137,7 +137,7 @@
 								        <div id="ep_status_div" style="display:none;">
 									        <table class="filters" style="font-size:1.2em;">
 										        <tr>
-											        <td><input type="checkbox" name="ep_status" value="A" class="checkbox" checked="checked" /></td>
+											        <td><input type="checkbox" name="ep_status" value="Lopend" class="checkbox" checked="checked" /></td>
 											        <td><tal:block i18n:translate="En_cours">En cours</tal:block></td>
 										        </tr>
 										        <tr>
@@ -145,7 +145,7 @@
 											        <td><tal:block i18n:translate="termine">terminé</tal:block></td>
 										        </tr>
 										        <tr>
-											        <td><input type="checkbox" name="ep_status" value="C" class="checkbox" checked="checked" /></td>
+											        <td><input type="checkbox" name="ep_status" value="Voorzien" class="checkbox" checked="checked" /></td>
 											        <td><tal:block i18n:translate="planifie">planifié</tal:block></td>
 										        </tr>
 									        </table>

@@ -304,14 +304,14 @@ function applyDossierFilter() {
     var cql_filter = "";
     
     //type and status filter
-    var type_dossier = "TYPEDOSSIER IS NULL";
+    var type_dossier = "CATDOSSIER IS NULL";
     if($('#type_u').is(':checked')) {
     	if(type_dossier != "") type_dossier += " OR ";
-    	type_dossier += "TYPEDOSSIER = 'U'";
+    	type_dossier += "CATDOSSIER = 'U'";
     }
     if($('#type_l').is(':checked')) {
     	if(type_dossier != "") type_dossier += " OR ";
-    	type_dossier += "TYPEDOSSIER = 'L'";
+    	type_dossier += "CATDOSSIER = 'L'";
     }
     if(type_dossier != "") {
         if (cql_filter != "") cql_filter += " AND ";
@@ -346,7 +346,7 @@ function applyDossierFilter() {
     }
     if ($("#typedossier").val() != 0) {
         if(cql_filter != "") cql_filter += " AND"; 
-        cql_filter += " SUBTYPEDOSSIER=" + $("#typedossier").val();
+        cql_filter += " TYPEDOSSIER=" + $("#typedossier").val();
     }
     if ($("input[name='ep']:checked").val() == "no") {
         if(cql_filter != "") cql_filter += " AND"; 
