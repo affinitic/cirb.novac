@@ -154,6 +154,21 @@ $(window).bind("load", function() {
         applyDossierFilter();
     });
 
+    $("#reset_filter").click(function() {
+        clusters3km.setVisibility(true);
+        clusters1km.setVisibility(true);
+        dossiers.maxResolution = 7.0;
+        
+        $(".filter input[type='checkbox']").attr('checked', true);
+        $("#commune").val(0);
+        $("#typedossier").val(0);
+        $("input[name='ep'][value='all']").click();
+        $("#datecc_from").val("");
+        $("#datecc_to").val("");
+        
+        dossiers.mergeNewParams({'CQL_FILTER': ""});
+        dossiers.redraw();
+    });
 
 });
 

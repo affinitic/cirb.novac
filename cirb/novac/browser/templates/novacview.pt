@@ -160,9 +160,9 @@
 						
 						        <!--
 						        <p><input type="checkbox"> Afficher sous forme de liste ?</p>
-						        <hr class="gray" />
-						        <a class="knop" href="index.html">Reset</a>&nbsp;&nbsp;<input type="button" id="search_dossiers" class="knop" value="Rechercher"/>
 						        -->
+						        <hr class="gray" />
+						        <input type="button" id="reset_filter" class="knop" value="Reset"/>
 					        </div>
 				        </div>
                     
