@@ -166,7 +166,7 @@ $(window).bind("load", function() {
         $("#datecc_from").val("");
         $("#datecc_to").val("");
         
-        dossiers.mergeNewParams({'CQL_FILTER': ""});
+        dossiers.mergeNewParams({'CQL_FILTER': null});
         dossiers.redraw();
     });
 
