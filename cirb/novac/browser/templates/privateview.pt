@@ -23,6 +23,7 @@
             <div class="hiddenStructure" id="x" tal:content="data/x">x</div>
             <div class="hiddenStructure" id="y" tal:content="data/y">y</div>
             <div class="hiddenStructure" id="portal_url" tal:content="context/portal_url">portal_url</div>
+            <div id="current_language" tal:content="context/Language" class="hiddenStructure"> current_language </div>	
             <div id="ws_urbis" tal:content="urls/urbis_url" class="hiddenStructure"> ws_urbis </div>
             <div id="absolute_url" tal:content="context/absolute_url" class="hiddenStructure"> absolute_url </div>
             <div id="isOwner" tal:content="data/isOwner" class="hiddenStructure"> isOwner </div>
