@@ -215,7 +215,7 @@ function showPointInfo(response) {
 		if(current_language == 'fr'){
 		    result += "<div class='tabbertab' title='Permis ";
 		    result += i+1;
-		    result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Type de permis:</td><td>";
+		    result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Type de permis :</td><td>";
 		    result += (getElements(permits[i], "nova", "TYPEDOSSIERFR")[0])?$(getElements(permits[i], "nova", "TYPEDOSSIERFR")[0]).text()+ " ":"";
 		    result +="</td><tr></tr><td>Adresse :</td><td>";
 		    result += (getElements(permits[i], "nova", "STREETNAMEFR")[0])?$(getElements(permits[i], "nova", "STREETNAMEFR")[0]).text()+ " ":"";
@@ -242,7 +242,7 @@ function showPointInfo(response) {
 
 			result += "<div class='tabbertab' title='Vergunning ";
 			result += i+1;
-			result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Type vergunning:</td><td>";
+			result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Type vergunning :</td><td>";
 			result += (getElements(permits[i], "nova", "TYPEDOSSIERNL")[0])?$(getElements(permits[i], "nova", "TYPEDOSSIERNL")[0]).text()+ " ":"";
 			result +="</td><tr></tr><td>Adres :</td><td>";
 			result += (getElements(permits[i], "nova", "STREETNAMENL")[0])?$(getElements(permits[i], "nova", "STREETNAMENL")[0]).text()+ " ":"";
@@ -257,7 +257,7 @@ function showPointInfo(response) {
 
 			result += (getElements(permits[i], "nova", "MUNICIPALITYNL")[0])?$(getElements(permits[i], "nova", "MUNICIPALITYNL")[0]).text():"";
 
-			result += "</td></tr><tr><td>Voorwerp van de aanvraag :</td><td>";
+			result += "</td></tr><tr><td>Voorwerp van de aanvraag&nbsp;:</td><td>";
 			result += (getElements(permits[i], "nova", "OBJECTNL")[0])?$(getElements(permits[i], "nova", "OBJECTNL")[0]).text()+ " ":"";
 
 			result += '</td><tr></tr><tr><td><a target="_blank" href="';
