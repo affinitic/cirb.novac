@@ -367,10 +367,20 @@ function applyDossierFilter() {
         cql_filter += " AND " + ep_filter;
     }
     if ($("#datecc_from").val() != "") {
+        $("#datecc_from").removeClass("error");
+        if (/^\d{2}[\/-]\d{2}[\/-]\d{4}$/.test($("#datecc_from").val()) == false) {
+            $("#datecc_from").addClass("error");
+            return;
+        }
         if(cql_filter != "") cql_filter += " AND";
         cql_filter += " DATECC >= dateParse('dd/MM/yyyy','" + $("#datecc_from").val() + "')";
     }
     if ($("#datecc_to").val() != "") {
+        $("#datecc_to").removeClass("error");
+        if (/^\d{2}[\/-]\d{2}[\/-]\d{4}$/.test($("#datecc_to").val()) == false) {
+            $("#datecc_to").addClass("error");
+            return;
+        }
         if(cql_filter != "") cql_filter += " AND";
         cql_filter += " DATECC <= dateParse('dd/MM/yyyy','" + $("#datecc_to").val() + "')";
     }

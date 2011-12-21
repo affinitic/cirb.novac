@@ -188,3 +188,6 @@ table.filter input#type_u, table.filter input#type_l, table.filter input#require
     -webkit-box-shadow: 2px 2px 11px #666;
 }
 
+.error {
+    color: #f00;
+}
