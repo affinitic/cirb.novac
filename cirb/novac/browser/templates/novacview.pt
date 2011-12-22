@@ -19,7 +19,10 @@
 <body>
        
     <div metal:fill-slot="main" tal:define="urls view/utils_url; data view/novac">
+<!--
 	    <div id="beschr" tal:content="context/Description">desc</div>
+-->
+        <h1 class="documentFirstHeading" i18n:translate="les_permis_en_ligne">Les permis en ligne</h1>
         <tal:block tal:condition="not: urls/error" >
             <div id="ws_urbis" tal:content="urls/urbis_url" class="hiddenStructure"> ws_urbis </div>
             <div id="ws_waws" tal:content="urls/novac_url" class="hiddenStructure"> ws_waws </div>
@@ -28,7 +31,10 @@
 			<div id="portal_url" tal:content="context/portal_url" class="hiddenStructure"> portal_url </div>
  			<div id="current_language" tal:content="context/Language" class="hiddenStructure"> current_language </div>
 			<div id="urbis_cache_url" tal:content="urls/urbis_cache_url" class="hiddenStructure"> urbis_cache_url </div>
-            <div id="map_panel"><div id="map" style="cursor: pointer;"></div></div>
+            <div id="map_panel">
+                <div id="map" style="cursor: pointer;"></div>
+                <span id="copyright_urbis">Realized by means of Brussels UrbIS &copy; &reg;</span>
+            </div>
            
             <div id="navigation" style="overflow: auto;">
                 <div id="accordion">
@@ -88,10 +94,10 @@
                         </tbody>
                         </table>                        
                     
-                        <div id="accordion2">
-					        <h4><a href="#">Tous les filtres</a></h4>
+                        <div id="accordion2" style="font-size:1.2em">
+					        <h4><a href="#" style="font-size:0.9em" i18n:translate="Tous_les_filtres">Tous les filtres</a></h4>
 					        <div>
-						        <select id="commune" name="commune" style="width:180px;">
+						        <select id="commune" name="commune" style="width:195px;">
 							        <option value="0" selected> <tal:block i18n:translate="Toutes_les_communes">Toutes les communes</tal:block> </option>
 							        <option value="1070"> <tal:block i18n:translate="Anderlecht">Anderlecht</tal:block> </option>
 							        <option value="1160"> <tal:block i18n:translate="Auderghem">Auderghem</tal:block> </option>
@@ -115,7 +121,7 @@
 						        </select>
 						        <br /><br />
 						
-						        <select id="typedossier" name="typedossier" style="width:180px;">
+						        <select id="typedossier" name="typedossier" style="width:195px;">
 							        <option value="0" selected> <tal:block i18n:translate="Tous_les_types_de_dossier">Tous les types de dossier</tal:block> </option>
 							        <option value="AA"> <tal:block i18n:translate="Abattage_d_arbres">Abattage d'arbres</tal:block> </option>
                                     <option value="AC"> <tal:block i18n:translate="Autorisation_communale">Autorisation communale</tal:block> </option> 
@@ -135,7 +141,7 @@
 						        <div id="accordion3" style="font-size:1.2em;">
 							        <input type="radio" name="ep" value="yes"/> <tal:block i18n:translate="Oui">Oui</tal:block> 
 								        <div id="ep_status_div" style="display:none;">
-									        <table class="filters" style="font-size:1.2em;">
+									        <table class="filters" style="font-size:1em;">
 										        <tr>
 											        <td><input type="checkbox" name="ep_status" value="Lopend" class="checkbox" checked="checked" /></td>
 											        <td><tal:block i18n:translate="En_cours">En cours</tal:block></td>
@@ -151,8 +157,8 @@
 									        </table>
 								        </div>
 						        </div>
-						        <input type="radio" name="ep" value="no"/> <tal:block i18n:translate="Non">Non</tal:block> <br />
-						        <input type="radio" name="ep" value="all" checked/> <tal:block i18n:translate="Tous">Tous</tal:block>
+						        <input type="radio" name="ep" value="no" /> <tal:block i18n:translate="Non">Non</tal:block> <br />
+						        <input type="radio" name="ep" value="all" checked="checked" /> <tal:block i18n:translate="Tous">Tous</tal:block>
 						        <br /><br />
 						        <h5 style="font-size:1.2em;"><tal:block i18n:translate="Date_Commission_de_Consertation">Date Commission de Consertation</tal:block></h5>
 						        de <input id="datecc_from" type="text" maxlength="10" style="width:80px;" /> dd/mm/yyyy <br />
@@ -170,7 +176,7 @@
                     
                 </div>
             </div>
-            <!--div id="results_panel" i18n:translate="results">results</div-->
+            <div id="texte_introduction" i18n:translate="texte_introduction">ici un texte pour expliquer ce que l'on voit</div>
         </tal:block>
         <tal:block tal:condition="urls/error" >
             <div tal:content="urls/error_text">error</div>

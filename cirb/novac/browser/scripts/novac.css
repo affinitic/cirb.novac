@@ -2,7 +2,11 @@
 #header {}
 
 #portal-personaltools-wrapper {display:none;}
-.section-novac #portal-breadcrumbs {font-size:.8em;}
+
+.template-novac_view #portal-breadcrumbs,
+.template-public #portal-breadcrumbs,
+.template-listprivate #portal-breadcrumbs,
+.template-private #portal-breadcrumbs {font-size:.65em;}
 
 div#ws_urbis, div#ws_waws {height:0px;width:0px;overflow:hidden;}
 
@@ -10,15 +14,24 @@ div#ws_urbis, div#ws_waws {height:0px;width:0px;overflow:hidden;}
 
 input[type=button] {width:100px; margin: 5px 0px 5px 90px;}
 
-#map_panel {float: left; height:502px; width:670px; border: solid #aaaaaa 1px; padding: 0px; margin: 5px 5px 15em 5px;}
-#map_panel2 {float: left; height:300px; width:908px; border: solid #aaaaaa 1px; padding: 0px; margin: 5px 0px 5px 0px;}
+.template-novac_view div#content {margin-top:1em;}
+.template-novac_view div#content h1.documentFirstHeading {margin-bottom:1em;}
+
+
+#map_panel {float: left; height:515px; width:675px; border: solid #ddd 1px; padding: 0px; margin: 5px 5px 2em 5px;}
+#map_panel2 {float: left; height:300px; width:908px; border: solid #ddd 1px; padding: 0px; margin: 5px 0px 150px 0;}
 #map {height:100%;}
+
+#copyright_urbis {font-size:10px;padding-left:1em;}
 
 #navigation {float: left; width: 215px; height:502px; border: solid #aaaaaa 1px; padding: 5px; margin: 5px 5px 5px 0px;}
 
+#texte_introduction {float: left; width:650px; border: solid #ddd 1px; padding: 1em; margin: 5px 5px 2em 5px;}
+
+/*
 #results_panel {clear:both; border: solid #ddd 1px; padding: 5px; margin:5px; min-height:100px;}
 #results_panel table {padding: 2px;}
-
+*/
 table.urbis_result th {padding:5px;}
 table.urbis_result td {padding:10px; font-weight: normal;}
 
@@ -35,7 +48,7 @@ table.filter td{border-width:5px; padding:.4em; border-color:transparent;}
 .detail_table {
     width: 100%;
     font-size: .8em;
-    margin-bottom:1em;
+    margin-bottom:2em !important;
 }
 .detail_table caption {
     font-size: 1.2em;
@@ -87,17 +100,9 @@ table.filter td{border-width:5px; padding:.4em; border-color:transparent;}
     left:20px;
 }
 
-
-#map_panel {
-	height:514px;
-	width:675px;
-	border:1px solid #dddddd;
-}
-
-
 #navigation {
 	width: 227px;
-	height: 514px;
+	height: 900px;
 	float: right;
 	border: 1px solid #ddd;
 	padding:0;
@@ -149,7 +154,7 @@ table.filter td{border-width:5px; padding:.4em; border-color:transparent;}
 /*** SEARCH ADDRESS ***/
 
 #street, #number, #post_code { border: 1px solid #ccc; }
-#search_address_button { border: 1px solid #4C4C4C; cursor:pointer; }
+#search_address_button, #reset_filter { border: 1px solid #4C4C4C; cursor:pointer; }
 
 
 /*** FILTERS ***/
@@ -175,6 +180,38 @@ table.filter label { font-weight:normal; }
 
 table.filter input#type_u, table.filter input#type_l, table.filter input#required, table.filter input#granted, table.filter input#refused, table.filter input#canceled { margin-top:3px; }
 
+
+
+/*** MORE FILTERS ***/
+
+#accordion2 h4 {
+    margin: 1em 0 1em 4px;
+}
+
+#accordion2 h4 a, #accordion2 a.knop {
+    background-color: #DDD;
+    border: 1px solid #BBB;
+    cursor: pointer;
+    padding: 2px 5px;
+    text-decoration: none;
+}
+
+#accordion2 h4 a:hover {
+    text-decoration: none;
+    color: #cc071e;
+}
+
+#accordion2 h5 {
+    margin: 1em 0 0.5em;
+}
+
+select#commune, select#typedossier  {font-size:1.3em;}
+
+#ep_status_div input {
+    margin: 0 0.75em;
+}
+
+hr.gray {color:#ccc;height:1px;margin:1em 0;}
 
 /* simple css-based tooltip */
 .tooltip {

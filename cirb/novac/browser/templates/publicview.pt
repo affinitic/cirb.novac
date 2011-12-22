@@ -131,7 +131,7 @@
 					</td>
 				</tr-->
 				<tr>
-					<th class="set_width" i18n:translate="notification_le">notification_le</th>
+					<th class="set_width infotooltip"><tal:block i18n:translate="notification_le">notification_le</tal:block>&nbsp;&nbsp;<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/icon-info-red-16.png" alt="info" i18n:attributes="title tooltip_notification" /></th>
 					<td id="notification_le" tal:content="json/results/dateNotifDecision">&nbsp;</td>
 				</tr>
 				<!--tr>
@@ -156,9 +156,12 @@
 				</tr>
 			</tbody></table-->
 			
-			<div id="container">
-				<div id="map_panel2"><div id="map"></div></div>		
-			</div>
+            <div id="container">
+                <div id="map_panel2">
+                    <div id="map"></div>
+                    <span id="copyright_urbis">Realized by means of Brussels UrbIS &copy; &reg;</span>
+                </div>		
+            </div>
 			<div style='clean:both'></div>
 
 		</div>

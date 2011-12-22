@@ -146,7 +146,7 @@ msgstr "Nummer"
 
 #: cirb.novac:/browser/templates/novacview.pt:45
 msgid "post_code:"
-msgstr "Postcode"
+msgstr "Postcode "
 
 #: cirb.novac:/browser/templates/novacview.pt:48
 msgid "search"
