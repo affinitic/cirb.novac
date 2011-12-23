@@ -266,7 +266,7 @@ function searchAddress(street, number, post_code){
         },
         error:  function(data) {
             
-        },
+        }
     });
     
 
