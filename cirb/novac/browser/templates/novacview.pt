@@ -161,8 +161,8 @@
 						        <input type="radio" name="ep" value="all" checked="checked" /> <tal:block i18n:translate="Tous">Tous</tal:block>
 						        <br /><br />
 						        <h5 style="font-size:1.2em;"><tal:block i18n:translate="Date_Commission_de_Consertation">Date Commission de Consertation</tal:block></h5>
-						        de <input id="datecc_from" type="text" maxlength="10" style="width:80px;" /> dd/mm/yyyy <br />
-						        &nbsp;à&nbsp;&nbsp;<input id="datecc_to" type="text" maxlength="10" style="width:80px;" /> dd/mm/yyyy 
+						        <tal:block i18n:translate="date_from">de</tal:block> <input id="datecc_from" type="text" maxlength="10" style="width:80px;" /> dd/mm/yyyy <br />
+						        &nbsp;<tal:block i18n:translate="date_to">à</tal:block>&nbsp;&nbsp;<input id="datecc_to" type="text" maxlength="10" style="width:80px;" /> dd/mm/yyyy 
 						
 						        <!--
 						        <p><input type="checkbox"> Afficher sous forme de liste ?</p>
