@@ -186,7 +186,7 @@ var applyDossierFilter = function(event) {
     }
     if ($("#typedossier").val() != 0) {
         if(cql_filter != "") cql_filter += " AND"; 
-        cql_filter += " TYPEDOSSIER=" + $("#typedossier").val();
+        cql_filter += " TYPEDOSSIER='" + $("#typedossier").val()+"'";
     }
     if ($("input[name='ep']:checked").val() == "no") {
         if(cql_filter != "") cql_filter += " AND"; 
