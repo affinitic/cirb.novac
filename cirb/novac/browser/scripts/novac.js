@@ -23,8 +23,8 @@ function executeGetFeatureInfo(event) {
     var url = clusters3km.getFullRequestString({
         REQUEST: "GetFeatureInfo",
         BBOX: map.getExtent().toBBOX(),
-        X: Math.round(mouseLoc.x),
-        Y: Math.round(mouseLoc.y),
+        X: Math.round(map.events.getMousePosition(event).x),
+        Y: Math.round(map.events.getMousePosition(event).y),
         INFO_FORMAT: 'application/vnd.ogc.gml',
         FORMAT: 'application/vnd.ogc.gml',
         LAYERS : "NOVA_DOSSIERS",
