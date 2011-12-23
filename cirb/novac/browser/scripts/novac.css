@@ -19,12 +19,12 @@ input[type=button] {width:100px; margin: 5px 0px 5px 90px;}
 
 
 #map_panel {float: left; height:515px; width:675px; border: solid #ddd 1px; padding: 0px; margin: 5px 5px 2em 5px;}
-#map_panel2 {float: left; height:300px; width:908px; border: solid #ddd 1px; padding: 0px; margin: 5px 0px 150px 0;}
+#map_panel2 {float: left; height:300px; width:908px; border: solid #ddd 1px; padding: 0px; margin: 5px 0px 2em 0;}
 #map {height:100%;}
 
-#copyright_urbis {font-size:10px;padding-left:1em;}
+#copyright_urbis {font-size:10px;padding-left:1em;color:gray;}
 
-#navigation {float: left; width: 215px; height:502px; border: solid #aaaaaa 1px; padding: 5px; margin: 5px 5px 5px 0px;}
+#navigation {float: right; width: 227px; height:800px; border: 1px solid #ddd; padding: 0; margin: 5px 5px 5px 0px;}
 
 #texte_introduction {float: left; width:650px; border: solid #ddd 1px; padding: 1em; margin: 5px 5px 2em 5px;}
 
@@ -100,13 +100,7 @@ table.filter td{border-width:5px; padding:.4em; border-color:transparent;}
     left:20px;
 }
 
-#navigation {
-	width: 227px;
-	height: 900px;
-	float: right;
-	border: 1px solid #ddd;
-	padding:0;
-}
+
 
 /* ACCORDION STYLE */
 
@@ -189,10 +183,10 @@ table.filter input#type_u, table.filter input#type_l, table.filter input#require
 }
 
 #accordion2 h4 a, #accordion2 a.knop {
-    background-color: #DDD;
+    background: #DDD url(++resource++cirb.novac.images/add.png) no-repeat top right;
     border: 1px solid #BBB;
     cursor: pointer;
-    padding: 2px 5px;
+    padding: 1px 22px 2px 5px;
     text-decoration: none;
 }
 
