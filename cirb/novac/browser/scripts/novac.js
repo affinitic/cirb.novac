@@ -247,11 +247,12 @@ function searchAddress(street, number, post_code){
     }
     
 
-    var my_url = gis_url+"services/urbis/Rest/Localize/getstreet";
+    var my_url = gis_url+"services/urbis/Rest/Localize/getaddresses";
     $.ajax({
         type: "POST",
         url: my_url,
-        data: "{'language':'"+$('#current_language').html()+"','address':{'street':{'name':'"+street+"','postcode':'"+post_code+"'},'number':'"+number+"'}}",
+        //data: "{'language':'"+$('#current_language').html()+"','address':{'street':{'name':'"+street+"','postcode':'"+post_code+"'},'number':'"+number+"'}}",
+        data: "{'language':'"+$('#current_language').html()+"','address':'"+street+"'}",
         dataType: "text",
         success:  function(json_data) {
             var address_data = $.parseJSON(json_data);
