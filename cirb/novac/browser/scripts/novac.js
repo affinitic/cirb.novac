@@ -5,10 +5,274 @@ var filter_geom , markers_layer, tabberOptions;
 var mouseLoc, currentPopup ;
 var portal_url;
 var gis_url;
-var clusters3km;
-var current_language;
+var clusters1km, clusters3km;
 var dossiers;
+var current_language;
 var urbislayer, addressResult;
+
+function executeGetFeatureInfo(event) {
+    mouseLoc = map.getLonLatFromPixel(map.events.getMousePosition(event));
+    
+    var zoom = map.getZoom();
+    if (zoom < 3) {
+        map.setCenter(mouseLoc, zoom+2);
+        return;
+    }
+    
+    //prepare the getFeatureInfo request
+    var url = clusters3km.getFullRequestString({
+        REQUEST: "GetFeatureInfo",
+        BBOX: map.getExtent().toBBOX(),
+        X: Math.round(map.events.getMousePosition(event).x),
+        Y: Math.round(map.events.getMousePosition(event).y),
+        INFO_FORMAT: 'application/vnd.ogc.gml',
+        FORMAT: 'application/vnd.ogc.gml',
+        LAYERS : "NOVA_DOSSIERS",
+        QUERY_LAYERS: "NOVA_DOSSIERS",
+        FEATURE_COUNT: 10,
+        WIDTH: map.size.w,
+        HEIGHT: map.size.h,
+        CQL_FILTER: dossiers.params.CQL_FILTER},
+        gis_url+"geoserver/wms?");
+    //Execute the GetFeatureInfo request and callback the showPointInfo function
+    OpenLayers.Request.GET({
+        url: url,
+        callback: showPointInfo
+    });
+}
+
+function getElements(obj, ns, tagname) {
+    var result = new Array();
+    result = obj.getElementsByTagName(ns+":"+tagname)
+    if (result.length == 0) result = obj.getElementsByTagName(tagname);
+    return result;
+}
+
+function showPointInfo(response) {
+    //create an xmlDocument based on the getFeatureInfo response
+    var xmlDoc;
+    if (window.DOMParser)
+    {
+        parser=new DOMParser();
+        xmlDoc=parser.parseFromString(response.responseText,"text/xml");
+    }
+    else // Internet Explorer
+    {
+        xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+        xmlDoc.async="false";
+        xmlDoc.loadXML(response.responseText);
+    } 
+
+
+    var permits = new Array();
+    permits = getElements(xmlDoc, "nova", "NOVA_DOSSIERS");
+    var result = "<div id='tabber' class='tabber'>";
+    var absolute_url  = $('#absolute_url').html();
+	var publicurl = "public"
+    //build the result html
+    for(i =0; i < permits.length ; i++){
+		if(current_language == 'fr'){
+		    result += "<div class='tabbertab' title='Permis ";
+		    result += i+1;
+		    result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Type de permis :</td><td>";
+		    result += (getElements(permits[i], "nova", "TYPEDOSSIERFR")[0])?$(getElements(permits[i], "nova", "TYPEDOSSIERFR")[0]).text()+ " ":"";
+		    result +="</td><tr></tr><td>Adresse :</td><td>";
+		    result += (getElements(permits[i], "nova", "STREETNAMEFR")[0])?$(getElements(permits[i], "nova", "STREETNAMEFR")[0]).text()+ " ":"";
+
+			result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?$(getElements(permits[i], "nova", "NUMBERPARTFROM")[0]).text():"";
+
+			result +=(getElements(permits[i], "nova", "NUMBERPARTTO")[0])? " - "+ $(getElements(permits[i], "nova", "NUMBERPARTTO")[0]).text():"";
+
+			result +="</td></tr><tr><td></td><td>";
+			result += (getElements(permits[i], "nova", "ZIPCODE")[0])?$(getElements(permits[i], "nova", "ZIPCODE")[0]).text()+ " ":"" ;
+
+			result += (getElements(permits[i], "nova", "MUNICIPALITYFR")[0])?$(getElements(permits[i], "nova", "MUNICIPALITYFR")[0]).text():"";
+
+			result += "</td></tr><tr><td>Objet de la demande :</td><td>";
+			result += (getElements(permits[i], "nova", "OBJECTFR")[0])?$(getElements(permits[i], "nova", "OBJECTFR")[0]).text()+ " ":"";
+
+			result +='</td><tr></tr><tr><td><a target="_blank" href="';
+			result += (permits[i].getAttribute("fid"))?absolute_url+"/"+publicurl+"?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
+
+			result+= '">Pour en savoir plus...<a/></td></tr></table></div>';
+
+
+		}else{
+
+			result += "<div class='tabbertab' title='Vergunning ";
+			result += i+1;
+			result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Type vergunning :</td><td>";
+			result += (getElements(permits[i], "nova", "TYPEDOSSIERNL")[0])?$(getElements(permits[i], "nova", "TYPEDOSSIERNL")[0]).text()+ " ":"";
+			result +="</td><tr></tr><td>Adres :</td><td>";
+			result += (getElements(permits[i], "nova", "STREETNAMENL")[0])?$(getElements(permits[i], "nova", "STREETNAMENL")[0]).text()+ " ":"";
+
+
+			result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?$(getElements(permits[i], "nova", "NUMBERPARTFROM")[0]).text():"";
+
+			result +=(getElements(permits[i], "nova", "NUMBERPARTTO")[0])? " - "+ $(getElements(permits[i], "nova", "NUMBERPARTTO")[0]).text():"";
+
+			result +="</td></tr><tr><td></td><td>";
+			result += (getElements(permits[i], "nova", "ZIPCODE")[0])?$(getElements(permits[i], "nova", "ZIPCODE")[0]).text()+ " ":"" ;
+
+			result += (getElements(permits[i], "nova", "MUNICIPALITYNL")[0])?$(getElements(permits[i], "nova", "MUNICIPALITYNL")[0]).text():"";
+
+			result += "</td></tr><tr><td>Voorwerp van de aanvraag&nbsp;:</td><td>";
+			result += (getElements(permits[i], "nova", "OBJECTNL")[0])?$(getElements(permits[i], "nova", "OBJECTNL")[0]).text()+ " ":"";
+
+			result += '</td><tr></tr><tr><td><a target="_blank" href="';
+			result += (permits[i].getAttribute("fid"))?absolute_url+"/"+publicurl+"?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
+
+			result += '">Meer informatie...<a/></td></tr></table></div>';
+		}
+	}
+
+    result += "</div>";
+    //if there is allready a popup then close it (only 1 popup at a time)
+    if(currentPopup){
+        currentPopup.hide();
+    }
+    //if featureInfo is found then show a popup with the information.
+    if(result != "<div id='tabber' class='tabber'></div>"){
+        currentPopup = new OpenLayers.Popup.FramedCloud("point_info", mouseLoc, new OpenLayers.Size(410,180), result, null, 'true');
+        currentPopup.autoSize = false;
+            map.addPopup(currentPopup);
+        tabberAutomatic(tabberOptions);
+    }
+}
+
+var applyDossierFilter = function(event) {
+    var cql_filter = "";
+    
+    //type and status filter
+    var type_dossier = "CATDOSSIER IS NULL";
+    if($('#type_u').is(':checked')) {
+    	if(type_dossier != "") type_dossier += " OR ";
+    	type_dossier += "CATDOSSIER = 'U'";
+    }
+    if($('#type_l').is(':checked')) {
+    	if(type_dossier != "") type_dossier += " OR ";
+    	type_dossier += "CATDOSSIER = 'L'";
+    }
+    if(type_dossier != "") {
+        if (cql_filter != "") cql_filter += " AND ";
+        cql_filter += "(" + type_dossier + ")";
+    }
+    var statut_permis = "STATUT_PERMIS_FR IS NULL";
+    if($('#canceled').is(':checked')){
+    	if(statut_permis != "") statut_permis += " OR ";
+        statut_permis += "STATUT_PERMIS_FR = 'Annulé'";
+    }
+    if($('#refused').is(':checked')){
+        if(statut_permis != "") statut_permis += " OR ";
+    	statut_permis += "STATUT_PERMIS_FR = 'Refusé'";
+    }
+    if($('#required').is(':checked')){
+        if(statut_permis != "") statut_permis += " OR ";
+    	statut_permis += "STATUT_PERMIS_FR = 'Demandé'";
+    }
+    if($('#granted').is(':checked')){
+        if(statut_permis != "") statut_permis += " OR ";
+    	statut_permis += "STATUT_PERMIS_FR = 'Octroyé'";
+    }
+    if(statut_permis != "") {
+    	if(cql_filter != "") cql_filter += " AND ";
+    	cql_filter += "(" + statut_permis + ")";
+    }
+    
+    //advanced filter
+    if ($("#commune").val() != 0) {
+        if(cql_filter != "") cql_filter += " AND ";
+        cql_filter += "ZIPCODE=" + $("#commune").val();
+    }
+    if ($("#typedossier").val() != 0) {
+        if(cql_filter != "") cql_filter += " AND"; 
+        cql_filter += " TYPEDOSSIER='" + $("#typedossier").val()+"'";
+    }
+    if ($("input[name='ep']:checked").val() == "no") {
+        if(cql_filter != "") cql_filter += " AND"; 
+        cql_filter += " MPP = 'Non'";
+    }
+    else if ($("input[name='ep']:checked").val() == "yes") {
+        if(cql_filter != "") cql_filter += " AND"; 
+        cql_filter += " MPP = 'Oui'";
+        var ep_filter = "(";
+        $("input[name='ep_status']").each(function(index,element) {
+            if ($(element).is(":checked")) {
+                if (ep_filter.length > 1) ep_filter += " OR";
+                ep_filter += " STATUT_ENQUETE_NL='"+$(element).val()+"'";
+            }
+        });
+        if (ep_filter.length == 1) ep_filter += " STATUT_ENQUETE_NL IS NULL ";
+        ep_filter += ")";
+        cql_filter += " AND " + ep_filter;
+    }
+    if ($("#datecc_from").val() != "") {
+        $("#datecc_from").removeClass("error");
+        if (/^\d{2}[\/-]\d{2}[\/-]\d{4}$/.test($("#datecc_from").val()) == false) {
+            $("#datecc_from").addClass("error");
+            return;
+        }
+        if(cql_filter != "") cql_filter += " AND";
+        cql_filter += " DATECC >= dateParse('dd/MM/yyyy','" + $("#datecc_from").val() + "')";
+    }
+    if ($("#datecc_to").val() != "") {
+        $("#datecc_to").removeClass("error");
+        if (/^\d{2}[\/-]\d{2}[\/-]\d{4}$/.test($("#datecc_to").val()) == false) {
+            $("#datecc_to").addClass("error");
+            return;
+        }
+        if(cql_filter != "") cql_filter += " AND";
+        cql_filter += " DATECC <= dateParse('dd/MM/yyyy','" + $("#datecc_to").val() + "')";
+    }
+    
+    //apply filter
+    if (cql_filter != "") {
+        dossiers.mergeNewParams({'CQL_FILTER': cql_filter});
+    }
+    
+    clusters3km.setVisibility(false);
+    clusters1km.setVisibility(false);
+    dossiers.maxResolution = 35.0;
+    dossiers.redraw();
+
+}
+
+function searchAddress(street, number, post_code){
+
+    var parameters = {
+	    language: $('#current_language').html(),
+        street: street,
+		postcode: post_code,
+		number: number
+    }
+    
+
+    var my_url = gis_url+"services/urbis/Rest/Localize/getstreet";
+    $.ajax({
+        type: "POST",
+        url: my_url,
+        data: "{'language':'"+$('#current_language').html()+"','address':{'street':{'name':'"+street+"','postcode':'"+post_code+"'},'number':'"+number+"'}}",
+        dataType: "text",
+        success:  function(json_data) {
+            var address_data = $.parseJSON(json_data);
+            var x =Number(address_data.result[0].point.x);
+            var y =Number(address_data.result[0].point.y);
+            if(!(isNaN(x) || isNaN(y)))
+            {
+                map.setCenter(new OpenLayers.LonLat(x,y), 6);
+				addressResult.removeAllFeatures();
+				addressResult.addFeatures([new OpenLayers.Feature.Vector(new OpenLayers.Geometry.Point(x,y))]);
+            }
+        },
+        error:  function(data) {
+            
+        }
+    });
+    
+
+}
+
+
 
 $(window).bind("load", function() {
 
@@ -17,7 +281,19 @@ $(window).bind("load", function() {
 		active : false,		
 		collapsible : true,		
 		autoHeight : false		
-	}); 
+	});
+	$("#accordion2").accordion({ 
+		header      : "h4",
+		active      : false,
+		collapsible : true,
+		autoHeight  : false
+	});
+	$("input[name='ep'][value='yes']").click(function() { 
+        $("#ep_status_div").slideDown();
+    });
+    $("input[name='ep'][value!='yes']").click(function() { 
+        $("#ep_status_div").slideUp();
+    });
 
     portal_url = $('#portal_url').html();
     gis_url = portal_url + "/gis/";
@@ -68,15 +344,15 @@ $(window).bind("load", function() {
 		"Clusters3km", 
 		gis_url+"geoserver/wms",
 		{layers: 'nova:CLUSTER3KM', transparent: 'true'},
-		{singleTile: true, ratio: 1.25, isBaseLayer: false, minScale: 50000});
+		{singleTile: true, ratio: 1.25, isBaseLayer: false});
     map.addLayer(clusters3km);
 
     //create the lowest cluset layer
-    var clusters1km = new OpenLayers.Layer.WMS(
+    clusters1km = new OpenLayers.Layer.WMS(
         "Clusters1km", 
         gis_url+"geoserver/wms",
         {layers: 'nova:CLUSTER1KM', transparent: 'true'},
-        {singleTile: true, ratio: 1.25, isBaseLayer: false, minScale: 25000});
+        {singleTile: true, ratio: 1.25, isBaseLayer: false});
     map.addLayer(clusters1km);
 
 
@@ -85,7 +361,7 @@ $(window).bind("load", function() {
 	    (current_language == 'nl')?"Bouwaanvragen":"Permis d'urbanisme",
 		gis_url+"geoserver/wms", 
 		{layers: 'nova:NOVA_DOSSIERS', styles:(current_language == 'nl')?"nova_dossiers_nl":"nova_dossiers_fr",transparent: true},
-		{singleTile: true, ratio: 1.25, isBaseLayer: false, maxScale: 25000});
+		{singleTile: true, ratio: 1.25, isBaseLayer: false, maxResolution: 7.0});
  	map.addLayer(dossiers);
 
 	
@@ -93,6 +369,7 @@ $(window).bind("load", function() {
 	var defaultStyle = new OpenLayers.Style({
 		'pointRadius': 20,
 	  	'fillColor': '#BBBBFF',
+
 	  	'fillOpacity': 0.3,
 	  	'strokeColor': '#444444'
 	});
@@ -130,233 +407,39 @@ $(window).bind("load", function() {
     map.events.register('click', map, executeGetFeatureInfo);
 
 
-    $("#search_address_button").click(function() {
-        searchAddress($('#street').val(),$('#number').val(),$('#post_code').val());
-    });
 	$("#search_address_button").click(function() {
         searchAddress($('#street').val(),$('#number').val(),$('#post_code').val());
     });
 
+    $(".filter input[type='radio'], .filter input[type='checkbox']").bind("click", applyDossierFilter);
+    $(".filter select, .filter input[type='text']").bind("change", applyDossierFilter);
+
+    $("#reset_filter").click(function() {
+        
+        $(".filter input[type='radio'], .filter input[type='checkbox']").unbind("click", applyDossierFilter);
+        $(".filter select, .filter input[type='text']").unbind("change", applyDossierFilter);
+        
+        $(".filter input[type='checkbox']").attr('checked', true);
+        $("#commune").val(0);
+        $("#typedossier").val(0);
+        $("input[name='ep'][value='all']").attr('checked', true);
+        $("#ep_status_div").slideUp();
+        $("#datecc_from").val("");
+        $("#datecc_to").val("");
+        
+        dossiers.setVisibility(false);
+        dossiers.maxResolution = 7.0;
+        dossiers.mergeNewParams({'CQL_FILTER': null});
+        dossiers.setVisibility(true);
+        
+        clusters3km.setVisibility(true);
+        clusters1km.setVisibility(true);
+        
+        $(".filter input[type='radio'], .filter input[type='checkbox']").bind("click", applyDossierFilter);
+        $(".filter select, .filter input[type='text']").bind("change", applyDossierFilter);
+        
+    });
+
 });
-
-
-function executeGetFeatureInfo(event) {
-    mouseLoc = map.getLonLatFromPixel(event.xy);
-    //prepare the getFeatureInfo request
-    var url = clusters3km.getFullRequestString({
-        REQUEST: "GetFeatureInfo",
-        BBOX: map.getExtent().toBBOX(),
-        X: Math.round(event.xy.x),
-        Y: Math.round(event.xy.y),
-        INFO_FORMAT: 'application/vnd.ogc.gml',
-        FORMAT: 'application/vnd.ogc.gml',
-        LAYERS : "NOVA_DOSSIERS",
-        QUERY_LAYERS: "NOVA_DOSSIERS",
-        FEATURE_COUNT: 10,
-        WIDTH: map.size.w,
-        HEIGHT: map.size.h,
-        CQL_FILTER: dossiers.params.CQL_FILTER},
-        gis_url+"geoserver/wms?");
-    //Execute the GetFeatureInfo request and callback the showPointInfo function
-    OpenLayers.Request.GET({
-        url: url,
-        callback: showPointInfo
-    });
-}
-
-function getElements(obj, ns, tagname) {
-    var result = new Array();
-    result = obj.getElementsByTagName(ns+":"+tagname)
-    if (result.length == 0) result = obj.getElementsByTagName(tagname);
-    return result;
-}
-
-function showPointInfo(response) {
-    //create an xmlDocument based on the getFeatureInfo response
-    var xmlDoc;
-    if (window.DOMParser)
-    {
-        parser=new DOMParser();
-        xmlDoc=parser.parseFromString(response.responseText,"text/xml");
-    }
-    else // Internet Explorer
-    {
-        xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
-        xmlDoc.async="false";
-        xmlDoc.loadXML(response.responseText);
-    } 
-
-
-    var permits = new Array();
-    permits = getElements(xmlDoc, "nova", "NOVA_DOSSIERS");
-    var result = "<div id='tabber' class='tabber'>";
-    var absolute_url  = $('#absolute_url').html();
-	var publicurl = "public"
-    //build the result html
-    for(i =0; i < permits.length ; i++){
-		if(current_language == 'fr'){
-		    result += "<div class='tabbertab' title='Permis ";
-		    result += i+1;
-		    result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Type de permis:</td><td>";
-		    result += (getElements(permits[i], "nova", "TYPEDOSSIERFR")[0])?$(getElements(permits[i], "nova", "TYPEDOSSIERFR")[0]).text()+ " ":"";
-		    result +="</td><tr></tr><td>Adresse :</td><td>";
-		    result += (getElements(permits[i], "nova", "STREETNAMEFR")[0])?$(getElements(permits[i], "nova", "STREETNAMEFR")[0]).text()+ " ":"";
-
-			result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?$(getElements(permits[i], "nova", "NUMBERPARTFROM")[0]).text():"";
-
-			result +=(getElements(permits[i], "nova", "NUMBERPARTTO")[0])? " - "+ $(getElements(permits[i], "nova", "NUMBERPARTTO")[0]).text():"";
-
-			result +="</td></tr><tr><td></td><td>";
-			result += (getElements(permits[i], "nova", "ZIPCODE")[0])?$(getElements(permits[i], "nova", "ZIPCODE")[0]).text()+ " ":"" ;
-
-			result += (getElements(permits[i], "nova", "MUNICIPALITYFR")[0])?$(getElements(permits[i], "nova", "MUNICIPALITYFR")[0]).text():"";
-
-			result += "</td></tr><tr><td>Objet de la demande :</td><td>";
-			result += (getElements(permits[i], "nova", "OBJECTFR")[0])?$(getElements(permits[i], "nova", "OBJECTFR")[0]).text()+ " ":"";
-
-			result +='</td><tr></tr><tr><td><a target="_blank" href="';
-			result += (permits[i].getAttribute("fid"))?absolute_url+"/"+publicurl+"?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
-
-			result+= '">Pour en savoir plus...<a/></td></tr></table></div>';
-
-
-		}else{
-
-			result += "<div class='tabbertab' title='Vergunning ";
-			result += i+1;
-			result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Type vergunning:</td><td>";
-			result += (getElements(permits[i], "nova", "TYPEDOSSIERNL")[0])?$(getElements(permits[i], "nova", "TYPEDOSSIERNL")[0]).text()+ " ":"";
-			result +="</td><tr></tr><td>Adres :</td><td>";
-			result += (getElements(permits[i], "nova", "STREETNAMENL")[0])?$(getElements(permits[i], "nova", "STREETNAMENL")[0]).text()+ " ":"";
-
-
-			result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?$(getElements(permits[i], "nova", "NUMBERPARTFROM")[0]).text():"";
-
-			result +=(getElements(permits[i], "nova", "NUMBERPARTTO")[0])? " - "+ $(getElements(permits[i], "nova", "NUMBERPARTTO")[0]).text():"";
-
-			result +="</td></tr><tr><td></td><td>";
-			result += (getElements(permits[i], "nova", "ZIPCODE")[0])?$(getElements(permits[i], "nova", "ZIPCODE")[0]).text()+ " ":"" ;
-
-			result += (getElements(permits[i], "nova", "MUNICIPALITYNL")[0])?$(getElements(permits[i], "nova", "MUNICIPALITYNL")[0]).text():"";
-
-			result += "</td></tr><tr><td>Voorwerp van de aanvraag :</td><td>";
-			result += (getElements(permits[i], "nova", "OBJECTNL")[0])?$(getElements(permits[i], "nova", "OBJECTNL")[0]).text()+ " ":"";
-
-			result += '</td><tr></tr><tr><td><a target="_blank" href="';
-			result += (permits[i].getAttribute("fid"))?absolute_url+"/"+publicurl+"?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
-
-			result += '">Meer informatie...<a/></td></tr></table></div>';
-		}
-	}
-
-    result += "</div>";
-    //if there is allready a popup then close it (only 1 popup at a time)
-    if(currentPopup){
-        currentPopup.hide();
-    }
-    //if featureInfo is found then show a popup with the information.
-    if(result != "<div id='tabber' class='tabber'></div>"){
-
-    currentPopup = new OpenLayers.Popup.FramedCloud("point_info", mouseLoc, new OpenLayers.Size(410,180), result, null, 'true');
-    currentPopup.autoSize = false;
-        map.addPopup(currentPopup);
-    tabberAutomatic(tabberOptions);
-}else{
-    //Zoom to point
-    var zoom = map.getZoom();
-    if(zoom >= 4 ){
-        if(zoom <= 5){
-            map.setCenter(mouseLoc, zoom+1);
-        }else{
-            map.setCenter(mouseLoc, zoom);
-        }
-    }else{
-        if(zoom > 1){
-            map.setCenter(mouseLoc, 4);
-        }else{
-            map.setCenter(mouseLoc, 2);
-        }
-    }
-}
-}
-
-
-
-function applyDossierFilter(){
-    var cql = "";
-    
-    var type_dossier = "TYPEDOSSIER IS NULL";
-    //create a cql filter based on the filter checkboxes
-    if($('#type_u').is(':checked')) {
-    	if(type_dossier != "") type_dossier += " OR ";
-    	type_dossier += "TYPEDOSSIER = 'U'";
-    }
-    if($('#type_l').is(':checked')) {
-    	if(type_dossier != "") type_dossier += " OR ";
-    	type_dossier += "TYPEDOSSIER = 'L'";
-    }
-    if(type_dossier != "") cql += "(" + type_dossier + ")";
-    
-    var statut_permis = "STATUT_PERMIS_FR IS NULL";
-    if($('#canceled').is(':checked')){
-    	if(statut_permis != "") statut_permis += " OR ";
-        statut_permis += "STATUT_PERMIS_FR = 'Annulé'";
-    }
-    if($('#refused').is(':checked')){
-        if(statut_permis != "") statut_permis += " OR ";
-    	statut_permis += "STATUT_PERMIS_FR = 'Refusé'";
-    }
-    if($('#required').is(':checked')){
-        if(statut_permis != "") statut_permis += " OR ";
-    	statut_permis += "STATUT_PERMIS_FR = 'Demandé'";
-    }
-    if($('#granted').is(':checked')){
-        if(statut_permis != "") statut_permis += " OR ";
-    	statut_permis += "STATUT_PERMIS_FR = 'Octroyé'";
-    }
-    if(statut_permis != "") {
-    	if(cql != "") cql += " AND ";
-    	cql += "(" + statut_permis + ")";
-    }
-    
-    //apply the cql filter
-    dossiers.mergeNewParams({'CQL_FILTER': cql});
-}
-
-function searchAddress(street, number, post_code){
-
-    var parameters = {
-	    language: $('#current_language').html(),
-        street: street,
-		postcode: post_code,
-		number: number
-    }
-    
-
-    var my_url = gis_url+"services/urbis/Rest/Localize/getstreet";
-    $.ajax({
-        type: "POST",
-        url: my_url,
-        data: "{'language':'"+$('#current_language').html()+"','address':{'street':{'name':'"+street+"','postcode':'"+post_code+"'},'number':'"+number+"'}}",
-        dataType: "text",
-        success:  function(json_data) {
-            var address_data = $.parseJSON(json_data);
-            var x =Number(address_data.result[0].point.x);
-            var y =Number(address_data.result[0].point.y);
-            if(!(isNaN(x) || isNaN(y)))
-            {
-                map.setCenter(new OpenLayers.LonLat(x,y), 6);
-				addressResult.removeAllFeatures();
-				addressResult.addFeatures([new OpenLayers.Feature.Vector(new OpenLayers.Geometry.Point(x,y))]);
-            }
-        },
-        error:  function(data) {
-            
-        },
-    });
-    
-
-}
-
 
 

@@ -19,7 +19,10 @@
 <body>
        
     <div metal:fill-slot="main" tal:define="urls view/utils_url; data view/novac">
+<!--
 	    <div id="beschr" tal:content="context/Description">desc</div>
+-->
+        <h1 class="documentFirstHeading" i18n:translate="les_permis_en_ligne">Les permis en ligne</h1>
         <tal:block tal:condition="not: urls/error" >
             <div id="ws_urbis" tal:content="urls/urbis_url" class="hiddenStructure"> ws_urbis </div>
             <div id="ws_waws" tal:content="urls/novac_url" class="hiddenStructure"> ws_waws </div>
@@ -28,9 +31,12 @@
 			<div id="portal_url" tal:content="context/portal_url" class="hiddenStructure"> portal_url </div>
  			<div id="current_language" tal:content="context/Language" class="hiddenStructure"> current_language </div>
 			<div id="urbis_cache_url" tal:content="urls/urbis_cache_url" class="hiddenStructure"> urbis_cache_url </div>
-            <div id="map_panel"><div id="map" style="cursor: pointer;"></div></div>
+            <div id="map_panel">
+                <div id="map" style="cursor: pointer;"></div>
+                <span id="copyright_urbis">Realized by means of Brussels UrbIS &copy; &reg;</span>
+            </div>
            
-            <div id="navigation">
+            <div id="navigation" style="overflow: auto;">
                 <div id="accordion">
                     <h3 class="slice-1"><a href="#" i18n:translate="mon_dossier">mon_dossier</a></h3>
                     <div>
@@ -53,12 +59,12 @@
                         <tbody>
                             <tr>
                                 <td i18n:attributes="class type_U"></td>
-                                <td style="width:16px;"><input type="checkbox" onChange="applyDossierFilter()" checked="true" id="type_u"></td>
+                                <td style="width:16px;"><input type="checkbox" checked="true" id="type_u"></td>
                                 <td><label for="type_u"><tal:block i18n:translate="urbanisme">urbanisme</tal:block></td>
                             </tr>
                             <tr>
                                 <td i18n:attributes="class type_L"></td>
-                                <td style="width:16px;"><input type="checkbox" onChange="applyDossierFilter()" checked="true" id="type_l"></td>
+                                <td style="width:16px;"><input type="checkbox" checked="true" id="type_l"></td>
                                 <td><label for="type_l"><tal:block i18n:translate="lotir">lotir</tal:block></td>
                             </tr>
                         </tbody>
@@ -67,32 +73,110 @@
                         <tbody>
                             <tr>
                                 <td class="color required"></td>
-                                <td style="width:16px;"><input type="checkbox" onChange="applyDossierFilter()" checked="true" id="required" /></td>
+                                <td style="width:16px;"><input type="checkbox" checked="true" id="required" /></td>
                                 <td><label for="required"><tal:block i18n:translate="required">required</tal:block></td>
                             </tr>
                             <tr>
                                 <td class="color granted"></td>
-                                <td style="width:16px;"><input type="checkbox" onChange="applyDossierFilter()" checked="true" id="granted" /></td>
+                                <td style="width:16px;"><input type="checkbox" checked="true" id="granted" /></td>
                                 <td><label for="granted"><tal:block i18n:translate="granted">granted</tal:block></td>
                             </tr>
                             <tr>
                                 <td class="color refused"></td>
-                                <td style="width:16px;"><input type="checkbox" onChange="applyDossierFilter()" checked="true" id="refused" /></td>
+                                <td style="width:16px;"><input type="checkbox" checked="true" id="refused" /></td>
                                 <td><label for="refused"><tal:block i18n:translate="refused">refused</tal:block></td>
                             </tr>
                             <tr>
                                 <td class="color canceled"></td>
-                                <td style="width:16px;"><input type="checkbox" onChange="applyDossierFilter()" checked="true" id="canceled" /></td>
+                                <td style="width:16px;"><input type="checkbox" checked="true" id="canceled" /></td>
                                 <td><label for="canceled"><tal:block i18n:translate="canceled">canceled</tal:block></td>
                             </tr>
                         </tbody>
                         </table>                        
                     
+                        <div id="accordion2" style="font-size:1.2em">
+					        <h4><a href="#" style="font-size:0.9em" i18n:translate="Tous_les_filtres">Tous les filtres</a></h4>
+					        <div>
+						        <select id="commune" name="commune" style="width:195px;">
+							        <option value="0" selected> <tal:block i18n:translate="Toutes_les_communes">Toutes les communes</tal:block> </option>
+							        <option value="1070"> <tal:block i18n:translate="Anderlecht">Anderlecht</tal:block> </option>
+							        <option value="1160"> <tal:block i18n:translate="Auderghem">Auderghem</tal:block> </option>
+							        <option value="1082"> <tal:block i18n:translate="Berchem-Sainte-Agathe">Berchem-Sainte-Agathe</tal:block> </option>
+							        <option value="1000"> <tal:block i18n:translate="Bruxelles">Bruxelles</tal:block> </option>
+							        <option value="1040"> <tal:block i18n:translate="Etterbeek">Etterbeek</tal:block> </option>
+							        <option value="1140"> <tal:block i18n:translate="Evere">Evere</tal:block> </option>
+							        <option value="1190"> <tal:block i18n:translate="Forest">Forest</tal:block> </option>
+							        <option value="1083"> <tal:block i18n:translate="Ganshoren">Ganshoren</tal:block> </option>
+							        <option value="1050"> <tal:block i18n:translate="Ixelles">Ixelles</tal:block> </option>
+							        <option value="1090"> <tal:block i18n:translate="Jette">Jette</tal:block> </option>
+							        <option value="1081"> <tal:block i18n:translate="Koekelberg">Koekelberg</tal:block> </option>
+							        <option value="1080"> <tal:block i18n:translate="Molenbeek-Saint-Jean">Molenbeek-Saint-Jean</tal:block> </option>
+							        <option value="1060"> <tal:block i18n:translate="Saint-Gilles">Saint-Gilles</tal:block> </option>
+							        <option value="1210"> <tal:block i18n:translate="Saint-Josse-ten-Noode">Saint-Josse-ten-Noode</tal:block> </option>
+							        <option value="1030"> <tal:block i18n:translate="Schaerbeek">Schaerbeek</tal:block> </option>
+							        <option value="1180"> <tal:block i18n:translate="Uccle">Uccle</tal:block> </option>
+							        <option value="1170"> <tal:block i18n:translate="Watermael-Boitsfort">Watermael-Boitsfort</tal:block> </option>
+							        <option value="1200"> <tal:block i18n:translate="Woluwe-Saint-Lambert">Woluwe-Saint-Lambert</tal:block> </option>
+							        <option value="1150"> <tal:block i18n:translate="Woluwe-Saint-Pierre">Woluwe-Saint-Pierre</tal:block> </option>
+						        </select>
+						        <br /><br />
+						
+						        <select id="typedossier" name="typedossier" style="width:195px;">
+							        <option value="0" selected> <tal:block i18n:translate="Tous_les_types_de_dossier">Tous les types de dossier</tal:block> </option>
+							        <option value="AA"> <tal:block i18n:translate="Abattage_d_arbres">Abattage d'arbres</tal:block> </option>
+                                    <option value="AC"> <tal:block i18n:translate="Autorisation_communale">Autorisation communale</tal:block> </option> 
+                                    <option value="CPFD"> <tal:block i18n:translate="Certificat_d_urbanisme_delivre_par_le_FD">Certificat d'urbanisme délivré par le FD</tal:block> </option>
+                                    <option value="CU"> <tal:block i18n:translate="Certificat_d_urbanisme_prive">Certificat d'urbanisme privé</tal:block> </option>
+                                    <option value="ENS"> <tal:block i18n:translate="Enseigne">Enseigne</tal:block> </option>
+                                    <option value="PP"> <tal:block i18n:translate="Panneau_publicitaire">Panneau publicitaire</tal:block> </option>
+                                    <option value="PL"> <tal:block i18n:translate="Permis_de_lotir">Permis de lotir</tal:block> </option>
+                                    <option value="PFD"> <tal:block i18n:translate="Permis_d_urbanisme_delivre_par_le_FD">Permis d'urbanisme délivré par le FD</tal:block> </option>
+                                    <option value="PU"> <tal:block i18n:translate="Permis_d_urbanisme_prive">Permis d'urbanisme privé</tal:block> </option>
+                                    <option value="PUM"> <tal:block i18n:translate="Permis_d_urbanisme_prive_procedure_mixte">Permis d'urbanisme privé - procédure mixte</tal:block> </option>
+                                    <option value="PFU"> <tal:block i18n:translate="Permis_d_urbanisme_unique_delivre_par_le_FD">Permis d'urbanisme unique délivré par le FD</tal:block> </option>
+						        </select>
+						        <br /><br />
+						
+						        <h5 style="font-size:1.2em;"><tal:block i18n:translate="Enquete_publique">Enquête publique</tal:block> ?</h5>
+						        <div id="accordion3" style="font-size:1.2em;">
+							        <input type="radio" name="ep" value="yes"/> <tal:block i18n:translate="Oui">Oui</tal:block> 
+								        <div id="ep_status_div" style="display:none;">
+									        <table class="filters" style="font-size:1em;">
+										        <tr>
+											        <td><input type="checkbox" name="ep_status" value="Lopend" class="checkbox" checked="checked" /></td>
+											        <td><tal:block i18n:translate="En_cours">En cours</tal:block></td>
+										        </tr>
+										        <tr>
+											        <td><input type="checkbox" name="ep_status" value="Afgesloten" class="checkbox" checked="checked" /></td>
+											        <td><tal:block i18n:translate="termine">terminé</tal:block></td>
+										        </tr>
+										        <tr>
+											        <td><input type="checkbox" name="ep_status" value="Voorzien" class="checkbox" checked="checked" /></td>
+											        <td><tal:block i18n:translate="planifie">planifié</tal:block></td>
+										        </tr>
+									        </table>
+								        </div>
+						        </div>
+						        <input type="radio" name="ep" value="no" /> <tal:block i18n:translate="Non">Non</tal:block> <br />
+						        <input type="radio" name="ep" value="all" checked="checked" /> <tal:block i18n:translate="Tous">Tous</tal:block>
+						        <br /><br />
+						        <h5 style="font-size:1.2em;"><tal:block i18n:translate="Date_Commission_de_Consertation">Date Commission de Consertation</tal:block></h5>
+						        <tal:block i18n:translate="date_from">de</tal:block> <input id="datecc_from" type="text" maxlength="10" style="width:80px;" /> dd/mm/yyyy <br />
+						        &nbsp;<tal:block i18n:translate="date_to">à</tal:block>&nbsp;&nbsp;<input id="datecc_to" type="text" maxlength="10" style="width:80px;" /> dd/mm/yyyy 
+						
+						        <!--
+						        <p><input type="checkbox"> Afficher sous forme de liste ?</p>
+						        -->
+						        <hr class="gray" />
+						        <input type="button" id="reset_filter" class="knop" value="Reset"/>
+					        </div>
+				        </div>
+                    
                     </div>
                     
                 </div>
             </div>
-            <!--div id="results_panel" i18n:translate="results">results</div-->
+            <div id="texte_introduction" i18n:translate="texte_introduction">ici un texte pour expliquer ce que l'on voit</div>
         </tal:block>
         <tal:block tal:condition="urls/error" >
             <div tal:content="urls/error_text">error</div>
