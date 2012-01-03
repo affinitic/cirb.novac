@@ -112,7 +112,7 @@ class ListprivateView(NovacView):
                          "publicInquiry","startPublicInquiry","endPublicInquiry",
                          "statusPermit","codeDossier", "pointCC","dateCC",
                          "languageRequest","dateDossierComplet","specificReference", 
-                         "municipalityOwner", "manager"]
+                         "municipalityOwner", "manager", "dateActivationSSK"]
         
         return update_dossiers(jsondata, table_ids, not_available, has_address=True)
 
@@ -126,6 +126,6 @@ def make_table_rows(absolute_url, dossiers):
     <td>%s</td>
     <td>%s</td>
 </tr>''' % (absolute_url, dossier['id'], dossier['address'], dossier['refNova'],
-            dossier['typeDossier'], dossier['dateDossierComplet'])
+            dossier['typeDossier'], dossier['dateActivationSSK'])
     return table
         
