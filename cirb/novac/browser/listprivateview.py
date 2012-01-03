@@ -106,7 +106,7 @@ class ListprivateView(NovacView):
     def dossier_processing(self, jsondata):
         msgid = _(u"not_available")
         not_available = self.context.translate(msgid)
-        
+        print jsondata
         table_ids = ["id","refNova","typeDossier","object","streetName",
                          "numberFrom", "numberTo","zipCode", "municipality",
                          "publicInquiry","startPublicInquiry","endPublicInquiry",

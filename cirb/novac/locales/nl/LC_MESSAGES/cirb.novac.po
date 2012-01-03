@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: Fri Dec 16 14:58:33 2011\n"
+"POT-Creation-Date: Tue Jan  3 09:52:58 2012\n"
 "PO-Revision-Date: 2011-10-28 10:45+0200\n"
 "Last-Translator: bsuttor <bsuttor@cirb.irisnet.be>\n"
 "Language-Team: Dutch\n"
@@ -25,9 +25,9 @@ msgstr ""
 "Generated-By: zope/app/locales/extract.py\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: cirb.novac:/browser/listprivateview.py:105
-#: cirb.novac:/browser/privateview.py:105
-#: cirb.novac:/browser/privateview.py:176 cirb.novac:/browser/publicview.py:86
+#: cirb.novac:/browser/listprivateview.py:107
+#: cirb.novac:/browser/privateview.py:109
+#: cirb.novac:/browser/privateview.py:180 cirb.novac:/browser/publicview.py:86
 #: cirb.novac:/utils.py:104
 msgid "not_available"
 msgstr "niet beschikbaar"
@@ -38,10 +38,11 @@ msgid "Listprivate"
 msgstr "Mijn dossier(s)"
 
 #: cirb.novac:/browser/listprivateview.py:59
+#: cirb.novac:/browser/privateview.py:99
 msgid "User undefined."
 msgstr ""
 
-#: cirb.novac:/browser/listprivateview.py:81
+#: cirb.novac:/browser/listprivateview.py:83
 msgid "Not able to activate a dossier."
 msgstr ""
 
@@ -124,248 +125,470 @@ msgstr ""
 msgid "Inserez votre cle unique pour activer votre dossier"
 msgstr "Voor de unieke sleutelcode in om uw dossier de activeren"
 
-#: cirb.novac:/browser/templates/novacview.pt:35
+#. Default: "Toutes les communes"
+#: cirb.novac:/browser/templates/novacview.pt:101
+msgid "Toutes_les_communes"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:102
+msgid "Anderlecht"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:103
+msgid "Auderghem"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:104
+msgid "Berchem-Sainte-Agathe"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:105
+msgid "Bruxelles"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:106
+msgid "Etterbeek"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:107
+msgid "Evere"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:108
+msgid "Forest"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:109
+msgid "Ganshoren"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:110
+msgid "Ixelles"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:111
+msgid "Jette"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:112
+msgid "Koekelberg"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:113
+msgid "Molenbeek-Saint-Jean"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:114
+msgid "Saint-Gilles"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:115
+msgid "Saint-Josse-ten-Noode"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:116
+msgid "Schaerbeek"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:117
+msgid "Uccle"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:118
+msgid "Watermael-Boitsfort"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:119
+msgid "Woluwe-Saint-Lambert"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:120
+msgid "Woluwe-Saint-Pierre"
+msgstr ""
+
+#. Default: "Tous les types de dossier"
+#: cirb.novac:/browser/templates/novacview.pt:125
+msgid "Tous_les_types_de_dossier"
+msgstr ""
+
+#. Default: "Abattage d'arbres"
+#: cirb.novac:/browser/templates/novacview.pt:126
+msgid "Abattage_d_arbres"
+msgstr ""
+
+#. Default: "Autorisation communale"
+#: cirb.novac:/browser/templates/novacview.pt:127
+msgid "Autorisation_communale"
+msgstr ""
+
+#. Default: "Certificat d'urbanisme d\303\251livr\303\251 par le FD"
+#: cirb.novac:/browser/templates/novacview.pt:128
+msgid "Certificat_d_urbanisme_delivre_par_le_FD"
+msgstr ""
+
+#. Default: "Certificat d'urbanisme priv\303\251"
+#: cirb.novac:/browser/templates/novacview.pt:129
+msgid "Certificat_d_urbanisme_prive"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:130
+msgid "Enseigne"
+msgstr ""
+
+#. Default: "Panneau publicitaire"
+#: cirb.novac:/browser/templates/novacview.pt:131
+msgid "Panneau_publicitaire"
+msgstr ""
+
+#. Default: "Permis de lotir"
+#: cirb.novac:/browser/templates/novacview.pt:132
+msgid "Permis_de_lotir"
+msgstr ""
+
+#. Default: "Permis d'urbanisme d\303\251livr\303\251 par le FD"
+#: cirb.novac:/browser/templates/novacview.pt:133
+msgid "Permis_d_urbanisme_delivre_par_le_FD"
+msgstr ""
+
+#. Default: "Permis d'urbanisme priv\303\251"
+#: cirb.novac:/browser/templates/novacview.pt:134
+msgid "Permis_d_urbanisme_prive"
+msgstr ""
+
+#. Default: "Permis d'urbanisme priv\303\251 - proc\303\251dure mixte"
+#: cirb.novac:/browser/templates/novacview.pt:135
+msgid "Permis_d_urbanisme_prive_procedure_mixte"
+msgstr ""
+
+#. Default: "Permis d'urbanisme unique d\303\251livr\303\251 par le FD"
+#: cirb.novac:/browser/templates/novacview.pt:136
+msgid "Permis_d_urbanisme_unique_delivre_par_le_FD"
+msgstr ""
+
+#. Default: "Enqu\303\252te publique"
+#: cirb.novac:/browser/templates/novacview.pt:140
+msgid "Enquete_publique"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:142
+msgid "Oui"
+msgstr ""
+
+#. Default: "En cours"
+#: cirb.novac:/browser/templates/novacview.pt:147
+msgid "En_cours"
+msgstr ""
+
+#. Default: "termin\303\251"
+#: cirb.novac:/browser/templates/novacview.pt:151
+msgid "termine"
+msgstr ""
+
+#. Default: "planifi\303\251"
+#: cirb.novac:/browser/templates/novacview.pt:155
+msgid "planifie"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:160
+msgid "Non"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:161
+msgid "Tous"
+msgstr ""
+
+#. Default: "Date Commission de Consertation"
+#: cirb.novac:/browser/templates/novacview.pt:163
+msgid "Date_Commission_de_Consertation"
+msgstr ""
+
+#. Default: "de"
+#: cirb.novac:/browser/templates/novacview.pt:164
+msgid "date_from"
+msgstr ""
+
+#. Default: "\303\240"
+#: cirb.novac:/browser/templates/novacview.pt:165
+msgid "date_to"
+msgstr ""
+
+#. Default: "ici un texte pour expliquer ce que l'on voit"
+#: cirb.novac:/browser/templates/novacview.pt:179
+msgid "texte_introduction"
+msgstr ""
+
+#. Default: "Les permis en ligne"
+#: cirb.novac:/browser/templates/novacview.pt:25
+msgid "les_permis_en_ligne"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:41
 msgid "mon_dossier"
 msgstr "Mijn dossier"
 
-#: cirb.novac:/browser/templates/novacview.pt:37
+#: cirb.novac:/browser/templates/novacview.pt:43
 msgid "login"
 msgstr "Aanmelden met eID-kaart"
 
-#: cirb.novac:/browser/templates/novacview.pt:39
+#: cirb.novac:/browser/templates/novacview.pt:45
 msgid "search_address"
 msgstr "Adres opzoeken"
 
-#: cirb.novac:/browser/templates/novacview.pt:43
+#: cirb.novac:/browser/templates/novacview.pt:49
 msgid "street_name:"
 msgstr "Straat"
 
-#: cirb.novac:/browser/templates/novacview.pt:44
+#: cirb.novac:/browser/templates/novacview.pt:50
 msgid "number:"
 msgstr "Nummer"
 
-#: cirb.novac:/browser/templates/novacview.pt:45
+#: cirb.novac:/browser/templates/novacview.pt:51
 msgid "post_code:"
 msgstr "Postcode "
 
-#: cirb.novac:/browser/templates/novacview.pt:48
+#: cirb.novac:/browser/templates/novacview.pt:54
 msgid "search"
 msgstr "zoeken"
 
-#: cirb.novac:/browser/templates/novacview.pt:50
+#: cirb.novac:/browser/templates/novacview.pt:56
 msgid "filtres"
 msgstr "Filters"
 
-#: cirb.novac:/browser/templates/novacview.pt:55
+#: cirb.novac:/browser/templates/novacview.pt:61
 msgid "type_U"
 msgstr "type_S"
 
-#: cirb.novac:/browser/templates/novacview.pt:57
+#: cirb.novac:/browser/templates/novacview.pt:63
 msgid "urbanisme"
 msgstr "Stedenbouwkundige vergunning"
 
-#: cirb.novac:/browser/templates/novacview.pt:60
+#: cirb.novac:/browser/templates/novacview.pt:66
 msgid "type_L"
 msgstr "type_V"
 
-#: cirb.novac:/browser/templates/novacview.pt:62
+#: cirb.novac:/browser/templates/novacview.pt:68
 msgid "lotir"
 msgstr "Verkavelingsvergunning"
 
-#: cirb.novac:/browser/templates/novacview.pt:71
+#: cirb.novac:/browser/templates/novacview.pt:77
 msgid "required"
 msgstr "Aangevraagd"
 
-#: cirb.novac:/browser/templates/novacview.pt:76
+#: cirb.novac:/browser/templates/novacview.pt:82
 msgid "granted"
 msgstr "Toegekend"
 
-#: cirb.novac:/browser/templates/novacview.pt:81
+#: cirb.novac:/browser/templates/novacview.pt:87
 msgid "refused"
 msgstr "Geweigerd"
 
-#: cirb.novac:/browser/templates/novacview.pt:86
+#: cirb.novac:/browser/templates/novacview.pt:92
 msgid "canceled"
 msgstr "Geannuleerd"
 
-#: cirb.novac:/browser/templates/privateview.pt:101
-#: cirb.novac:/browser/templates/privateview.pt:113
-#: cirb.novac:/browser/templates/publicview.pt:99
-#: cirb.novac:/browser/templates/publicview.pt:111
+#. Default: "Tous les filtres"
+#: cirb.novac:/browser/templates/novacview.pt:98
+msgid "Tous_les_filtres"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:102
+#: cirb.novac:/browser/templates/privateview.pt:114
+#: cirb.novac:/browser/templates/publicview.pt:100
+#: cirb.novac:/browser/templates/publicview.pt:112
 msgid "yes"
 msgstr "Ja"
 
-#: cirb.novac:/browser/templates/privateview.pt:105
-#: cirb.novac:/browser/templates/privateview.pt:117
-#: cirb.novac:/browser/templates/publicview.pt:103
-#: cirb.novac:/browser/templates/publicview.pt:115
+#: cirb.novac:/browser/templates/privateview.pt:106
+#: cirb.novac:/browser/templates/privateview.pt:118
+#: cirb.novac:/browser/templates/publicview.pt:104
+#: cirb.novac:/browser/templates/publicview.pt:116
 msgid "no"
 msgstr "Neen"
 
-#: cirb.novac:/browser/templates/privateview.pt:110
-#: cirb.novac:/browser/templates/publicview.pt:108
+#: cirb.novac:/browser/templates/privateview.pt:111
+#: cirb.novac:/browser/templates/publicview.pt:109
 msgid "commission_de_concertation"
 msgstr "Overlegcommissie"
 
-#: cirb.novac:/browser/templates/privateview.pt:110
-#: cirb.novac:/browser/templates/publicview.pt:108
+#: cirb.novac:/browser/templates/privateview.pt:111
+#: cirb.novac:/browser/templates/publicview.pt:109
 msgid "tooltip_commission_de_concertation"
-msgstr "Raadgevende instelling die bestaat uit vertegenwoordigers van de gemeente en van de gewestelijke besturen en instellingen die te maken hebben met ruimtelijke ordening (BROH [Stedenbouw en Erfgoed], BIM, GOMB). De commissie komt samen en brengt een advies uit over de vergunningsaanvragen waarvoor dat advies is vereist. Dat advies helpt de overheid die belast is met de aflevering van de vergunning, bij het nemen van haar beslissing. Het advies van de overlegcommissie is raadgevend. In het kader van een vergunningsaanvraag kan het OC-advies enkel gevraagd worden in de gevallen van de uitputtende opsomming in de stedenbouwkundige regelgeving."
+msgstr ""
+"Raadgevende instelling die bestaat uit vertegenwoordigers van de gemeente en "
+"van de gewestelijke besturen en instellingen die te maken hebben met "
+"ruimtelijke ordening (BROH [Stedenbouw en Erfgoed], BIM, GOMB). De commissie "
+"komt samen en brengt een advies uit over de vergunningsaanvragen waarvoor "
+"dat advies is vereist. Dat advies helpt de overheid die belast is met de "
+"aflevering van de vergunning, bij het nemen van haar beslissing. Het advies "
+"van de overlegcommissie is raadgevend. In het kader van een "
+"vergunningsaanvraag kan het OC-advies enkel gevraagd worden in de gevallen "
+"van de uitputtende opsomming in de stedenbouwkundige regelgeving."
 
-#: cirb.novac:/browser/templates/privateview.pt:113
-#: cirb.novac:/browser/templates/privateview.pt:207
-#: cirb.novac:/browser/templates/publicview.pt:111
+#: cirb.novac:/browser/templates/privateview.pt:114
+#: cirb.novac:/browser/templates/privateview.pt:211
+#: cirb.novac:/browser/templates/publicview.pt:112
 msgid "date"
 msgstr "datum"
 
-#: cirb.novac:/browser/templates/privateview.pt:132
-#: cirb.novac:/browser/templates/publicview.pt:123
+#: cirb.novac:/browser/templates/privateview.pt:133
+#: cirb.novac:/browser/templates/publicview.pt:124
 msgid "decision"
 msgstr "Beslissing"
 
-#: cirb.novac:/browser/templates/privateview.pt:142
-#: cirb.novac:/browser/templates/publicview.pt:133
+#: cirb.novac:/browser/templates/privateview.pt:143
+#: cirb.novac:/browser/templates/publicview.pt:134
+msgid "tooltip_notification"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:143
+#: cirb.novac:/browser/templates/publicview.pt:134
 msgid "notification_le"
 msgstr "Medegedeeld op"
 
-#: cirb.novac:/browser/templates/privateview.pt:160
+#: cirb.novac:/browser/templates/privateview.pt:164
 msgid "gestion_des_cles_secondaires_pour_ce_dossier"
 msgstr "Beheer van secundaire sleutelcodes voor dit dossier"
 
-#: cirb.novac:/browser/templates/privateview.pt:166
+#: cirb.novac:/browser/templates/privateview.pt:170
 msgid "en_tant_que_demandeur_vous_pouvez_generez_une_ou_plusieurs_cles_secondaires_pour_un_ou_plusieurs_mandataires"
 msgstr ""
 "Als aanvrager kunt u één of meerdere secundaire sleutelcodes aanmaken voor "
 "één of meer gemachtigden."
 
-#: cirb.novac:/browser/templates/privateview.pt:169
+#: cirb.novac:/browser/templates/privateview.pt:173
 msgid "un_mandataite_n_a_pas_le_droit_de_creer_une_cle_secondaire"
 msgstr "Een gemachtigde kan geen secundaire sleutelcodes aanmaken."
 
-#: cirb.novac:/browser/templates/privateview.pt:170
+#: cirb.novac:/browser/templates/privateview.pt:174
 msgid "vous_pouvez_revoquer_une_cle_secondaire_a_tout_moment"
 msgstr "U kunt deze secundaire sleutelcodes op elk moment herroepen"
 
-#: cirb.novac:/browser/templates/privateview.pt:173
+#: cirb.novac:/browser/templates/privateview.pt:177
 msgid "vos_cles_secondaires"
 msgstr "Uw secundaire sleutelcodes"
 
-#: cirb.novac:/browser/templates/privateview.pt:176
-#: cirb.novac:/browser/templates/privateview.pt:192
+#: cirb.novac:/browser/templates/privateview.pt:180
+#: cirb.novac:/browser/templates/privateview.pt:196
 msgid "mandataire"
 msgstr "gemachtigde"
 
-#: cirb.novac:/browser/templates/privateview.pt:177
+#: cirb.novac:/browser/templates/privateview.pt:181
 msgid "cle"
 msgstr "sleutelcode"
 
-#: cirb.novac:/browser/templates/privateview.pt:178
+#: cirb.novac:/browser/templates/privateview.pt:182
 msgid "revoquer"
 msgstr "herroepen"
 
-#: cirb.novac:/browser/templates/privateview.pt:188
+#: cirb.novac:/browser/templates/privateview.pt:192
 msgid "ajouter_une_nouvelle_cle_secondaire"
 msgstr "Een nieuwe secundaire sleutelcode aanmaken"
 
 #. Default: "Ajouter"
-#: cirb.novac:/browser/templates/privateview.pt:195
+#: cirb.novac:/browser/templates/privateview.pt:199
 msgid "ajouter"
 msgstr "aanmaken"
 
-#: cirb.novac:/browser/templates/privateview.pt:204
+#: cirb.novac:/browser/templates/privateview.pt:208
 msgid "historique_consultation"
 msgstr "Historiek van raadpleging"
 
-#: cirb.novac:/browser/templates/privateview.pt:208
+#: cirb.novac:/browser/templates/privateview.pt:212
 msgid "name"
 msgstr "naam"
 
-#: cirb.novac:/browser/templates/privateview.pt:35
+#: cirb.novac:/browser/templates/privateview.pt:36
 msgid "Etat d'avancement - Demande de permis d'urbanisme"
 msgstr "Status van de voortgang - aanvraag tot stedenbouwkundige vergunning"
 
-#: cirb.novac:/browser/templates/privateview.pt:40
+#: cirb.novac:/browser/templates/privateview.pt:41
 #: cirb.novac:/browser/templates/listprivateview.pt:29
 msgid "logout"
 msgstr "Afmelden"
 
-#: cirb.novac:/browser/templates/privateview.pt:44
-#: cirb.novac:/browser/templates/publicview.pt:50
+#: cirb.novac:/browser/templates/privateview.pt:45
+#: cirb.novac:/browser/templates/publicview.pt:51
 msgid "informations_generales"
 msgstr "Algemene informatie"
 
-#: cirb.novac:/browser/templates/privateview.pt:47
-#: cirb.novac:/browser/templates/publicview.pt:53
+#: cirb.novac:/browser/templates/privateview.pt:48
+#: cirb.novac:/browser/templates/publicview.pt:54
 #: cirb.novac:/browser/templates/listprivateview.pt:37
 msgid "n_dossier"
 msgstr "Dossiernummer"
 
-#: cirb.novac:/browser/templates/privateview.pt:50
-#: cirb.novac:/browser/templates/publicview.pt:56
+#: cirb.novac:/browser/templates/privateview.pt:51
+#: cirb.novac:/browser/templates/publicview.pt:57
 msgid "reference"
 msgstr "Gemeentelijke referentie"
 
-#: cirb.novac:/browser/templates/privateview.pt:54
-#: cirb.novac:/browser/templates/publicview.pt:60
+#: cirb.novac:/browser/templates/privateview.pt:55
+#: cirb.novac:/browser/templates/publicview.pt:61
 msgid "dossier_depose_a"
 msgstr "Dossier ingediend te"
 
-#: cirb.novac:/browser/templates/privateview.pt:58
-#: cirb.novac:/browser/templates/publicview.pt:64
+#: cirb.novac:/browser/templates/privateview.pt:59
+#: cirb.novac:/browser/templates/publicview.pt:65
 msgid "type_de_permis"
 msgstr "Type vergunning"
 
 #. Default: "Description"
-#: cirb.novac:/browser/templates/privateview.pt:62
-#: cirb.novac:/browser/templates/publicview.pt:68
+#: cirb.novac:/browser/templates/privateview.pt:63
+#: cirb.novac:/browser/templates/publicview.pt:69
 msgid "description"
 msgstr "Voorwerp van de aanvraag"
 
-#: cirb.novac:/browser/templates/privateview.pt:66
-#: cirb.novac:/browser/templates/publicview.pt:43
+#: cirb.novac:/browser/templates/privateview.pt:67
+#: cirb.novac:/browser/templates/publicview.pt:44
 #: cirb.novac:/browser/templates/listprivateview.pt:36
 msgid "address"
 msgstr "Adres"
 
-#: cirb.novac:/browser/templates/privateview.pt:76
-#: cirb.novac:/browser/templates/publicview.pt:78
+#: cirb.novac:/browser/templates/privateview.pt:77
+#: cirb.novac:/browser/templates/publicview.pt:79
 msgid "langue"
 msgstr "Taal"
 
-#: cirb.novac:/browser/templates/privateview.pt:80
-#: cirb.novac:/browser/templates/publicview.pt:82
+#: cirb.novac:/browser/templates/privateview.pt:81
+#: cirb.novac:/browser/templates/publicview.pt:83
 msgid "statut_du_dossier"
 msgstr "Status van het dossier"
 
-#: cirb.novac:/browser/templates/privateview.pt:84
+#: cirb.novac:/browser/templates/privateview.pt:85
 msgid "gestionnaire_du_dossier"
 msgstr "Dossierbeheerder"
 
-#: cirb.novac:/browser/templates/privateview.pt:91
-#: cirb.novac:/browser/templates/publicview.pt:89
+#: cirb.novac:/browser/templates/privateview.pt:92
+#: cirb.novac:/browser/templates/publicview.pt:90
 msgid "parcours"
 msgstr "Traject"
 
-#: cirb.novac:/browser/templates/privateview.pt:94
-#: cirb.novac:/browser/templates/publicview.pt:92
+#: cirb.novac:/browser/templates/privateview.pt:95
+#: cirb.novac:/browser/templates/publicview.pt:93
 msgid "permis"
 msgstr "Dossier volledig verklaard op"
 
-#: cirb.novac:/browser/templates/privateview.pt:98
-#: cirb.novac:/browser/templates/publicview.pt:96
+#: cirb.novac:/browser/templates/privateview.pt:99
+#: cirb.novac:/browser/templates/publicview.pt:97
 msgid "tooltip_enquete_public"
-msgstr "Periode, die doorgaans 15 dagen duurt, tijdens dewelke de burgers de dossiers van de vergunningsaanvraag in kwestie kunnen inzien. Openbare onderzoeken worden georganiseerd door de gemeenten. Ze worden bekendgemaakt aan de hand van rode affisches die aangeplakt worden in de buurt van het goed waarop de vergunningsaanvraag betrekking heeft. Het openbaar onderzoek maakt deel uit van de speciale regelen van openbaarmaking."
+msgstr ""
+"Periode, die doorgaans 15 dagen duurt, tijdens dewelke de burgers de "
+"dossiers van de vergunningsaanvraag in kwestie kunnen inzien. Openbare "
+"onderzoeken worden georganiseerd door de gemeenten. Ze worden bekendgemaakt "
+"aan de hand van rode affisches die aangeplakt worden in de buurt van het "
+"goed waarop de vergunningsaanvraag betrekking heeft. Het openbaar onderzoek "
+"maakt deel uit van de speciale regelen van openbaarmaking."
 
-#: cirb.novac:/browser/templates/privateview.pt:98
-#: cirb.novac:/browser/templates/publicview.pt:96
+#: cirb.novac:/browser/templates/privateview.pt:99
+#: cirb.novac:/browser/templates/publicview.pt:97
 msgid "enquete_publique"
 msgstr "Openbaar onderzoek"
 
-#: cirb.novac:/browser/templates/publicview.pt:38
+#: cirb.novac:/browser/templates/publicview.pt:39
 msgid "detail_de_la_demande"
 msgstr "Detail van de aanvraag"
 
-#: cirb.novac:/browser/templates/publicview.pt:40
+#: cirb.novac:/browser/templates/publicview.pt:41
 msgid "localisation"
 msgstr "Lokalisatie"
 
