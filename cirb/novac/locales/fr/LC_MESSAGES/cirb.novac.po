@@ -121,12 +121,12 @@ msgstr ""
 #. Default: "Ins\303\251rez votre cl\303\251 unique pour activer votre dossier"
 #: cirb.novac:/browser/templates/listprivateview.pt:60
 msgid "Inserez votre cle unique pour activer votre dossier"
-msgstr ""
+msgstr "Insérez votre clé unique pour activer votre dossier"
 
 #. Default: "Toutes les communes"
 #: cirb.novac:/browser/templates/novacview.pt:101
 msgid "Toutes_les_communes"
-msgstr ""
+msgstr "Toutes les communes"
 
 #: cirb.novac:/browser/templates/novacview.pt:102
 msgid "Anderlecht"
@@ -280,12 +280,12 @@ msgstr ""
 #. Default: "termin\303\251"
 #: cirb.novac:/browser/templates/novacview.pt:151
 msgid "termine"
-msgstr ""
+msgstr "Terminé"
 
 #. Default: "planifi\303\251"
 #: cirb.novac:/browser/templates/novacview.pt:155
 msgid "planifie"
-msgstr ""
+msgstr "Planifié"
 
 #: cirb.novac:/browser/templates/novacview.pt:160
 msgid "Non"

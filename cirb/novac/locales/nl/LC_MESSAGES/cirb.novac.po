@@ -89,7 +89,7 @@ msgstr "Publiek"
 
 #: cirb.novac:/browser/publicview.py:68
 msgid "Not able to call this dossier : %s"
-msgstr ""
+msgstr "Onmogelijk om dit dossier op te roepen: %s"
 
 #: cirb.novac:/browser/templates/listprivateview.pt:24
 msgid "vous_etes_maintenant_connecte"
@@ -123,12 +123,12 @@ msgstr ""
 #. Default: "Ins\303\251rez votre cl\303\251 unique pour activer votre dossier"
 #: cirb.novac:/browser/templates/listprivateview.pt:60
 msgid "Inserez votre cle unique pour activer votre dossier"
-msgstr "Voor de unieke sleutelcode in om uw dossier de activeren"
+msgstr "Voer de unieke sleutelcode in om uw dossier de activeren"
 
 #. Default: "Toutes les communes"
 #: cirb.novac:/browser/templates/novacview.pt:101
 msgid "Toutes_les_communes"
-msgstr ""
+msgstr "Alle gemeenten"
 
 #: cirb.novac:/browser/templates/novacview.pt:102
 msgid "Anderlecht"
@@ -136,15 +136,15 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:103
 msgid "Auderghem"
-msgstr ""
+msgstr "Oudergem"
 
 #: cirb.novac:/browser/templates/novacview.pt:104
 msgid "Berchem-Sainte-Agathe"
-msgstr ""
+msgstr "Sint-Agatha-Berchem"
 
 #: cirb.novac:/browser/templates/novacview.pt:105
 msgid "Bruxelles"
-msgstr ""
+msgstr "Brussel"
 
 #: cirb.novac:/browser/templates/novacview.pt:106
 msgid "Etterbeek"
@@ -156,7 +156,7 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:108
 msgid "Forest"
-msgstr ""
+msgstr "Vorst"
 
 #: cirb.novac:/browser/templates/novacview.pt:109
 msgid "Ganshoren"
@@ -164,7 +164,7 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:110
 msgid "Ixelles"
-msgstr ""
+msgstr "Elsene"
 
 #: cirb.novac:/browser/templates/novacview.pt:111
 msgid "Jette"
@@ -176,74 +176,74 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:113
 msgid "Molenbeek-Saint-Jean"
-msgstr ""
+msgstr "Sint-Jans-Molenbeek"
 
 #: cirb.novac:/browser/templates/novacview.pt:114
 msgid "Saint-Gilles"
-msgstr ""
+msgstr "Sint-Gillis"
 
 #: cirb.novac:/browser/templates/novacview.pt:115
 msgid "Saint-Josse-ten-Noode"
-msgstr ""
+msgstr "Sint-Joost-ten-Node"
 
 #: cirb.novac:/browser/templates/novacview.pt:116
 msgid "Schaerbeek"
-msgstr ""
+msgstr "Schaarbeek"
 
 #: cirb.novac:/browser/templates/novacview.pt:117
 msgid "Uccle"
-msgstr ""
+msgstr "Ukkel"
 
 #: cirb.novac:/browser/templates/novacview.pt:118
 msgid "Watermael-Boitsfort"
-msgstr ""
+msgstr "Watermaal-Bosvoorde"
 
 #: cirb.novac:/browser/templates/novacview.pt:119
 msgid "Woluwe-Saint-Lambert"
-msgstr ""
+msgstr "Sint-Lambrechts-Woluwe"
 
 #: cirb.novac:/browser/templates/novacview.pt:120
 msgid "Woluwe-Saint-Pierre"
-msgstr ""
+msgstr "Sint-Pieters-Woluwe"
 
 #. Default: "Tous les types de dossier"
 #: cirb.novac:/browser/templates/novacview.pt:125
 msgid "Tous_les_types_de_dossier"
-msgstr ""
+msgstr "alle dossiertypes"
 
 #. Default: "Abattage d'arbres"
 #: cirb.novac:/browser/templates/novacview.pt:126
 msgid "Abattage_d_arbres"
-msgstr ""
+msgstr "Bomen vellen"
 
 #. Default: "Autorisation communale"
 #: cirb.novac:/browser/templates/novacview.pt:127
 msgid "Autorisation_communale"
-msgstr ""
+msgstr "Gemeentelijke toelating"
 
 #. Default: "Certificat d'urbanisme d\303\251livr\303\251 par le FD"
 #: cirb.novac:/browser/templates/novacview.pt:128
 msgid "Certificat_d_urbanisme_delivre_par_le_FD"
-msgstr ""
+msgstr "Stedenbouwkundig attest afgeleverd door de gemachtigde ambtenaar"
 
 #. Default: "Certificat d'urbanisme priv\303\251"
 #: cirb.novac:/browser/templates/novacview.pt:129
 msgid "Certificat_d_urbanisme_prive"
-msgstr ""
+msgstr "Stedenbouwkundig attest privé aanvrager"
 
 #: cirb.novac:/browser/templates/novacview.pt:130
 msgid "Enseigne"
-msgstr ""
+msgstr "Uithangbord"
 
 #. Default: "Panneau publicitaire"
 #: cirb.novac:/browser/templates/novacview.pt:131
 msgid "Panneau_publicitaire"
-msgstr ""
+msgstr "Publiciteitspaneel"
 
 #. Default: "Permis de lotir"
 #: cirb.novac:/browser/templates/novacview.pt:132
 msgid "Permis_de_lotir"
-msgstr ""
+msgstr "Verkavelingsvergunning"
 
 #. Default: "Permis d'urbanisme d\303\251livr\303\251 par le FD"
 #: cirb.novac:/browser/templates/novacview.pt:133
@@ -253,12 +253,12 @@ msgstr ""
 #. Default: "Permis d'urbanisme priv\303\251"
 #: cirb.novac:/browser/templates/novacview.pt:134
 msgid "Permis_d_urbanisme_prive"
-msgstr ""
+msgstr "Stedenbouwkundige vergunning privé aanvrager"
 
 #. Default: "Permis d'urbanisme priv\303\251 - proc\303\251dure mixte"
 #: cirb.novac:/browser/templates/novacview.pt:135
 msgid "Permis_d_urbanisme_prive_procedure_mixte"
-msgstr ""
+msgstr "Stedenbouwkundige vergunning privé aanvrager - gemengd project"
 
 #. Default: "Permis d'urbanisme unique d\303\251livr\303\251 par le FD"
 #: cirb.novac:/browser/templates/novacview.pt:136
@@ -268,34 +268,34 @@ msgstr ""
 #. Default: "Enqu\303\252te publique"
 #: cirb.novac:/browser/templates/novacview.pt:140
 msgid "Enquete_publique"
-msgstr ""
+msgstr "Openbaar onderzoek"
 
 #: cirb.novac:/browser/templates/novacview.pt:142
 msgid "Oui"
-msgstr ""
+msgstr "Ja"
 
 #. Default: "En cours"
 #: cirb.novac:/browser/templates/novacview.pt:147
 msgid "En_cours"
-msgstr ""
+msgstr "Lopend"
 
 #. Default: "termin\303\251"
 #: cirb.novac:/browser/templates/novacview.pt:151
 msgid "termine"
-msgstr ""
+msgstr "Beëindigd"
 
 #. Default: "planifi\303\251"
 #: cirb.novac:/browser/templates/novacview.pt:155
 msgid "planifie"
-msgstr ""
+msgstr "Gepland"
 
 #: cirb.novac:/browser/templates/novacview.pt:160
 msgid "Non"
-msgstr ""
+msgstr "Neen"
 
 #: cirb.novac:/browser/templates/novacview.pt:161
 msgid "Tous"
-msgstr ""
+msgstr "Alle"
 
 #. Default: "Date Commission de Consertation"
 #: cirb.novac:/browser/templates/novacview.pt:163
@@ -305,12 +305,12 @@ msgstr ""
 #. Default: "de"
 #: cirb.novac:/browser/templates/novacview.pt:164
 msgid "date_from"
-msgstr ""
+msgstr "Van"
 
 #. Default: "\303\240"
 #: cirb.novac:/browser/templates/novacview.pt:165
 msgid "date_to"
-msgstr ""
+msgstr "Tot"
 
 #. Default: "ici un texte pour expliquer ce que l'on voit"
 #: cirb.novac:/browser/templates/novacview.pt:179
@@ -320,7 +320,7 @@ msgstr ""
 #. Default: "Les permis en ligne"
 #: cirb.novac:/browser/templates/novacview.pt:25
 msgid "les_permis_en_ligne"
-msgstr ""
+msgstr "Vergunningen Online"
 
 #: cirb.novac:/browser/templates/novacview.pt:41
 msgid "mon_dossier"
@@ -389,7 +389,7 @@ msgstr "Geannuleerd"
 #. Default: "Tous les filtres"
 #: cirb.novac:/browser/templates/novacview.pt:98
 msgid "Tous_les_filtres"
-msgstr ""
+msgstr "Alle filters"
 
 #: cirb.novac:/browser/templates/privateview.pt:102
 #: cirb.novac:/browser/templates/privateview.pt:114
@@ -438,7 +438,7 @@ msgstr "Beslissing"
 #: cirb.novac:/browser/templates/privateview.pt:143
 #: cirb.novac:/browser/templates/publicview.pt:134
 msgid "tooltip_notification"
-msgstr ""
+msgstr "<p>De stedenbouwkundige vergunning is twee jaar geldig.</p><p>Ze vervalt als de begunstigde binnen deze twee jaar niet duidelij is gestart met de wezenlijke uitvoering ervan of als de ruwbouwwerken niet werden opgestart of eventueel als de stedenbouwkundige lasten niet werden betaald.</p><p>Ook de onderbreking van de werken gedurende meer dan een jaar leidt tot de vervallenverklaring van de vergunning.</p>"
 
 #: cirb.novac:/browser/templates/privateview.pt:143
 #: cirb.novac:/browser/templates/publicview.pt:134
