@@ -37,7 +37,7 @@
 					<th i18n:translate="n_dossier">n_dossier</th>
 					<th i18n:translate="type">type</th>
 					<th i18n:translate="date_d_activation">date_d_activation</th>
-				</tr>				
+				</tr>
 				<tal:block tal:replace="structure python:view.get_table_lines_folder()"></tal:block>
 			</tbody></table>
 			<br />
@@ -75,10 +75,9 @@
 			</tbody></table>
 		</div>
         
-        <tal:block tal:condition="data/error" >
+        <tal:block tal:condition="data/error">
             <div tal:replace="data/msg_error" class="hiddenStructure">error</div>
         </tal:block>
-		
 		
     </div>
 </body>

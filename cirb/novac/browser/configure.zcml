@@ -16,6 +16,7 @@
       title="cirb.novac: PrivateView"
       />
     
+<!-- Resources -->
   <browser:resourceDirectory
       name="cirb.novac.images"
       directory="images"
@@ -29,7 +30,7 @@
       />
 
 
-
+<!-- Novac View -->
   <browser:page
       for="*"
       name="novac_view"
@@ -72,7 +73,7 @@
        for=".novacview.INovacView"
        name="novac_view" />
       
-      
+<!-- Viewlets -->      
    <browser:viewlet
         name="plone.path_bar"
         view=".novacview.NovacView"
@@ -82,24 +83,8 @@
         permission="zope2.View"
         />
         
-	
-   <browser:page
-      for="*"
-      name="wfs_request"
-      class=".novacview.NovacView"
-      attribute="wfs_request"
-      permission="zope2.View"
-       />
 
-   <browser:page
-      for="*"
-      name="wfs_post_request"
-      class=".novacview.NovacView"
-      attribute="wfs_post_request"
-      permission="zope2.View"
-       />
-  
-  <!-- list private folders -->  
+<!-- View used to JQuery -->  
   <browser:page
       for="*"
       name="activate_key"
@@ -115,8 +100,7 @@
       attribute="get_table_lines_folder"
       permission="zope2.View"
        />
-       
-  <!-- private folder -->     
+         
   <browser:page
       for="*"
       name="activate_mandat"

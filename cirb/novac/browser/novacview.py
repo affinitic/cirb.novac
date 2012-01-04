@@ -88,42 +88,4 @@ class NovacView(BrowserView):
         error=False
         msg_error=''        
         return {'private_url':LISTPRIVATE}
-    
-    def wfs_request(self):
-        query_string = self.request.environ['QUERY_STRING']
-        url = query_string.replace("url=","")
-        #url = self.request.form.get('url')
-        #headers = {'User-Agent': 'Novac/1 +http://www.urbanisme.irisnet.be/'}
-        return called_url(url , [{'Content-Type':'text/html'}, {'lang':self.context.Language()}], lang=self.context.Language())
-
-    def wfs_post_request(self):
-        query_string = self.request.environ['QUERY_STRING']
-        #url = query_string.replace("url=","")
-        url = self.request.form.get('url')
-        jsonheader = self.request.form.get('json')
-        lang = self.request.form.get('language')
-        street = self.request.form.get('street')
-        post_code = self.request.form.get('postcode')
-        number = self.request.form.get('number')
-        
-        header=[]
-        header.append({"Content-Type":"application/x-www-form-urlencoded"})
-        if jsonheader:
-            header=[]
-            header.append({"Content-Type":"application/json"})
-            header.append({"ACCEPT":"application/json"})
-        params = {}
-        data = None
-        params['language'] = lang
-        params['address'] = {'street':{'name':street, 'postcode':post_code}, 'number':number}
-        import json
-        try:
-            data = json.dumps(params)
-        except ValueError, e:
-            self.logger.error('Json value error : %s.' % e.message)
-        except SyntaxError, e:
-            self.logger.error('Json bad formatted : %s.' % e.message)
-        return call_post_url(url , header, data)
-
-
-
+   
