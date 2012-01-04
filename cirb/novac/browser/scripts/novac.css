@@ -24,9 +24,9 @@ input[type=button] {width:100px; margin: 5px 0px 5px 90px;}
 
 #copyright_urbis {font-size:10px;padding-left:1em;color:gray;}
 
-#navigation {float: right; width: 227px; height:800px; border: 1px solid #ddd; padding: 0; margin: 5px 5px 5px 0px;}
+#navigation {float: right; width: 227px; height:900px; border: 1px solid #ddd; padding: 0; margin: 5px 5px 5px 0px;}
 
-#texte_introduction {float: left; width:650px; border: solid #ddd 1px; padding: 1em; margin: 5px 5px 2em 5px;}
+#texte_introduction {float: left; width:650px; border: solid #fff 1px; padding: 1em 0; margin: 5px 5px 2em 5px;}
 
 /*
 #results_panel {clear:both; border: solid #ddd 1px; padding: 5px; margin:5px; min-height:100px;}
@@ -212,11 +212,11 @@ hr.gray {color:#ccc;height:1px;margin:1em 0;}
     background-color:#000;
     border:1px solid #fff;
     padding:1em;
-    width:300px;
+    width:500px;
     color:#fff;
     display:none;
-    -moz-box-shadow: 2px 2px 11px #666;
-    -webkit-box-shadow: 2px 2px 11px #666;
+    -moz-box-shadow: 2px 2px 10px #666;
+    -webkit-box-shadow: 2px 2px 10px #666;
 }
 
 .error {

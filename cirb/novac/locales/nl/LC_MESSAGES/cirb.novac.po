@@ -64,7 +64,7 @@ msgstr ""
 
 #: cirb.novac:/browser/privateview.py:48
 msgid "Private"
-msgstr ""
+msgstr "Privé"
 
 #: cirb.novac:/browser/privateview.py:61
 msgid "No url for novac url"
@@ -209,7 +209,7 @@ msgstr "Sint-Pieters-Woluwe"
 #. Default: "Tous les types de dossier"
 #: cirb.novac:/browser/templates/novacview.pt:125
 msgid "Tous_les_types_de_dossier"
-msgstr "alle dossiertypes"
+msgstr "Alle dossiertypes"
 
 #. Default: "Abattage d'arbres"
 #: cirb.novac:/browser/templates/novacview.pt:126
@@ -248,7 +248,7 @@ msgstr "Verkavelingsvergunning"
 #. Default: "Permis d'urbanisme d\303\251livr\303\251 par le FD"
 #: cirb.novac:/browser/templates/novacview.pt:133
 msgid "Permis_d_urbanisme_delivre_par_le_FD"
-msgstr ""
+msgstr "Stedenbouwkundige vergunning afgeleverd door de gemachtigde ambtenaar"
 
 #. Default: "Permis d'urbanisme priv\303\251"
 #: cirb.novac:/browser/templates/novacview.pt:134
@@ -263,7 +263,7 @@ msgstr "Stedenbouwkundige vergunning privé aanvrager - gemengd project"
 #. Default: "Permis d'urbanisme unique d\303\251livr\303\251 par le FD"
 #: cirb.novac:/browser/templates/novacview.pt:136
 msgid "Permis_d_urbanisme_unique_delivre_par_le_FD"
-msgstr ""
+msgstr "Unieke stedenbouwkundige vergunning afgeleverd door de gemachtigde ambtenaar"
 
 #. Default: "Enqu\303\252te publique"
 #: cirb.novac:/browser/templates/novacview.pt:140
@@ -300,7 +300,7 @@ msgstr "Alle"
 #. Default: "Date Commission de Consertation"
 #: cirb.novac:/browser/templates/novacview.pt:163
 msgid "Date_Commission_de_Consertation"
-msgstr ""
+msgstr "Datum Overlegcommissie"
 
 #. Default: "de"
 #: cirb.novac:/browser/templates/novacview.pt:164
@@ -315,7 +315,17 @@ msgstr "Tot"
 #. Default: "ici un texte pour expliquer ce que l'on voit"
 #: cirb.novac:/browser/templates/novacview.pt:179
 msgid "texte_introduction"
-msgstr ""
+msgstr "<p>Op deze kaart vindt u momenteel de stedenbouwkundige en verkavelingsvergunningen en –certificaten in het brussels Gewest vanaf juli 2009, behalve voor de 4 gemeenten die (nog) niet aangesloten zijn op het platform (deze toepassing).</p>
+<p>In een later stadium zullen ook de milieuvergunning, de gemengde vergunning en de unieke vergunning toegevoegd worden.</p>
+<p>&nbsp;</p>
+<p>In het kader van de openbaarheid van bestuur en zoals afgesproken in het regeerakkoord 2009-2014 wil de brusselse gewestregering en de staatssecretaris belast met stedenbouw tegemoet komen aan de vraag van de burgers naar meer transparantie.</p>
+<p>&nbsp;</p>
+<p>Deze toepassing is alvast uniek in zijn soort en een primeur voor België.</p>
+<p>&nbsp;</p>
+<p>Voor meer informatie over de vergunningen contacteert u best de dienst stedenbouw van de betrokken gemeente.</p>
+<p>&nbsp;</p> 
+<p><strong>Wettelijke information</strong></p>
+<p>De gegevens op deze website worden enkel ter informatie gegeven en hebben geen enkele juridische waarde. Het Gewest kan de exactheid en volledigheid van de gegevens niet garanderen en kan dus niet verantwoordelijk gesteld worden voor eender welke rechtstreekse of onrechtstreekse schade die iemand zou lijden."
 
 #. Default: "Les permis en ligne"
 #: cirb.novac:/browser/templates/novacview.pt:25
@@ -336,15 +346,15 @@ msgstr "Adres opzoeken"
 
 #: cirb.novac:/browser/templates/novacview.pt:49
 msgid "street_name:"
-msgstr "Straat"
+msgstr "Straat&nbsp;"
 
 #: cirb.novac:/browser/templates/novacview.pt:50
 msgid "number:"
-msgstr "Nummer"
+msgstr "Nummer&nbsp;"
 
 #: cirb.novac:/browser/templates/novacview.pt:51
 msgid "post_code:"
-msgstr "Postcode "
+msgstr "Postcode&nbsp;"
 
 #: cirb.novac:/browser/templates/novacview.pt:54
 msgid "search"
@@ -438,7 +448,7 @@ msgstr "Beslissing"
 #: cirb.novac:/browser/templates/privateview.pt:143
 #: cirb.novac:/browser/templates/publicview.pt:134
 msgid "tooltip_notification"
-msgstr "<p>De stedenbouwkundige vergunning is twee jaar geldig.</p><p>Ze vervalt als de begunstigde binnen deze twee jaar niet duidelij is gestart met de wezenlijke uitvoering ervan of als de ruwbouwwerken niet werden opgestart of eventueel als de stedenbouwkundige lasten niet werden betaald.</p><p>Ook de onderbreking van de werken gedurende meer dan een jaar leidt tot de vervallenverklaring van de vergunning.</p>"
+msgstr "<p>De stedenbouwkundige vergunning is twee jaar geldig.</p><p>Ze vervalt als de begunstigde binnen deze twee jaar niet duidelijk is gestart met de wezenlijke uitvoering ervan of als de ruwbouwwerken niet werden opgestart of eventueel als de stedenbouwkundige lasten niet werden betaald.</p><p>Ook de onderbreking van de werken gedurende meer dan een jaar leidt tot de vervallenverklaring van de vergunning.</p>"
 
 #: cirb.novac:/browser/templates/privateview.pt:143
 #: cirb.novac:/browser/templates/publicview.pt:134
@@ -575,9 +585,9 @@ msgstr ""
 "Periode, die doorgaans 15 dagen duurt, tijdens dewelke de burgers de "
 "dossiers van de vergunningsaanvraag in kwestie kunnen inzien. Openbare "
 "onderzoeken worden georganiseerd door de gemeenten. Ze worden bekendgemaakt "
-"aan de hand van rode affisches die aangeplakt worden in de buurt van het "
+"aan de hand van rode affiches die aangeplakt worden in de buurt van het "
 "goed waarop de vergunningsaanvraag betrekking heeft. Het openbaar onderzoek "
-"maakt deel uit van de speciale regelen van openbaarmaking."
+"maakt deel uit van de speciale regels van openbaarmaking."
 
 #: cirb.novac:/browser/templates/privateview.pt:99
 #: cirb.novac:/browser/templates/publicview.pt:97

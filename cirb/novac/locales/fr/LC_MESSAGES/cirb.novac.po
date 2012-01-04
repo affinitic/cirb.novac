@@ -222,7 +222,7 @@ msgstr ""
 #. Default: "Certificat d'urbanisme d\303\251livr\303\251 par le FD"
 #: cirb.novac:/browser/templates/novacview.pt:128
 msgid "Certificat_d_urbanisme_delivre_par_le_FD"
-msgstr ""
+msgstr "Certificat d'urbanisme délivré par le fonctionnaire délégué"
 
 #. Default: "Certificat d'urbanisme priv\303\251"
 #: cirb.novac:/browser/templates/novacview.pt:129
@@ -246,7 +246,7 @@ msgstr ""
 #. Default: "Permis d'urbanisme d\303\251livr\303\251 par le FD"
 #: cirb.novac:/browser/templates/novacview.pt:133
 msgid "Permis_d_urbanisme_delivre_par_le_FD"
-msgstr ""
+msgstr "Permis d'urbanisme délivré par le fonctionnaire délégué"
 
 #. Default: "Permis d'urbanisme priv\303\251"
 #: cirb.novac:/browser/templates/novacview.pt:134
@@ -256,12 +256,12 @@ msgstr ""
 #. Default: "Permis d'urbanisme priv\303\251 - proc\303\251dure mixte"
 #: cirb.novac:/browser/templates/novacview.pt:135
 msgid "Permis_d_urbanisme_prive_procedure_mixte"
-msgstr ""
+msgstr "Permis d'urbanisme privé - projet mixte"
 
 #. Default: "Permis d'urbanisme unique d\303\251livr\303\251 par le FD"
 #: cirb.novac:/browser/templates/novacview.pt:136
 msgid "Permis_d_urbanisme_unique_delivre_par_le_FD"
-msgstr ""
+msgstr "Permis d'urbanisme unique délivré par le fonctionnaire délégué"
 
 #. Default: "Enqu\303\252te publique"
 #: cirb.novac:/browser/templates/novacview.pt:140
@@ -303,17 +303,26 @@ msgstr ""
 #. Default: "de"
 #: cirb.novac:/browser/templates/novacview.pt:164
 msgid "date_from"
-msgstr ""
+msgstr "de"
 
 #. Default: "\303\240"
 #: cirb.novac:/browser/templates/novacview.pt:165
 msgid "date_to"
-msgstr ""
+msgstr "à"
 
 #. Default: "ici un texte pour expliquer ce que l'on voit"
 #: cirb.novac:/browser/templates/novacview.pt:179
 msgid "texte_introduction"
-msgstr ""
+msgstr "<p>Cette carte montre tous les permis et certificats d'urbanisme et de lotir en région bruxelloise à partir de juillet 2009, excepté les 4 communes non-connectées à la plate-forme. Ultérieurement, les permis d'environnement, les permis mixtes et les permis uniques y seront ajoutés.</p>
+<p>&nbsp;</p>
+<p>Afin d'améliorer la transparence, comme convenu dans l'accord de gouvernement 2009-2014, le gouvernement bruxellois et le Secrétaire d'&Eacute;tat en charge de l'urbanisme veulent ainsi répondre aux attentes des citoyens et entreprises.</p>
+<p>&nbsp;</p>
+<p>Cette application est unique en son genre et est la première de ce type en Belgique.</p>
+<p>&nbsp;</p>
+<p>Pour de plus amples informations sur les permis, le mieux est de contacter le service d'urbanisme de la commune en question.</p>
+<p>&nbsp;</p>
+<p><strong>Informations légales</strong></p>
+<p>Les données et le matériel publiées sur ce site sont données uniquement à titre d'information et n'ont aucun caractère légal. La Région n'est pas en mesure de garantir le caractère exact et complet de ces informations et de ce fait, elle ne peut être tenue responsable pour quelque motif que ce soit à des dommages directs ou indirects que le citoyen devraient subir.</p>"
 
 #. Default: "Les permis en ligne"
 #: cirb.novac:/browser/templates/novacview.pt:25
@@ -334,15 +343,15 @@ msgstr "Recherche d'adresse"
 
 #: cirb.novac:/browser/templates/novacview.pt:49
 msgid "street_name:"
-msgstr "Rue&nbsp;:"
+msgstr "Rue&nbsp;"
 
 #: cirb.novac:/browser/templates/novacview.pt:50
 msgid "number:"
-msgstr "Numéro&nbsp;:"
+msgstr "Numéro&nbsp;"
 
 #: cirb.novac:/browser/templates/novacview.pt:51
 msgid "post_code:"
-msgstr "Code postal&nbsp;:"
+msgstr "Code postal&nbsp;"
 
 #: cirb.novac:/browser/templates/novacview.pt:54
 msgid "search"
@@ -436,7 +445,9 @@ msgstr "Décision"
 #: cirb.novac:/browser/templates/privateview.pt:143
 #: cirb.novac:/browser/templates/publicview.pt:134
 msgid "tooltip_notification"
-msgstr ""
+msgstr "<p>Le permis d'urbanisme a une durée de validité de deux ans.</p>
+<p>Le permis est périmé si, dans les deux années de sa délivrance, le bénéficiaire n'a pas entamé sa réalisation de façon significative ou s'il n'a pas commencé les travaux d'édification de gros oeuvres ou encore s'il n'a pas, le cas échéant, mis en oeuvre les charges d'urbanisme.</p>
+<p>L'interruption des travaux pendant plus d'un an entraîne également la péremption du permis.<p>"
 
 #: cirb.novac:/browser/templates/privateview.pt:143
 #: cirb.novac:/browser/templates/publicview.pt:134
