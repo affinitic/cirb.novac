@@ -111,7 +111,12 @@ ul.tabbernav li.tabberactive a:hover
 }
 
 .tabbertab table td {
-  vertical-align: top;
+vertical-align: top;
+}
+
+.tabbertab table td a {
+background: transparent url("++resource++cirb.novac.images/external_link.png") center right no-repeat;
+padding-right:20px;
 }
 
 

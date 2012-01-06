@@ -75,7 +75,7 @@ function showPointInfo(response) {
 		    result += "<div class='tabbertab' title='Permis ";
 		    result += i+1;
 		    result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Type de permis :</td><td>";
-		    result += (getElements(permits[i], "nova", "TYPEDOSSIERFR")[0])?$(getElements(permits[i], "nova", "TYPEDOSSIERFR")[0]).text()+ " ":"";
+		    result += (getElements(permits[i], "nova", "TYPEDOSSIERFR")[0])?$(getElements(permits[i], "nova", "TYPEDOSSIERFR")[0]).text().replace("FD","fonctionnaire délégué")+ " ":"";
 		    result +="</td><tr></tr><td>Adresse :</td><td>";
 		    result += (getElements(permits[i], "nova", "STREETNAMEFR")[0])?$(getElements(permits[i], "nova", "STREETNAMEFR")[0]).text()+ " ":"";
 
