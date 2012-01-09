@@ -202,3 +202,12 @@ def json_processing(json_from_ws):
         logger.error(msg_error)
         return False
     return jsondata
+
+
+def date_milli_to_(date_milli):
+    if date_milli:
+        from datetime import datetime
+        d = datetime.fromtimestamp(float(date_milli)/1000)
+        return d.strftime("%d/%m/%y %H:%M")
+    else:
+        return ""
