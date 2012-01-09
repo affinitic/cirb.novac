@@ -125,4 +125,14 @@
       permission="zope2.View"
        />
        
+
+<!-- Happy Page -->
+  <browser:page
+      for="*"
+      name="happy"
+      class=".happy.Happy"
+      template="templates/happy.pt"
+      permission="zope2.View"
+      />
+       
 </configure>

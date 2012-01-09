@@ -1,0 +1,8 @@
+<head>
+    <title> Happy Page Nova Citoyen </title>
+</head>
+<body>
+    <div tal:define="happy view/happy">
+        <div tal:content="happy">happy</div>
+    </div>
+</body>
