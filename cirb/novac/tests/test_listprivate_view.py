@@ -28,7 +28,7 @@ class TestListprivateView(unittest.TestCase):
         
         #test address
         jsondata = [{"municipality":"Schaerbeek"}]
-        results = utils.update_dossiers(jsondata, table_ids, not_available) 
+        results = utils.update_dossiers(jsondata, table_ids, not_available, True) 
         self.assertFalse(results[0]['address'] == "")
         
     
