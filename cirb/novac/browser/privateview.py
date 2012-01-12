@@ -116,7 +116,8 @@ class PrivateView(NovacView):
                          "statusPermit","codeDossier", "pointCC","dateCC",
                          "languageRequest","dateDossierComplet","dateNotifDecision",
                          "dateDeadline","municipalityOwner","specificReference", 
-                         "manager", "isOwner", "x", "y"]
+                         "manager", "isOwner", "x", "y", 
+                         "gestionnaire_Name", "gestionnaire_Phone", "gestionnaire_Email", "avisFd"]
         
         return Dossier(jsondata, table_ids, not_available, has_address=True)
              
