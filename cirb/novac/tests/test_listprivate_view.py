@@ -21,14 +21,13 @@ class TestListprivateView(unittest.TestCase):
                      "typeDossier":"Permis d'urbanisme privé","x":0.0,"y":0.0,"zipcode":"1030"}]
         
         not_available = "not_available"
-        results = utils.update_dossiers(jsondata, table_ids, not_available)   
+        results = utils.update_dossiers(jsondata, table_ids, not_available)
         self.assertTrue(isinstance(results, list))
         self.assertTrue(isinstance(results[0], dict))
         self.assertTrue(results[0]['manager'] == not_available)
         
         #test address
         jsondata = [{"municipality":"Schaerbeek"}]
-        results = utils.update_dossiers(jsondata, table_ids, not_available, True) 
+        results = utils.update_dossiers(jsondata, table_ids, not_available, True)
         self.assertFalse(results[0]['address'] == "")
         
-    

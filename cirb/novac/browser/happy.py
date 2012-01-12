@@ -25,4 +25,19 @@ class Happy(BrowserView):
         return getToolByName(self.context, 'portal_url').getPortalObject()
     
     def happy(self):
-        return 'happy'
+        results={}
+        results['sso'] = self.get_sso()
+        results['waws'] = self.get_waws()
+        results['urbis'] = self.get_urbis()        
+        return results
+    
+    def get_sso(self):
+        return "sso"
+    
+    def get_waws(self):
+        return "waws"
+    
+    def get_urbis(self):
+        return "urbis"    
+    
+    

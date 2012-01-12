@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+import os
 from zope.interface import implements, Interface
 
 from Products.Five import BrowserView
@@ -34,10 +35,30 @@ class NovacView(BrowserView):
         self.request = request
         self.logger = logging.getLogger('cirb.novac.browser.novacview')
         registry = getUtility(IRegistry)
-        self.novac_url = registry['cirb.novac.novac_url']
-        self.urbis_url = registry['cirb.urbis.urbis_url']
-        self.urbis_cache_url = registry['cirb.urbis.urbis_cache_url']
-        self.rest_service = registry['cirb.novac.rest_service']
+        novac_url = os.environ.get("novac_url", None)
+        if novac_url:
+            self.novac_url = novac_url
+        else:
+            self.novac_url = registry['cirb.novac.novac_url']
+        
+        urbis_url = os.environ.get("urbis_url", None)
+        if urbis_url:
+            self.urbis_url = urbis_url
+        else:
+            self.urbis_url = registry['cirb.urbis.urbis_url']
+            
+        urbis_cache_url = os.environ.get("urbis_cache_url", None)
+        if urbis_cache_url:
+            self.urbis_cache_url = urbis_cache_url
+        else:
+            self.urbis_cache_url = registry['cirb.urbis.urbis_cache_url']
+        
+        rest_service = os.environ.get("rest_service", None)
+        if rest_service:
+            self.rest_service = rest_service
+        else:
+            self.rest_service = registry['cirb.novac.rest_service']
+            
         self.json_file = registry['cirb.novac.json_file']
             
 
