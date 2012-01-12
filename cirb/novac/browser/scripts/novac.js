@@ -94,7 +94,7 @@ function showPointInfo(response) {
 			result +='</td><tr></tr><tr><td><a target="_blank" href="';
 			result += (permits[i].getAttribute("fid"))?absolute_url+"/"+publicurl+"?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
 
-			result+= '">Pour en savoir plus...<a/></td></tr></table></div>';
+			result+= '">Pour en savoir plus...</a></td></tr></table></div>';
 
 
 		}else{
@@ -122,7 +122,7 @@ function showPointInfo(response) {
 			result += '</td><tr></tr><tr><td><a target="_blank" href="';
 			result += (permits[i].getAttribute("fid"))?absolute_url+"/"+publicurl+"?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
 
-			result += '">Meer informatie...<a/></td></tr></table></div>';
+			result += '">Meer informatie...</a></td></tr></table></div>';
 		}
 	}
 
