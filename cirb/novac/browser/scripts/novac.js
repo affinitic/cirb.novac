@@ -241,9 +241,7 @@ function searchAddress(street, number, post_code){
 
     var parameters = {
 	    language: $('#current_language').html(),
-        street: street,
-		postcode: post_code,
-		number: number
+        address: street
     }    
 
     var my_url = gis_url+"utils/localize/getaddresses/";
@@ -251,10 +249,9 @@ function searchAddress(street, number, post_code){
         type: "POST",
         url: my_url,
         //data: "{'language':'"+$('#current_language').html()+"','address':{'street':{'name':'"+street+"','postcode':'"+post_code+"'},'number':'"+number+"'}}",
-        data: '{"language":"'+$('#current_language').html()+'","address":"'+street+'"}',
-        dataType: "text",
-        success:  function(json_data) {
-            var address_data = $.parseJSON(json_data);
+        data: parameters,
+        dataType: "json",
+        success:  function(address_data) {
             var x =Number(address_data[0].point.x);
             var y =Number(address_data[0].point.y);
             if(!(isNaN(x) || isNaN(y)))
