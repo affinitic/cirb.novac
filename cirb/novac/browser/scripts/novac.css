@@ -3,10 +3,6 @@
 
 #portal-personaltools-wrapper {display:none;}
 
-.template-novac_view #portal-breadcrumbs,
-.template-public #portal-breadcrumbs,
-.template-listprivate #portal-breadcrumbs,
-.template-private #portal-breadcrumbs {font-size:.65em;}
 
 div#ws_urbis, div#ws_waws {height:0px;width:0px;overflow:hidden;}
 
