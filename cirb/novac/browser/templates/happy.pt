@@ -1,8 +1,8 @@
 <head>
     <title> Happy Page Nova Citoyen </title>
 </head>
-<body>
-    <div tal:define="happy view/happy">
-        <div tal:content="happy">happy</div>
+<body tal:define="items view/happy">
+    <div tal:repeat="line items">
+        <span tal:content="python:line['status']"></span>&nbsp;<span tal:content="python:line['message']"></span>
     </div>
 </body>
