@@ -28,10 +28,10 @@ function map_init() {
     for (var i=0; i<16; ++i) {
         matrixIds[i] = "EPSG:31370:" + i;
     }
-    var ortho2009 = new OpenLayers.Layer.WMTS({
-        name: "urbis ortho 2009",
+    var ortho = new OpenLayers.Layer.WMTS({
+        name: "urbis ortho",
         url: gis_url+"geoserver/gwc/service/wmts",
-        layer: "urbis:ortho2009",
+        layer: "urbisORTHO",
         matrixSet: "EPSG:31370",
         matrixIds: matrixIds,
         serverResolutions: [1112.61305859375, 556.306529296875, 278.1532646484375, 139.07663232421876, 69.53831616210938, 34.76915808105469, 17.384579040527345, 8.692289520263673, 4.346144760131836, 2.173072380065918, 1.086536190032959, 0.5432680950164795, 0.2716340475082398, 0.1358170237541199, 0.06790851187705994, 0.03395425593852997],
@@ -40,7 +40,7 @@ function map_init() {
         opacity: 1,
         isBaseLayer: true
     });
-    map.addLayer(ortho2009);
+    map.addLayer(ortho);
     var urbis_base = new OpenLayers.Layer.WMTS({
         name: "urbis base map",
         url: gis_url+"geoserver/gwc/service/wmts",
@@ -93,11 +93,11 @@ function map_init() {
         trigger: function(){
             if (urbis_base.getVisibility() == true) {
                 urbis_base.setVisibility(false);
-                ortho2009.setVisibility(true);
+                ortho.setVisibility(true);
                 $(this.panel_div).removeClass("ortho");
             }
             else {
-                ortho2009.setVisibility(false);
+                ortho.setVisibility(false);
                 urbis_base.setVisibility(true);
                 $(this.panel_div).addClass("ortho");
             }
