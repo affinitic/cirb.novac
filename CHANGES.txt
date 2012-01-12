@@ -4,7 +4,7 @@ Changelog
 1.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Take webservices url form environnement or registry if env is empty.
 
 
 1.0 (2012-01-06)
