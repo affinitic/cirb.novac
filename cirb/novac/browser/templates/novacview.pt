@@ -46,7 +46,7 @@
                     <div>
                         <tal:block i18n:translate="address (ex: 21 avenue des arts)">adresse (ex: 21 avenue des arts)</tal:block><br />
                         <input type="text" id="street" /> <br />
-                        <input type="button" id="search_address_button" i18n:attributes="value search"/>
+                        <div><div id="spinner"></div><input type="button" id="search_address_button" i18n:attributes="value search"/></div>
                     </div>
                     <h3 class="slice-3"><a href="#" i18n:translate="filtres">filtres</a></h3>
                     <div class="filter">

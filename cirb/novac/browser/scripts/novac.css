@@ -145,7 +145,15 @@ table.filter td{border-width:5px; padding:.4em; border-color:transparent;}
 
 #street, #number, #post_code { border: 1px solid #ccc; width: 200px;}
 #search_address_button, #reset_filter { border: 1px solid #4C4C4C; cursor:pointer; }
-
+#search_address_button { width: 60px; float: right; margin-top: 10px;}
+#spinner {
+    background: #fff url(++resource++cirb.novac.images/ajax-loader.gif) no-repeat top left;
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin: 4px;
+    visibility: hidden;
+}
 
 /*** FILTERS ***/
 
@@ -218,3 +226,4 @@ hr.gray {color:#ccc;height:1px;margin:1em 0;}
 .error {
     color: #f00;
 }
+
