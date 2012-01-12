@@ -1,0 +1,15 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           i18n_domain="cirb">
+
+    <include package="plonetheme.urbanisme"/>
+
+    <browser:viewlet
+        name="plone.path_bar"
+        layer="plonetheme.urbanisme.browser.interfaces.IThemeSpecific"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".browser.viewlets.BreatcrumbViewlet"
+        permission="zope2.Public"
+        />
+
+</configure>

@@ -72,17 +72,8 @@
    <browser:defaultView
        for=".novacview.INovacView"
        name="novac_view" />
-      
-<!-- Viewlets -->      
-   <browser:viewlet
-        name="plone.path_bar"
-        view=".novacview.NovacView"
-        manager="plone.app.layout.viewlets.interfaces.IAboveContent"
-        layer=".interfaces.INovacCustomization"
-        class=".viewlets.BreatcrumbViewlet"
-        permission="zope2.View"
-        />
-        
+
+    <!-- Viewlts -->
 
 <!-- View used to JQuery -->  
   <browser:page

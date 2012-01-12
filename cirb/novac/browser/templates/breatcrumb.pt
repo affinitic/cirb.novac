@@ -1,6 +1,7 @@
 <div id="portal-breadcrumbs"
      i18n:domain="plone"
      tal:define="breadcrumbs view/breadcrumbs;
+                 base_view   view/baseView;
                  is_rtl view/is_rtl">
 
     <span id="breadcrumbs-you-are-here" i18n:translate="you_are_here">You
@@ -20,14 +21,14 @@ are here:</span>
                               url crumb/absolute_url;
                               title crumb/Title">
             <a href="#"
-               tal:condition="view/view/view_name"
+               tal:condition="base_view/view_name"
                tal:omit-tag="not: url"
                tal:attributes="href url"
                tal:content="title">
                 crumb
             </a>
             <span 
-               tal:condition="not: view/view/view_name"
+               tal:condition="not: base_view/view_name"
                tal:content="title">
                 crumb
             </span>
@@ -37,22 +38,22 @@ are here:</span>
          </tal:item>
     </span>
     
-    <tal:block tal:condition="view/view/second_level">
+    <tal:block tal:condition="base_view/second_level">
         <span class="breadcrumbSeparator">
             <tal:ltr>&rsaquo;</tal:ltr>
         </span>
         <a href="#"
                tal:attributes="href string:${context/absolute_url}/listprivate"
-               tal:content="view/view/second_level">
+               tal:content="base_view/second_level">
                 crumb
             </a>
     </tal:block>
     
-    <tal:block tal:condition="view/view/view_name">
+    <tal:block tal:condition="base_view/view_name">
         <span class="breadcrumbSeparator">
             <tal:ltr>&rsaquo;</tal:ltr>
         </span>
-        <span  tal:content="view/view/view_name">to change</span>
+        <span  tal:content="base_view/view_name">to change</span>
     </tal:block>
 
 </div>
