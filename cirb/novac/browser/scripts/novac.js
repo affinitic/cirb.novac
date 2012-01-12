@@ -244,10 +244,9 @@ function searchAddress(street, number, post_code){
         street: street,
 		postcode: post_code,
 		number: number
-    }
-    
+    }    
 
-    var my_url = gis_url+"services/urbis/Rest/Localize/getaddresses";
+    var my_url = gis_url+"utils/localize/getaddresses";
     $.ajax({
         type: "POST",
         url: my_url,
@@ -256,8 +255,8 @@ function searchAddress(street, number, post_code){
         dataType: "text",
         success:  function(json_data) {
             var address_data = $.parseJSON(json_data);
-            var x =Number(address_data.result[0].point.x);
-            var y =Number(address_data.result[0].point.y);
+            var x =Number(address_data[0].point.x);
+            var y =Number(address_data[0].point.y);
             if(!(isNaN(x) || isNaN(y)))
             {
                 map.setCenter(new OpenLayers.LonLat(x,y), 6);
@@ -269,7 +268,6 @@ function searchAddress(street, number, post_code){
             
         }
     });
-    
 
 }
 
