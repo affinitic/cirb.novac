@@ -246,7 +246,7 @@ function searchAddress(street, number, post_code){
 		number: number
     }    
 
-    var my_url = gis_url+"utils/localize/getaddresses";
+    var my_url = gis_url+"utils/localize/getaddresses/";
     $.ajax({
         type: "POST",
         url: my_url,
