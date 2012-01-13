@@ -244,6 +244,8 @@ function searchAddress(street, number, post_code){
         address: street
     }    
 
+    $("#spinner").css("visibility","visible")
+
     var my_url = gis_url+"utils/localize/getaddresses/";
     $.ajax({
         type: "POST",
@@ -260,9 +262,10 @@ function searchAddress(street, number, post_code){
 				addressResult.removeAllFeatures();
 				addressResult.addFeatures([new OpenLayers.Feature.Vector(new OpenLayers.Geometry.Point(x,y))]);
             }
+            $("#spinner").css("visibility","hidden")
         },
         error:  function(data) {
-            
+            $("#spinner").css("visibility","hidden")
         }
     });
 
