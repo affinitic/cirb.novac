@@ -314,15 +314,15 @@ msgstr "à"
 #: cirb.novac:/browser/templates/novacview.pt:179
 msgid "texte_introduction"
 msgstr ""
-"<p>Cette carte montre tous les permis et certificats d'urbanisme et de lotir en région bruxelloise à partir de juillet 2009, excepté les 4 communes non-connectées à la plate-forme : Bruxelles-Ville, Koekelberg, Woluwe-Saint-Lambert et Woluwe-Saint-Pierre. Dans ces communes, vous trouverez que des permis et certificats traités par la Région.</p>"
+"<p>Cette carte montre tous les permis et certificats d'urbanisme et de lotir en Région bruxelloise à partir de juillet 2009, excepté les 4 communes non-connectées à la plate-forme : Bruxelles-Ville, Koekelberg, Woluwe-Saint-Lambert et Woluwe-Saint-Pierre. Dans ces communes, vous ne trouverez que des permis et certificats traités par la Région.</p>"
 "<p>Ultérieurement, les permis d'environnement, les permis mixtes et les permis uniques y seront ajoutés.</p>"
-"<p>Afin d'améliorer la transparence, comme convenu dans l'accord de gouvernement 2009-2014, le gouvernement bruxellois et le Secrétaire d'&Eacute;tat en charge de l'urbanisme veulent ainsi répondre aux attentes des citoyens et entreprises.</p>"
+"<p>Afin d'améliorer la transparence, comme convenu dans l'accord de Gouvernement 2009-2014, le Gouvernement bruxellois et le Secrétaire d'&Eacute;tat en charge de l'Urbanisme veulent ainsi répondre aux attentes des citoyens et entreprises.</p>"
 "<p>Cette application est unique en son genre et est la première de ce type en Belgique.</p>"
 "<p>Pour de plus amples informations sur les permis, le mieux est de contacter "
 "<a href='http://www.urbanisme.irisnet.be/fr/les-commissions-de-concertation?set_language=fr'>"
 "le service d'urbanisme de la commune en question</a>.</p>"
 "<p><strong>Informations l&eacute;gales</strong></p>"
-"<p>Les données et le matériel publiées sur ce site sont données uniquement à titre d'information et n'ont aucun caractère légal. La Région n'est pas en mesure de garantir le caractère exact et complet de ces informations et de ce fait, elle ne peut être tenue responsable pour quelque motif que ce soit à des dommages directs ou indirects que le citoyen devraient subir.</p>"
+"<p>Les données et le matériel publiés sur ce site sont donnés uniquement à titre d'information et n'ont aucun caractère légal. La Région de Bruxelles-Capitale n'est pas en mesure de garantir le caractère exact et complet de ces informations et, de ce fait, ne peut être tenue responsable pour quelque motif que ce soit des dommages directs ou indirects que le citoyen devrait subir.</p>"
 
 #. Default: "Les permis en ligne"
 #: cirb.novac:/browser/templates/novacview.pt:25
