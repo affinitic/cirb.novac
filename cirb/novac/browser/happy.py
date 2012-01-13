@@ -7,7 +7,7 @@ from Products.CMFCore.utils import getToolByName
 from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
 
-import logging, os, urllib, urllib2, socket
+import logging, os, urllib, urllib2, socket, json
 from urllib2 import URLError, HTTPError
 from cirb.novac.browser.publicview import PUB_DOSSIER
 
@@ -71,12 +71,14 @@ class Happy(BrowserView):
     
     def get_urbis(self):        
         url = "%s/gis/geoserver/nova/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=CLUSTER3KM&outputFormat=json" % self.context.portal_url()
-        json = get_service(url)
-        try:
-            resutls = json_proccessing(json)
-            if resutls.get('status', '') == 'ko':
-                return resutls
-            return resutls.features
+        res_json = get_service(url)
+        if res_json.get('status', '') == 'ko':
+            return resutls
+        resutls = json_proccessing(res_json.get("message"))
+        tot = 0
+        for feature in resutls.get('features'):
+	    tot += feature.get('properties').get('NBR_DOSSIERS')
+	return tot
             
     
     def access_database(self):
@@ -114,9 +116,11 @@ def get_service(url, headers="", params=""):
         socket.setdefaulttimeout(oldtimeout)
     return {'status':'ok', "code":'200', 'message': results}
     
-def json_proccessing(json):
+def json_proccessing(res_json):
+    logger = logging.getLogger('cirb.novac.happy')
+    print res_json
     try:
-        jsondata = json.loads(json)
+        jsondata = json.loads(res_json)
     except ValueError, e:
         msg_error = 'Json value error : %s.' % e.message
         logger.error(msg_error)
