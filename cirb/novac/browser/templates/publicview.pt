@@ -29,7 +29,6 @@
 		
 		    <div class="hiddenStructure" id="x" tal:content="json/results/x">x</div>
 			<div class="hiddenStructure" id="y" tal:content="json/results/y">y</div>
-			<div class="hiddenStructure" id="ws_urbis"  tal:content="urls/urbis_url" > ws_urbis </div>
 		    <div class="hiddenStructure" id="ws_waws" tal:content="urls/novac_url"> novac_url </div>
 			<div class="hiddenStructure" id="json" tal:content="json/data"> data </div>
 			<div class="hiddenStructure" id="portal_url" tal:content="context/portal_url">portal_url</div>	
