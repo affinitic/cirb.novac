@@ -65,4 +65,5 @@ class Happy(BrowserView):
     def get_urbis(self):
         return "urbis"    
     
-    
+    def test_database(self):
+        return "db"

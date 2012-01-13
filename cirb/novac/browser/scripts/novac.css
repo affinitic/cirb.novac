@@ -100,7 +100,7 @@ table.filter td{border-width:5px; padding:.4em; border-color:transparent;}
 
 /* ACCORDION STYLE */
 
-#accordion {
+#content #navigation #accordion {
 	padding: 0;
 	margin: 0;
 }
@@ -110,7 +110,7 @@ table.filter td{border-width:5px; padding:.4em; border-color:transparent;}
 	font-size: .75em;
 }
 
-#accordion h3 {
+#content #navigation #accordion h3 {
 	background-color: #eee;
 	text-align: right;
 	font-size: 0.9em;
@@ -120,13 +120,13 @@ table.filter td{border-width:5px; padding:.4em; border-color:transparent;}
 	border-bottom: 1px solid #cc071e;
 }
 
-#accordion a {
+#content #navigation #accordion h3 a {
 	text-decoration: none;
 	padding:1em 0;
-	color: #222;
+	color: #222 !important;
     border-bottom: 0px solid #ccc;
 }
-#accordion a:hover {
+#content #navigation #accordion a:hover {
 	text-decoration:underline;
 	color:#000;
 }
