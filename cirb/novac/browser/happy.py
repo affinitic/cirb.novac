@@ -19,31 +19,13 @@ class Happy(BrowserView):
     def __init__(self, context, request):
 	self.context = context
 	self.request = request
-	self.logger = logging.getLogger('cirb.novac.happy')
-	registry = getUtility(IRegistry)
+	self.logger = logging.getLogger('cirb.novac.happy')	
 	novac_url = os.environ.get("novac_url", None)
 	if novac_url:
 	    self.novac_url = novac_url
 	else:
+	    registry = getUtility(IRegistry)
 	    self.novac_url = registry['cirb.novac.novac_url']
-
-	urbis_url = os.environ.get("urbis_url", None)
-	if urbis_url:
-	    self.urbis_url = urbis_url
-	else:
-	    self.urbis_url = registry['cirb.urbis.urbis_url']
-
-	urbis_cache_url = os.environ.get("urbis_cache_url", None)
-	if urbis_cache_url:
-	    self.urbis_cache_url = urbis_cache_url
-	else:
-	    self.urbis_cache_url = registry['cirb.urbis.urbis_cache_url']
-
-	rest_service = os.environ.get("rest_service", None)
-	if rest_service:
-	    self.rest_service = rest_service
-	else:
-	    self.rest_service = registry['cirb.novac.rest_service']        
 
     @property
     def portal_catalog(self):
@@ -84,7 +66,7 @@ class Happy(BrowserView):
 	url = "%s/gis/geoserver/nova/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=CLUSTER3KM&outputFormat=json" % self.context.portal_url()
 	res_json = get_service(url)
 	if res_json.get('status', '') == 'ko':
-	    return res_json
+	    return  {'status':res_json.get('status'),  'message':'Urbis not found. %s.' % (res_json.get("message"))}
 	resutls = json_proccessing(res_json.get("message"))
 	tot = 0
 	for feature in resutls.get('features'):

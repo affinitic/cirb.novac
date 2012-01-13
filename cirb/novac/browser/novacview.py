@@ -33,33 +33,14 @@ class NovacView(BrowserView):
     def __init__(self, context, request):
         self.context = context
         self.request = request
-        self.logger = logging.getLogger('cirb.novac.browser.novacview')
-        registry = getUtility(IRegistry)
+        self.logger = logging.getLogger('cirb.novac.browser.novacview')        
         novac_url = os.environ.get("novac_url", None)
         if novac_url:
             self.novac_url = novac_url
         else:
-            self.novac_url = registry['cirb.novac.novac_url']
+            registry = getUtility(IRegistry)
+            self.novac_url = registry['cirb.novac.novac_url']        
         
-        urbis_url = os.environ.get("urbis_url", None)
-        if urbis_url:
-            self.urbis_url = urbis_url
-        else:
-            self.urbis_url = registry['cirb.urbis.urbis_url']
-            
-        urbis_cache_url = os.environ.get("urbis_cache_url", None)
-        if urbis_cache_url:
-            self.urbis_cache_url = urbis_cache_url
-        else:
-            self.urbis_cache_url = registry['cirb.urbis.urbis_cache_url']
-        
-        rest_service = os.environ.get("rest_service", None)
-        if rest_service:
-            self.rest_service = rest_service
-        else:
-            self.rest_service = registry['cirb.novac.rest_service']
-            
-        self.json_file = registry['cirb.novac.json_file']
             
 
     @property
@@ -82,23 +63,9 @@ class NovacView(BrowserView):
         msg_error = ""
         if not self.novac_url:
             error=True
-            msg_error=_(u'No url for cirb.novac.novac_url')
-        # depends of cirb.urbis eggs
-        if not self.urbis_url:
-            error=True
-            msg_error=_(u'No url for cirb.urbis.urbis_url')
-        if not self.urbis_cache_url:
-            error=True
-            msg_error=_(u'No url for cirb.urbis.urbis_cache_url')
-        if not self.json_file:
-            error=True
-            msg_error=_(u'No json_file') 
+            msg_error=_(u'No url for cirb.novac.novac_url')        
             
-        return {'novac_url':self.novac_url, 
-                'urbis_url':self.urbis_url,
-                'urbis_cache_url':self.urbis_cache_url,
-                'rest_service':self.rest_service,
-                'json_file':self.json_file,
+        return {'novac_url':self.novac_url,              
                 'error':error,
                 'msg_error':msg_error}
           

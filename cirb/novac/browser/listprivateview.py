@@ -35,6 +35,7 @@ class ListprivateView(NovacView):
     def __init__(self, context, request):
         super(ListprivateView, self).__init__(context, request)
         self.logger = logging.getLogger('cirb.novac.browser.listprivateview')
+        self.lang = self.context.Language()
 
     @property
     def portal_catalog(self):
@@ -70,14 +71,17 @@ class ListprivateView(NovacView):
         # TODO return 'Bad Key' if 500 is returned by ws
         key = urllib.quote_plus(self.request.form.get('key'))
         #query_string = self.request.environ['QUERY_STRING']
-        #key = urllib.quote_plus(query_string.replace('key=',''))        
-        user = get_user(self.request, self.context)
+        #key = urllib.quote_plus(query_string.replace('key=',''))
+        try:
+            user = get_user(self.request, self.context)
+        except:
+            user = get_user(self.request)
         if not user:
             self.logger.error('User is not logged')
         self.logger.info("key : %s - user : %s" % (key, user['id']))
         activate_url = '%s%s%s&RNHEAD=%s' %(self.novac_url,ACTIVATION,key, user['id'])
         #activate_url = activate_url.encode('utf-8')
-        headers = [{'Content-Type':'application/xml'}, {'RNHEAD':user['id']}, {'Accept-Language':'%s-be' % self.context.Language()}]
+        headers = [{'Content-Type':'application/xml'}, {'RNHEAD':user['id']}, {'Accept-Language':'%s-be' % self.lang}]
         results = call_put_url(activate_url, headers, 'key=%s&RNHEAD=%s' % (key, user['id']))
         if not results:
             msg_error = _(u"Not able to activate a dossier.")
@@ -86,8 +90,8 @@ class ListprivateView(NovacView):
     
     def get_table_lines_folder(self):
         #errn = urllib.quote(self.request.form.get('errn'))
-        dossier_list_url = '%s%s' %(self.novac_url,FOLDER_LIST_WS)
         user = get_user(self.request)
+        dossier_list_url = '%s%s%s' %(self.novac_url,FOLDER_LIST_WS, user['id'])
         headers = [{'Content-Type':'application/json'}, {'ACCEPT':'application/json'}, {'RNHEAD':user['id']}, {'Accept-Language':'%s-be' % self.context.Language()}]
         dossier_list = called_url(dossier_list_url, headers, params="")
         #print dossier_list

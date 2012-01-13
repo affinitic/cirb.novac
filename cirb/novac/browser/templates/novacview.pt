@@ -24,14 +24,11 @@
 -->
         <h1 class="documentFirstHeading" i18n:translate="les_permis_en_ligne">Les permis en ligne</h1>
         <tal:block tal:condition="not: urls/error" >
-            <div id="ws_urbis" tal:content="urls/urbis_url" class="hiddenStructure"> ws_urbis </div>
             <div id="ws_waws" tal:content="urls/novac_url" class="hiddenStructure"> ws_waws </div>
-			<div id="json_file" tal:content="urls/json_file" class="hiddenStructure"> json_file </div>
             <div id="absolute_url" tal:content="context/absolute_url" class="hiddenStructure"> absolute_url </div>
 			<div id="portal_url" tal:content="context/portal_url" class="hiddenStructure"> portal_url </div>
  			<div id="current_language" tal:content="context/Language" class="hiddenStructure"> current_language </div>
-			<div id="urbis_cache_url" tal:content="urls/urbis_cache_url" class="hiddenStructure"> urbis_cache_url </div>
-            <div id="map_panel">
+			<div id="map_panel">
                 <div id="map" style="cursor: pointer;"></div>
                 <span id="copyright_urbis">Realized by means of Brussels UrbIS &copy; &reg;</span>
             </div>
