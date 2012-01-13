@@ -54,20 +54,31 @@ class Happy(BrowserView):
         return getToolByName(self.context, 'portal_url').getPortalObject()
     
     def happy(self):
-        results={}
-        results['sso'] = self.get_sso()
-        results['waws'] = self.get_waws()
-        results['urbis'] = self.get_urbis()
-        results['access_database'] = self.access_database()
-        results['plone_version'] = self.plone_version()
+        results=[]
+        results.append(self.get_sso())
+        results.append(self.get_waws())
+        results.append(self.get_urbis())
+        results.append(self.access_database())
+        results.append(self.plone_version())
         return results
     
     def get_sso(self):
-        return "sso"
+        url = "https://sso.irisnet.be/"
+        results = get_service(url)
+        if results.get('status') == 'ko':
+            return  results
+        else:
+            return {'status':results.get('status'), 'message':'access to %s.' % url}
     
     def get_waws(self):
-        url = '%s/%s/100000' % (self.novac_url, PUB_DOSSIER)
-        return get_service(url)
+        id_dossier = '200000'
+        url = '%s/%s/%s' % (self.novac_url, PUB_DOSSIER, id_dossier)
+        results = get_service(url)
+        if results.get('status') == 'ko':
+            return  {'status':results.get('status'),  'message':'%s. dossier : %s.' % (results.get("message"), id_dossier)}
+        else:
+            return {'status':results.get('status'), 'message':'access to %s.' % url}
+
     
     def get_urbis(self):        
         url = "%s/gis/geoserver/nova/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=CLUSTER3KM&outputFormat=json" % self.context.portal_url()
@@ -78,14 +89,16 @@ class Happy(BrowserView):
         tot = 0
         for feature in resutls.get('features'):
 	    tot += feature.get('properties').get('NBR_DOSSIERS')
-	return tot
+	return {"status":"ok", "message": "Number of dossier in Publicis %s." % tot}
             
     
     def access_database(self):
-        return "db"
+        users = ['bsuttor']
+        return {"status":"ok", "message":"Access to db, number of users is %s." % len(users)}
     
     def plone_version(self):
-        return "plone_version"
+        ver = 'beta'
+        return {"status":"ok", "message":"Plone version is %s." % ver}
 
 
 def get_service(url, headers="", params=""):
@@ -107,18 +120,18 @@ def get_service(url, headers="", params=""):
     except HTTPError, e:
         exception = 'The server couldn\'t fulfill the request. URL : %s ' % url
         logger.error(exception)
-        return {"status":'ko', "code":e.code, "message": e.msg}
+        return {"status":'ko', "message": "%s : %s" % (e.code, e.msg)}
     except URLError, e:
         exception =  'We failed to reach a server. URL: %s' % url
         logger.error(exception)
-        return {"status":'ko', "code":e.code, "message": e.reason}
+        return {"status":'ko', "message": "%s : %s" % (e.code, e.reason)}
+
     finally:
         socket.setdefaulttimeout(oldtimeout)
-    return {'status':'ok', "code":'200', 'message': results}
+    return {'status':'ok', 'message': results}
     
 def json_proccessing(res_json):
     logger = logging.getLogger('cirb.novac.happy')
-    print res_json
     try:
         jsondata = json.loads(res_json)
     except ValueError, e:
