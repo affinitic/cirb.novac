@@ -71,16 +71,21 @@ class Happy(BrowserView):
     
     def get_urbis(self):        
         url = "%s/gis/geoserver/nova/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=CLUSTER3KM&outputFormat=json" % self.context.portal_url()
-        
-        return get_service(url)
+        json = get_service(url)
+        try:
+            resutls = json_proccessing(json)
+            if resutls.get('status', '') == 'ko':
+                return resutls
+            return resutls.features
+            
     
     def access_database(self):
         return "db"
     
     def plone_version(self):
         return "plone_version"
-    
-    
+
+
 def get_service(url, headers="", params=""):
     logger = logging.getLogger('cirb.novac.happy')
     oldtimeout = socket.getdefaulttimeout()
@@ -109,3 +114,15 @@ def get_service(url, headers="", params=""):
         socket.setdefaulttimeout(oldtimeout)
     return {'status':'ok', "code":'200', 'message': results}
     
+def json_proccessing(json):
+    try:
+        jsondata = json.loads(json)
+    except ValueError, e:
+        msg_error = 'Json value error : %s.' % e.message
+        logger.error(msg_error)
+        return {"status":'ko', "message": msg_error}
+    except SyntaxError, e:
+        msg_error = 'Json bad formatted : %s.' % e.message
+        logger.error(msg_error)
+        return {"status":'ko', "message": msg_error}
+    return jsondata
