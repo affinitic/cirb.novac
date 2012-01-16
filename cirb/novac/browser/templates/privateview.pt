@@ -82,7 +82,15 @@
             </tr>
             <tr>
                 <th i18n:translate="gestionnaire_du_dossier">gestionnaire_du_dossier</th>
-                <td id="gestionnaire_du_dossier"  tal:content="dos/manager"></td>
+                <td id="gestionnaire_du_dossier"  tal:content="dos/gestionnaire_Name"></td>
+            </tr>
+			<tr>
+                <th i18n:translate="gestionnaire_phone">gestionnaire_phone</th>
+                <td id="gestionnaire_phone"  tal:content="dos/gestionnaire_Phone"></td>
+            </tr>
+			<tr>
+                <th i18n:translate="gestionnaire_email">gestionnaire_email</th>
+                <td id="gestionnaire_email"  tal:content="dos/gestionnaire_Email"></td>
             </tr>
         </tbody></table>
 
@@ -116,6 +124,14 @@
 				<tal:block condition="python:data.get('pointCC')=='Non'">
 					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/delete.png" alt="no" i18n:attributes="title no" />
 				</tal:block>
+			</td>
+		</tr>
+	</tbody></table>
+	<table class="detail_table"><tbody>
+		<tr>
+			<td id="imgccfd" condition="python:data.get('imgccfd')">
+				<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/${data/imgccfd}"  i18n:attributes="title data/imgccfd; alt data/imgccfd}" />
+				<p i18n:translate="notification_image_cc_fd">notification_image_cc_fd</p>
 			</td>
 		</tr>
 		<!--tr>

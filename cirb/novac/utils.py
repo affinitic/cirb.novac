@@ -128,12 +128,16 @@ def get_user(request, context=None):
 
 
 class Dossier(dict):
-    def __init__(self, value, field_list, not_available, has_address=False):
+    def __init__(self, value, field_list, not_available, has_address=False, lang="fr"):
         super(Dossier, self).__init__(value)
         self.field_list = field_list
-        self.not_available = not_available        
+        self.lang = lang
+        if "avisFd" and "pointCC" in self.field_list:
+            self.generate_avis_img()
+        self.not_available = not_available
         self.has_address = has_address
         self.update()
+               
         
     def update(self):
         if self.has_address:
@@ -173,9 +177,22 @@ class Dossier(dict):
     def update_field_availability(self, fieldname):
         value = self.get(fieldname, '')
         if not value:
-            self[fieldname] = self.not_available
-
-
+            self[fieldname] = self.not_available            
+            
+    def generate_avis_img(self):
+        ext = '.gif'
+        avisFd = self.get('avisFd', 'Non')
+        pointCC = self.get('pointCC', 'Non')
+        if avisFd == 'Oui' and pointCC == 'Oui':
+            self['imgccfd'] = 'delay120days-%s%s' % (self.lang,ext)
+        if avisFd == 'Oui' and pointCC == 'Non':
+            self['imgccfd'] = 'delay90days-%s%s' % (self.lang,ext)
+        if avisFd == 'Non' and pointCC == 'Oui':
+            self['imgccfd'] = 'delay75days-%s%s'  % (self.lang,ext)
+        if avisFd == 'Non' and pointCC == 'Non':
+            self['imgccfd'] = 'delay45days-%s%s' % (self.lang,ext)
+            
+            
 def update_dossiers(dossier_mapping_list, field_list, not_available, has_address=False):
     dossier_list = []    
     for mapping in dossier_mapping_list:

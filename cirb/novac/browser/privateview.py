@@ -53,7 +53,7 @@ class PrivateView(NovacView):
     def private_error(self, msg_error):
         return {'error':True,'msg_error':msg_error}
     
-    def private(self):        
+    def private(self):
         error=False
         msg_error=''
         if not self.novac_url:
@@ -63,7 +63,7 @@ class PrivateView(NovacView):
             error=True
             msg_error=_(u'No id folder in get method')
         #dossier_id = self.request.form.get('id')
-        dossier_url = '%s%s%s' % (self.novac_url, PRIVATE_FODLER_WS, self.id_dossier)        
+        dossier_url = '%s%s%s' % (self.novac_url, PRIVATE_FODLER_WS, self.id_dossier)
      
         json_from_ws = self.called_ws(dossier_url)
         if not json_from_ws:
@@ -98,7 +98,7 @@ class PrivateView(NovacView):
         if not user:
             msg_error = _('User undefined.')
             return self.listprivate_error(msg_error)
-        results['user'] = user['name']        
+        results['user'] = user['name']
         results['jsondata'] = jsondata
         results['jsonhistory'] = jsonhistory
         results['error'] = False
@@ -115,11 +115,10 @@ class PrivateView(NovacView):
                          "publicInquiry","startPublicInquiry","endPublicInquiry",
                          "statusPermit","codeDossier", "pointCC","dateCC",
                          "languageRequest","dateDossierComplet","dateNotifDecision",
-                         "dateDeadline","municipalityOwner","specificReference", 
-                         "manager", "isOwner", "x", "y", 
+                         "dateDeadline","municipalityOwner","specificReference", "isOwner", "x", "y",
                          "gestionnaire_Name", "gestionnaire_Phone", "gestionnaire_Email", "avisFd"]
         
-        return Dossier(jsondata, table_ids, not_available, has_address=True)
+        return Dossier(jsondata, table_ids, not_available, has_address=True, lang=self.context.Language())
              
     def formated_history_date(self, historys):
         h_res = []

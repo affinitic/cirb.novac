@@ -81,6 +81,10 @@ class Happy(BrowserView):
     def plone_version(self):
 	ver = 'beta'
 	return {"status":"ok", "message":"Plone version is %s." % ver}
+    
+    def disk_usage(self):
+	du = 'du'
+	return {"status":"ok", "message":"Plone version is %s." % ver}	
 
 
 def get_service(url, headers="", params=""):
