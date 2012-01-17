@@ -83,7 +83,7 @@ class Happy(BrowserView):
                 for feature in resutls.get('features'):
                     tot += feature.get('properties').get('NBR_DOSSIERS')
                 status = "ok"
-                message = "Number of dossier in Publicis %s." % tot
+                message = "Success : Number of public dossier in Urbis is %s." % tot
         return {"status":status, "message":message}
 
 
