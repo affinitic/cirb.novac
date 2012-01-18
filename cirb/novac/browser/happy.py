@@ -122,7 +122,7 @@ class Happy(BrowserView):
     def get_server_ip(self):
         hn = os.environ.get("HOSTNAME", "")
         ip = socket.gethostbyname(socket.gethostname())
-        return "%s %s" % (ip, hn)
+        return "%s" % (hn)
 
 
 
