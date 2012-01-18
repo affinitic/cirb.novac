@@ -42,6 +42,7 @@ class Happy(BrowserView):
         results.append(self.get_pub_waws())
         results.append(self.get_urbis())
         results.append(self.disk_usage())
+        # TODO return 409 if one ko
         return results
 
     def get_sso(self):
@@ -118,7 +119,10 @@ class Happy(BrowserView):
             message = "Partition '/home' avaiability is %s Mb." %free_mb
         return {"status":status, "message":message}
 
-
+    def get_server_ip(self):
+        hn = os.environ.get("HOSTNAME", "")
+        ip = socket.gethostbyname(socket.gethostname())
+        return "%s %s" % (ip, hn)
 
 
 

@@ -2,6 +2,7 @@
     <title> Happy Page Nova Citoyen </title>
 </head>
 <body tal:define="items view/happy">
+    <div tal:content="view/get_server_ip"></div>
     <div tal:repeat="line items">
         <span tal:content="python:line['status']"></span>&nbsp;<span tal:content="python:line['message']"></span>
     </div>

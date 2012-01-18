@@ -90,7 +90,7 @@
             </tr>
 			<tr>
                 <th i18n:translate="gestionnaire_email">gestionnaire_email</th>
-                <td id="gestionnaire_email"  tal:content="dos/gestionnaire_Email"></td>
+                <td id="gestionnaire_email" ><a tal:attributes="href string:mailto:${dos/gestionnaire_Email}" tal:content="dos/gestionnaire_Email"></a></td>
             </tr>
         </tbody></table>
 
