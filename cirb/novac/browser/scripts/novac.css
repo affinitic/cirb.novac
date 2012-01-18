@@ -96,7 +96,8 @@ table.filter td{border-width:5px; padding:.4em; border-color:transparent;}
     left:20px;
 }
 
-
+.detail_table td#imgccfd img {margin-bottom:1em;}
+.detail_table td#imgccfd p {margin-left:1em;font-size:0.9em;}
 
 /* ACCORDION STYLE */
 
@@ -109,6 +110,14 @@ table.filter td{border-width:5px; padding:.4em; border-color:transparent;}
 	padding:.75em;
 	font-size: .75em;
 }
+
+.ui-corner-all {border-radius:0;}
+
+.ui-state-default .ui-icon, .ui-state-active .ui-icon {background-image:none;}
+
+.ui-accordion .ui-accordion-header a {
+    font-size:1.2em;
+    font-weight:bold;}
 
 #content #navigation #accordion h3 {
 	background-color: #eee;
@@ -174,7 +183,7 @@ td.granted { background: transparent url(++resource++cirb.novac.images/circle-gr
 td.refused { background: transparent url(++resource++cirb.novac.images/circle-orange.png) no-repeat 5px 6px; width:20px; }
 td.canceled { background: transparent url(++resource++cirb.novac.images/circle-blue.png) no-repeat 5px 6px; width:20px; }
 
-table.filter label { font-weight:normal; }
+table.filter label { font-weight:normal; font-size:1.25em;}
 
 table.filter input#type_u, table.filter input#type_l, table.filter input#required, table.filter input#granted, table.filter input#refused, table.filter input#canceled { margin-top:3px; }
 
@@ -199,11 +208,25 @@ table.filter input#type_u, table.filter input#type_l, table.filter input#require
     color: #cc071e;
 }
 
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {color:#444;}
+
+.ui-accordion .ui-accordion-content {
+    padding:1em;
+    border:0;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    border:0;
+}
+
+#accordion2 .ui-accordion-content {font-size:0.85em;}
+
 #accordion2 h5 {
     margin: 1em 0 0.5em;
 }
 
-select#commune, select#typedossier  {font-size:1.3em;}
+select#commune, select#typedossier {font-size:1.2em;}
+select#commune option, select#typedossier option {font-size:1em;}
 
 #ep_status_div input {
     margin: 0 0.75em;

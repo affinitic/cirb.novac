@@ -215,12 +215,12 @@ msgstr ""
 #. Default: "Permis de lotir (ou modification de PL) d\303\251livr\303\251 par le FD"
 #: cirb.novac:/browser/templates/novacview.pt:127
 msgid "Permis_de_lotir_delivre_par_le_FD"
-msgstr ""
+msgstr "Permis de lotir (ou modification de PL) délivré par le fonctionnaire délégué"
 
 #. Default: "Permis de lotir (ou modification de PL) unique d\303\251livr\303\251 par le FD"
 #: cirb.novac:/browser/templates/novacview.pt:128
 msgid "Permis_de_lotir_unique_delivre_par_le_FD"
-msgstr ""
+msgstr "Permis de lotir (ou modification de PL) unique délivré par le fonctionnaire délégué"
 
 #. Default: "Permis d'urbanisme d\303\251livr\303\251 par le FD"
 #: cirb.novac:/browser/templates/novacview.pt:129
@@ -293,20 +293,18 @@ msgstr "à"
 #: cirb.novac:/browser/templates/novacview.pt:175
 msgid "texte_introduction"
 msgstr ""
-"<p>Cette carte montre tous les permis et certificats d'urbanisme et de lotir "
-"en Région bruxelloise à partir de juillet 2009, excepté les 4 communes non-"
-"connectées à la plate-forme : Bruxelles-Ville, Koekelberg, Woluwe-Saint-"
-"Lambert et Woluwe-Saint-Pierre. Dans ces communes, vous ne trouverez que des "
-"permis et certificats traités par la Région.</p><p>Ultérieurement, les "
-"permis d'environnement, les permis mixtes et les permis uniques y seront "
+"<p>Cette carte montre les permis et certificats d'urbanisme et de lotir "
+"en Région bruxelloise à partir de juillet 2009, des communes actuellement "
+"connectées à la plate-forme et/ou traités par la Région.</p>"
+"<p>Ultérieurement, les permis d'environnement et les permis mixtes y seront également "
 "ajoutés.</p><p>Afin d'améliorer la transparence, comme convenu dans l'accord "
 "de Gouvernement 2009-2014, le Gouvernement bruxellois et le Secrétaire "
 "d'&Eacute;tat en charge de l'Urbanisme veulent ainsi répondre aux attentes "
 "des citoyens et entreprises.</p><p>Cette application est unique en son genre "
 "et est la première de ce type en Belgique.</p><p>Pour de plus amples "
-"informations sur les permis, le mieux est de contacter <a href='http://www."
-"urbanisme.irisnet.be/fr/les-commissions-de-concertation?set_language=fr'>le "
-"service d'urbanisme de la commune en question</a>.</"
+"informations sur les permis, le mieux est de contacter <a href='"
+"/lesreglesdujeu/les-plans-daffectation-du-sol/les-sites-urbanisme-des-19-communes'>"
+"le service d'urbanisme de la commune en question</a>.</"
 "p><p><strong>Informations l&eacute;gales</strong></p><p>Les données et le "
 "matériel publiés sur ce site sont donnés uniquement à titre d'information et "
 "n'ont aucun caractère légal. La Région de Bruxelles-Capitale n'est pas en "
@@ -471,15 +469,17 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/privateview.pt:133
 msgid "data/imgccfd}"
-msgstr ""
+msgstr "Image avec les différentes étapes de la procédure"
 
 #: cirb.novac:/browser/templates/privateview.pt:133
 msgid "data/imgccfd"
-msgstr ""
+msgstr "Image avec les différentes étapes de la procédure"
 
 #: cirb.novac:/browser/templates/privateview.pt:134
 msgid "notification_image_cc_fd"
-msgstr ""
+msgstr "<p>Attention<br />"
+"Cette image avec les différentes étapes de la procédure n'est montré qu'à titre informatif. "
+"Il se peut qu'il y ait une dérogation pour votre dossier."
 
 #: cirb.novac:/browser/templates/privateview.pt:148
 #: cirb.novac:/browser/templates/publicview.pt:123
@@ -618,11 +618,11 @@ msgstr "Gestionnaire du dossier"
 
 #: cirb.novac:/browser/templates/privateview.pt:88
 msgid "gestionnaire_phone"
-msgstr ""
+msgstr "N° de téléphone"
 
 #: cirb.novac:/browser/templates/privateview.pt:92
 msgid "gestionnaire_email"
-msgstr ""
+msgstr "adresse e-mail"
 
 #: cirb.novac:/browser/templates/privateview.pt:99
 #: cirb.novac:/browser/templates/publicview.pt:89
