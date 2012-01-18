@@ -119,7 +119,7 @@
 			<td id="commission_de_concertation">
 				<tal:block condition="python:data.get('pointCC')=='Oui'">
 					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/check_mark.png" alt="yes" i18n:attributes="title yes" />&nbsp;(<tal:block i18n:translate="date">date</tal:block>&nbsp;:&nbsp;
-					<tal:block tal:content="data/results/dateCC"> dateCC</tal:block>)
+					<tal:block tal:content="data/dateCC"> dateCC</tal:block>)
 				</tal:block>
 				<tal:block condition="python:data.get('pointCC')=='Non'">
 					<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/delete.png" alt="no" i18n:attributes="title no" />

@@ -13,7 +13,7 @@ from cirb.novac.browser.publicview import PUB_DOSSIER
 
 class Happy(BrowserView):
     """
-    happy pag browser view
+    happy page browser view
     """
 
     def __init__(self, context, request):
@@ -37,7 +37,7 @@ class Happy(BrowserView):
 
     def happy(self):
         results=[]
-        results.append(self.database_access())        
+        results.append(self.database_access())
         results.append(self.get_sso())
         results.append(self.get_pub_waws())
         results.append(self.get_urbis())
@@ -67,7 +67,7 @@ class Happy(BrowserView):
             message = 'Access to %s.' % url
         return {'status':status, 'message':message}
 
-    def get_urbis(self):        
+    def get_urbis(self):
         url = "%s/gis/geoserver/nova/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=CLUSTER3KM&outputFormat=json" % self.context.portal_url()
         res_json = get_service(url)
         if res_json.get('status', '') == 'ko':
@@ -108,11 +108,11 @@ class Happy(BrowserView):
         free_kb = free/1024
         free_mb = free_kb/1024
         if free_mb < 100:
-            status = "KO"
-            message = "No more space on device, avaiability %s Mb." % free_mb
-        if free_mb < 500:
             status = "Warnings"
             message = "Space left is wake : %s Mb" % free_mb
+        elif free_mb < 500 and free_mb >= 100:
+            status = "KO"
+            message = "No more space on device, avaiability %s Mb." % free_mb
         else:
             status = "ok"
             message = "Partition '/home' avaiability is %s Mb." %free_mb
