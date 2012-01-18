@@ -188,7 +188,7 @@ msgstr "Stedenbouwkundig attest afgeleverd door de gemachtigde ambtenaar"
 #. Default: "Certificat d'urbanisme en vue de lotir"
 #: cirb.novac:/browser/templates/novacview.pt:121
 msgid "Certificat_d_urbanisme_en_vue_de_lotir"
-msgstr ""
+msgstr "Stedenbouwkundig attest met het oog op verkaveling"
 
 #. Default: "Certificat d'urbanisme priv\303\251"
 #: cirb.novac:/browser/templates/novacview.pt:122
@@ -198,7 +198,7 @@ msgstr "Stedenbouwkundig attest privé aanvrager"
 #. Default: "Certificat d'urbanisme priv\303\251 - projet mixte"
 #: cirb.novac:/browser/templates/novacview.pt:123
 msgid "Certificat_d_urbanisme_prive_projet_mixte"
-msgstr ""
+msgstr "Stedenbouwkundig attest privé aanvrager - gemengd project"
 
 #: cirb.novac:/browser/templates/novacview.pt:124
 msgid "Enseigne"
@@ -217,12 +217,12 @@ msgstr "Verkavelingsvergunning"
 #. Default: "Permis de lotir (ou modification de PL) d\303\251livr\303\251 par le FD"
 #: cirb.novac:/browser/templates/novacview.pt:127
 msgid "Permis_de_lotir_delivre_par_le_FD"
-msgstr ""
+msgstr "Verkavelingsvergunning afgeleverd door de gemachtigde ambtenaar"
 
 #. Default: "Permis de lotir (ou modification de PL) unique d\303\251livr\303\251 par le FD"
 #: cirb.novac:/browser/templates/novacview.pt:128
 msgid "Permis_de_lotir_unique_delivre_par_le_FD"
-msgstr ""
+msgstr "Unieke verkavelingsvergunning afgeleverd door de gemachtigde ambtenaar"
 
 #. Default: "Permis d'urbanisme d\303\251livr\303\251 par le FD"
 #: cirb.novac:/browser/templates/novacview.pt:129
@@ -298,19 +298,18 @@ msgid "texte_introduction"
 msgstr ""
 "<p>Op deze kaart vindt u momenteel de stedenbouwkundige en "
 "verkavelingsvergunningen en –attesten in het brussels Gewest vanaf juli "
-"2009, behalve voor de 4 gemeenten die nog niet aangesloten zijn op het "
-"platform: Brussel-Stad, Koekelberg, Sint-Lambrechts-Woluwe en Sint-Pieters-"
-"Woluwe. In deze gemeenten vindt u enkel vergunningen en attesten behandeld "
-"door het Gewest.</p><p>In een later stadium zullen ook de milieuvergunning, "
-"de gemengde vergunning en de unieke vergunning toegevoegd worden.</p><p>In "
+"2009, en dit voor de gemeenten die aangesloten zijn op het "
+"platform en/of die behandeld worden door het Gewest.</p>"
+"<p>In een later stadium zullen ook de milieuvergunning en "
+"de gemengde vergunning toegevoegd worden.</p><p>In "
 "het kader van de openbaarheid van bestuur en zoals afgesproken in het "
 "regeerakkoord 2009-2014 wil de brusselse gewestregering en de "
 "staatssecretaris belast met stedenbouw tegemoet komen aan de vraag van de "
 "burgers en de ondernemingen naar meer transparantie.</p><p>Deze toepassing "
 "is alvast uniek in zijn soort en een primeur voor België.</p><p>Voor meer "
-"informatie over de vergunningen contacteert u best <a href='http://www."
-"stedenbouw.irisnet.be/nl/overlegcommissies?set_language=nl'>de dienst "
-"stedenbouw van de betrokken gemeente</a>.</p><p><strong>Wettelijke "
+"informatie over de vergunningen contacteert u best <a href='"
+"/spelregels/bestemmingsplannen/de-sites-van-de-diensten-stedenbouw-van-de-19-gemeenten'>"
+"de dienst stedenbouw van de betrokken gemeente</a>.</p><p><strong>Wettelijke "
 "informatie</strong></p><p>De gegevens op deze website worden enkel ter "
 "informatie gegeven en hebben geen enkele juridische waarde. Het Gewest kan "
 "de exactheid en volledigheid van de gegevens niet garanderen en kan dus niet "
@@ -337,7 +336,7 @@ msgstr "Adres opzoeken"
 #. Default: "adresse (ex: 21 avenue des arts)"
 #: cirb.novac:/browser/templates/novacview.pt:44
 msgid "address (ex: 21 avenue des arts)"
-msgstr ""
+msgstr "adres (bvb. kunstlaan 21"
 
 #: cirb.novac:/browser/templates/novacview.pt:46
 msgid "search"
@@ -475,15 +474,17 @@ msgstr "datum"
 
 #: cirb.novac:/browser/templates/privateview.pt:133
 msgid "data/imgccfd}"
-msgstr ""
+msgstr "afbeelding van de verschillende etappes in de procedure"
 
 #: cirb.novac:/browser/templates/privateview.pt:133
 msgid "data/imgccfd"
-msgstr ""
+msgstr "afbeelding van de verschillende etappes in de procedure"
 
 #: cirb.novac:/browser/templates/privateview.pt:134
 msgid "notification_image_cc_fd"
-msgstr ""
+msgstr "<p>Opgelet<br />"
+"Deze afbeelding met de verschillende etappes in de procedure wordt enkel ter informatie gegeven. "
+"Het kan dus zijn dat uw dossier afwijkt van deze afbeelding.</p>" 
 
 #: cirb.novac:/browser/templates/privateview.pt:148
 #: cirb.novac:/browser/templates/publicview.pt:123
@@ -621,11 +622,11 @@ msgstr "Dossierbeheerder"
 
 #: cirb.novac:/browser/templates/privateview.pt:88
 msgid "gestionnaire_phone"
-msgstr ""
+msgstr "Telefoonnummer"
 
 #: cirb.novac:/browser/templates/privateview.pt:92
 msgid "gestionnaire_email"
-msgstr ""
+msgstr "e-mailadres"
 
 #: cirb.novac:/browser/templates/privateview.pt:99
 #: cirb.novac:/browser/templates/publicview.pt:89

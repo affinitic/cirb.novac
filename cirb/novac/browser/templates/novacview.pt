@@ -87,7 +87,7 @@
                         </table>                        
                     
                         <div id="accordion2" style="font-size:1.2em">
-					        <h4><a href="#" style="font-size:0.9em" i18n:translate="Tous_les_filtres">Tous les filtres</a></h4>
+					        <h4><a href="#" style="font-size:1em;color:#444 !important;padding:4px;" i18n:translate="Tous_les_filtres">Tous les filtres</a></h4>
 					        <div>
 						        <select id="commune" name="commune" style="width:195px;">
 							        <option value="0" selected> <tal:block i18n:translate="Toutes_les_communes">Toutes les communes</tal:block> </option>
