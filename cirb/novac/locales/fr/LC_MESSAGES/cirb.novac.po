@@ -477,9 +477,9 @@ msgstr "Image avec les différentes étapes de la procédure"
 
 #: cirb.novac:/browser/templates/privateview.pt:134
 msgid "notification_image_cc_fd"
-msgstr "<p>Attention<br />"
+msgstr "<p><strong>Attention</strong><br />"
 "Cette image avec les différentes étapes de la procédure n'est montrée qu'à titre informatif. "
-"Il se peut qu'il y ait une dérogation pour votre dossier."
+"Il se peut qu'il y ait une dérogation pour ce dossier."
 
 #: cirb.novac:/browser/templates/privateview.pt:148
 #: cirb.novac:/browser/templates/publicview.pt:123

@@ -482,9 +482,9 @@ msgstr "afbeelding van de verschillende etappes in de procedure"
 
 #: cirb.novac:/browser/templates/privateview.pt:134
 msgid "notification_image_cc_fd"
-msgstr "<p>Opgelet<br />"
+msgstr "<p><strong>Opgelet</strong><br />"
 "Deze afbeelding met de verschillende etappes in de procedure wordt enkel ter informatie gegeven. "
-"Het kan dus zijn dat uw dossier afwijkt van deze afbeelding.</p>" 
+"Het kan dus zijn dat dit dossier afwijkt van deze afbeelding.</p>" 
 
 #: cirb.novac:/browser/templates/privateview.pt:148
 #: cirb.novac:/browser/templates/publicview.pt:123

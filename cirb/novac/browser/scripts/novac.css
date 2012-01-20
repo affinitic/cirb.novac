@@ -11,18 +11,18 @@ div#ws_urbis, div#ws_waws {height:0px;width:0px;overflow:hidden;}
 input[type=button] {width:100px; margin: 5px 0px 5px 90px;}
 
 .template-novac_view div#content {margin-top:1em;}
-.template-novac_view div#content h1.documentFirstHeading {margin-bottom:1em;margin-left:1em;}
+.template-novac_view div#content h1.documentFirstHeading {margin-bottom:1em;margin-left:0.6em;}
 
 
-#map_panel {float: left; height:515px; width:675px; border: solid #ddd 1px; padding: 0px; margin: 5px 5px 2em 5px;}
+#map_panel {float: left; height:515px; width:675px; border: solid #ddd 1px; padding: 0px; margin: 5px 5px 2em 0.85em;}
 #map_panel2 {float: left; height:300px; width:908px; border: solid #ddd 1px; padding: 0px; margin: 5px 0px 2em 0;}
 #map {height:100%;}
 
 #copyright_urbis {font-size:10px;padding-left:1em;color:gray;}
 
-#navigation {float: right; width: 227px; height:900px; border: 1px solid #ddd; padding: 0; margin: 5px 5px 5px 0px;}
+#navigation {float: right; width: 227px; height:900px; border: 1px solid #ddd; padding: 0; margin: 5px 0 5px 0;}
 
-#texte_introduction {float: left; width:650px; border: solid #fff 1px; padding: 1em 0; margin: 5px 5px 2em 5px;}
+#texte_introduction {float: left; width:650px; border: solid #fff 1px; padding: 1em 0; margin: 5px 5px 2em 0.85em;}
 
 /*
 #results_panel {clear:both; border: solid #ddd 1px; padding: 5px; margin:5px; min-height:100px;}

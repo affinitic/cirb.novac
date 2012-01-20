@@ -116,8 +116,8 @@
 						</tal:block>
 					</td>
 				</tr>
-				
 			</tbody></table>
+
 			<table class="detail_table">
 				<tbody><tr>
 					<td class="tableheader" colspan="2" i18n:translate="decision">decision</td>
