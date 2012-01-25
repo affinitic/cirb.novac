@@ -298,18 +298,24 @@ msgid "texte_introduction"
 msgstr ""
 "<p>Op deze kaart vindt u momenteel de stedenbouwkundige en "
 "verkavelingsvergunningen en –attesten vanaf juli "
-"2009, en dit voor de gemeenten die aangesloten zijn op het "
-"platform en/of die behandeld worden door het brussels Gewest.</p>"
-"<p>In een later stadium zullen ook de milieuvergunning en "
-"de gemengde vergunning toegevoegd worden.</p><p>In "
-"het kader van de openbaarheid van bestuur en zoals afgesproken in het "
+"2009 die behandeld worden door het Brussels Gewest en "
+"de gemeenten die aangesloten zijn op het platform. "
+"In een later stadium zullen ook de milieuvergunningen "
+"toegevoegd worden.</p>"
+"<p>Opmerking : de dossiers worden op de website weergegeven vanaf "
+"het moment waarop een dossier volledig wordt verklaard en ze verdwijnen :"
+"<ul><li>4 jaar na de definitieve kennisgeving van de vergunning of van de "
+"weigering van vergunning voor de stedenbouwkundige vergunningen</li>"
+"<li>7 jaar na de definitieve kennisgeving van de vergunning of van de "
+"weigering van vergunning voor de stedenbouwkundige vergunningen</li></ul>"
+"<p>In het kader van de openbaarheid van bestuur en zoals afgesproken in het "
 "regeerakkoord 2009-2014 wil de brusselse gewestregering en de "
 "staatssecretaris belast met stedenbouw tegemoet komen aan de vraag van de "
 "burgers en de ondernemingen naar meer transparantie.</p><p>Deze toepassing "
 "is alvast uniek in zijn soort en een primeur voor België.</p><p>Voor meer "
-"informatie over de vergunningen contacteert u best <a href='"
+"informatie over een dossier in het bijzonder contacteert u best <a href='"
 "/spelregels/bestemmingsplannen/de-sites-van-de-diensten-stedenbouw-van-de-19-gemeenten'>"
-"de dienst stedenbouw van de betrokken gemeente</a>.</p><p><strong>Wettelijke "
+"de vergunnende overheid</a>.</p><p><strong>Wettelijke "
 "informatie</strong></p><p>De gegevens op deze website worden enkel ter "
 "informatie gegeven en hebben geen enkele juridische waarde. Het Gewest kan "
 "de exactheid en volledigheid van de gegevens niet garanderen en kan dus niet "
@@ -364,7 +370,7 @@ msgstr "Verkavelingsvergunning"
 
 #: cirb.novac:/browser/templates/novacview.pt:69
 msgid "required"
-msgstr "Aangevraagd"
+msgstr "In behandeling"
 
 #: cirb.novac:/browser/templates/novacview.pt:74
 msgid "granted"
@@ -587,7 +593,7 @@ msgstr "Gemeentelijke referentie"
 #: cirb.novac:/browser/templates/privateview.pt:54
 #: cirb.novac:/browser/templates/publicview.pt:60
 msgid "dossier_depose_a"
-msgstr "Dossier ingediend te"
+msgstr "Vergunnende overheid"
 
 #: cirb.novac:/browser/templates/privateview.pt:58
 #: cirb.novac:/browser/templates/publicview.pt:64
@@ -631,7 +637,7 @@ msgstr "e-mailadres"
 #: cirb.novac:/browser/templates/privateview.pt:99
 #: cirb.novac:/browser/templates/publicview.pt:89
 msgid "parcours"
-msgstr "Traject"
+msgstr "Voornaamste etappes van het dossier"
 
 #: cirb.novac:/browser/templates/publicview.pt:38
 msgid "detail_de_la_demande"

@@ -259,12 +259,12 @@ msgstr ""
 #. Default: "termin\303\251"
 #: cirb.novac:/browser/templates/novacview.pt:147
 msgid "termine"
-msgstr "Terminé"
+msgstr "Terminée"
 
 #. Default: "planifi\303\251"
 #: cirb.novac:/browser/templates/novacview.pt:151
 msgid "planifie"
-msgstr "Planifié"
+msgstr "Planifiée"
 
 #: cirb.novac:/browser/templates/novacview.pt:156
 msgid "Non"
@@ -293,19 +293,25 @@ msgstr "à"
 #: cirb.novac:/browser/templates/novacview.pt:175
 msgid "texte_introduction"
 msgstr ""
-"<p>Cette carte montre les permis et certificats d'urbanisme et de lotir "
-"des communes actuellement "
-"connectées à la plate-forme et/ou traités par la Région bruxelloise depuis juillet 2009.</p>"
-"<p>Ultérieurement, les permis d'environnement et les permis mixtes y seront également "
-"ajoutés.</p><p>Afin d'améliorer la transparence, comme convenu dans l'accord "
+"<p>Cette carte montre les permis et les certificats d'urbanisme et de lotir "
+"gérés depuis juillet 2009 par la Région bruxelloise et les communes "
+"actuellement connectées à la plate-forme. "
+"Ultérieurement, les permis d'environnement y seront également ajoutés.</p>"
+"<p>Remarque : la période d'affichage des dossiers sur le site commence "
+"à dater du moment où le dossier est déclaré complet et se termine :"
+"<ul><li>4 ans après la notification définitive du permis "
+"ou du refus de permis pour les permis d'urbanisme</li>"
+"<li>7 ans après la notification définitive du permis "
+"ou du refus de permis pour les permis de lotir</li></ul>"
+"<p>Afin d'améliorer la transparence, comme convenu dans l'accord "
 "de Gouvernement 2009-2014, le Gouvernement bruxellois et le Secrétaire "
 "d'&Eacute;tat en charge de l'Urbanisme veulent ainsi répondre aux attentes "
 "des citoyens et entreprises.</p><p>Cette application est unique en son genre "
 "et est la première de ce type en Belgique.</p><p>Pour de plus amples "
-"informations sur les permis, le mieux est de contacter <a href='"
+"informations sur un permis en particulier, veuillez contacter <a href='"
 "/lesreglesdujeu/les-plans-daffectation-du-sol/les-sites-urbanisme-des-19-communes'>"
-"le service d'urbanisme de la commune en question</a>.</"
-"p><p><strong>Informations l&eacute;gales</strong></p><p>Les données et le "
+"l'autorité délivrante</a>.</p>"
+"<p><strong>Informations l&eacute;gales</strong></p><p>Les données et le "
 "matériel publiés sur ce site sont donnés uniquement à titre d'information et "
 "n'ont aucun caractère légal. La Région de Bruxelles-Capitale n'est pas en "
 "mesure de garantir le caractère exact et complet de ces informations et, de "
@@ -360,7 +366,7 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:69
 msgid "required"
-msgstr "demandé"
+msgstr "en cours d'instruction"
 
 #: cirb.novac:/browser/templates/novacview.pt:74
 msgid "granted"
@@ -567,7 +573,7 @@ msgstr "Déconnexion"
 #: cirb.novac:/browser/templates/privateview.pt:44
 #: cirb.novac:/browser/templates/publicview.pt:50
 msgid "informations_generales"
-msgstr "Information générales"
+msgstr "Informations générales"
 
 #: cirb.novac:/browser/templates/privateview.pt:47
 #: cirb.novac:/browser/templates/publicview.pt:53
@@ -583,12 +589,12 @@ msgstr "Référence communale"
 #: cirb.novac:/browser/templates/privateview.pt:54
 #: cirb.novac:/browser/templates/publicview.pt:60
 msgid "dossier_depose_a"
-msgstr "Dossier déposé à"
+msgstr "Autorité délivrante"
 
 #: cirb.novac:/browser/templates/privateview.pt:58
 #: cirb.novac:/browser/templates/publicview.pt:64
 msgid "type_de_permis"
-msgstr "type de permis"
+msgstr "Type de permis"
 
 #. Default: "Description"
 #: cirb.novac:/browser/templates/privateview.pt:62
@@ -627,7 +633,7 @@ msgstr "adresse e-mail"
 #: cirb.novac:/browser/templates/privateview.pt:99
 #: cirb.novac:/browser/templates/publicview.pt:89
 msgid "parcours"
-msgstr "Parcours"
+msgstr "&Eacute;tapes principales du dossier"
 
 #: cirb.novac:/browser/templates/publicview.pt:38
 msgid "detail_de_la_demande"
