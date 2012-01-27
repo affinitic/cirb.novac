@@ -1,8 +1,6 @@
 # -*- coding: UTF-8 -*-
 import unittest2 as unittest
 class TestListprivateView(unittest.TestCase):
-    def test_dummy(self):
-        self.assertTrue(True)
     
     def test_update_dossiers(self):
         from cirb.novac import utils
