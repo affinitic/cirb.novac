@@ -10,6 +10,13 @@ from plone.registry.interfaces import IRegistry
 import logging, os, urllib, urllib2, socket, json
 from urllib2 import URLError, HTTPError
 from cirb.novac.browser.publicview import PUB_DOSSIER
+from cirb.novac.utils import called_url, json_processing
+
+NUMBER=10
+GEOSERVER_STA="http://geoserver.gis.irisnetlab.be"
+GEOSERVER_PROD="http://geoserver.gis.irisnet.be"
+PUBLIC_IDS="/geoserver/nova/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=nova:NOVA_DOSSIERS&maxFeatures=%s&outputFormat=json" % (str(NUMBER))
+
 
 class Happy(BrowserView):
     """
@@ -57,7 +64,32 @@ class Happy(BrowserView):
         return {"status":status, "message":message}
 
     def get_pub_waws(self):
-        id_dossier = '200000'
+        env = os.environ.get("DEPLOY_ENV", "")
+        if env == "production":
+            url = GEOSERVER_PROD
+        else:
+            url = GEOSERVER_STA
+        url ="%s%s" % (url, PUBLIC_IDS)
+            
+        json_from_ws = called_url(url,"")
+        if not json_from_ws:
+            status = "ko"
+            message = "Not able to call GEOSERVER : %s" % url
+            return {'status':status, 'message':message}
+
+        dict_ids = json_processing(json_from_ws)
+        if not dict_ids: 
+            status = "ko"
+            message= "Not able to use json from GEOSERVER"
+            return {'status':status, 'message':message}
+
+        features = dict_ids.get('features')
+        ids = []
+        for dossier in features:
+            ids.append(dossier.get('id').split('.')[1])
+ 
+        id_dossier = ids[0]
+
         url = '%s/%s/%s' % (self.novac_url, PUB_DOSSIER, id_dossier)
         results = get_service(url)
         if results.get('status') == 'ko':
