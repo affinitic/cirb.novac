@@ -277,7 +277,7 @@ $(window).bind("load", function() {
 
     $("#accordion").accordion({		
 		header : "h3",		
-		active : false,		
+		active : 2,		
 		collapsible : true,		
 		autoHeight : false		
 	});
