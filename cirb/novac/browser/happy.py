@@ -53,7 +53,11 @@ class Happy(BrowserView):
         return results
 
     def get_sso(self):
-        url = "https://sso.irisnet.be/"
+        env = os.environ.get("DEPLOY_ENV", "")
+        if env == "production":
+            url = "https://sso.irisnet.be/"
+        else:
+            url = "https://sso.irisnetlab.be/"
         results = get_service(url)
         if results.get('status') == 'ko':
             status = results.get('status')
