@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: Mon Jan 16 15:39:36 2012\n"
+"POT-Creation-Date: Tue Feb  7 09:51:57 2012\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Zope 3 Developers <zope-dev@zope.org>\n"
@@ -72,6 +72,14 @@ msgstr ""
 msgid "Not able to read this json : %s"
 msgstr ""
 
+#: cirb.novac:/browser/publicview.py:114
+msgid "region_de_bruxelles_capital"
+msgstr ""
+
+#: cirb.novac:/browser/publicview.py:118
+msgid "communede"
+msgstr ""
+
 #: cirb.novac:/browser/publicview.py:50
 msgid "Public"
 msgstr ""
@@ -108,6 +116,11 @@ msgstr ""
 #: cirb.novac:/browser/templates/listprivateview.pt:61
 #. Default: "Ins\303\251rez votre cl\303\251 unique pour activer votre dossier"
 msgid "Inserez votre cle unique pour activer votre dossier"
+msgstr ""
+
+#: cirb.novac:/browser/templates/listprivateview.pt:72
+#. Default: "Activer"
+msgid "activer"
 msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:100
@@ -513,11 +526,6 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/privateview.pt:35
 msgid "Etat d'avancement - Demande de permis d'urbanisme"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:40
-#: cirb.novac:/browser/templates/listprivateview.pt:30
-msgid "logout"
 msgstr ""
 
 #: cirb.novac:/browser/templates/privateview.pt:44

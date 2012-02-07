@@ -228,3 +228,21 @@ def date_milli_to_(date_milli):
         return d.strftime("%d/%m/%y %H:%M")
     else:
         return ""
+
+def update_municipality_owner(context, dossiers):
+    try:
+        instance = int(dossiers.get('instance'))
+    except ValueError, e:
+        instance = 0
+    if instance == 1:
+        msgid = _(u'region_de_bruxelles_capital')
+        translated = context.translate(msgid)
+        dossiers['municipalityOwner'] = translated
+    else:
+        msgid = _(u'communede')
+        translated = context.translate(msgid)
+        dossiers['municipalityOwner'] = "%s %s" % (translated, dossiers['municipalityOwner'])
+        
+    return dossiers
+
+

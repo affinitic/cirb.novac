@@ -77,6 +77,7 @@ class PrivateView(NovacView):
             return self.private_error(msg_error)
         
         results = self.dossier_processing(jsondata)
+        results = update_municipality_owner(self.context, results)    
         
         # Historic of dossier
         history_url = '%s%s' % (dossier_url, HISTORY)
@@ -116,7 +117,7 @@ class PrivateView(NovacView):
                          "statusPermit","codeDossier", "pointCC","dateCC",
                          "languageRequest","dateDossierComplet","dateNotifDecision",
                          "dateDeadline","municipalityOwner","specificReference", "isOwner", "x", "y",
-                         "gestionnaire_Name", "gestionnaire_Phone", "gestionnaire_Email", "avisFd"]
+                         "gestionnaire_Name", "gestionnaire_Phone", "gestionnaire_Email", "avisFd", "instance"]
         
         return Dossier(jsondata, table_ids, not_available, has_address=True, lang=self.context.Language())
              

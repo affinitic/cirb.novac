@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: Mon Jan 16 15:39:36 2012\n"
+"POT-Creation-Date: Tue Feb  7 09:51:57 2012\n"
 "PO-Revision-Date: 2011-10-28 10:44+0200\n"
 "Last-Translator: bsuttor <bsuttor@cirb.irisnet.be>\n"
 "Language-Team: French\n"
@@ -71,6 +71,14 @@ msgstr ""
 msgid "Not able to read this json : %s"
 msgstr ""
 
+#: cirb.novac:/browser/publicview.py:114
+msgid "region_de_bruxelles_capital"
+msgstr ""
+
+#: cirb.novac:/browser/publicview.py:118
+msgid "communede"
+msgstr ""
+
 #: cirb.novac:/browser/publicview.py:50
 msgid "Public"
 msgstr "Publique"
@@ -110,6 +118,11 @@ msgstr ""
 #: cirb.novac:/browser/templates/listprivateview.pt:61
 msgid "Inserez votre cle unique pour activer votre dossier"
 msgstr "Insérez votre clé unique pour activer votre dossier"
+
+#. Default: "Activer"
+#: cirb.novac:/browser/templates/listprivateview.pt:72
+msgid "activer"
+msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:100
 msgid "Forest"
@@ -215,12 +228,15 @@ msgstr ""
 #. Default: "Permis de lotir (ou modification de PL) d\303\251livr\303\251 par le FD"
 #: cirb.novac:/browser/templates/novacview.pt:127
 msgid "Permis_de_lotir_delivre_par_le_FD"
-msgstr "Permis de lotir (ou modification de PL) délivré par le fonctionnaire délégué"
+msgstr ""
+"Permis de lotir (ou modification de PL) délivré par le fonctionnaire délégué"
 
 #. Default: "Permis de lotir (ou modification de PL) unique d\303\251livr\303\251 par le FD"
 #: cirb.novac:/browser/templates/novacview.pt:128
 msgid "Permis_de_lotir_unique_delivre_par_le_FD"
-msgstr "Permis de lotir (ou modification de PL) unique délivré par le fonctionnaire délégué"
+msgstr ""
+"Permis de lotir (ou modification de PL) unique délivré par le fonctionnaire "
+"délégué"
 
 #. Default: "Permis d'urbanisme d\303\251livr\303\251 par le FD"
 #: cirb.novac:/browser/templates/novacview.pt:129
@@ -295,28 +311,27 @@ msgid "texte_introduction"
 msgstr ""
 "<p>Cette carte montre les permis et les certificats d'urbanisme et de lotir "
 "gérés depuis juillet 2009 par la Région bruxelloise et les communes "
-"actuellement connectées à la plate-forme. "
-"Ultérieurement, les permis d'environnement y seront également ajoutés.</p>"
-"<p>Remarque : la période d'affichage des dossiers sur le site commence "
-"à dater du moment où le dossier est déclaré complet et se termine :"
-"<ul><li>4 ans après la notification définitive du permis "
-"ou du refus de permis pour les permis d'urbanisme</li>"
-"<li>7 ans après la notification définitive du permis "
-"ou du refus de permis pour les permis de lotir</li></ul>"
-"<p>Afin d'améliorer la transparence, comme convenu dans l'accord "
-"de Gouvernement 2009-2014, le Gouvernement bruxellois et le Secrétaire "
-"d'&Eacute;tat en charge de l'Urbanisme veulent ainsi répondre aux attentes "
-"des citoyens et entreprises.</p><p>Cette application est unique en son genre "
-"et est la première de ce type en Belgique.</p><p>Pour de plus amples "
-"informations sur un permis en particulier, veuillez contacter <a href='"
-"/lesreglesdujeu/les-plans-daffectation-du-sol/les-sites-urbanisme-des-19-communes'>"
-"l'autorité délivrante</a>.</p>"
-"<p><strong>Informations l&eacute;gales</strong></p><p>Les données et le "
-"matériel publiés sur ce site sont donnés uniquement à titre d'information et "
-"n'ont aucun caractère légal. La Région de Bruxelles-Capitale n'est pas en "
-"mesure de garantir le caractère exact et complet de ces informations et, de "
-"ce fait, ne peut être tenue responsable pour quelque motif que ce soit des "
-"dommages directs ou indirects que le citoyen devrait subir.</p>"
+"actuellement connectées à la plate-forme. Ultérieurement, les permis "
+"d'environnement y seront également ajoutés.</p><p>Remarque : la période "
+"d'affichage des dossiers sur le site commence à dater du moment où le "
+"dossier est déclaré complet et se termine :<ul><li>4 ans après la "
+"notification définitive du permis ou du refus de permis pour les permis "
+"d'urbanisme</li><li>7 ans après la notification définitive du permis ou du "
+"refus de permis pour les permis de lotir</li></ul><p>Afin d'améliorer la "
+"transparence, comme convenu dans l'accord de Gouvernement 2009-2014, le "
+"Gouvernement bruxellois et le Secrétaire d'&Eacute;tat en charge de "
+"l'Urbanisme veulent ainsi répondre aux attentes des citoyens et entreprises."
+"</p><p>Cette application est unique en son genre et est la première de ce "
+"type en Belgique.</p><p>Pour de plus amples informations sur un permis en "
+"particulier, veuillez contacter <a href='/lesreglesdujeu/les-plans-"
+"daffectation-du-sol/les-sites-urbanisme-des-19-communes'>l'autorité "
+"délivrante</a>.</p><p><strong>Informations l&eacute;gales</strong></p><p>Les "
+"données et le matériel publiés sur ce site sont donnés uniquement à titre "
+"d'information et n'ont aucun caractère légal. La Région de Bruxelles-"
+"Capitale n'est pas en mesure de garantir le caractère exact et complet de "
+"ces informations et, de ce fait, ne peut être tenue responsable pour quelque "
+"motif que ce soit des dommages directs ou indirects que le citoyen devrait "
+"subir.</p>"
 
 #. Default: "Les permis en ligne"
 #: cirb.novac:/browser/templates/novacview.pt:25
@@ -483,9 +498,10 @@ msgstr "Image avec les différentes étapes de la procédure"
 
 #: cirb.novac:/browser/templates/privateview.pt:134
 msgid "notification_image_cc_fd"
-msgstr "<p><strong>Attention</strong><br />"
-"Cette image avec les différentes étapes de la procédure n'est montrée qu'à titre informatif. "
-"Il se peut qu'il y ait une dérogation pour ce dossier."
+msgstr ""
+"<p><strong>Attention</strong><br />Cette image avec les différentes étapes "
+"de la procédure n'est montrée qu'à titre informatif. Il se peut qu'il y ait "
+"une dérogation pour ce dossier."
 
 #: cirb.novac:/browser/templates/privateview.pt:148
 #: cirb.novac:/browser/templates/publicview.pt:123
@@ -564,11 +580,6 @@ msgstr "nom"
 #: cirb.novac:/browser/templates/privateview.pt:35
 msgid "Etat d'avancement - Demande de permis d'urbanisme"
 msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:40
-#: cirb.novac:/browser/templates/listprivateview.pt:30
-msgid "logout"
-msgstr "Déconnexion"
 
 #: cirb.novac:/browser/templates/privateview.pt:44
 #: cirb.novac:/browser/templates/publicview.pt:50
@@ -655,6 +666,9 @@ msgstr ""
 #: cirb.novac:/utils.py:36 cirb.novac:/utils.py:65 cirb.novac:/utils.py:95
 msgid "We failed to reach a server.<br />Reason: %s"
 msgstr ""
+
+#~ msgid "logout"
+#~ msgstr "Déconnexion"
 
 #~ msgid "No url for cirb.urbis.urbis_url"
 #~ msgstr "Pas d'url pour cirb.urbis.urbis_url"
