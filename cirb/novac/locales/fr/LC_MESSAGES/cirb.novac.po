@@ -40,11 +40,11 @@ msgstr "Mon (mes) dossier(s)"
 #: cirb.novac:/browser/listprivateview.py:60
 #: cirb.novac:/browser/privateview.py:99
 msgid "User undefined."
-msgstr ""
+msgstr "L'utilisateur n'est pas défini"
 
 #: cirb.novac:/browser/listprivateview.py:87
 msgid "Not able to activate a dossier."
-msgstr ""
+msgstr "Impossible d'activer un dossier"
 
 #: cirb.novac:/browser/novacview.py:66
 msgid "No url for cirb.novac.novac_url"
@@ -64,28 +64,28 @@ msgstr ""
 
 #: cirb.novac:/browser/privateview.py:71 cirb.novac:/browser/privateview.py:86
 msgid "Not able to call ws"
-msgstr ""
+msgstr "Impossible d'appeler le webservice"
 
 #: cirb.novac:/browser/privateview.py:76 cirb.novac:/browser/privateview.py:91
 #: cirb.novac:/browser/publicview.py:73
 msgid "Not able to read this json : %s"
-msgstr ""
+msgstr "Impossible de lire les données json : %s"
 
 #: cirb.novac:/browser/publicview.py:114
 msgid "region_de_bruxelles_capital"
-msgstr ""
+msgstr "Région de Bruxelles-Capitale"
 
 #: cirb.novac:/browser/publicview.py:118
 msgid "communede"
-msgstr ""
+msgstr "Commune de : "
 
 #: cirb.novac:/browser/publicview.py:50
 msgid "Public"
-msgstr "Publique"
+msgstr "Public"
 
 #: cirb.novac:/browser/publicview.py:68
 msgid "Not able to call this dossier : %s"
-msgstr ""
+msgstr "Ce dossier n'est pas accessible : %s"
 
 #: cirb.novac:/browser/templates/listprivateview.pt:25
 msgid "vous_etes_maintenant_connecte"
@@ -661,7 +661,7 @@ msgstr ""
 #. Default: ""
 #: cirb.novac:/utils.py:32 cirb.novac:/utils.py:61 cirb.novac:/utils.py:91
 msgid "The server couldn't fulfill the request. Error code: %s. Url: %s"
-msgstr ""
+msgstr "Le serveur ne répond pas. Code d'erreur: %s. Url: %s"
 
 #: cirb.novac:/utils.py:36 cirb.novac:/utils.py:65 cirb.novac:/utils.py:95
 msgid "We failed to reach a server.<br />Reason: %s"

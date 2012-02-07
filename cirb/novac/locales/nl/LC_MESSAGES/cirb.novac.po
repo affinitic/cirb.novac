@@ -40,11 +40,11 @@ msgstr "Mijn dossier(s)"
 #: cirb.novac:/browser/listprivateview.py:60
 #: cirb.novac:/browser/privateview.py:99
 msgid "User undefined."
-msgstr ""
+msgstr "Gebruiker niet gedefinieerd"
 
 #: cirb.novac:/browser/listprivateview.py:87
 msgid "Not able to activate a dossier."
-msgstr ""
+msgstr "Het is onmogelijk om dit dossier te activeren"
 
 #: cirb.novac:/browser/novacview.py:66
 msgid "No url for cirb.novac.novac_url"
@@ -64,20 +64,20 @@ msgstr ""
 
 #: cirb.novac:/browser/privateview.py:71 cirb.novac:/browser/privateview.py:86
 msgid "Not able to call ws"
-msgstr ""
+msgstr "De webservice kan niet geladen worden"
 
 #: cirb.novac:/browser/privateview.py:76 cirb.novac:/browser/privateview.py:91
 #: cirb.novac:/browser/publicview.py:73
 msgid "Not able to read this json : %s"
-msgstr ""
+msgstr "De json-gegevens kunnen niet gelezen worden : %s"
 
 #: cirb.novac:/browser/publicview.py:114
 msgid "region_de_bruxelles_capital"
-msgstr ""
+msgstr "Brussels Hoofdstedelijk Gewest"
 
 #: cirb.novac:/browser/publicview.py:118
 msgid "communede"
-msgstr ""
+msgstr "Gemeente: "
 
 #: cirb.novac:/browser/publicview.py:50
 msgid "Public"
@@ -124,7 +124,7 @@ msgstr "Voer de unieke sleutelcode in om uw dossier de activeren"
 #. Default: "Activer"
 #: cirb.novac:/browser/templates/listprivateview.pt:72
 msgid "activer"
-msgstr ""
+msgstr "activeren"
 
 #: cirb.novac:/browser/templates/novacview.pt:100
 msgid "Forest"
@@ -661,7 +661,7 @@ msgstr ""
 #. Default: ""
 #: cirb.novac:/utils.py:32 cirb.novac:/utils.py:61 cirb.novac:/utils.py:91
 msgid "The server couldn't fulfill the request. Error code: %s. Url: %s"
-msgstr ""
+msgstr "De server kon uw aanvraag niet verwerken. Foutmelding: %s. Url: %s"
 
 #: cirb.novac:/utils.py:36 cirb.novac:/utils.py:65 cirb.novac:/utils.py:95
 msgid "We failed to reach a server.<br />Reason: %s"
