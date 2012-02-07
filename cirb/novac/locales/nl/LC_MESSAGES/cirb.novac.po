@@ -77,7 +77,7 @@ msgstr "Brussels Hoofdstedelijk Gewest"
 
 #: cirb.novac:/browser/publicview.py:118
 msgid "communede"
-msgstr "Gemeente: "
+msgstr "Gemeente "
 
 #: cirb.novac:/browser/publicview.py:50
 msgid "Public"
