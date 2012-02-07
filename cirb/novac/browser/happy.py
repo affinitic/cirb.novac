@@ -181,7 +181,7 @@ def get_service(url, headers="", params=""):
     except URLError, e:
         exception =  'We failed to reach a server. URL: %s' % url
         logger.error(exception)
-        return {"status":'ko', "message": "%s : %s" % (e.code, e.reason)}
+        return {"status":'ko', "message": "%s" % (e.reason)}
 
     finally:
         socket.setdefaulttimeout(oldtimeout)
