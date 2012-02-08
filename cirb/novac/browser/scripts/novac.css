@@ -226,8 +226,9 @@ table.filter input#type_u, table.filter input#type_l, table.filter input#require
     margin: 1em 0 0.5em;
 }
 
-select#commune, select#typedossier {font-size:1.2em;}
-select#commune option, select#typedossier option {font-size:1em;}
+select#commune, select#typedossier, select#instance {font-size:1.2em;}
+select#commune option, select#typedossier option, select#instance option {font-size:1em;}
+select#typedossier {display: none;}
 
 #ep_status_div input {
     margin: 0 0.75em;

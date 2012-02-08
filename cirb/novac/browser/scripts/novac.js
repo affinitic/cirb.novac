@@ -185,10 +185,21 @@ var applyDossierFilter = function(event) {
         if(cql_filter != "") cql_filter += " AND ";
         cql_filter += "ZIPCODE=" + $("#commune").val();
     }
-    if ($("#typedossier").val() != 0) {
-        if(cql_filter != "") cql_filter += " AND"; 
-        cql_filter += " TYPEDOSSIER='" + $("#typedossier").val()+"'";
+    if ($("#instance").val() != 0) {
+        if(cql_filter != "") cql_filter += " AND ";
+        cql_filter += "INSTANCE=" + $("#instance").val();
     }
+    if ($("#instance").val() == 2) {
+        $("#typedossier").show();
+        if ($("#typedossier").val() != 0) {
+            if(cql_filter != "") cql_filter += " AND"; 
+            cql_filter += " TYPEDOSSIER='" + $("#typedossier").val()+"'";
+        }
+    }
+    else {
+        $("#typedossier").hide();
+    }
+    
     if ($("input[name='ep']:checked").val() == "no") {
         if(cql_filter != "") cql_filter += " AND"; 
         cql_filter += " MPP = 'Non'";

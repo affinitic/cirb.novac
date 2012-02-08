@@ -139,24 +139,26 @@
 							            <option value="1150"> <tal:block i18n:translate="Woluwe-Saint-Pierre">Woluwe-Saint-Pierre</tal:block> </option>
 						            </select>
 						            <br /><br />
-						
+						            
+						            <select id="instance" name="instance" style="width:195px;">
+						                <option value="0" selected> <tal:block i18n:translate="Toutes_les_autorites_delivrantes">Toutes les autorités délivrantes</tal:block> </option>
+						                <option value="1"> <tal:block i18n:translate="Permis_geres_par_la_region">Permis gérés par la région</tal:block> </option>
+						                <option value="2"> <tal:block i18n:translate="permis_geres_par_les_communes">Permis gérés par les communes</tal:block> </option>
+						            </select>
+						            <br /><br />
+						            
 						            <select id="typedossier" name="typedossier" style="width:195px;">
-							            <option value="0" selected> <tal:block i18n:translate="Tous_les_types_de_dossier">Tous les types de dossier</tal:block> </option>
+							            <option value="0" selected> <tal:block i18n:translate="Tous_les_types_de_dossier">Tous les types de dossier communaux</tal:block> </option>
 							            <option value="AA"> <tal:block i18n:translate="Abattage_d_arbres">Abattage d'arbres</tal:block> </option>
                                         <option value="AC"> <tal:block i18n:translate="Autorisation_communale">Autorisation communale</tal:block> </option> 
-                                        <option value="CPFD"> <tal:block i18n:translate="Certificat_d_urbanisme_delivre_par_le_FD">Certificat d'urbanisme délivré par le FD</tal:block> </option>
                                         <option value="CL"> <tal:block i18n:translate="Certificat_d_urbanisme_en_vue_de_lotir">Certificat d'urbanisme en vue de lotir</tal:block> </option>
                                         <option value="CU"> <tal:block i18n:translate="Certificat_d_urbanisme_prive">Certificat d'urbanisme privé</tal:block> </option>
                                         <option value="CUM"> <tal:block i18n:translate="Certificat_d_urbanisme_prive_projet_mixte">Certificat d'urbanisme privé - projet mixte</tal:block> </option>
                                         <option value="ENS"> <tal:block i18n:translate="Enseigne">Enseigne</tal:block> </option>
                                         <option value="PP"> <tal:block i18n:translate="Panneau_publicitaire">Panneau publicitaire</tal:block> </option>
                                         <option value="PL"> <tal:block i18n:translate="Permis_de_lotir">Permis de lotir</tal:block> </option>
-                                        <option value="LPFD"> <tal:block i18n:translate="Permis_de_lotir_delivre_par_le_FD">Permis de lotir (ou modification de PL) délivré par le FD</tal:block> </option>
-                                        <option value="LPFUR"> <tal:block i18n:translate="Permis_de_lotir_unique_delivre_par_le_FD">Permis de lotir (ou modification de PL) unique délivré par le FD</tal:block> </option>
-                                        <option value="PFD"> <tal:block i18n:translate="Permis_d_urbanisme_delivre_par_le_FD">Permis d'urbanisme délivré par le FD</tal:block> </option>
                                         <option value="PU"> <tal:block i18n:translate="Permis_d_urbanisme_prive">Permis d'urbanisme privé</tal:block> </option>
                                         <option value="PUM"> <tal:block i18n:translate="Permis_d_urbanisme_prive_procedure_mixte">Permis d'urbanisme privé - procédure mixte</tal:block> </option>
-                                        <option value="PFU"> <tal:block i18n:translate="Permis_d_urbanisme_unique_delivre_par_le_FD">Permis d'urbanisme unique délivré par le FD</tal:block> </option>
 						            </select>
 						            <br /><br />
 						
