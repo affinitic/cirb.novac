@@ -9,6 +9,7 @@ var clusters1km, clusters3km;
 var dossiers;
 var current_language;
 var urbislayer, addressResult;
+var grid_params = {};
 
 function executeGetFeatureInfo(event) {
     mouseLoc = map.getLonLatFromPixel(map.events.getMousePosition(event));
@@ -234,7 +235,10 @@ var applyDossierFilter = function(event) {
     clusters1km.setVisibility(false);
     dossiers.maxResolution = 35.0;
     dossiers.redraw();
-
+    
+    //update table data
+    if (grid_params.startindex != 0) jQuery("#jqxgrid").jqxGrid('gotopage',0);
+    else rendergridrows({startindex: 0, endindex: 0 + (grid_params.endindex - grid_params.startindex)});
 }
 
 function searchAddress(street, number, post_code){
@@ -244,7 +248,7 @@ function searchAddress(street, number, post_code){
         address: street
     }    
 
-    $("#spinner").css("visibility","visible")
+    $("#spinner").css("visibility","visible");
 
     var my_url = gis_url+"utils/localize/getaddresses/";
     $.ajax({
@@ -262,18 +266,92 @@ function searchAddress(street, number, post_code){
 				addressResult.removeAllFeatures();
 				addressResult.addFeatures([new OpenLayers.Feature.Vector(new OpenLayers.Geometry.Point(x,y))]);
             }
-            $("#spinner").css("visibility","hidden")
+            $("#spinner").css("visibility","hidden");
         },
         error:  function(data) {
-            $("#spinner").css("visibility","hidden")
+            $("#spinner").css("visibility","hidden");
         }
     });
 
 }
 
 
+var getDossiersFilter = function () {
+    return dossiers.params.CQL_FILTER;
+}
+
+// table data
+var source =
+{
+    datatype: "array",
+    data: {},
+    totalrecords: 1000
+};
+var rendergridrows = function (params) {
+    grid_params["startindex"] = params.startindex;
+    grid_params["endindex"] = params.endindex;
+    var data = {};
+    var my_url = gis_url+"geoserver/wfs";
+    var parameters = {
+        service: 'WFS',
+        version: '1.1.0',
+        request: 'GetFeature',
+        typeName: 'NOVA_DOSSIERS',
+        maxFeatures: params.endindex - params.startindex,
+        outputFormat: 'json',
+        startindex: params.startindex,
+        cql_filter: getDossiersFilter()
+    }
+    var absolute_url  = $('#absolute_url').html();
+    $.ajax({
+        type: "GET",
+        url: my_url,
+        data: parameters,
+        dataType: "json",
+        success:  function(remotedata) {
+            //get number of dossiers
+            parameters["maxFeatures"] = 1000;
+            parameters["resultType"] = "hits";
+            $.ajax({
+                type: "GET",
+                url: my_url,
+                data: parameters,
+                dataType: "xml",
+                success:  function(data) {
+                    source.totalrecords = $(data.firstChild).attr("numberOfFeatures");
+                    
+                    $.each(remotedata.features, function(index, feature){
+                        var row = {}
+                        if(current_language == 'fr'){
+                            var id = feature.id.split(".")[1];
+                            row["id"] = "<a href='" + absolute_url + "/public?id=" + id + "' target='_blank'>" + id + "</a>";
+                            var nummer = feature.properties.NUMBERPARTFROM; 
+                            nummer += (feature.properties.NUMBERPARTTO === null)?"":"-"+feature.properties.NUMBERPARTTO;
+                            row["address"] = nummer + " " +
+                                             feature.properties.STREETNAMEFR + " " + 
+                                             feature.properties.ZIPCODE + " " + 
+                                             feature.properties.MUNICIPALITYFR;
+                            row["type"] = feature.properties.TYPEDOSSIERFR;
+                            row["status"] = feature.properties.STATUT_PERMIS_FR;
+                            var date_survey = "";
+                            date_survey += (feature.properties.DATE_DEBUT_MPP === null)?"":feature.properties.DATE_DEBUT_MPP;
+                            date_survey += (feature.properties.DATE_FIN_MPP === null)?"":" - "+feature.properties.DATE_FIN_MPP;
+                            row["date_survey"] = date_survey;
+                            row["date_com"] = feature.properties.DATECC_TEXT;
+                        }
+                        data[params.startindex + index] = row;
+                    });
+                    source.data = data;
+                    jQuery("#jqxgrid").jqxGrid('updatebounddata');
+                }
+            });
+        }
+    });
+}
+
 
 $(window).bind("load", function() {
+    jQuery('#jqxTabs').jqxTabs({ position: 'top', selectionTracker: 'checked', animationType: 'fade' });
 
     $("#accordion").accordion({		
 		header : "h3",		
@@ -293,6 +371,8 @@ $(window).bind("load", function() {
     $("input[name='ep'][value!='yes']").click(function() { 
         $("#ep_status_div").slideUp();
     });
+    
+    $("#jqxTabs").css("visibility","visible");
 
     portal_url = $('#portal_url').html();
     gis_url = portal_url + "/gis/";
@@ -438,7 +518,34 @@ $(window).bind("load", function() {
         $(".filter select, .filter input[type='text']").bind("change", applyDossierFilter);
         
     });
-
+    
+    
+    
+    jQuery("#jqxgrid").jqxGrid(
+    {
+        width: 910,//$(this).parent().width,
+        autoheight: true,
+        source: source,
+        columnsresize: true,
+        rowsheight: 40,
+        pageable: true,
+        pagesize: 30,
+        pagesizeoptions: ['30', '60', '90'],
+        virtualmode: true,
+        rendergridrows: rendergridrows,
+        columns: [
+          { text: 'N° Dossier', dataField: 'id', width: 100 },
+          { text: 'Adresse', dataField: 'address', width: 300 },
+          { text: 'Type', dataField: 'type', width: 180 },
+          { text: 'Statut', dataField: 'status', width: 80 },
+          { text: 'Date enq. publ.', dataField: 'date_survey', width: 150 },
+          { text: 'Date com. conc.', dataField: 'date_com', width: 100 }
+        ]
+    });
+    grid_params = {startindex: 0, endindex:30}
+    
+    jQuery("#jqxgrid #pager").clone().prependTo();
+    
 });
 
 
