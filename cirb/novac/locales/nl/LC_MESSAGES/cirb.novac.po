@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: Mon Jan 16 15:39:36 2012\n"
+"POT-Creation-Date: Tue Feb  7 09:51:57 2012\n"
 "PO-Revision-Date: 2011-10-28 10:45+0200\n"
 "Last-Translator: bsuttor <bsuttor@cirb.irisnet.be>\n"
 "Language-Team: Dutch\n"
@@ -40,11 +40,11 @@ msgstr "Mijn dossier(s)"
 #: cirb.novac:/browser/listprivateview.py:60
 #: cirb.novac:/browser/privateview.py:99
 msgid "User undefined."
-msgstr ""
+msgstr "Gebruiker niet gedefinieerd"
 
 #: cirb.novac:/browser/listprivateview.py:87
 msgid "Not able to activate a dossier."
-msgstr ""
+msgstr "Het is onmogelijk om dit dossier te activeren"
 
 #: cirb.novac:/browser/novacview.py:66
 msgid "No url for cirb.novac.novac_url"
@@ -64,12 +64,20 @@ msgstr ""
 
 #: cirb.novac:/browser/privateview.py:71 cirb.novac:/browser/privateview.py:86
 msgid "Not able to call ws"
-msgstr ""
+msgstr "De webservice kan niet geladen worden"
 
 #: cirb.novac:/browser/privateview.py:76 cirb.novac:/browser/privateview.py:91
 #: cirb.novac:/browser/publicview.py:73
 msgid "Not able to read this json : %s"
-msgstr ""
+msgstr "De json-gegevens kunnen niet gelezen worden : %s"
+
+#: cirb.novac:/browser/publicview.py:114
+msgid "region_de_bruxelles_capital"
+msgstr "Brussels Hoofdstedelijk Gewest"
+
+#: cirb.novac:/browser/publicview.py:118
+msgid "communede"
+msgstr "Gemeente "
 
 #: cirb.novac:/browser/publicview.py:50
 msgid "Public"
@@ -112,6 +120,11 @@ msgstr ""
 #: cirb.novac:/browser/templates/listprivateview.pt:61
 msgid "Inserez votre cle unique pour activer votre dossier"
 msgstr "Voer de unieke sleutelcode in om uw dossier de activeren"
+
+#. Default: "Activer"
+#: cirb.novac:/browser/templates/listprivateview.pt:72
+msgid "activer"
+msgstr "activeren"
 
 #: cirb.novac:/browser/templates/novacview.pt:100
 msgid "Forest"
@@ -297,28 +310,26 @@ msgstr "Tot"
 msgid "texte_introduction"
 msgstr ""
 "<p>Op deze kaart vindt u momenteel de stedenbouwkundige en "
-"verkavelingsvergunningen en –attesten vanaf juli "
-"2009 die behandeld worden door het Brussels Gewest en "
-"de gemeenten die aangesloten zijn op het platform. "
-"In een later stadium zullen ook de milieuvergunningen "
-"toegevoegd worden.</p>"
-"<p>Opmerking : de dossiers worden op de website weergegeven vanaf "
+"verkavelingsvergunningen en –attesten vanaf juli 2009 die behandeld worden "
+"door het Brussels Gewest en de gemeenten die aangesloten zijn op het "
+"platform. In een later stadium zullen ook de milieuvergunningen toegevoegd "
+"worden.</p><p>Opmerking : de dossiers worden op de website weergegeven vanaf "
 "het moment waarop een dossier volledig wordt verklaard en ze verdwijnen :"
 "<ul><li>4 jaar na de definitieve kennisgeving van de vergunning of van de "
-"weigering van vergunning voor de stedenbouwkundige vergunningen</li>"
-"<li>7 jaar na de definitieve kennisgeving van de vergunning of van de "
-"weigering van vergunning voor de stedenbouwkundige vergunningen</li></ul>"
-"<p>In het kader van de openbaarheid van bestuur en zoals afgesproken in het "
+"weigering van vergunning voor de stedenbouwkundige vergunningen</li><li>7 "
+"jaar na de definitieve kennisgeving van de vergunning of van de weigering "
+"van vergunning voor de stedenbouwkundige vergunningen</li></ul><p>In het "
+"kader van de openbaarheid van bestuur en zoals afgesproken in het "
 "regeerakkoord 2009-2014 wil de brusselse gewestregering en de "
 "staatssecretaris belast met stedenbouw tegemoet komen aan de vraag van de "
 "burgers en de ondernemingen naar meer transparantie.</p><p>Deze toepassing "
 "is alvast uniek in zijn soort en een primeur voor België.</p><p>Voor meer "
-"informatie over een dossier in het bijzonder contacteert u best <a href='"
-"/spelregels/bestemmingsplannen/de-sites-van-de-diensten-stedenbouw-van-de-19-gemeenten'>"
-"de vergunnende overheid</a>.</p><p><strong>Wettelijke "
-"informatie</strong></p><p>De gegevens op deze website worden enkel ter "
-"informatie gegeven en hebben geen enkele juridische waarde. Het Gewest kan "
-"de exactheid en volledigheid van de gegevens niet garanderen en kan dus niet "
+"informatie over een dossier in het bijzonder contacteert u best <a href='/"
+"spelregels/bestemmingsplannen/de-sites-van-de-diensten-stedenbouw-van-de-19-"
+"gemeenten'>de vergunnende overheid</a>.</p><p><strong>Wettelijke informatie</"
+"strong></p><p>De gegevens op deze website worden enkel ter informatie "
+"gegeven en hebben geen enkele juridische waarde. Het Gewest kan de exactheid "
+"en volledigheid van de gegevens niet garanderen en kan dus niet "
 "verantwoordelijk gesteld worden voor eender welke rechtstreekse of "
 "onrechtstreekse schade die iemand zou lijden."
 
@@ -488,9 +499,10 @@ msgstr "afbeelding van de verschillende etappes in de procedure"
 
 #: cirb.novac:/browser/templates/privateview.pt:134
 msgid "notification_image_cc_fd"
-msgstr "<p><strong>Opgelet</strong><br />"
-"Deze afbeelding met de verschillende etappes in de procedure wordt enkel ter informatie gegeven. "
-"Het kan dus zijn dat dit dossier afwijkt van deze afbeelding.</p>" 
+msgstr ""
+"<p><strong>Opgelet</strong><br />Deze afbeelding met de verschillende "
+"etappes in de procedure wordt enkel ter informatie gegeven. Het kan dus zijn "
+"dat dit dossier afwijkt van deze afbeelding.</p>"
 
 #: cirb.novac:/browser/templates/privateview.pt:148
 #: cirb.novac:/browser/templates/publicview.pt:123
@@ -568,11 +580,6 @@ msgstr "naam"
 #: cirb.novac:/browser/templates/privateview.pt:35
 msgid "Etat d'avancement - Demande de permis d'urbanisme"
 msgstr "Status van de voortgang - aanvraag tot stedenbouwkundige vergunning"
-
-#: cirb.novac:/browser/templates/privateview.pt:40
-#: cirb.novac:/browser/templates/listprivateview.pt:30
-msgid "logout"
-msgstr "Afmelden"
 
 #: cirb.novac:/browser/templates/privateview.pt:44
 #: cirb.novac:/browser/templates/publicview.pt:50
@@ -654,11 +661,14 @@ msgstr ""
 #. Default: ""
 #: cirb.novac:/utils.py:32 cirb.novac:/utils.py:61 cirb.novac:/utils.py:91
 msgid "The server couldn't fulfill the request. Error code: %s. Url: %s"
-msgstr ""
+msgstr "De server kon uw aanvraag niet verwerken. Foutmelding: %s. Url: %s"
 
 #: cirb.novac:/utils.py:36 cirb.novac:/utils.py:65 cirb.novac:/utils.py:95
 msgid "We failed to reach a server.<br />Reason: %s"
 msgstr ""
+
+#~ msgid "logout"
+#~ msgstr "Afmelden"
 
 #~ msgid "street_name:"
 #~ msgstr "Straat&nbsp;"

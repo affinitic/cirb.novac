@@ -53,7 +53,11 @@ class Happy(BrowserView):
         return results
 
     def get_sso(self):
-        url = "https://sso.irisnet.be/"
+        env = os.environ.get("DEPLOY_ENV", "")
+        if env == "production":
+            url = "https://sso.irisnet.be/"
+        else:
+            url = "https://sso.irisnetlab.be/"
         results = get_service(url)
         if results.get('status') == 'ko':
             status = results.get('status')
@@ -181,7 +185,7 @@ def get_service(url, headers="", params=""):
     except URLError, e:
         exception =  'We failed to reach a server. URL: %s' % url
         logger.error(exception)
-        return {"status":'ko', "message": "%s : %s" % (e.code, e.reason)}
+        return {"status":'ko', "message": "%s" % (e.reason)}
 
     finally:
         socket.setdefaulttimeout(oldtimeout)

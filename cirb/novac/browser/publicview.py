@@ -91,7 +91,7 @@ class PublicView(NovacView):
                          "publicInquiry","startPublicInquiry","endPublicInquiry",
                          "statusPermit","codeDossier", "pointCC","dateCC",
                          "languageRequest","dateDossierComplet","dateNotifDecision",
-                         "dateDeadline","municipalityOwner","specificReference"]
+                         "dateDeadline","municipalityOwner","specificReference", "instance"]
         
         geometry = jsondata.get('geometry', None)
         if geometry:
@@ -105,6 +105,8 @@ class PublicView(NovacView):
         else:
             self.logger.error("public url return a no excpected json, no 'properties' parameter")
         
-        return dict(dos_results.items() + geo_results.items())   
+        dos_results = update_municipality_owner(self.context, dos_results)
+
+        return dict(dos_results.items() + geo_results.items()) 
     
-        
+    

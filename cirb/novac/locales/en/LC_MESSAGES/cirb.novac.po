@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: Mon Jan 16 15:39:36 2012\n"
+"POT-Creation-Date: Tue Feb  7 09:51:57 2012\n"
 "PO-Revision-Date: 2011-10-28 10:45+0200\n"
 "Last-Translator: bsuttor <bsuttor@cirb.irisnet.be>\n"
 "Language-Team: English\n"
@@ -71,6 +71,14 @@ msgstr ""
 msgid "Not able to read this json : %s"
 msgstr ""
 
+#: cirb.novac:/browser/publicview.py:114
+msgid "region_de_bruxelles_capital"
+msgstr ""
+
+#: cirb.novac:/browser/publicview.py:118
+msgid "communede"
+msgstr ""
+
 #: cirb.novac:/browser/publicview.py:50
 msgid "Public"
 msgstr ""
@@ -112,6 +120,11 @@ msgstr ""
 #: cirb.novac:/browser/templates/listprivateview.pt:61
 msgid "Inserez votre cle unique pour activer votre dossier"
 msgstr "Inserez votre cle unique pour activer votre dossier"
+
+#. Default: "Activer"
+#: cirb.novac:/browser/templates/listprivateview.pt:72
+msgid "activer"
+msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:100
 msgid "Forest"
@@ -518,11 +531,6 @@ msgstr ""
 msgid "Etat d'avancement - Demande de permis d'urbanisme"
 msgstr "Etat d'avancement - Demande de permis d'urbanisme"
 
-#: cirb.novac:/browser/templates/privateview.pt:40
-#: cirb.novac:/browser/templates/listprivateview.pt:30
-msgid "logout"
-msgstr "logout"
-
 #: cirb.novac:/browser/templates/privateview.pt:44
 #: cirb.novac:/browser/templates/publicview.pt:50
 msgid "informations_generales"
@@ -608,6 +616,9 @@ msgstr ""
 #: cirb.novac:/utils.py:36 cirb.novac:/utils.py:65 cirb.novac:/utils.py:95
 msgid "We failed to reach a server.<br />Reason: %s"
 msgstr ""
+
+#~ msgid "logout"
+#~ msgstr "logout"
 
 #~ msgid "No url for cirb.urbis.urbis_url"
 #~ msgstr "No url for cirb.urbis.urbis_url"
