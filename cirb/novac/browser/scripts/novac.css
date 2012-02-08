@@ -154,9 +154,9 @@ table.filter td{border-width:5px; padding:.4em; border-color:transparent;}
 /*** SEARCH ADDRESS ***/
 
 #street, #number, #post_code { border: 1px solid #ccc; width: 200px;}
-#search_address_button, #reset_filter { border: 1px solid #4C4C4C; cursor:pointer; }
+#search_address_button, #reset_filter, #export_csv_button { border: 1px solid #4C4C4C; cursor:pointer; }
 #search_address_button { width: 60px; float: right; margin-top: 10px;}
-#spinner {
+.spinner {
     background: #fff url(++resource++cirb.novac.images/ajax-loader.gif) no-repeat top left;
     width: 16px;
     height: 16px;
@@ -229,6 +229,8 @@ table.filter input#type_u, table.filter input#type_l, table.filter input#require
 select#commune, select#typedossier, select#instance {font-size:1.2em;}
 select#commune option, select#typedossier option, select#instance option {font-size:1em;}
 select#typedossier {display: none;}
+
+#export_csv {display:none;}
 
 #ep_status_div input {
     margin: 0 0.75em;

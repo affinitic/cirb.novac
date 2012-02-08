@@ -250,6 +250,9 @@ var applyDossierFilter = function(event) {
     //update table data
     if (grid_params.startindex != 0) jQuery("#jqxgrid").jqxGrid('gotopage',0);
     else rendergridrows({startindex: 0, endindex: 0 + (grid_params.endindex - grid_params.startindex)});
+    
+    //update export csv visibility
+    count_dossiers();
 }
 
 function searchAddress(street, number, post_code){
@@ -259,7 +262,7 @@ function searchAddress(street, number, post_code){
         address: street
     }    
 
-    $("#spinner").css("visibility","visible");
+    $("#spinner_address").css("visibility","visible");
 
     var my_url = gis_url+"utils/localize/getaddresses/";
     $.ajax({
@@ -277,10 +280,10 @@ function searchAddress(street, number, post_code){
 				addressResult.removeAllFeatures();
 				addressResult.addFeatures([new OpenLayers.Feature.Vector(new OpenLayers.Geometry.Point(x,y))]);
             }
-            $("#spinner").css("visibility","hidden");
+            $("#spinner_address").css("visibility","hidden");
         },
         error:  function(data) {
-            $("#spinner").css("visibility","hidden");
+            $("#spinner_address").css("visibility","hidden");
         }
     });
 
@@ -298,6 +301,57 @@ var source =
     data: {},
     totalrecords: 1000
 };
+
+var count_dossiers = function() {
+    var my_url = gis_url+"geoserver/wfs";
+    var parameters = {
+        service: 'WFS',
+        version: '1.1.0',
+        request: 'GetFeature',
+        typeName: 'NOVA_DOSSIERS',
+        cql_filter: getDossiersFilter(),
+        resultType: 'hits'
+    }
+    $.ajax({
+        type: "GET",
+        url: my_url,
+        data: parameters,
+        dataType: "xml",
+        success:  function(data) {
+            totalrecords = $(data.firstChild).attr("numberOfFeatures");
+            if (totalrecords < 1000) $("#export_csv").show();
+            else $("#export_csv").hide();
+        }
+    });
+}
+
+var get_dossiers_csv = function() {
+    var my_url = gis_url+"geoserver/wfs?";
+    var parameters = {
+        service: 'WFS',
+        version: '1.1.0',
+        request: 'GetFeature',
+        typeName: 'NOVA_DOSSIERS',
+        cql_filter: getDossiersFilter(),
+        outputFormat: 'csv'
+    }
+    //console.log(my_url + $.param(parameters));
+    window.location = my_url + $.param(parameters);
+    /*$.ajax({
+        type: "GET",
+        url: my_url,
+        data: parameters,
+        dataType: "json",
+        success: function(data) {
+            $("#spinner_csv").css("visibility","visible");
+            window.
+        },
+        error: function(data) {
+            $("#spinner_csv").css("visibility","visible");
+        }
+    });*/
+}
+
 var rendergridrows = function (params) {
     grid_params["startindex"] = params.startindex;
     grid_params["endindex"] = params.endindex;
@@ -556,6 +610,10 @@ $(window).bind("load", function() {
     grid_params = {startindex: 0, endindex:30}
     
     jQuery("#jqxgrid #pager").clone().prependTo();
+    
+    $("#export_csv_button").click(function() {
+        get_dossiers_csv();
+    });
     
 });
 
