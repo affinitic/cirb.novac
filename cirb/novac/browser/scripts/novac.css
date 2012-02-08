@@ -13,8 +13,6 @@ input[type=button] {width:100px; margin: 5px 0px 5px 90px;}
 .template-novac_view div#content {margin-top:1em;}
 .template-novac_view div#content h1.documentFirstHeading {margin-bottom:1em;margin-left:0.6em;}
 
-#jqxTabs {visibility: hidden;}
-
 #map_panel {float: left; height:515px; width:675px; border: solid #ddd 1px; padding: 0px; margin: 5px 5px 2em 0.85em;}
 #map_panel2 {float: left; height:300px; width:908px; border: solid #ddd 1px; padding: 0px; margin: 5px 0px 2em 0;}
 #map {height:100%;}

@@ -247,10 +247,6 @@ var applyDossierFilter = function(event) {
     dossiers.maxResolution = 35.0;
     dossiers.redraw();
     
-    //update table data
-    if (grid_params.startindex != 0) jQuery("#jqxgrid").jqxGrid('gotopage',0);
-    else rendergridrows({startindex: 0, endindex: 0 + (grid_params.endindex - grid_params.startindex)});
-    
     //update export csv visibility
     count_dossiers();
 }
@@ -335,21 +331,8 @@ var get_dossiers_csv = function() {
         cql_filter: getDossiersFilter(),
         outputFormat: 'csv'
     }
-    //console.log(my_url + $.param(parameters));
+
     window.location = my_url + $.param(parameters);
-    /*$.ajax({
-        type: "GET",
-        url: my_url,
-        data: parameters,
-        dataType: "json",
-        success: function(data) {
-            $("#spinner_csv").css("visibility","visible");
-            window.
-        },
-        error: function(data) {
-            $("#spinner_csv").css("visibility","visible");
-        }
-    });*/
 }
 
 var rendergridrows = function (params) {
@@ -416,7 +399,6 @@ var rendergridrows = function (params) {
 
 
 $(window).bind("load", function() {
-    jQuery('#jqxTabs').jqxTabs({ position: 'top', selectionTracker: 'checked', animationType: 'fade' });
 
     $("#accordion").accordion({		
 		header : "h3",		
@@ -437,7 +419,6 @@ $(window).bind("load", function() {
         $("#ep_status_div").slideUp();
     });
     
-    $("#jqxTabs").css("visibility","visible");
 
     portal_url = $('#portal_url').html();
     gis_url = portal_url + "/gis/";
@@ -582,34 +563,8 @@ $(window).bind("load", function() {
         $(".filter input[type='radio'], .filter input[type='checkbox']").bind("click", applyDossierFilter);
         $(".filter select, .filter input[type='text']").bind("change", applyDossierFilter);
         
-    });
-    
-    
-    
-    jQuery("#jqxgrid").jqxGrid(
-    {
-        width: 910,//$(this).parent().width,
-        autoheight: true,
-        source: source,
-        columnsresize: true,
-        rowsheight: 40,
-        pageable: true,
-        pagesize: 30,
-        pagesizeoptions: ['30', '60', '90'],
-        virtualmode: true,
-        rendergridrows: rendergridrows,
-        columns: [
-          { text: 'N° Dossier', dataField: 'id', width: 100 },
-          { text: 'Adresse', dataField: 'address', width: 300 },
-          { text: 'Type', dataField: 'type', width: 180 },
-          { text: 'Statut', dataField: 'status', width: 80 },
-          { text: 'Date enq. publ.', dataField: 'date_survey', width: 150 },
-          { text: 'Date com. conc.', dataField: 'date_com', width: 100 }
-        ]
-    });
-    grid_params = {startindex: 0, endindex:30}
-    
-    jQuery("#jqxgrid #pager").clone().prependTo();
+    });    
+
     
     $("#export_csv_button").click(function() {
         get_dossiers_csv();
