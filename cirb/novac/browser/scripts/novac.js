@@ -507,6 +507,8 @@ $(window).bind("load", function() {
         $(".filter input[type='radio'], .filter input[type='checkbox']").bind("click", applyDossierFilter);
         $(".filter select, .filter input[type='text']").bind("change", applyDossierFilter);
         
+        addressResult.removeAllFeatures();
+        
     });    
 
     
