@@ -259,23 +259,22 @@ function searchAddress(street, number, post_code){
 
     $("#spinner_address").css("visibility","visible");
 
-    var my_url = gis_url+"utils/localize/getaddresses/";
+    var my_url = gis_url+"services/urbis/Rest/Localize/getaddresses";
     $.ajax({
         type: "POST",
         url: my_url,
-        //data: "{'language':'"+$('#current_language').html()+"','address':{'street':{'name':'"+street+"','postcode':'"+post_code+"'},'number':'"+number+"'}}",
         data: parameters,
         dataType: "json",
         success:  function(address_data) {
-            var x =Number(address_data[0].point.x);
-            var y =Number(address_data[0].point.y);
+            $("#spinner_address").css("visibility","hidden");
+            var x =Number(address_data.result[0].point.x);
+            var y =Number(address_data.result[0].point.y);
             if(!(isNaN(x) || isNaN(y)))
             {
                 map.setCenter(new OpenLayers.LonLat(x,y), 6);
 				addressResult.removeAllFeatures();
 				addressResult.addFeatures([new OpenLayers.Feature.Vector(new OpenLayers.Geometry.Point(x,y))]);
             }
-            $("#spinner_address").css("visibility","hidden");
         },
         error:  function(data) {
             $("#spinner_address").css("visibility","hidden");
