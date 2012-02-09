@@ -9,7 +9,6 @@ var clusters1km, clusters3km;
 var dossiers;
 var current_language;
 var urbislayer, addressResult;
-var grid_params = {};
 
 function executeGetFeatureInfo(event) {
     mouseLoc = map.getLonLatFromPixel(map.events.getMousePosition(event));
@@ -323,78 +322,24 @@ var count_dossiers = function() {
 
 var get_dossiers_csv = function() {
     var my_url = gis_url+"geoserver/wfs?";
+    var fields = 'NO_DOSSIER,RUE,NUMERO_DE,NUMERO_A,CODE_POSTAL,COMMUNE,TYPE_DOSSIER,STATUT,OBJET,DATE_DEBUT_ENQ_PUBLIQUE,DATE_FIN_ENQ_PUBLIQUE,DATE_COMMISSION_CONCERTATION';
+    typename = 'NOVA_DOSSIERS_FR';
+    console.log(current_language);
+    if(current_language == 'nl'){
+        fields = 'DOSSIERNUMMER,STRAAT,NUMMER_VAN,NUMMER_TOT,POSTCODE,GEMEENTE,DOSSIERTYPE,STATUUT,VOORWERP,BEGINDATUM_OPENBAAR_ONDERZOEK,ENDDATUM_OPENBAAR_ONDERZOEK,DATUM_OVERLEGCOMMISSIE';
+        typename = 'NOVA_DOSSIERS_NL';
+    }
     var parameters = {
         service: 'WFS',
         version: '1.1.0',
         request: 'GetFeature',
-        typeName: 'NOVA_DOSSIERS',
+        typeName: typename,
         cql_filter: getDossiersFilter(),
-        outputFormat: 'csv'
+        outputFormat: 'csv',
+        propertyName: fields
     }
 
     window.location = my_url + $.param(parameters);
-}
-
-var rendergridrows = function (params) {
-    grid_params["startindex"] = params.startindex;
-    grid_params["endindex"] = params.endindex;
-    var data = {};
-    var my_url = gis_url+"geoserver/wfs";
-    var parameters = {
-        service: 'WFS',
-        version: '1.1.0',
-        request: 'GetFeature',
-        typeName: 'NOVA_DOSSIERS',
-        maxFeatures: params.endindex - params.startindex,
-        outputFormat: 'json',
-        startindex: params.startindex,
-        cql_filter: getDossiersFilter()
-    }
-    var absolute_url  = $('#absolute_url').html();
-    $.ajax({
-        type: "GET",
-        url: my_url,
-        data: parameters,
-        dataType: "json",
-        success:  function(remotedata) {
-            //get number of dossiers
-            parameters["maxFeatures"] = 1000;
-            parameters["resultType"] = "hits";
-            $.ajax({
-                type: "GET",
-                url: my_url,
-                data: parameters,
-                dataType: "xml",
-                success:  function(data) {
-                    source.totalrecords = $(data.firstChild).attr("numberOfFeatures");
-                    
-                    $.each(remotedata.features, function(index, feature){
-                        var row = {}
-                        if(current_language == 'fr'){
-                            var id = feature.id.split(".")[1];
-                            row["id"] = "<a href='" + absolute_url + "/public?id=" + id + "' target='_blank'>" + id + "</a>";
-                            var nummer = feature.properties.NUMBERPARTFROM; 
-                            nummer += (feature.properties.NUMBERPARTTO === null)?"":"-"+feature.properties.NUMBERPARTTO;
-                            row["address"] = nummer + " " +
-                                             feature.properties.STREETNAMEFR + " " + 
-                                             feature.properties.ZIPCODE + " " + 
-                                             feature.properties.MUNICIPALITYFR;
-                            row["type"] = feature.properties.TYPEDOSSIERFR;
-                            row["status"] = feature.properties.STATUT_PERMIS_FR;
-                            var date_survey = "";
-                            date_survey += (feature.properties.DATE_DEBUT_MPP === null)?"":feature.properties.DATE_DEBUT_MPP;
-                            date_survey += (feature.properties.DATE_FIN_MPP === null)?"":" - "+feature.properties.DATE_FIN_MPP;
-                            row["date_survey"] = date_survey;
-                            row["date_com"] = feature.properties.DATECC_TEXT;
-                        }
-                        data[params.startindex + index] = row;
-                    });
-                    source.data = data;
-                    jQuery("#jqxgrid").jqxGrid('updatebounddata');
-                }
-            });
-        }
-    });
 }
 
 

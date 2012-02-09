@@ -8,8 +8,6 @@
 </tal:head>
 <tal:css metal:fill-slot="style_slot">
     <!--link rel="stylesheet" tal:attributes="href string:${portal_url}/++resource++cirb.novac.scripts/novac.css" type="text/css"/-->
-    <link rel="stylesheet" tal:attributes="href string:${portal_url}/++resource++cirb.novac.scripts/styles/jqx.base.css" type="text/css" />
-    <link rel="stylesheet" tal:attributes="href string:${portal_url}/++resource++cirb.novac.scripts/styles/jqx.classic.css" type="text/css" />
 </tal:css>
 
 <tal:js metal:fill-slot="javascript_head_slot">    
@@ -167,11 +165,11 @@
 					            <p><input type="checkbox"> Afficher sous forme de liste ?</p>
 					            -->
 					            <hr class="gray" />
-					            <input type="button" id="reset_filter" class="knop" value="Reset"/>
+					            <input type="button" id="reset_filter" class="knop" i18n:attributes="value reset"/>
 					            <br /><br /><br />
 					            <div id="export_csv">
 					                <tal:block i18n:translate="export_csv">Exporter les données au format csv</tal:block>
-					                <div id="spinner_csv" class="spinner"></div><input type="button" id="export_csv_button" class="knop" value="Export"/>
+					                <div id="spinner_csv" class="spinner"></div><input type="button" id="export_csv_button" class="knop" i18n:attributes="value export"/>
 					            </div>
 				            </div>
 			            </div>
