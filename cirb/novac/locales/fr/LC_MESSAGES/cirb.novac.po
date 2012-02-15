@@ -288,7 +288,7 @@ msgstr "Effacer les filtres"
 #: cirb.novac:/browser/templates/novacview.pt:171
 msgid "export_csv"
 msgstr ""
-"<strong>Exporter les données au format .csv</strong>"
+"<strong>Exporter les données au format .csv</strong><br />"
 "(possible si moins de 1000 dossiers)"
 
 #: cirb.novac:/browser/templates/novacview.pt:172
