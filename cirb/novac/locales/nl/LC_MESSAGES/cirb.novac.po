@@ -169,17 +169,17 @@ msgstr "Sint-Pieters-Woluwe"
 #. Default: "Toutes les autorit\303\251s d\303\251livrantes"
 #: cirb.novac:/browser/templates/novacview.pt:116
 msgid "Toutes_les_autorites_delivrantes"
-msgstr ""
+msgstr "Alle vergunnende overheden"
 
 #. Default: "Permis g\303\251r\303\251s par la r\303\251gion"
 #: cirb.novac:/browser/templates/novacview.pt:117
 msgid "Permis_geres_par_la_region"
-msgstr ""
+msgstr "Gewestelijke vergunningen"
 
 #. Default: "Permis g\303\251r\303\251s par les communes"
 #: cirb.novac:/browser/templates/novacview.pt:118
 msgid "permis_geres_par_les_communes"
-msgstr ""
+msgstr "Gemeentelijke vergunningen"
 
 #. Default: "Tous les types de dossier communaux"
 #: cirb.novac:/browser/templates/novacview.pt:123
@@ -284,16 +284,16 @@ msgstr "Tot"
 
 #: cirb.novac:/browser/templates/novacview.pt:168
 msgid "reset"
-msgstr ""
+msgstr "Filters wissen"
 
 #. Default: "Exporter les donn\303\251es au format csv"
 #: cirb.novac:/browser/templates/novacview.pt:171
 msgid "export_csv"
-msgstr ""
+msgstr "Exporteer CSV-bestand"
 
 #: cirb.novac:/browser/templates/novacview.pt:172
 msgid "export"
-msgstr ""
+msgstr "Exporteer CSV-bestand"
 
 #. Default: "ici un texte pour expliquer ce que l'on voit"
 #: cirb.novac:/browser/templates/novacview.pt:181
@@ -667,7 +667,7 @@ msgstr "De server kon uw aanvraag niet verwerken. Foutmelding: %s. Url: %s"
 
 #: cirb.novac:/utils.py:36 cirb.novac:/utils.py:65 cirb.novac:/utils.py:95
 msgid "We failed to reach a server.<br />Reason: %s"
-msgstr ""
+msgstr "De server werd niet gevonden.<br />Reden: %s"
 
 #~ msgid "Certificat_d_urbanisme_delivre_par_le_FD"
 #~ msgstr "Stedenbouwkundig attest afgeleverd door de gemachtigde ambtenaar"
