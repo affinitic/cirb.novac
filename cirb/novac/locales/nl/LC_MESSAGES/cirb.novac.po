@@ -290,8 +290,8 @@ msgstr "Filters wissen"
 #: cirb.novac:/browser/templates/novacview.pt:171
 msgid "export_csv"
 msgstr ""
-"<strong>Exporteer de gegevens in .CSV-formaat.</strong><br />"
-"(Is enkel mogelijk indien minder dan 1000 dossiers)"
+"<strong>Exporteer de gegevens in .csv-formaat.</strong><br />"
+"(enkel mogelijk indien minder dan 1000 dossiers)"
 
 #: cirb.novac:/browser/templates/novacview.pt:172
 msgid "export"
