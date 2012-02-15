@@ -282,16 +282,18 @@ msgstr "à"
 
 #: cirb.novac:/browser/templates/novacview.pt:168
 msgid "reset"
-msgstr ""
+msgstr "Effacer les filtres"
 
 #. Default: "Exporter les donn\303\251es au format csv"
 #: cirb.novac:/browser/templates/novacview.pt:171
 msgid "export_csv"
 msgstr ""
+"<strong>Exporter les données au format .csv</strong>"
+"(possible si moins de 1000 dossiers)"
 
 #: cirb.novac:/browser/templates/novacview.pt:172
 msgid "export"
-msgstr ""
+msgstr "Exporter"
 
 #. Default: "ici un texte pour expliquer ce que l'on voit"
 #: cirb.novac:/browser/templates/novacview.pt:181
