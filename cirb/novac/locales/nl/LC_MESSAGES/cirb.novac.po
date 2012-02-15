@@ -289,11 +289,13 @@ msgstr "Filters wissen"
 #. Default: "Exporter les donn\303\251es au format csv"
 #: cirb.novac:/browser/templates/novacview.pt:171
 msgid "export_csv"
-msgstr "Exporteer CSV-bestand"
+msgstr ""
+"<strong>Exporteer de gegevens in .CSV-formaat.</strong><br />"
+"(Is enkel mogelijk indien minder dan 1000 dossiers)"
 
 #: cirb.novac:/browser/templates/novacview.pt:172
 msgid "export"
-msgstr "Exporteer CSV-bestand"
+msgstr "Exporteer"
 
 #. Default: "ici un texte pour expliquer ce que l'on voit"
 #: cirb.novac:/browser/templates/novacview.pt:181
