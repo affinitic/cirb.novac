@@ -12,7 +12,7 @@ var urbislayer, addressResult;
 
 function executeGetFeatureInfo(event) {
     mouseLoc = map.getLonLatFromPixel(map.events.getMousePosition(event));
-    
+    console.log(mouseLoc);
     var zoom = map.getZoom();
     if (zoom < 3) {
         map.setCenter(mouseLoc, zoom+2);
@@ -49,6 +49,7 @@ function getElements(obj, ns, tagname) {
 }
 
 function showPointInfo(response) {
+    console.log("begin showPointInfo");
     //create an xmlDocument based on the getFeatureInfo response
     var xmlDoc;
     if (window.DOMParser)
@@ -137,7 +138,9 @@ function showPointInfo(response) {
         currentPopup.autoSize = false;
             map.addPopup(currentPopup);
         tabberAutomatic(tabberOptions);
+        console.log(currentPopup);
     }
+    console.log("end showPointInfo");
 }
 
 var applyDossierFilter = function(event) {
