@@ -11,7 +11,7 @@ var current_language;
 var urbislayer, addressResult;
 
 function executeGetFeatureInfo(event) {
-    mouseLoc = map.getLonLatFromPixel(map.events.getMousePosition(event));
+    mouseLoc = map.getLonLatFromPixel(event.xy);
     console.log(mouseLoc);
     var zoom = map.getZoom();
     if (zoom < 3) {
