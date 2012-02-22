@@ -473,7 +473,40 @@ $(window).bind("load", function() {
     map.addControl(overview);
 
     map.setCenter(new OpenLayers.LonLat(150000.0, 170000.0));
-    map.events.register('click', map, executeGetFeatureInfo);
+    
+    //map.events.register('click', map, executeGetFeatureInfo);
+    OpenLayers.Control.Click = OpenLayers.Class(OpenLayers.Control, {                
+        defaultHandlerOptions: {
+            'single': true,
+            'double': false,
+            'pixelTolerance': 0,
+            'stopSingle': false,
+            'stopDouble': false
+        },
+
+        initialize: function(options) {
+            this.handlerOptions = OpenLayers.Util.extend(
+                {}, this.defaultHandlerOptions
+            );
+            OpenLayers.Control.prototype.initialize.apply(
+                this, arguments
+            ); 
+            this.handler = new OpenLayers.Handler.Click(
+                this, {
+                    'click': this.trigger
+                }, this.handlerOptions
+            );
+        }, 
+
+        trigger: function(e) {
+            executeGetFeatureInfo(e);
+        }
+
+    });
+    
+    var mapclick = new OpenLayers.Control.Click();
+    map.addControl(mapclick);
+    mapclick.activate();
 
 
 	$("#search_address_button").click(function() {
