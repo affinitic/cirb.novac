@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: Tue Feb  7 09:51:57 2012\n"
+"POT-Creation-Date: Wed Feb 15 13:53:40 2012\n"
 "PO-Revision-Date: 2011-10-28 10:44+0200\n"
 "Last-Translator: bsuttor <bsuttor@cirb.irisnet.be>\n"
 "Language-Team: French\n"
@@ -26,8 +26,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: cirb.novac:/browser/listprivateview.py:111
-#: cirb.novac:/browser/privateview.py:109
-#: cirb.novac:/browser/privateview.py:180 cirb.novac:/browser/publicview.py:86
+#: cirb.novac:/browser/privateview.py:110
+#: cirb.novac:/browser/privateview.py:181 cirb.novac:/browser/publicview.py:86
 #: cirb.novac:/utils.py:104
 msgid "not_available"
 msgstr "Non disponible"
@@ -38,7 +38,7 @@ msgid "Listprivate"
 msgstr "Mon (mes) dossier(s)"
 
 #: cirb.novac:/browser/listprivateview.py:60
-#: cirb.novac:/browser/privateview.py:99
+#: cirb.novac:/browser/privateview.py:100
 msgid "User undefined."
 msgstr "L'utilisateur n'est pas défini"
 
@@ -62,22 +62,14 @@ msgstr ""
 msgid "No id folder in get method"
 msgstr ""
 
-#: cirb.novac:/browser/privateview.py:71 cirb.novac:/browser/privateview.py:86
+#: cirb.novac:/browser/privateview.py:71 cirb.novac:/browser/privateview.py:87
 msgid "Not able to call ws"
 msgstr "Impossible d'appeler le webservice"
 
-#: cirb.novac:/browser/privateview.py:76 cirb.novac:/browser/privateview.py:91
+#: cirb.novac:/browser/privateview.py:76 cirb.novac:/browser/privateview.py:92
 #: cirb.novac:/browser/publicview.py:73
 msgid "Not able to read this json : %s"
 msgstr "Impossible de lire les données json : %s"
-
-#: cirb.novac:/browser/publicview.py:114
-msgid "region_de_bruxelles_capital"
-msgstr "Région de Bruxelles-Capitale"
-
-#: cirb.novac:/browser/publicview.py:118
-msgid "communede"
-msgstr "Commune de "
 
 #: cirb.novac:/browser/publicview.py:50
 msgid "Public"
@@ -125,188 +117,186 @@ msgid "activer"
 msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:100
-msgid "Forest"
-msgstr ""
-
-#: cirb.novac:/browser/templates/novacview.pt:101
 msgid "Ganshoren"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:102
+#: cirb.novac:/browser/templates/novacview.pt:101
 msgid "Ixelles"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:103
+#: cirb.novac:/browser/templates/novacview.pt:102
 msgid "Jette"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:104
+#: cirb.novac:/browser/templates/novacview.pt:103
 msgid "Koekelberg"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:105
+#: cirb.novac:/browser/templates/novacview.pt:104
 msgid "Molenbeek-Saint-Jean"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:106
+#: cirb.novac:/browser/templates/novacview.pt:105
 msgid "Saint-Gilles"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:107
+#: cirb.novac:/browser/templates/novacview.pt:106
 msgid "Saint-Josse-ten-Noode"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:108
+#: cirb.novac:/browser/templates/novacview.pt:107
 msgid "Schaerbeek"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:109
+#: cirb.novac:/browser/templates/novacview.pt:108
 msgid "Uccle"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:110
+#: cirb.novac:/browser/templates/novacview.pt:109
 msgid "Watermael-Boitsfort"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:111
+#: cirb.novac:/browser/templates/novacview.pt:110
 msgid "Woluwe-Saint-Lambert"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:112
+#: cirb.novac:/browser/templates/novacview.pt:111
 msgid "Woluwe-Saint-Pierre"
 msgstr ""
 
-#. Default: "Tous les types de dossier"
+#. Default: "Toutes les autorit\303\251s d\303\251livrantes"
+#: cirb.novac:/browser/templates/novacview.pt:116
+msgid "Toutes_les_autorites_delivrantes"
+msgstr ""
+
+#. Default: "Permis g\303\251r\303\251s par la r\303\251gion"
 #: cirb.novac:/browser/templates/novacview.pt:117
+msgid "Permis_geres_par_la_region"
+msgstr ""
+
+#. Default: "Permis g\303\251r\303\251s par les communes"
+#: cirb.novac:/browser/templates/novacview.pt:118
+msgid "permis_geres_par_les_communes"
+msgstr ""
+
+#. Default: "Tous les types de dossier communaux"
+#: cirb.novac:/browser/templates/novacview.pt:123
 msgid "Tous_les_types_de_dossier"
 msgstr ""
 
 #. Default: "Abattage d'arbres"
-#: cirb.novac:/browser/templates/novacview.pt:118
+#: cirb.novac:/browser/templates/novacview.pt:124
 msgid "Abattage_d_arbres"
 msgstr ""
 
 #. Default: "Autorisation communale"
-#: cirb.novac:/browser/templates/novacview.pt:119
+#: cirb.novac:/browser/templates/novacview.pt:125
 msgid "Autorisation_communale"
 msgstr ""
 
-#. Default: "Certificat d'urbanisme d\303\251livr\303\251 par le FD"
-#: cirb.novac:/browser/templates/novacview.pt:120
-msgid "Certificat_d_urbanisme_delivre_par_le_FD"
-msgstr "Certificat d'urbanisme délivré par le fonctionnaire délégué"
-
 #. Default: "Certificat d'urbanisme en vue de lotir"
-#: cirb.novac:/browser/templates/novacview.pt:121
+#: cirb.novac:/browser/templates/novacview.pt:126
 msgid "Certificat_d_urbanisme_en_vue_de_lotir"
 msgstr ""
 
 #. Default: "Certificat d'urbanisme priv\303\251"
-#: cirb.novac:/browser/templates/novacview.pt:122
+#: cirb.novac:/browser/templates/novacview.pt:127
 msgid "Certificat_d_urbanisme_prive"
 msgstr ""
 
 #. Default: "Certificat d'urbanisme priv\303\251 - projet mixte"
-#: cirb.novac:/browser/templates/novacview.pt:123
+#: cirb.novac:/browser/templates/novacview.pt:128
 msgid "Certificat_d_urbanisme_prive_projet_mixte"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:124
+#: cirb.novac:/browser/templates/novacview.pt:129
 msgid "Enseigne"
 msgstr ""
 
 #. Default: "Panneau publicitaire"
-#: cirb.novac:/browser/templates/novacview.pt:125
+#: cirb.novac:/browser/templates/novacview.pt:130
 msgid "Panneau_publicitaire"
 msgstr ""
 
 #. Default: "Permis de lotir"
-#: cirb.novac:/browser/templates/novacview.pt:126
+#: cirb.novac:/browser/templates/novacview.pt:131
 msgid "Permis_de_lotir"
 msgstr ""
 
-#. Default: "Permis de lotir (ou modification de PL) d\303\251livr\303\251 par le FD"
-#: cirb.novac:/browser/templates/novacview.pt:127
-msgid "Permis_de_lotir_delivre_par_le_FD"
-msgstr ""
-"Permis de lotir (ou modification de PL) délivré par le fonctionnaire délégué"
-
-#. Default: "Permis de lotir (ou modification de PL) unique d\303\251livr\303\251 par le FD"
-#: cirb.novac:/browser/templates/novacview.pt:128
-msgid "Permis_de_lotir_unique_delivre_par_le_FD"
-msgstr ""
-"Permis de lotir (ou modification de PL) unique délivré par le fonctionnaire "
-"délégué"
-
-#. Default: "Permis d'urbanisme d\303\251livr\303\251 par le FD"
-#: cirb.novac:/browser/templates/novacview.pt:129
-msgid "Permis_d_urbanisme_delivre_par_le_FD"
-msgstr "Permis d'urbanisme délivré par le fonctionnaire délégué"
-
 #. Default: "Permis d'urbanisme priv\303\251"
-#: cirb.novac:/browser/templates/novacview.pt:130
+#: cirb.novac:/browser/templates/novacview.pt:132
 msgid "Permis_d_urbanisme_prive"
 msgstr ""
 
 #. Default: "Permis d'urbanisme priv\303\251 - proc\303\251dure mixte"
-#: cirb.novac:/browser/templates/novacview.pt:131
+#: cirb.novac:/browser/templates/novacview.pt:133
 msgid "Permis_d_urbanisme_prive_procedure_mixte"
 msgstr "Permis d'urbanisme privé - projet mixte"
 
-#. Default: "Permis d'urbanisme unique d\303\251livr\303\251 par le FD"
-#: cirb.novac:/browser/templates/novacview.pt:132
-msgid "Permis_d_urbanisme_unique_delivre_par_le_FD"
-msgstr "Permis d'urbanisme unique délivré par le fonctionnaire délégué"
-
 #. Default: "Enqu\303\252te publique"
-#: cirb.novac:/browser/templates/novacview.pt:136
+#: cirb.novac:/browser/templates/novacview.pt:137
 msgid "Enquete_publique"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:138
+#: cirb.novac:/browser/templates/novacview.pt:139
 msgid "Oui"
 msgstr ""
 
 #. Default: "En cours"
-#: cirb.novac:/browser/templates/novacview.pt:143
+#: cirb.novac:/browser/templates/novacview.pt:144
 msgid "En_cours"
 msgstr ""
 
 #. Default: "termin\303\251"
-#: cirb.novac:/browser/templates/novacview.pt:147
+#: cirb.novac:/browser/templates/novacview.pt:148
 msgid "termine"
 msgstr "Terminée"
 
 #. Default: "planifi\303\251"
-#: cirb.novac:/browser/templates/novacview.pt:151
+#: cirb.novac:/browser/templates/novacview.pt:152
 msgid "planifie"
 msgstr "Planifiée"
 
-#: cirb.novac:/browser/templates/novacview.pt:156
+#: cirb.novac:/browser/templates/novacview.pt:157
 msgid "Non"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:157
+#: cirb.novac:/browser/templates/novacview.pt:158
 msgid "Tous"
 msgstr ""
 
 #. Default: "Date Commission de Consertation"
-#: cirb.novac:/browser/templates/novacview.pt:159
+#: cirb.novac:/browser/templates/novacview.pt:160
 msgid "Date_Commission_de_Consertation"
 msgstr ""
 
 #. Default: "de"
-#: cirb.novac:/browser/templates/novacview.pt:160
+#: cirb.novac:/browser/templates/novacview.pt:161
 msgid "date_from"
 msgstr "de"
 
 #. Default: "\303\240"
-#: cirb.novac:/browser/templates/novacview.pt:161
+#: cirb.novac:/browser/templates/novacview.pt:162
 msgid "date_to"
 msgstr "à"
 
+#: cirb.novac:/browser/templates/novacview.pt:168
+msgid "reset"
+msgstr "Effacer les filtres"
+
+#. Default: "Exporter les donn\303\251es au format csv"
+#: cirb.novac:/browser/templates/novacview.pt:171
+msgid "export_csv"
+msgstr ""
+"<strong>Exporter les données au format .csv</strong><br />"
+"(possible si moins de 1000 dossiers)"
+
+#: cirb.novac:/browser/templates/novacview.pt:172
+msgid "export"
+msgstr "Exporter"
+
 #. Default: "ici un texte pour expliquer ce que l'on voit"
-#: cirb.novac:/browser/templates/novacview.pt:175
+#: cirb.novac:/browser/templates/novacview.pt:181
 msgid "texte_introduction"
 msgstr ""
 "<p>Cette carte montre les permis et les certificats d'urbanisme et de lotir "
@@ -334,99 +324,103 @@ msgstr ""
 "subir.</p>"
 
 #. Default: "Les permis en ligne"
-#: cirb.novac:/browser/templates/novacview.pt:25
+#: cirb.novac:/browser/templates/novacview.pt:23
 msgid "les_permis_en_ligne"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:38
+#: cirb.novac:/browser/templates/novacview.pt:37
 msgid "mon_dossier"
 msgstr "Mon dossier"
 
-#: cirb.novac:/browser/templates/novacview.pt:40
+#: cirb.novac:/browser/templates/novacview.pt:39
 msgid "login"
 msgstr "Se connecter avec carte eID"
 
-#: cirb.novac:/browser/templates/novacview.pt:42
+#: cirb.novac:/browser/templates/novacview.pt:41
 msgid "search_address"
 msgstr "Recherche d'adresse"
 
 #. Default: "adresse (ex: 21 avenue des arts)"
-#: cirb.novac:/browser/templates/novacview.pt:44
+#: cirb.novac:/browser/templates/novacview.pt:43
 msgid "address (ex: 21 avenue des arts)"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:46
+#: cirb.novac:/browser/templates/novacview.pt:45
 msgid "search"
 msgstr "Recherche"
 
-#: cirb.novac:/browser/templates/novacview.pt:48
+#: cirb.novac:/browser/templates/novacview.pt:47
 msgid "filtres"
 msgstr "Filtres"
 
-#: cirb.novac:/browser/templates/novacview.pt:53
+#: cirb.novac:/browser/templates/novacview.pt:52
 msgid "type_U"
 msgstr "type_U"
 
-#: cirb.novac:/browser/templates/novacview.pt:55
+#: cirb.novac:/browser/templates/novacview.pt:54
 msgid "urbanisme"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:58
+#: cirb.novac:/browser/templates/novacview.pt:57
 msgid "type_L"
 msgstr "type_L"
 
-#: cirb.novac:/browser/templates/novacview.pt:60
+#: cirb.novac:/browser/templates/novacview.pt:59
 msgid "lotir"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:69
+#: cirb.novac:/browser/templates/novacview.pt:68
 msgid "required"
 msgstr "en cours d'instruction"
 
-#: cirb.novac:/browser/templates/novacview.pt:74
+#: cirb.novac:/browser/templates/novacview.pt:73
 msgid "granted"
 msgstr "octroyé"
 
-#: cirb.novac:/browser/templates/novacview.pt:79
+#: cirb.novac:/browser/templates/novacview.pt:78
 msgid "refused"
 msgstr "refusé"
 
-#: cirb.novac:/browser/templates/novacview.pt:84
+#: cirb.novac:/browser/templates/novacview.pt:83
 msgid "canceled"
 msgstr "annulé"
 
 #. Default: "Tous les filtres"
-#: cirb.novac:/browser/templates/novacview.pt:90
+#: cirb.novac:/browser/templates/novacview.pt:89
 msgid "Tous_les_filtres"
 msgstr ""
 
 #. Default: "Toutes les communes"
-#: cirb.novac:/browser/templates/novacview.pt:93
+#: cirb.novac:/browser/templates/novacview.pt:92
 msgid "Toutes_les_communes"
 msgstr "Toutes les communes"
 
-#: cirb.novac:/browser/templates/novacview.pt:94
+#: cirb.novac:/browser/templates/novacview.pt:93
 msgid "Anderlecht"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:95
+#: cirb.novac:/browser/templates/novacview.pt:94
 msgid "Auderghem"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:96
+#: cirb.novac:/browser/templates/novacview.pt:95
 msgid "Berchem-Sainte-Agathe"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:97
+#: cirb.novac:/browser/templates/novacview.pt:96
 msgid "Bruxelles"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:98
+#: cirb.novac:/browser/templates/novacview.pt:97
 msgid "Etterbeek"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:99
+#: cirb.novac:/browser/templates/novacview.pt:98
 msgid "Evere"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:99
+msgid "Forest"
 msgstr ""
 
 #: cirb.novac:/browser/templates/privateview.pt:102
@@ -654,6 +648,14 @@ msgstr "Détail de la demande"
 msgid "localisation"
 msgstr "Localisation"
 
+#: cirb.novac:/utils.py:238
+msgid "region_de_bruxelles_capital"
+msgstr "Région de Bruxelles-Capitale"
+
+#: cirb.novac:/utils.py:242
+msgid "communede"
+msgstr "Commune de "
+
 #: cirb.novac:/utils.py:28 cirb.novac:/utils.py:57 cirb.novac:/utils.py:88
 msgid "headers bad formated"
 msgstr ""
@@ -666,6 +668,25 @@ msgstr "Le serveur ne répond pas. Code d'erreur: %s. Url: %s"
 #: cirb.novac:/utils.py:36 cirb.novac:/utils.py:65 cirb.novac:/utils.py:95
 msgid "We failed to reach a server.<br />Reason: %s"
 msgstr ""
+
+#~ msgid "Certificat_d_urbanisme_delivre_par_le_FD"
+#~ msgstr "Certificat d'urbanisme délivré par le fonctionnaire délégué"
+
+#~ msgid "Permis_de_lotir_delivre_par_le_FD"
+#~ msgstr ""
+#~ "Permis de lotir (ou modification de PL) délivré par le fonctionnaire "
+#~ "délégué"
+
+#~ msgid "Permis_de_lotir_unique_delivre_par_le_FD"
+#~ msgstr ""
+#~ "Permis de lotir (ou modification de PL) unique délivré par le "
+#~ "fonctionnaire délégué"
+
+#~ msgid "Permis_d_urbanisme_delivre_par_le_FD"
+#~ msgstr "Permis d'urbanisme délivré par le fonctionnaire délégué"
+
+#~ msgid "Permis_d_urbanisme_unique_delivre_par_le_FD"
+#~ msgstr "Permis d'urbanisme unique délivré par le fonctionnaire délégué"
 
 #~ msgid "logout"
 #~ msgstr "Déconnexion"
