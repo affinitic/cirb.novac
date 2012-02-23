@@ -322,7 +322,7 @@ var get_dossiers_csv = function() {
     var my_url = gis_url+"geoserver/wfs?";
     var fields = 'NO_DOSSIER,RUE,NUMERO_DE,NUMERO_A,CODE_POSTAL,COMMUNE,TYPE_DOSSIER,STATUT,OBJET,DATE_DEBUT_ENQ_PUBLIQUE,DATE_FIN_ENQ_PUBLIQUE,DATE_COMMISSION_CONCERTATION';
     typename = 'NOVA_DOSSIERS_FR';
-    console.log(current_language);
+
     if(current_language == 'nl'){
         fields = 'DOSSIERNUMMER,STRAAT,NUMMER_VAN,NUMMER_TOT,POSTCODE,GEMEENTE,DOSSIERTYPE,STATUUT,VOORWERP,BEGINDATUM_OPENBAAR_ONDERZOEK,ENDDATUM_OPENBAAR_ONDERZOEK,DATUM_OVERLEGCOMMISSIE';
         typename = 'NOVA_DOSSIERS_NL';
@@ -540,6 +540,7 @@ $(window).bind("load", function() {
         $(".filter select, .filter input[type='text']").bind("change", applyDossierFilter);
         
         addressResult.removeAllFeatures();
+        $("#export_csv").hide();
         
     });    
 
