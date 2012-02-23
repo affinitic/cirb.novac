@@ -268,7 +268,7 @@ msgstr ""
 #. Default: "Date Commission de Consertation"
 #: cirb.novac:/browser/templates/novacview.pt:160
 msgid "Date_Commission_de_Consertation"
-msgstr ""
+msgstr "Date Commission de Concertation"
 
 #. Default: "de"
 #: cirb.novac:/browser/templates/novacview.pt:161
@@ -359,7 +359,7 @@ msgstr "type_U"
 
 #: cirb.novac:/browser/templates/novacview.pt:54
 msgid "urbanisme"
-msgstr ""
+msgstr "Permis d'urbanisme"
 
 #: cirb.novac:/browser/templates/novacview.pt:57
 msgid "type_L"
@@ -367,23 +367,23 @@ msgstr "type_L"
 
 #: cirb.novac:/browser/templates/novacview.pt:59
 msgid "lotir"
-msgstr ""
+msgstr "Permis de lotir"
 
 #: cirb.novac:/browser/templates/novacview.pt:68
 msgid "required"
-msgstr "en cours d'instruction"
+msgstr "En cours d'instruction"
 
 #: cirb.novac:/browser/templates/novacview.pt:73
 msgid "granted"
-msgstr "octroyé"
+msgstr "Octroyé"
 
 #: cirb.novac:/browser/templates/novacview.pt:78
 msgid "refused"
-msgstr "refusé"
+msgstr "Refusé"
 
 #: cirb.novac:/browser/templates/novacview.pt:83
 msgid "canceled"
-msgstr "annulé"
+msgstr "Annulé"
 
 #. Default: "Tous les filtres"
 #: cirb.novac:/browser/templates/novacview.pt:89
@@ -633,7 +633,7 @@ msgstr "N° de téléphone"
 
 #: cirb.novac:/browser/templates/privateview.pt:92
 msgid "gestionnaire_email"
-msgstr "adresse e-mail"
+msgstr "Adresse e-mail"
 
 #: cirb.novac:/browser/templates/privateview.pt:99
 #: cirb.novac:/browser/templates/publicview.pt:89
