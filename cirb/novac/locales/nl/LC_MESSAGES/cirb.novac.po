@@ -635,7 +635,7 @@ msgstr "Telefoonnummer"
 
 #: cirb.novac:/browser/templates/privateview.pt:92
 msgid "gestionnaire_email"
-msgstr "e-mailadres"
+msgstr "E-mailadres"
 
 #: cirb.novac:/browser/templates/privateview.pt:99
 #: cirb.novac:/browser/templates/publicview.pt:89
