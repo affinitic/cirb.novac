@@ -92,13 +92,11 @@ function map_init() {
         type: OpenLayers.Control.TYPE_BUTTON,
         trigger: function(){
             if (urbis_base.getVisibility() == true) {
-                urbis_base.setVisibility(false);
-                ortho.setVisibility(true);
+                map.setBaseLayer(ortho);
                 $(this.panel_div).removeClass("ortho");
             }
             else {
-                ortho.setVisibility(false);
-                urbis_base.setVisibility(true);
+                map.setBaseLayer(urbis_base);
                 $(this.panel_div).addClass("ortho");
             }
         },
