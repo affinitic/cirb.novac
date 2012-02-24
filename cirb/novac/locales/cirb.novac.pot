@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: Wed Feb 15 13:53:40 2012\n"
+"POT-Creation-Date: Fri Feb 24 09:03:18 2012\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Zope 3 Developers <zope-dev@zope.org>\n"
@@ -272,6 +272,12 @@ msgstr ""
 #: cirb.novac:/browser/templates/novacview.pt:161
 #. Default: "de"
 msgid "date_from"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:161
+#: cirb.novac:/browser/templates/novacview.pt:162
+#. Default: "dd/mm/yyyy"
+msgid "ddmmyy"
 msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:162

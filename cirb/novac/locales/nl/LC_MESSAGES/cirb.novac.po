@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: Wed Feb 15 13:53:40 2012\n"
+"POT-Creation-Date: Fri Feb 24 09:03:18 2012\n"
 "PO-Revision-Date: 2011-10-28 10:45+0200\n"
 "Last-Translator: bsuttor <bsuttor@cirb.irisnet.be>\n"
 "Language-Team: Dutch\n"
@@ -277,6 +277,12 @@ msgstr "Datum Overlegcommissie"
 msgid "date_from"
 msgstr "Van"
 
+#. Default: "dd/mm/yyyy"
+#: cirb.novac:/browser/templates/novacview.pt:161
+#: cirb.novac:/browser/templates/novacview.pt:162
+msgid "ddmmyy"
+msgstr ""
+
 #. Default: "\303\240"
 #: cirb.novac:/browser/templates/novacview.pt:162
 msgid "date_to"
@@ -290,8 +296,8 @@ msgstr "Filters wissen"
 #: cirb.novac:/browser/templates/novacview.pt:171
 msgid "export_csv"
 msgstr ""
-"<strong>Exporteer de gegevens in .csv-formaat.</strong><br />"
-"(enkel mogelijk indien minder dan 1000 dossiers)"
+"<strong>Exporteer de gegevens in .csv-formaat.</strong><br />(enkel mogelijk "
+"indien minder dan 1000 dossiers)"
 
 #: cirb.novac:/browser/templates/novacview.pt:172
 msgid "export"
