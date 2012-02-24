@@ -279,7 +279,7 @@ msgstr "de"
 #: cirb.novac:/browser/templates/novacview.pt:161
 #: cirb.novac:/browser/templates/novacview.pt:162
 msgid "ddmmyy"
-msgstr ""
+msgstr "jj/mm/aaaa"
 
 #. Default: "\303\240"
 #: cirb.novac:/browser/templates/novacview.pt:162
