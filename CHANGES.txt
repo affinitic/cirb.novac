@@ -1,10 +1,11 @@
 Changelog
 =========
 
-1.2 (unreleased)
+1.2 (2012-02-24)
 ----------------
 
-- Nothing changed yet.
+- add into cirb eggs folder
+- fix gis problem
 
 
 1.1 (2012-01-24)
