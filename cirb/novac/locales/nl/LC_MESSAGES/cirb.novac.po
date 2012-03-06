@@ -351,7 +351,7 @@ msgstr "Adres opzoeken"
 #. Default: "adresse (ex: 21 avenue des arts)"
 #: cirb.novac:/browser/templates/novacview.pt:43
 msgid "address (ex: 21 avenue des arts)"
-msgstr "adres (bvb. kunstlaan 21"
+msgstr "adres (bvb. kunstlaan 21)"
 
 #: cirb.novac:/browser/templates/novacview.pt:45
 msgid "search"
