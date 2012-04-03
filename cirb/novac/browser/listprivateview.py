@@ -99,7 +99,6 @@ class ListprivateView(NovacView):
             return empty_table
         
         results = self.dossier_processing(jsondata)
-        import pdb; pdb.set_trace() 
         return make_table_rows(self.context.absolute_url(), results)
     
     def dossier_processing(self, jsondata):
