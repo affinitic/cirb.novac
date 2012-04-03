@@ -4,7 +4,7 @@ Changelog
 1.2.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix : Waws named zipcode instead of zipCode for private list dossier.
 
 
 1.2.2 (2012-04-03)
