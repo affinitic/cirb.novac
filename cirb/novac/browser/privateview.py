@@ -1,11 +1,8 @@
 # -*- coding: UTF-8 -*-
-from zope.interface import implements, Interface
+from zope.interface import implements
 
-from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 
-from zope.component import getUtility
-from plone.registry.interfaces import IRegistry
 
 from cirb.novac import novacMessageFactory as _
 from cirb.novac.utils import *

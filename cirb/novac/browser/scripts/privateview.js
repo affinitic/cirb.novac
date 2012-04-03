@@ -18,10 +18,13 @@ $(document).ready(function() {
         var url = $(this).attr("href");
         $(this).attr("href","#");
         $.get(url, function(data) {
-            //reload table with the new 'secondary key'
-            // TODO wait before reload
-            reload_table_list_secondary_key();
+            setTimeout(function() {
+                //reload table with the new 'secondary key'
+                // TODO wait before reload
+                reload_table_list_secondary_key();
+            }, 100);
         });
+
         return false;
     }); 
     

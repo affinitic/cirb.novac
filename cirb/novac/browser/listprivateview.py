@@ -1,21 +1,16 @@
 # -*- coding: UTF-8 -*-
-from zope.interface import implements, Interface
+from zope.interface import implements
 
-from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 from zope.component import getMultiAdapter
 
 
-from zope.component import getUtility
-from plone.registry.interfaces import IRegistry
 
 from cirb.novac import novacMessageFactory as _
 from cirb.novac.utils import *
 from cirb.novac.browser.novacview import INovacView, NovacView
 
-import urllib, logging, json
-
-from zope.annotation.interfaces import IAnnotations
+import urllib, logging
 
 FOLDER_LIST_WS = '/nova/sso/dossiers?errn=' # ?errn=errn3 used to test
 ACTIVATION = '/waws/sso/activate?key=' # ?errn=errn3 used to test

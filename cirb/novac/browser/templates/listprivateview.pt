@@ -60,7 +60,7 @@
 	-->
 							<p i18n:translate="Inserez votre cle unique pour activer votre dossier">Insérez votre clé unique pour activer votre dossier</p>
 								<img tal:attributes="src string:${portal_url}/++resource++cirb.novac.images/key24.png" alt="key" style="float:left;" />
-									<input type="text" size="4" maxlength="24" id='key1' />-
+									<input type="text" size="4" maxlength="40" id='key1' />-
 									<input type="text" size="4" maxlength="4" id='key2' />-
 									<input type="text" size="4" maxlength="4" id='key3' />-
 									<input type="text" size="4" maxlength="4" id='key4' />-
