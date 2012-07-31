@@ -11,11 +11,13 @@ from cirb.novac.browser.novacview import INovacView, NovacView
 import logging
 import urllib
 PRIVATE_FODLER_WS = '/nova/sso/dossiers/' # ?errn=errn3 used to test
+PUBLIC_FODLER_WS = '/nova/pub/dossiers/' # ?errn=errn3 used to test
 HISTORY =  '/history' # ?errn=errn3 used to test
 SECONDARY_KEYS = '/waws/sso/ssks/distributed?targetID='
 ADD_SECONDARY_KEY = '/waws/sso/ssks?targetID='
 ADD_SECONDARY_KEY_NAME = '&keyName='
 REVOKE_SECONDARY_KEY = '/waws/sso/ssks/revoke?key='
+GET_DOCUMENT = "/nova/documents/"
 
 class IPrivateView(INovacView):
     """
@@ -51,15 +53,13 @@ class PrivateView(NovacView):
         return {'error':True,'msg_error':msg_error}
     
     def private(self):
-        error=False
         msg_error=''
         if not self.novac_url:
-            error=True
             msg_error=_(u'No url for novac url')
+            return self.private_error(msg_error)
         elif not self.id_dossier:
-            error=True
             msg_error=_(u'No id folder in get method')
-        #dossier_id = self.request.form.get('id')
+            return self.private_error(msg_error)
         dossier_url = '%s%s%s' % (self.novac_url, PRIVATE_FODLER_WS, self.id_dossier)
      
         json_from_ws = self.called_ws(dossier_url)
@@ -95,12 +95,36 @@ class PrivateView(NovacView):
         user = get_user(self.request, self.context)
         if not user:
             msg_error = _('User undefined.')
-            return self.listprivate_error(msg_error)
+            return self.private_error(msg_error)
         results['user'] = user['name']
         results['jsondata'] = jsondata
         results['jsonhistory'] = jsonhistory
         results['error'] = False
         results['h_res'] = h_res
+        return results
+
+    def get_documents(self):
+        documents_url = '%s%s%s/documents' % (self.novac_url, PUBLIC_FODLER_WS, self.id_dossier)
+        
+        json_from_ws = self.called_ws(documents_url)
+        if not json_from_ws:
+            self.logger.error = ('Not able to call ws %s' % documents_url)
+            msg_error = _(u'Not able to call ws')
+            return msg_error
+        
+        jsondata = json_processing(json_from_ws)
+        if not jsondata:
+            msg_error = _(u'Not able to read this json : %s' % jsondata)
+            self.logger.error = (msg_error)
+            return msg_error
+
+        return self.documents_processing(jsondata)
+
+    def documents_processing(self, json):
+        results = []
+        for document in json:
+            href = "{0}{1}{2}".format(self.novac_url, GET_DOCUMENT, document.get('idDocument'))
+            results.append('<td><a href="{1}" traget="_blank">{0}</a></td>'.format(document['label'], href))
         return results
     
     def dossier_processing(self, jsondata):

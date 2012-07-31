@@ -164,6 +164,18 @@
         </tr-->
     </tbody></table>
 
+    <table class="detail_table">
+        <tbody>
+        <tr>
+            <td class="tableheader" i18n:translate="documents">Document(s)</td>
+        </tr>
+        <tr tal:repeat="doc view/get_documents">
+            <td tal:replace='structure doc'>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
 
     <div id="container">
         <div id="map_panel2">
@@ -245,6 +257,9 @@
     <tal:block tal:condition="data/error" >
         <div tal:replace="data/msg_error">error</div>
     </tal:block>
+
+
+
 </div>
 </body>
 </html>
