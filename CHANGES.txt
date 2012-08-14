@@ -4,7 +4,7 @@ Changelog
 1.2.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Nothing changed yet. Bad fullrelease.
 
 
 1.2.5 (2012-08-14)
