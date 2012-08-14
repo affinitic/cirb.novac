@@ -105,18 +105,18 @@ class PrivateView(NovacView):
 
     def get_documents(self):
         documents_url = '%s%s%s/documents' % (self.novac_url, PUBLIC_FODLER_WS, self.id_dossier)
-        
+
         json_from_ws = self.called_ws(documents_url)
         if not json_from_ws:
-            self.logger.error = ('Not able to call ws %s' % documents_url)
+            self.logger.error('Not able to call ws %s' % documents_url)
             msg_error = _(u'Not able to call ws')
-            return msg_error
-        
+            return [msg_error]
+
         jsondata = json_processing(json_from_ws)
         if not jsondata:
-            msg_error = _(u'Not able to read this json : %s' % jsondata)
-            self.logger.error = (msg_error)
-            return msg_error
+            msg_error = _(u'Not able to read this json')
+            self.logger.error('%s : %s' % (msg_error, jsondata))
+            return [msg_error]
 
         return self.documents_processing(jsondata)
 
