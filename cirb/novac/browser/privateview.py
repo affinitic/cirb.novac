@@ -124,7 +124,10 @@ class PrivateView(NovacView):
         results = []
         for document in json:
             href = "{0}{1}{2}".format(self.novac_url, GET_DOCUMENT, document.get('idDocument'))
-            results.append('<td><a href="{1}" traget="_blank">{0}</a></td>'.format(document['label'], href))
+            try:
+                results.append('<td><a href="{1}" traget="_blank">{0}</a></td>'.format(document['label'].encode('utf-8'), href))
+            except UnicodeEncodeError:
+                return "UnicodeEncodeError"
         return results
     
     def dossier_processing(self, jsondata):
