@@ -125,7 +125,7 @@ class PrivateView(NovacView):
         for document in json:
             href = "{0}{1}{2}".format(self.novac_url, GET_DOCUMENT, document.get('idDocument'))
             try:
-                results.append(u'<td><a href="{1}" traget="_blank">{0}</a></td>'.format(unicode(document['label'], 'utf-8'), href))
+                results.append('<td><a href="%s" traget="_blank">%s</a></td>' % (href, document['label']))
             except UnicodeEncodeError:
                 return "UnicodeEncodeError"
         return results
