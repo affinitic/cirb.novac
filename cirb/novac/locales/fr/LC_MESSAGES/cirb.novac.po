@@ -328,7 +328,9 @@ msgstr ""
 "Capitale n'est pas en mesure de garantir le caractère exact et complet de "
 "ces informations et, de ce fait, ne peut être tenue responsable pour quelque "
 "motif que ce soit des dommages directs ou indirects que le citoyen devrait "
-"subir.</p>"
+"subir.</p><p><iframe width='560' height='315' "
+"src='https://www.youtube.com/embed/qTOjio0sE34' frameborder='0' "
+"allowfullscreen></iframe></p>"
 
 #. Default: "Les permis en ligne"
 #: cirb.novac:/browser/templates/novacview.pt:23

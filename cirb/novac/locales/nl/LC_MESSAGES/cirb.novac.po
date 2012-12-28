@@ -329,7 +329,11 @@ msgstr ""
 "gegeven en hebben geen enkele juridische waarde. Het Gewest kan de exactheid "
 "en volledigheid van de gegevens niet garanderen en kan dus niet "
 "verantwoordelijk gesteld worden voor eender welke rechtstreekse of "
-"onrechtstreekse schade die iemand zou lijden."
+"onrechtstreekse schade die iemand zou lijden.</p><p>"
+"<iframe width='560' height='315' "
+"src='https://www.youtube.com/embed/v6aEnx-pZ80' frameborder='0' "
+"allowfullscreen></iframe></p>"
+
 
 #. Default: "Les permis en ligne"
 #: cirb.novac:/browser/templates/novacview.pt:23
