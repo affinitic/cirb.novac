@@ -22,7 +22,7 @@
     <div metal:fill-slot="main" tal:define="urls view/utils_url; json view/public">    
 	
         <div  tal:condition="not: json/error"  id="table" 
-		style="padding: 0 1em 1em;" tal:attributes="
+		style="" tal:attributes="
 			data-x json/results/x;
 			data-y json/results/y;
 			data_portal_url context/portal_url;">
