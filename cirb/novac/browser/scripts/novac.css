@@ -283,6 +283,9 @@ table.filter input#type_u, table.filter input#type_l, table.filter input#require
   text-decoration: none;
   display:block;
 }
+#accordion2 h4.ui-state-active a {
+  background: #DDD url(++resource++cirb.novac.images/minus.png) no-repeat top right;
+}
 #accordion2 h4 a:hover {
   text-decoration: none;
   color: #cc071e;
