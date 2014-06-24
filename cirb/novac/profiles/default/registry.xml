@@ -5,7 +5,7 @@
             <title>Waws URL</title>
             <description>Url used to Waws connection</description>
         </field>
-        <value>https://ws.irisnetlab.be</value>
+        <value>https://ws.irisnet.be</value>
     </record>
     <record name="cirb.novac.json_file">
         <field type="plone.registry.field.URI">
@@ -19,14 +19,14 @@
             <title>REST URL</title>
             <description>REST URL called to transform address in LatLon</description>
         </field>
-        <value>http://services.gis.irisnetlab.be/urbis/Rest/Localize/getxycoord</value>
+        <value>http://services.gis.irisnet.be/urbis/Rest/Localize/getxycoord</value>
     </record>
     <record name="cirb.novac.css_eid">
         <field type="plone.registry.field.URI">
             <title>CSS eid</title>
             <description>URL of css used for eid connection</description>
         </field>
-        <value>https://sso.irisnetlab.be/cas/css/novacitoyen-style.css</value>
+        <value>https://sso.irisnet.be/cas/css/novacitoyen-style.css</value>
     </record>
     
     
