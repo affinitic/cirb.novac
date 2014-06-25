@@ -90,25 +90,25 @@
 				            <div>
 					            <select id="commune" name="commune" style="width:195px;">
 						            <option value="0" selected> <tal:block i18n:translate="Toutes_les_communes">Toutes les communes</tal:block> </option>
-						            <option value="1070"> <tal:block i18n:translate="Anderlecht">Anderlecht</tal:block> </option>
-						            <option value="1160"> <tal:block i18n:translate="Auderghem">Auderghem</tal:block> </option>
-						            <option value="1082"> <tal:block i18n:translate="Berchem-Sainte-Agathe">Berchem-Sainte-Agathe</tal:block> </option>
-						            <option value="1000"> <tal:block i18n:translate="Bruxelles">Bruxelles</tal:block> </option>
-						            <option value="1040"> <tal:block i18n:translate="Etterbeek">Etterbeek</tal:block> </option>
-						            <option value="1140"> <tal:block i18n:translate="Evere">Evere</tal:block> </option>
-						            <option value="1190"> <tal:block i18n:translate="Forest">Forest</tal:block> </option>
-						            <option value="1083"> <tal:block i18n:translate="Ganshoren">Ganshoren</tal:block> </option>
-						            <option value="1050"> <tal:block i18n:translate="Ixelles">Ixelles</tal:block> </option>
-						            <option value="1090"> <tal:block i18n:translate="Jette">Jette</tal:block> </option>
-						            <option value="1081"> <tal:block i18n:translate="Koekelberg">Koekelberg</tal:block> </option>
-						            <option value="1080"> <tal:block i18n:translate="Molenbeek-Saint-Jean">Molenbeek-Saint-Jean</tal:block> </option>
-						            <option value="1060"> <tal:block i18n:translate="Saint-Gilles">Saint-Gilles</tal:block> </option>
-						            <option value="1210"> <tal:block i18n:translate="Saint-Josse-ten-Noode">Saint-Josse-ten-Noode</tal:block> </option>
-						            <option value="1030"> <tal:block i18n:translate="Schaerbeek">Schaerbeek</tal:block> </option>
-						            <option value="1180"> <tal:block i18n:translate="Uccle">Uccle</tal:block> </option>
-						            <option value="1170"> <tal:block i18n:translate="Watermael-Boitsfort">Watermael-Boitsfort</tal:block> </option>
-						            <option value="1200"> <tal:block i18n:translate="Woluwe-Saint-Lambert">Woluwe-Saint-Lambert</tal:block> </option>
-						            <option value="1150"> <tal:block i18n:translate="Woluwe-Saint-Pierre">Woluwe-Saint-Pierre</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_and"> <tal:block i18n:translate="Anderlecht">Anderlecht</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_aud"> <tal:block i18n:translate="Auderghem">Auderghem</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_bsa"> <tal:block i18n:translate="Berchem-Sainte-Agathe">Berchem-Sainte-Agathe</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_bru"> <tal:block i18n:translate="Bruxelles">Bruxelles</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_ett"> <tal:block i18n:translate="Etterbeek">Etterbeek</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_eve"> <tal:block i18n:translate="Evere">Evere</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_for"> <tal:block i18n:translate="Forest">Forest</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_gan"> <tal:block i18n:translate="Ganshoren">Ganshoren</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_ixe"> <tal:block i18n:translate="Ixelles">Ixelles</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_jet"> <tal:block i18n:translate="Jette">Jette</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_koe"> <tal:block i18n:translate="Koekelberg">Koekelberg</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_mol"> <tal:block i18n:translate="Molenbeek-Saint-Jean">Molenbeek-Saint-Jean</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_stg"> <tal:block i18n:translate="Saint-Gilles">Saint-Gilles</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_stj"> <tal:block i18n:translate="Saint-Josse-ten-Noode">Saint-Josse-ten-Noode</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_sch"> <tal:block i18n:translate="Schaerbeek">Schaerbeek</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_ucc"> <tal:block i18n:translate="Uccle">Uccle</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_wb"> <tal:block i18n:translate="Watermael-Boitsfort">Watermael-Boitsfort</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_wsl"> <tal:block i18n:translate="Woluwe-Saint-Lambert">Woluwe-Saint-Lambert</tal:block> </option>
+						            <option i18n:attributes="value nova_municip_wsp"> <tal:block i18n:translate="Woluwe-Saint-Pierre">Woluwe-Saint-Pierre</tal:block> </option>
 					            </select>
 					            <br /><br />
 					            
