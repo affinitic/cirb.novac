@@ -129,11 +129,11 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:100
 msgid "nova_municip_gan"
-msgstr ""
+msgstr "Ganshoren"
 
 #: cirb.novac:/browser/templates/novacview.pt:101
 msgid "nova_municip_ixe"
-msgstr ""
+msgstr "Ixelles"
 
 #: cirb.novac:/browser/templates/novacview.pt:101
 msgid "Ixelles"
@@ -141,7 +141,7 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:102
 msgid "nova_municip_jet"
-msgstr ""
+msgstr "Jette"
 
 #: cirb.novac:/browser/templates/novacview.pt:102
 msgid "Jette"
@@ -153,7 +153,7 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:103
 msgid "nova_municip_koe"
-msgstr ""
+msgstr "Koekelberg"
 
 #: cirb.novac:/browser/templates/novacview.pt:104
 msgid "Molenbeek-Saint-Jean"
@@ -161,7 +161,7 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:104
 msgid "nova_municip_mol"
-msgstr ""
+msgstr "Molenbeek - Saint - Jean"
 
 #: cirb.novac:/browser/templates/novacview.pt:105
 msgid "Saint-Gilles"
@@ -169,11 +169,11 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:105
 msgid "nova_municip_stg"
-msgstr ""
+msgstr "Saint-Gilles"
 
 #: cirb.novac:/browser/templates/novacview.pt:106
 msgid "nova_municip_stj"
-msgstr ""
+msgstr "Saint-Josse-ten-Noode"
 
 #: cirb.novac:/browser/templates/novacview.pt:106
 msgid "Saint-Josse-ten-Noode"
@@ -185,11 +185,11 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:107
 msgid "nova_municip_sch"
-msgstr ""
+msgstr "Schaerbeek"
 
 #: cirb.novac:/browser/templates/novacview.pt:108
 msgid "nova_municip_ucc"
-msgstr ""
+msgstr "Uccle"
 
 #: cirb.novac:/browser/templates/novacview.pt:108
 msgid "Uccle"
@@ -201,11 +201,11 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:109
 msgid "nova_municip_wb"
-msgstr ""
+msgstr "Watermael - Boitsfort"
 
 #: cirb.novac:/browser/templates/novacview.pt:110
 msgid "nova_municip_wsl"
-msgstr ""
+msgstr "Woluwe - St.- Lambert"
 
 #: cirb.novac:/browser/templates/novacview.pt:110
 msgid "Woluwe-Saint-Lambert"
@@ -217,7 +217,7 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:111
 msgid "nova_municip_wsp"
-msgstr ""
+msgstr "Woluwe - St.- Pierre"
 
 #. Default: "Toutes les autorit\303\251s d\303\251livrantes"
 #: cirb.novac:/browser/templates/novacview.pt:116
@@ -433,7 +433,7 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:93
 msgid "nova_municip_and"
-msgstr ""
+msgstr "Anderlecht"
 
 #: cirb.novac:/browser/templates/novacview.pt:93
 msgid "Anderlecht"
@@ -441,7 +441,7 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:94
 msgid "nova_municip_aud"
-msgstr ""
+msgstr "Auderghem"
 
 #: cirb.novac:/browser/templates/novacview.pt:94
 msgid "Auderghem"
@@ -453,11 +453,11 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:95
 msgid "nova_municip_bsa"
-msgstr ""
+msgstr "Berchem - St.- Agathe"
 
 #: cirb.novac:/browser/templates/novacview.pt:96
 msgid "nova_municip_bru"
-msgstr ""
+msgstr "Bruxelles"
 
 #: cirb.novac:/browser/templates/novacview.pt:96
 msgid "Bruxelles"
@@ -465,7 +465,7 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:97
 msgid "nova_municip_ett"
-msgstr ""
+msgstr "Etterbeek"
 
 #: cirb.novac:/browser/templates/novacview.pt:97
 msgid "Etterbeek"
@@ -473,7 +473,7 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:98
 msgid "nova_municip_eve"
-msgstr ""
+msgstr "Evere"
 
 #: cirb.novac:/browser/templates/novacview.pt:98
 msgid "Evere"
@@ -481,7 +481,7 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:99
 msgid "nova_municip_for"
-msgstr ""
+msgstr "Forest"
 
 #: cirb.novac:/browser/templates/novacview.pt:99
 msgid "Forest"
