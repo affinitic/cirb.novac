@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: Fri Feb 24 09:03:18 2012\n"
+"POT-Creation-Date: Wed Jun 25 13:18:08 2014\n"
 "PO-Revision-Date: 2011-10-28 10:45+0200\n"
 "Last-Translator: bsuttor <bsuttor@cirb.irisnet.be>\n"
 "Language-Team: Dutch\n"
@@ -25,24 +25,24 @@ msgstr ""
 "Generated-By: zope/app/locales/extract.py\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: cirb.novac:/browser/listprivateview.py:111
-#: cirb.novac:/browser/privateview.py:110
-#: cirb.novac:/browser/privateview.py:181 cirb.novac:/browser/publicview.py:86
+#: cirb.novac:/browser/listprivateview.py:105
+#: cirb.novac:/browser/privateview.py:134
+#: cirb.novac:/browser/privateview.py:205 cirb.novac:/browser/publicview.py:86
 #: cirb.novac:/utils.py:104
 msgid "not_available"
 msgstr "niet beschikbaar"
 
-#: cirb.novac:/browser/listprivateview.py:49
-#: cirb.novac:/browser/privateview.py:51
+#: cirb.novac:/browser/listprivateview.py:44
+#: cirb.novac:/browser/privateview.py:50
 msgid "Listprivate"
 msgstr "Mijn dossier(s)"
 
-#: cirb.novac:/browser/listprivateview.py:60
-#: cirb.novac:/browser/privateview.py:100
+#: cirb.novac:/browser/listprivateview.py:55
+#: cirb.novac:/browser/privateview.py:97
 msgid "User undefined."
 msgstr "Gebruiker niet gedefinieerd"
 
-#: cirb.novac:/browser/listprivateview.py:87
+#: cirb.novac:/browser/listprivateview.py:82
 msgid "Not able to activate a dossier."
 msgstr "Het is onmogelijk om dit dossier te activeren"
 
@@ -50,23 +50,28 @@ msgstr "Het is onmogelijk om dit dossier te activeren"
 msgid "No url for cirb.novac.novac_url"
 msgstr ""
 
-#: cirb.novac:/browser/privateview.py:48
+#: cirb.novac:/browser/privateview.py:117
+msgid "Not able to read this json"
+msgstr ""
+
+#: cirb.novac:/browser/privateview.py:47
 msgid "Private"
 msgstr "Privé"
 
-#: cirb.novac:/browser/privateview.py:61
+#: cirb.novac:/browser/privateview.py:58
 msgid "No url for novac url"
 msgstr ""
 
-#: cirb.novac:/browser/privateview.py:64
+#: cirb.novac:/browser/privateview.py:61
 msgid "No id folder in get method"
 msgstr ""
 
-#: cirb.novac:/browser/privateview.py:71 cirb.novac:/browser/privateview.py:87
+#: cirb.novac:/browser/privateview.py:68 cirb.novac:/browser/privateview.py:84
+#: cirb.novac:/browser/privateview.py:112
 msgid "Not able to call ws"
 msgstr "De webservice kan niet geladen worden"
 
-#: cirb.novac:/browser/privateview.py:76 cirb.novac:/browser/privateview.py:92
+#: cirb.novac:/browser/privateview.py:73 cirb.novac:/browser/privateview.py:89
 #: cirb.novac:/browser/publicview.py:73
 msgid "Not able to read this json : %s"
 msgstr "De json-gegevens kunnen niet gelezen worden : %s"
@@ -122,9 +127,21 @@ msgstr "activeren"
 msgid "Ganshoren"
 msgstr ""
 
+#: cirb.novac:/browser/templates/novacview.pt:100
+msgid "nova_municip_gan"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:101
+msgid "nova_municip_ixe"
+msgstr ""
+
 #: cirb.novac:/browser/templates/novacview.pt:101
 msgid "Ixelles"
 msgstr "Elsene"
+
+#: cirb.novac:/browser/templates/novacview.pt:102
+msgid "nova_municip_jet"
+msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:102
 msgid "Jette"
@@ -134,13 +151,29 @@ msgstr ""
 msgid "Koekelberg"
 msgstr ""
 
+#: cirb.novac:/browser/templates/novacview.pt:103
+msgid "nova_municip_koe"
+msgstr ""
+
 #: cirb.novac:/browser/templates/novacview.pt:104
 msgid "Molenbeek-Saint-Jean"
 msgstr "Sint-Jans-Molenbeek"
 
+#: cirb.novac:/browser/templates/novacview.pt:104
+msgid "nova_municip_mol"
+msgstr ""
+
 #: cirb.novac:/browser/templates/novacview.pt:105
 msgid "Saint-Gilles"
 msgstr "Sint-Gillis"
+
+#: cirb.novac:/browser/templates/novacview.pt:105
+msgid "nova_municip_stg"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:106
+msgid "nova_municip_stj"
+msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:106
 msgid "Saint-Josse-ten-Noode"
@@ -150,6 +183,14 @@ msgstr "Sint-Joost-ten-Node"
 msgid "Schaerbeek"
 msgstr "Schaarbeek"
 
+#: cirb.novac:/browser/templates/novacview.pt:107
+msgid "nova_municip_sch"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:108
+msgid "nova_municip_ucc"
+msgstr ""
+
 #: cirb.novac:/browser/templates/novacview.pt:108
 msgid "Uccle"
 msgstr "Ukkel"
@@ -158,6 +199,14 @@ msgstr "Ukkel"
 msgid "Watermael-Boitsfort"
 msgstr "Watermaal-Bosvoorde"
 
+#: cirb.novac:/browser/templates/novacview.pt:109
+msgid "nova_municip_wb"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:110
+msgid "nova_municip_wsl"
+msgstr ""
+
 #: cirb.novac:/browser/templates/novacview.pt:110
 msgid "Woluwe-Saint-Lambert"
 msgstr "Sint-Lambrechts-Woluwe"
@@ -165,6 +214,10 @@ msgstr "Sint-Lambrechts-Woluwe"
 #: cirb.novac:/browser/templates/novacview.pt:111
 msgid "Woluwe-Saint-Pierre"
 msgstr "Sint-Pieters-Woluwe"
+
+#: cirb.novac:/browser/templates/novacview.pt:111
+msgid "nova_municip_wsp"
+msgstr ""
 
 #. Default: "Toutes les autorit\303\251s d\303\251livrantes"
 #: cirb.novac:/browser/templates/novacview.pt:116
@@ -316,24 +369,22 @@ msgstr ""
 "<ul><li>4 jaar na de definitieve kennisgeving van de vergunning of van de "
 "weigering van vergunning voor de stedenbouwkundige vergunningen</li><li>7 "
 "jaar na de definitieve kennisgeving van de vergunning of van de weigering "
-"van vergunning voor de verkavelingsvergunningen</li></ul><p>In het "
-"kader van de openbaarheid van bestuur en zoals afgesproken in het "
-"regeerakkoord 2009-2014 wil de brusselse gewestregering en de "
-"staatssecretaris belast met stedenbouw tegemoet komen aan de vraag van de "
-"burgers en de ondernemingen naar meer transparantie.</p><p>Deze toepassing "
-"is alvast uniek in zijn soort en een primeur voor België op gewestelijk niveau.</p><p>Voor meer "
-"informatie over een dossier in het bijzonder contacteert u best <a href='/"
-"spelregels/bestemmingsplannen/de-sites-van-de-diensten-stedenbouw-van-de-19-"
+"van vergunning voor de verkavelingsvergunningen</li></ul><p>In het kader van "
+"de openbaarheid van bestuur en zoals afgesproken in het regeerakkoord "
+"2009-2014 wil de brusselse gewestregering en de staatssecretaris belast met "
+"stedenbouw tegemoet komen aan de vraag van de burgers en de ondernemingen "
+"naar meer transparantie.</p><p>Deze toepassing is alvast uniek in zijn soort "
+"en een primeur voor België op gewestelijk niveau.</p><p>Voor meer informatie "
+"over een dossier in het bijzonder contacteert u best <a href='/spelregels/"
+"bestemmingsplannen/de-sites-van-de-diensten-stedenbouw-van-de-19-"
 "gemeenten'>de vergunnende overheid</a>.</p><p><strong>Wettelijke informatie</"
 "strong></p><p>De gegevens op deze website worden enkel ter informatie "
 "gegeven en hebben geen enkele juridische waarde. Het Gewest kan de exactheid "
 "en volledigheid van de gegevens niet garanderen en kan dus niet "
 "verantwoordelijk gesteld worden voor eender welke rechtstreekse of "
-"onrechtstreekse schade die iemand zou lijden.</p><p>"
-"<iframe width='560' height='315' "
-"src='https://www.youtube.com/embed/v6aEnx-pZ80' frameborder='0' "
+"onrechtstreekse schade die iemand zou lijden.</p><p><iframe width='560' "
+"height='315' src='https://www.youtube.com/embed/v6aEnx-pZ80' frameborder='0' "
 "allowfullscreen></iframe></p>"
-
 
 #. Default: "Les permis en ligne"
 #: cirb.novac:/browser/templates/novacview.pt:23
@@ -408,7 +459,15 @@ msgid "Toutes_les_communes"
 msgstr "Alle gemeenten"
 
 #: cirb.novac:/browser/templates/novacview.pt:93
+msgid "nova_municip_and"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:93
 msgid "Anderlecht"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:94
+msgid "nova_municip_aud"
 msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:94
@@ -419,16 +478,36 @@ msgstr "Oudergem"
 msgid "Berchem-Sainte-Agathe"
 msgstr "Sint-Agatha-Berchem"
 
+#: cirb.novac:/browser/templates/novacview.pt:95
+msgid "nova_municip_bsa"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:96
+msgid "nova_municip_bru"
+msgstr ""
+
 #: cirb.novac:/browser/templates/novacview.pt:96
 msgid "Bruxelles"
 msgstr "Brussel"
+
+#: cirb.novac:/browser/templates/novacview.pt:97
+msgid "nova_municip_ett"
+msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:97
 msgid "Etterbeek"
 msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:98
+msgid "nova_municip_eve"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:98
 msgid "Evere"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:99
+msgid "nova_municip_for"
 msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:99
@@ -490,7 +569,7 @@ msgstr ""
 "van de uitputtende opsomming in de stedenbouwkundige regelgeving."
 
 #: cirb.novac:/browser/templates/privateview.pt:121
-#: cirb.novac:/browser/templates/privateview.pt:226
+#: cirb.novac:/browser/templates/privateview.pt:238
 #: cirb.novac:/browser/templates/publicview.pt:111
 msgid "date"
 msgstr "datum"
@@ -531,55 +610,60 @@ msgstr ""
 msgid "notification_le"
 msgstr "Medegedeeld op"
 
-#: cirb.novac:/browser/templates/privateview.pt:179
+#. Default: "Document(s)"
+#: cirb.novac:/browser/templates/privateview.pt:170
+msgid "documents"
+msgstr ""
+
+#: cirb.novac:/browser/templates/privateview.pt:191
 msgid "gestion_des_cles_secondaires_pour_ce_dossier"
 msgstr "Beheer van secundaire sleutelcodes voor dit dossier"
 
-#: cirb.novac:/browser/templates/privateview.pt:185
+#: cirb.novac:/browser/templates/privateview.pt:197
 msgid "en_tant_que_demandeur_vous_pouvez_generez_une_ou_plusieurs_cles_secondaires_pour_un_ou_plusieurs_mandataires"
 msgstr ""
 "Als aanvrager kunt u één of meerdere secundaire sleutelcodes aanmaken voor "
 "één of meer gemachtigden."
 
-#: cirb.novac:/browser/templates/privateview.pt:188
+#: cirb.novac:/browser/templates/privateview.pt:200
 msgid "un_mandataite_n_a_pas_le_droit_de_creer_une_cle_secondaire"
 msgstr "Een gemachtigde kan geen secundaire sleutelcodes aanmaken."
 
-#: cirb.novac:/browser/templates/privateview.pt:189
+#: cirb.novac:/browser/templates/privateview.pt:201
 msgid "vous_pouvez_revoquer_une_cle_secondaire_a_tout_moment"
 msgstr "U kunt deze secundaire sleutelcodes op elk moment herroepen"
 
-#: cirb.novac:/browser/templates/privateview.pt:192
+#: cirb.novac:/browser/templates/privateview.pt:204
 msgid "vos_cles_secondaires"
 msgstr "Uw secundaire sleutelcodes"
 
-#: cirb.novac:/browser/templates/privateview.pt:195
-#: cirb.novac:/browser/templates/privateview.pt:211
+#: cirb.novac:/browser/templates/privateview.pt:207
+#: cirb.novac:/browser/templates/privateview.pt:223
 msgid "mandataire"
 msgstr "gemachtigde"
 
-#: cirb.novac:/browser/templates/privateview.pt:196
+#: cirb.novac:/browser/templates/privateview.pt:208
 msgid "cle"
 msgstr "sleutelcode"
 
-#: cirb.novac:/browser/templates/privateview.pt:197
+#: cirb.novac:/browser/templates/privateview.pt:209
 msgid "revoquer"
 msgstr "herroepen"
 
-#: cirb.novac:/browser/templates/privateview.pt:207
+#: cirb.novac:/browser/templates/privateview.pt:219
 msgid "ajouter_une_nouvelle_cle_secondaire"
 msgstr "Een nieuwe secundaire sleutelcode aanmaken"
 
 #. Default: "Ajouter"
-#: cirb.novac:/browser/templates/privateview.pt:214
+#: cirb.novac:/browser/templates/privateview.pt:226
 msgid "ajouter"
 msgstr "aanmaken"
 
-#: cirb.novac:/browser/templates/privateview.pt:223
+#: cirb.novac:/browser/templates/privateview.pt:235
 msgid "historique_consultation"
 msgstr "Historiek van raadpleging"
 
-#: cirb.novac:/browser/templates/privateview.pt:227
+#: cirb.novac:/browser/templates/privateview.pt:239
 msgid "name"
 msgstr "naam"
 
@@ -593,8 +677,8 @@ msgid "informations_generales"
 msgstr "Algemene informatie"
 
 #: cirb.novac:/browser/templates/privateview.pt:47
-#: cirb.novac:/browser/templates/publicview.pt:53
 #: cirb.novac:/browser/templates/listprivateview.pt:38
+#: cirb.novac:/browser/templates/publicview.pt:53
 msgid "n_dossier"
 msgstr "Dossiernummer"
 
@@ -620,8 +704,8 @@ msgid "description"
 msgstr "Voorwerp van de aanvraag"
 
 #: cirb.novac:/browser/templates/privateview.pt:66
-#: cirb.novac:/browser/templates/publicview.pt:43
 #: cirb.novac:/browser/templates/listprivateview.pt:37
+#: cirb.novac:/browser/templates/publicview.pt:43
 msgid "address"
 msgstr "Adres"
 
