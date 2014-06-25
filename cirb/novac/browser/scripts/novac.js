@@ -181,7 +181,11 @@ var applyDossierFilter = function(event) {
     //advanced filter
     if ($("#commune").val() != 0) {
         if(cql_filter != "") cql_filter += " AND ";
-        cql_filter += "ZIPCODE=" + $("#commune").val();
+		if(current_language == 'fr'){
+			cql_filter += "MUNICIPALITYFR=" + $("#commune").val();
+		}else{
+			cql_filter += "MUNICIPALITYNL=" + $("#commune").val();
+		}
     }
     if ($("#instance").val() != 0) {
         if(cql_filter != "") cql_filter += " AND ";
