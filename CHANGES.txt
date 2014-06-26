@@ -4,7 +4,7 @@ Changelog
 1.3.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix advanced filter #commune syntax.
 
 
 1.3.5 (2014-06-25)
