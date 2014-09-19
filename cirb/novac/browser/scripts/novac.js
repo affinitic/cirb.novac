@@ -182,9 +182,9 @@ var applyDossierFilter = function(event) {
     if ($("#commune").val() != 0) {
         if(cql_filter != "") cql_filter += " AND ";
 		if(current_language == 'fr'){
-			cql_filter += "MUNICIPALITYFR = '" + $("#commune").val() + "'";
+			cql_filter += "COMMUNE = '" + $("#commune").val() + "'";
 		}else{
-			cql_filter += "MUNICIPALITYNL = '" + $("#commune").val() + "'";
+			cql_filter += "GEMEENTE = '" + $("#commune").val() + "'";
 		}
     }
     if ($("#instance").val() != 0) {
