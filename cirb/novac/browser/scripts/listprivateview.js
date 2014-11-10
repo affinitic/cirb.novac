@@ -2,7 +2,7 @@ $(document).ready(function() {
     var destTable = $("#dossier_list");
     $('#activate_key').click(function () {        
         var key = $('#key1').val()+$('#key2').val()+$('#key3').val()+$('#key4').val()+$('#key5').val()+$('#key6').val();        
-        var url = $('#portal_url').html()+'/activate_key?key='+key;
+        var url = $('#portal_url').html()+'/activate_key?key='+encodeURIComponent(key);
         $.get(url, function(data) {
             //reload table with the new 'dossier'
             reload_table_list_dossier();
