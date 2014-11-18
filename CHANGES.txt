@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.3.9 (unreleased)
+1.3.9 (2014-11-18)
 ------------------
 
 - Show total number of dossiers
