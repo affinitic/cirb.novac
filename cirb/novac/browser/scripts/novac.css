@@ -343,3 +343,12 @@ hr.gray {
 .error {
   color: #f00
 }
+
+#nbDossierContainer{
+  font-weight: bold;
+  font-size: 1.5em;
+  display: block;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: .5em;
+  margin-bottom: .5em;
+}

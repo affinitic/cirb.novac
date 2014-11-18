@@ -45,8 +45,8 @@
                         <div><div id="spinner_address" class="spinner"></div><input type="button" id="search_address_button" i18n:attributes="value search"/></div>
                     </div>
                     <h3 class="slice-3"><a href="#" i18n:translate="filtres">filtres</a></h3>
-					<div>Nombre de dossiers : <span id="nbDossiers"></span></div>
                     <div class="filter">
+					<span id="nbDossierContainer">Nombre de dossiers : <span id="nbDossiers"></span></span>
                         <table class="filter">
                         <tbody>
                             <tr>
