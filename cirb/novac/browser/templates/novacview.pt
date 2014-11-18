@@ -46,7 +46,7 @@
                     </div>
                     <h3 class="slice-3"><a href="#" i18n:translate="filtres">filtres</a></h3>
                     <div class="filter">
-					<span id="nbDossierContainer">Nombre de dossiers : <span id="nbDossiers"></span></span>
+                      <span id="nbDossiersContainer" style="display: none;"><tal:block i18n:translate="Number of dossiers"></tal:block> <span id="nbDossiers"></span></span>
                         <table class="filter">
                         <tbody>
                             <tr>

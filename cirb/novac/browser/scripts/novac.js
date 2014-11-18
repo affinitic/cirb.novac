@@ -316,7 +316,7 @@ var count_dossiers = function() {
         dataType: "xml",
         success:  function(data) {
             totalrecords = $(data.firstChild).attr("numberOfFeatures");
-			$("#nbDossiersContainer").show();
+			$("#nbDossiersContainer").css("display", "block");
 			$("#nbDossiers").html(totalrecords);
             if (totalrecords < 1000) $("#export_csv").show();
             else $("#export_csv").hide();
