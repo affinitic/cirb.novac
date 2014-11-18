@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: Wed Jun 25 13:18:08 2014\n"
+"POT-Creation-Date: Tue Nov 18 16:30:36 2014\n"
 "PO-Revision-Date: 2011-10-28 10:44+0200\n"
 "Last-Translator: bsuttor <bsuttor@cirb.irisnet.be>\n"
 "Language-Team: French\n"
@@ -122,240 +122,248 @@ msgid "activer"
 msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:100
+msgid "nova_municip_for"
+msgstr "Forest"
+
+#: cirb.novac:/browser/templates/novacview.pt:100
+msgid "Forest"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:101
 msgid "Ganshoren"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:100
+#: cirb.novac:/browser/templates/novacview.pt:101
 msgid "nova_municip_gan"
 msgstr "Ganshoren"
 
-#: cirb.novac:/browser/templates/novacview.pt:101
+#: cirb.novac:/browser/templates/novacview.pt:102
 msgid "nova_municip_ixe"
 msgstr "Ixelles"
 
-#: cirb.novac:/browser/templates/novacview.pt:101
+#: cirb.novac:/browser/templates/novacview.pt:102
 msgid "Ixelles"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:102
+#: cirb.novac:/browser/templates/novacview.pt:103
 msgid "nova_municip_jet"
 msgstr "Jette"
 
-#: cirb.novac:/browser/templates/novacview.pt:102
+#: cirb.novac:/browser/templates/novacview.pt:103
 msgid "Jette"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:103
+#: cirb.novac:/browser/templates/novacview.pt:104
 msgid "Koekelberg"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:103
+#: cirb.novac:/browser/templates/novacview.pt:104
 msgid "nova_municip_koe"
 msgstr "Koekelberg"
 
-#: cirb.novac:/browser/templates/novacview.pt:104
+#: cirb.novac:/browser/templates/novacview.pt:105
 msgid "Molenbeek-Saint-Jean"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:104
+#: cirb.novac:/browser/templates/novacview.pt:105
 msgid "nova_municip_mol"
 msgstr "Molenbeek - Saint - Jean"
 
-#: cirb.novac:/browser/templates/novacview.pt:105
+#: cirb.novac:/browser/templates/novacview.pt:106
 msgid "Saint-Gilles"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:105
+#: cirb.novac:/browser/templates/novacview.pt:106
 msgid "nova_municip_stg"
 msgstr "Saint-Gilles"
 
-#: cirb.novac:/browser/templates/novacview.pt:106
+#: cirb.novac:/browser/templates/novacview.pt:107
 msgid "nova_municip_stj"
 msgstr "Saint-Josse-ten-Noode"
 
-#: cirb.novac:/browser/templates/novacview.pt:106
+#: cirb.novac:/browser/templates/novacview.pt:107
 msgid "Saint-Josse-ten-Noode"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:107
+#: cirb.novac:/browser/templates/novacview.pt:108
 msgid "Schaerbeek"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:107
+#: cirb.novac:/browser/templates/novacview.pt:108
 msgid "nova_municip_sch"
 msgstr "Schaerbeek"
 
-#: cirb.novac:/browser/templates/novacview.pt:108
+#: cirb.novac:/browser/templates/novacview.pt:109
 msgid "nova_municip_ucc"
 msgstr "Uccle"
 
-#: cirb.novac:/browser/templates/novacview.pt:108
+#: cirb.novac:/browser/templates/novacview.pt:109
 msgid "Uccle"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:109
+#: cirb.novac:/browser/templates/novacview.pt:110
 msgid "Watermael-Boitsfort"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:109
+#: cirb.novac:/browser/templates/novacview.pt:110
 msgid "nova_municip_wb"
 msgstr "Watermael - Boitsfort"
 
-#: cirb.novac:/browser/templates/novacview.pt:110
+#: cirb.novac:/browser/templates/novacview.pt:111
 msgid "nova_municip_wsl"
 msgstr "Woluwe - St.- Lambert"
 
-#: cirb.novac:/browser/templates/novacview.pt:110
+#: cirb.novac:/browser/templates/novacview.pt:111
 msgid "Woluwe-Saint-Lambert"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:111
+#: cirb.novac:/browser/templates/novacview.pt:112
 msgid "Woluwe-Saint-Pierre"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:111
+#: cirb.novac:/browser/templates/novacview.pt:112
 msgid "nova_municip_wsp"
 msgstr "Woluwe - St.- Pierre"
 
 #. Default: "Toutes les autorit\303\251s d\303\251livrantes"
-#: cirb.novac:/browser/templates/novacview.pt:116
+#: cirb.novac:/browser/templates/novacview.pt:117
 msgid "Toutes_les_autorites_delivrantes"
 msgstr ""
 
 #. Default: "Permis g\303\251r\303\251s par la r\303\251gion"
-#: cirb.novac:/browser/templates/novacview.pt:117
+#: cirb.novac:/browser/templates/novacview.pt:118
 msgid "Permis_geres_par_la_region"
 msgstr ""
 
 #. Default: "Permis g\303\251r\303\251s par les communes"
-#: cirb.novac:/browser/templates/novacview.pt:118
+#: cirb.novac:/browser/templates/novacview.pt:119
 msgid "permis_geres_par_les_communes"
 msgstr ""
 
 #. Default: "Tous les types de dossier communaux"
-#: cirb.novac:/browser/templates/novacview.pt:123
+#: cirb.novac:/browser/templates/novacview.pt:124
 msgid "Tous_les_types_de_dossier"
 msgstr ""
 
 #. Default: "Abattage d'arbres"
-#: cirb.novac:/browser/templates/novacview.pt:124
+#: cirb.novac:/browser/templates/novacview.pt:125
 msgid "Abattage_d_arbres"
 msgstr ""
 
 #. Default: "Autorisation communale"
-#: cirb.novac:/browser/templates/novacview.pt:125
+#: cirb.novac:/browser/templates/novacview.pt:126
 msgid "Autorisation_communale"
 msgstr ""
 
 #. Default: "Certificat d'urbanisme en vue de lotir"
-#: cirb.novac:/browser/templates/novacview.pt:126
+#: cirb.novac:/browser/templates/novacview.pt:127
 msgid "Certificat_d_urbanisme_en_vue_de_lotir"
 msgstr ""
 
 #. Default: "Certificat d'urbanisme priv\303\251"
-#: cirb.novac:/browser/templates/novacview.pt:127
+#: cirb.novac:/browser/templates/novacview.pt:128
 msgid "Certificat_d_urbanisme_prive"
 msgstr ""
 
 #. Default: "Certificat d'urbanisme priv\303\251 - projet mixte"
-#: cirb.novac:/browser/templates/novacview.pt:128
+#: cirb.novac:/browser/templates/novacview.pt:129
 msgid "Certificat_d_urbanisme_prive_projet_mixte"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:129
+#: cirb.novac:/browser/templates/novacview.pt:130
 msgid "Enseigne"
 msgstr ""
 
 #. Default: "Panneau publicitaire"
-#: cirb.novac:/browser/templates/novacview.pt:130
+#: cirb.novac:/browser/templates/novacview.pt:131
 msgid "Panneau_publicitaire"
 msgstr ""
 
 #. Default: "Permis de lotir"
-#: cirb.novac:/browser/templates/novacview.pt:131
+#: cirb.novac:/browser/templates/novacview.pt:132
 msgid "Permis_de_lotir"
 msgstr ""
 
 #. Default: "Permis d'urbanisme priv\303\251"
-#: cirb.novac:/browser/templates/novacview.pt:132
+#: cirb.novac:/browser/templates/novacview.pt:133
 msgid "Permis_d_urbanisme_prive"
 msgstr ""
 
 #. Default: "Permis d'urbanisme priv\303\251 - proc\303\251dure mixte"
-#: cirb.novac:/browser/templates/novacview.pt:133
+#: cirb.novac:/browser/templates/novacview.pt:134
 msgid "Permis_d_urbanisme_prive_procedure_mixte"
 msgstr "Permis d'urbanisme privé - projet mixte"
 
 #. Default: "Enqu\303\252te publique"
-#: cirb.novac:/browser/templates/novacview.pt:137
+#: cirb.novac:/browser/templates/novacview.pt:138
 msgid "Enquete_publique"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:139
+#: cirb.novac:/browser/templates/novacview.pt:140
 msgid "Oui"
 msgstr ""
 
 #. Default: "En cours"
-#: cirb.novac:/browser/templates/novacview.pt:144
+#: cirb.novac:/browser/templates/novacview.pt:145
 msgid "En_cours"
 msgstr ""
 
 #. Default: "termin\303\251"
-#: cirb.novac:/browser/templates/novacview.pt:148
+#: cirb.novac:/browser/templates/novacview.pt:149
 msgid "termine"
 msgstr "Terminée"
 
 #. Default: "planifi\303\251"
-#: cirb.novac:/browser/templates/novacview.pt:152
+#: cirb.novac:/browser/templates/novacview.pt:153
 msgid "planifie"
 msgstr "Planifiée"
 
-#: cirb.novac:/browser/templates/novacview.pt:157
+#: cirb.novac:/browser/templates/novacview.pt:158
 msgid "Non"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:158
+#: cirb.novac:/browser/templates/novacview.pt:159
 msgid "Tous"
 msgstr ""
 
 #. Default: "Date Commission de Consertation"
-#: cirb.novac:/browser/templates/novacview.pt:160
+#: cirb.novac:/browser/templates/novacview.pt:161
 msgid "Date_Commission_de_Consertation"
 msgstr "Date Commission de Concertation"
 
 #. Default: "de"
-#: cirb.novac:/browser/templates/novacview.pt:161
+#: cirb.novac:/browser/templates/novacview.pt:162
 msgid "date_from"
 msgstr "de"
 
 #. Default: "dd/mm/yyyy"
-#: cirb.novac:/browser/templates/novacview.pt:161
 #: cirb.novac:/browser/templates/novacview.pt:162
+#: cirb.novac:/browser/templates/novacview.pt:163
 msgid "ddmmyy"
 msgstr "jj/mm/aaaa"
 
 #. Default: "\303\240"
-#: cirb.novac:/browser/templates/novacview.pt:162
+#: cirb.novac:/browser/templates/novacview.pt:163
 msgid "date_to"
 msgstr "à"
 
-#: cirb.novac:/browser/templates/novacview.pt:168
+#: cirb.novac:/browser/templates/novacview.pt:169
 msgid "reset"
 msgstr "Effacer les filtres"
 
 #. Default: "Exporter les donn\303\251es au format csv"
-#: cirb.novac:/browser/templates/novacview.pt:171
+#: cirb.novac:/browser/templates/novacview.pt:172
 msgid "export_csv"
 msgstr ""
 "<strong>Exporter les données au format .csv</strong><br />(possible si moins "
 "de 1000 dossiers)"
 
-#: cirb.novac:/browser/templates/novacview.pt:172
+#: cirb.novac:/browser/templates/novacview.pt:173
 msgid "export"
 msgstr "Exporter"
 
 #. Default: "ici un texte pour expliquer ce que l'on voit"
-#: cirb.novac:/browser/templates/novacview.pt:181
+#: cirb.novac:/browser/templates/novacview.pt:182
 msgid "texte_introduction"
 msgstr ""
 "<p>Cette carte montre les permis et les certificats d'urbanisme et de lotir "
@@ -414,162 +422,100 @@ msgstr "Recherche"
 msgid "filtres"
 msgstr "Filtres"
 
-#: cirb.novac:/browser/templates/novacview.pt:52
+#. Default: ""
+#: cirb.novac:/browser/templates/novacview.pt:49
+msgid "Number of dossiers"
+msgstr "Nombre de dossiers :"
+
+#: cirb.novac:/browser/templates/novacview.pt:53
 msgid "type_U"
 msgstr "type_U"
 
-#: cirb.novac:/browser/templates/novacview.pt:54
+#: cirb.novac:/browser/templates/novacview.pt:55
 msgid "urbanisme"
 msgstr "Permis d'urbanisme"
 
-#: cirb.novac:/browser/templates/novacview.pt:57
+#: cirb.novac:/browser/templates/novacview.pt:58
 msgid "type_L"
 msgstr "type_L"
 
-#: cirb.novac:/browser/templates/novacview.pt:59
+#: cirb.novac:/browser/templates/novacview.pt:60
 msgid "lotir"
 msgstr "Permis de lotir"
 
-#: cirb.novac:/browser/templates/novacview.pt:68
+#: cirb.novac:/browser/templates/novacview.pt:69
 msgid "required"
 msgstr "En cours d'instruction"
 
-#: cirb.novac:/browser/templates/novacview.pt:73
+#: cirb.novac:/browser/templates/novacview.pt:74
 msgid "granted"
 msgstr "Octroyé"
 
-#: cirb.novac:/browser/templates/novacview.pt:78
+#: cirb.novac:/browser/templates/novacview.pt:79
 msgid "refused"
 msgstr "Refusé"
 
-#: cirb.novac:/browser/templates/novacview.pt:83
+#: cirb.novac:/browser/templates/novacview.pt:84
 msgid "canceled"
 msgstr "Annulé"
 
 #. Default: "Tous les filtres"
-#: cirb.novac:/browser/templates/novacview.pt:89
+#: cirb.novac:/browser/templates/novacview.pt:90
 msgid "Tous_les_filtres"
 msgstr ""
 
 #. Default: "Toutes les communes"
-#: cirb.novac:/browser/templates/novacview.pt:92
+#: cirb.novac:/browser/templates/novacview.pt:93
 msgid "Toutes_les_communes"
 msgstr "Toutes les communes"
 
-#: cirb.novac:/browser/templates/novacview.pt:93
+#: cirb.novac:/browser/templates/novacview.pt:94
 msgid "nova_municip_and"
 msgstr "Anderlecht"
 
-#: cirb.novac:/browser/templates/novacview.pt:93
+#: cirb.novac:/browser/templates/novacview.pt:94
 msgid "Anderlecht"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:94
+#: cirb.novac:/browser/templates/novacview.pt:95
 msgid "nova_municip_aud"
 msgstr "Auderghem"
 
-#: cirb.novac:/browser/templates/novacview.pt:94
+#: cirb.novac:/browser/templates/novacview.pt:95
 msgid "Auderghem"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:95
+#: cirb.novac:/browser/templates/novacview.pt:96
 msgid "Berchem-Sainte-Agathe"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:95
+#: cirb.novac:/browser/templates/novacview.pt:96
 msgid "nova_municip_bsa"
 msgstr "Berchem - St.- Agathe"
 
-#: cirb.novac:/browser/templates/novacview.pt:96
+#: cirb.novac:/browser/templates/novacview.pt:97
 msgid "nova_municip_bru"
 msgstr "Bruxelles"
 
-#: cirb.novac:/browser/templates/novacview.pt:96
+#: cirb.novac:/browser/templates/novacview.pt:97
 msgid "Bruxelles"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:97
+#: cirb.novac:/browser/templates/novacview.pt:98
 msgid "nova_municip_ett"
 msgstr "Etterbeek"
 
-#: cirb.novac:/browser/templates/novacview.pt:97
+#: cirb.novac:/browser/templates/novacview.pt:98
 msgid "Etterbeek"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:98
-msgid "nova_municip_eve"
-msgstr "Evere"
-
-#: cirb.novac:/browser/templates/novacview.pt:98
+#: cirb.novac:/browser/templates/novacview.pt:99
 msgid "Evere"
 msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:99
-msgid "nova_municip_for"
-msgstr "Forest"
-
-#: cirb.novac:/browser/templates/novacview.pt:99
-msgid "Forest"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:102
-#: cirb.novac:/browser/templates/publicview.pt:92
-msgid "permis"
-msgstr "Dossier complet"
-
-#: cirb.novac:/browser/templates/privateview.pt:106
-#: cirb.novac:/browser/templates/publicview.pt:96
-msgid "tooltip_enquete_public"
-msgstr ""
-"Période, de 15 à 30 jours, pendant laquelle les citoyens peuvent consulter "
-"les dossiers de demande de permis soumis à enquête. Les enquêtes publiques "
-"sont organisées par les communes. Elles sont signalées par des affiches "
-"rouges placées à proximité du bien faisant l’objet de la demande de permis. "
-"L’enquête publique fait partie des mesures particulières de publicité."
-
-#: cirb.novac:/browser/templates/privateview.pt:106
-#: cirb.novac:/browser/templates/publicview.pt:96
-msgid "enquete_publique"
-msgstr "Enquête publique"
-
-#: cirb.novac:/browser/templates/privateview.pt:109
-#: cirb.novac:/browser/templates/privateview.pt:121
-#: cirb.novac:/browser/templates/publicview.pt:99
-#: cirb.novac:/browser/templates/publicview.pt:111
-msgid "yes"
-msgstr "Oui"
-
-#: cirb.novac:/browser/templates/privateview.pt:113
-#: cirb.novac:/browser/templates/privateview.pt:125
-#: cirb.novac:/browser/templates/publicview.pt:103
-#: cirb.novac:/browser/templates/publicview.pt:115
-msgid "no"
-msgstr "Non"
-
-#: cirb.novac:/browser/templates/privateview.pt:118
-#: cirb.novac:/browser/templates/publicview.pt:108
-msgid "commission_de_concertation"
-msgstr "Commission de concertation"
-
-#: cirb.novac:/browser/templates/privateview.pt:118
-#: cirb.novac:/browser/templates/publicview.pt:108
-msgid "tooltip_commission_de_concertation"
-msgstr ""
-"Instance consultative compos&eacute;e de repr&eacute;sentants de la commune "
-"et des administrations et instances r&eacute;gionales liées à l’aménagement "
-"du territoire (AATL [urbanisme et patrimoine], IBGE, SDRB). La commission se "
-"r&eacute;unit et remet un avis sur les demandes de permis pour lesquelles "
-"celui-ci est requis. Cet avis aide l’autorité chargée de la délivrance du "
-"permis à prendre sa décision. L’avis de la commission de concertation est "
-"consultatif. Dans le cadre d’une demande de permis, l’avis CC ne peut être "
-"sollicit&eactues que dans les cas limitativement énumérés par la "
-"réglementation urbanistique."
-
-#: cirb.novac:/browser/templates/privateview.pt:121
-#: cirb.novac:/browser/templates/privateview.pt:238
-#: cirb.novac:/browser/templates/publicview.pt:111
-msgid "date"
-msgstr ""
+msgid "nova_municip_eve"
+msgstr "Evere"
 
 #: cirb.novac:/browser/templates/privateview.pt:133
 msgid "data/imgccfd}"
@@ -585,28 +531,6 @@ msgstr ""
 "<p><strong>Attention</strong><br />Cette image avec les différentes étapes "
 "de la procédure n'est montrée qu'à titre informatif. Il se peut qu'il y ait "
 "une dérogation pour ce dossier."
-
-#: cirb.novac:/browser/templates/privateview.pt:148
-#: cirb.novac:/browser/templates/publicview.pt:123
-msgid "decision"
-msgstr "Décision"
-
-#: cirb.novac:/browser/templates/privateview.pt:158
-#: cirb.novac:/browser/templates/publicview.pt:133
-msgid "tooltip_notification"
-msgstr ""
-"<p>Le permis d'urbanisme a une durée de validité de deux ans.</p><p>Le "
-"permis est périmé si, dans les deux années de sa délivrance, le bénéficiaire "
-"n'a pas entamé sa réalisation de façon significative ou s'il n'a pas "
-"commencé les travaux d'édification de gros oeuvres ou encore s'il n'a pas, "
-"le cas échéant, mis en oeuvre les charges d'urbanisme.</p><p>L'interruption "
-"des travaux pendant plus d'un an entraîne également la péremption du permis."
-"<p>"
-
-#: cirb.novac:/browser/templates/privateview.pt:158
-#: cirb.novac:/browser/templates/publicview.pt:133
-msgid "notification_le"
-msgstr "Notification le"
 
 #. Default: "Document(s)"
 #: cirb.novac:/browser/templates/privateview.pt:170
@@ -669,54 +593,6 @@ msgstr "nom"
 msgid "Etat d'avancement - Demande de permis d'urbanisme"
 msgstr ""
 
-#: cirb.novac:/browser/templates/privateview.pt:44
-#: cirb.novac:/browser/templates/publicview.pt:50
-msgid "informations_generales"
-msgstr "Informations générales"
-
-#: cirb.novac:/browser/templates/privateview.pt:47
-#: cirb.novac:/browser/templates/listprivateview.pt:38
-#: cirb.novac:/browser/templates/publicview.pt:53
-msgid "n_dossier"
-msgstr "N° dossier"
-
-#: cirb.novac:/browser/templates/privateview.pt:50
-#: cirb.novac:/browser/templates/publicview.pt:56
-msgid "reference"
-msgstr "Référence communale"
-
-#: cirb.novac:/browser/templates/privateview.pt:54
-#: cirb.novac:/browser/templates/publicview.pt:60
-msgid "dossier_depose_a"
-msgstr "Autorité délivrante"
-
-#: cirb.novac:/browser/templates/privateview.pt:58
-#: cirb.novac:/browser/templates/publicview.pt:64
-msgid "type_de_permis"
-msgstr "Type de permis"
-
-#. Default: "Description"
-#: cirb.novac:/browser/templates/privateview.pt:62
-#: cirb.novac:/browser/templates/publicview.pt:68
-msgid "description"
-msgstr "Objet de la demande"
-
-#: cirb.novac:/browser/templates/privateview.pt:66
-#: cirb.novac:/browser/templates/listprivateview.pt:37
-#: cirb.novac:/browser/templates/publicview.pt:43
-msgid "address"
-msgstr "Adresse"
-
-#: cirb.novac:/browser/templates/privateview.pt:76
-#: cirb.novac:/browser/templates/publicview.pt:78
-msgid "langue"
-msgstr "Langue"
-
-#: cirb.novac:/browser/templates/privateview.pt:80
-#: cirb.novac:/browser/templates/publicview.pt:82
-msgid "statut_du_dossier"
-msgstr "Statut du dossier"
-
 #: cirb.novac:/browser/templates/privateview.pt:84
 msgid "gestionnaire_du_dossier"
 msgstr "Gestionnaire du dossier"
@@ -729,10 +605,59 @@ msgstr "N° de téléphone"
 msgid "gestionnaire_email"
 msgstr "Adresse e-mail"
 
-#: cirb.novac:/browser/templates/privateview.pt:99
-#: cirb.novac:/browser/templates/publicview.pt:89
-msgid "parcours"
-msgstr "&Eacute;tapes principales du dossier"
+#: cirb.novac:/browser/templates/publicview.pt:103
+#: cirb.novac:/browser/templates/publicview.pt:115
+#: cirb.novac:/browser/templates/privateview.pt:113
+#: cirb.novac:/browser/templates/privateview.pt:125
+msgid "no"
+msgstr "Non"
+
+#: cirb.novac:/browser/templates/publicview.pt:108
+#: cirb.novac:/browser/templates/privateview.pt:118
+msgid "commission_de_concertation"
+msgstr "Commission de concertation"
+
+#: cirb.novac:/browser/templates/publicview.pt:108
+#: cirb.novac:/browser/templates/privateview.pt:118
+msgid "tooltip_commission_de_concertation"
+msgstr ""
+"Instance consultative compos&eacute;e de repr&eacute;sentants de la commune "
+"et des administrations et instances r&eacute;gionales liées à l’aménagement "
+"du territoire (AATL [urbanisme et patrimoine], IBGE, SDRB). La commission se "
+"r&eacute;unit et remet un avis sur les demandes de permis pour lesquelles "
+"celui-ci est requis. Cet avis aide l’autorité chargée de la délivrance du "
+"permis à prendre sa décision. L’avis de la commission de concertation est "
+"consultatif. Dans le cadre d’une demande de permis, l’avis CC ne peut être "
+"sollicit&eactues que dans les cas limitativement énumérés par la "
+"réglementation urbanistique."
+
+#: cirb.novac:/browser/templates/publicview.pt:111
+#: cirb.novac:/browser/templates/privateview.pt:121
+#: cirb.novac:/browser/templates/privateview.pt:238
+msgid "date"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:123
+#: cirb.novac:/browser/templates/privateview.pt:148
+msgid "decision"
+msgstr "Décision"
+
+#: cirb.novac:/browser/templates/publicview.pt:133
+#: cirb.novac:/browser/templates/privateview.pt:158
+msgid "tooltip_notification"
+msgstr ""
+"<p>Le permis d'urbanisme a une durée de validité de deux ans.</p><p>Le "
+"permis est périmé si, dans les deux années de sa délivrance, le bénéficiaire "
+"n'a pas entamé sa réalisation de façon significative ou s'il n'a pas "
+"commencé les travaux d'édification de gros oeuvres ou encore s'il n'a pas, "
+"le cas échéant, mis en oeuvre les charges d'urbanisme.</p><p>L'interruption "
+"des travaux pendant plus d'un an entraîne également la péremption du permis."
+"<p>"
+
+#: cirb.novac:/browser/templates/publicview.pt:133
+#: cirb.novac:/browser/templates/privateview.pt:158
+msgid "notification_le"
+msgstr "Notification le"
 
 #: cirb.novac:/browser/templates/publicview.pt:38
 msgid "detail_de_la_demande"
@@ -741,6 +666,86 @@ msgstr "Détail de la demande"
 #: cirb.novac:/browser/templates/publicview.pt:40
 msgid "localisation"
 msgstr "Localisation"
+
+#: cirb.novac:/browser/templates/publicview.pt:43
+#: cirb.novac:/browser/templates/listprivateview.pt:37
+#: cirb.novac:/browser/templates/privateview.pt:66
+msgid "address"
+msgstr "Adresse"
+
+#: cirb.novac:/browser/templates/publicview.pt:50
+#: cirb.novac:/browser/templates/privateview.pt:44
+msgid "informations_generales"
+msgstr "Informations générales"
+
+#: cirb.novac:/browser/templates/publicview.pt:53
+#: cirb.novac:/browser/templates/listprivateview.pt:38
+#: cirb.novac:/browser/templates/privateview.pt:47
+msgid "n_dossier"
+msgstr "N° dossier"
+
+#: cirb.novac:/browser/templates/publicview.pt:56
+#: cirb.novac:/browser/templates/privateview.pt:50
+msgid "reference"
+msgstr "Référence communale"
+
+#: cirb.novac:/browser/templates/publicview.pt:60
+#: cirb.novac:/browser/templates/privateview.pt:54
+msgid "dossier_depose_a"
+msgstr "Autorité délivrante"
+
+#: cirb.novac:/browser/templates/publicview.pt:64
+#: cirb.novac:/browser/templates/privateview.pt:58
+msgid "type_de_permis"
+msgstr "Type de permis"
+
+#. Default: "Description"
+#: cirb.novac:/browser/templates/publicview.pt:68
+#: cirb.novac:/browser/templates/privateview.pt:62
+msgid "description"
+msgstr "Objet de la demande"
+
+#: cirb.novac:/browser/templates/publicview.pt:78
+#: cirb.novac:/browser/templates/privateview.pt:76
+msgid "langue"
+msgstr "Langue"
+
+#: cirb.novac:/browser/templates/publicview.pt:82
+#: cirb.novac:/browser/templates/privateview.pt:80
+msgid "statut_du_dossier"
+msgstr "Statut du dossier"
+
+#: cirb.novac:/browser/templates/publicview.pt:89
+#: cirb.novac:/browser/templates/privateview.pt:99
+msgid "parcours"
+msgstr "&Eacute;tapes principales du dossier"
+
+#: cirb.novac:/browser/templates/publicview.pt:92
+#: cirb.novac:/browser/templates/privateview.pt:102
+msgid "permis"
+msgstr "Dossier complet"
+
+#: cirb.novac:/browser/templates/publicview.pt:96
+#: cirb.novac:/browser/templates/privateview.pt:106
+msgid "tooltip_enquete_public"
+msgstr ""
+"Période, de 15 à 30 jours, pendant laquelle les citoyens peuvent consulter "
+"les dossiers de demande de permis soumis à enquête. Les enquêtes publiques "
+"sont organisées par les communes. Elles sont signalées par des affiches "
+"rouges placées à proximité du bien faisant l’objet de la demande de permis. "
+"L’enquête publique fait partie des mesures particulières de publicité."
+
+#: cirb.novac:/browser/templates/publicview.pt:96
+#: cirb.novac:/browser/templates/privateview.pt:106
+msgid "enquete_publique"
+msgstr "Enquête publique"
+
+#: cirb.novac:/browser/templates/publicview.pt:99
+#: cirb.novac:/browser/templates/publicview.pt:111
+#: cirb.novac:/browser/templates/privateview.pt:109
+#: cirb.novac:/browser/templates/privateview.pt:121
+msgid "yes"
+msgstr "Oui"
 
 #: cirb.novac:/utils.py:238
 msgid "region_de_bruxelles_capital"

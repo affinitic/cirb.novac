@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: Wed Jun 25 13:18:08 2014\n"
+"POT-Creation-Date: Tue Nov 18 16:30:36 2014\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Zope 3 Developers <zope-dev@zope.org>\n"
@@ -121,237 +121,245 @@ msgid "activer"
 msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:100
-msgid "Ganshoren"
+msgid "nova_municip_for"
 msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:100
+msgid "Forest"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:101
+msgid "Ganshoren"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:101
 msgid "nova_municip_gan"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:101
+#: cirb.novac:/browser/templates/novacview.pt:102
 msgid "nova_municip_ixe"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:101
+#: cirb.novac:/browser/templates/novacview.pt:102
 msgid "Ixelles"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:102
+#: cirb.novac:/browser/templates/novacview.pt:103
 msgid "nova_municip_jet"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:102
+#: cirb.novac:/browser/templates/novacview.pt:103
 msgid "Jette"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:103
+#: cirb.novac:/browser/templates/novacview.pt:104
 msgid "Koekelberg"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:103
+#: cirb.novac:/browser/templates/novacview.pt:104
 msgid "nova_municip_koe"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:104
+#: cirb.novac:/browser/templates/novacview.pt:105
 msgid "Molenbeek-Saint-Jean"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:104
+#: cirb.novac:/browser/templates/novacview.pt:105
 msgid "nova_municip_mol"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:105
+#: cirb.novac:/browser/templates/novacview.pt:106
 msgid "Saint-Gilles"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:105
+#: cirb.novac:/browser/templates/novacview.pt:106
 msgid "nova_municip_stg"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:106
+#: cirb.novac:/browser/templates/novacview.pt:107
 msgid "nova_municip_stj"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:106
+#: cirb.novac:/browser/templates/novacview.pt:107
 msgid "Saint-Josse-ten-Noode"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:107
+#: cirb.novac:/browser/templates/novacview.pt:108
 msgid "Schaerbeek"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:107
+#: cirb.novac:/browser/templates/novacview.pt:108
 msgid "nova_municip_sch"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:108
+#: cirb.novac:/browser/templates/novacview.pt:109
 msgid "nova_municip_ucc"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:108
+#: cirb.novac:/browser/templates/novacview.pt:109
 msgid "Uccle"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:109
+#: cirb.novac:/browser/templates/novacview.pt:110
 msgid "Watermael-Boitsfort"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:109
+#: cirb.novac:/browser/templates/novacview.pt:110
 msgid "nova_municip_wb"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:110
+#: cirb.novac:/browser/templates/novacview.pt:111
 msgid "nova_municip_wsl"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:110
+#: cirb.novac:/browser/templates/novacview.pt:111
 msgid "Woluwe-Saint-Lambert"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:111
+#: cirb.novac:/browser/templates/novacview.pt:112
 msgid "Woluwe-Saint-Pierre"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:111
+#: cirb.novac:/browser/templates/novacview.pt:112
 msgid "nova_municip_wsp"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:116
+#: cirb.novac:/browser/templates/novacview.pt:117
 #. Default: "Toutes les autorit\303\251s d\303\251livrantes"
 msgid "Toutes_les_autorites_delivrantes"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:117
+#: cirb.novac:/browser/templates/novacview.pt:118
 #. Default: "Permis g\303\251r\303\251s par la r\303\251gion"
 msgid "Permis_geres_par_la_region"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:118
+#: cirb.novac:/browser/templates/novacview.pt:119
 #. Default: "Permis g\303\251r\303\251s par les communes"
 msgid "permis_geres_par_les_communes"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:123
+#: cirb.novac:/browser/templates/novacview.pt:124
 #. Default: "Tous les types de dossier communaux"
 msgid "Tous_les_types_de_dossier"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:124
+#: cirb.novac:/browser/templates/novacview.pt:125
 #. Default: "Abattage d'arbres"
 msgid "Abattage_d_arbres"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:125
+#: cirb.novac:/browser/templates/novacview.pt:126
 #. Default: "Autorisation communale"
 msgid "Autorisation_communale"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:126
+#: cirb.novac:/browser/templates/novacview.pt:127
 #. Default: "Certificat d'urbanisme en vue de lotir"
 msgid "Certificat_d_urbanisme_en_vue_de_lotir"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:127
+#: cirb.novac:/browser/templates/novacview.pt:128
 #. Default: "Certificat d'urbanisme priv\303\251"
 msgid "Certificat_d_urbanisme_prive"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:128
+#: cirb.novac:/browser/templates/novacview.pt:129
 #. Default: "Certificat d'urbanisme priv\303\251 - projet mixte"
 msgid "Certificat_d_urbanisme_prive_projet_mixte"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:129
+#: cirb.novac:/browser/templates/novacview.pt:130
 msgid "Enseigne"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:130
+#: cirb.novac:/browser/templates/novacview.pt:131
 #. Default: "Panneau publicitaire"
 msgid "Panneau_publicitaire"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:131
+#: cirb.novac:/browser/templates/novacview.pt:132
 #. Default: "Permis de lotir"
 msgid "Permis_de_lotir"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:132
+#: cirb.novac:/browser/templates/novacview.pt:133
 #. Default: "Permis d'urbanisme priv\303\251"
 msgid "Permis_d_urbanisme_prive"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:133
+#: cirb.novac:/browser/templates/novacview.pt:134
 #. Default: "Permis d'urbanisme priv\303\251 - proc\303\251dure mixte"
 msgid "Permis_d_urbanisme_prive_procedure_mixte"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:137
+#: cirb.novac:/browser/templates/novacview.pt:138
 #. Default: "Enqu\303\252te publique"
 msgid "Enquete_publique"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:139
+#: cirb.novac:/browser/templates/novacview.pt:140
 msgid "Oui"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:144
+#: cirb.novac:/browser/templates/novacview.pt:145
 #. Default: "En cours"
 msgid "En_cours"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:148
+#: cirb.novac:/browser/templates/novacview.pt:149
 #. Default: "termin\303\251"
 msgid "termine"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:152
+#: cirb.novac:/browser/templates/novacview.pt:153
 #. Default: "planifi\303\251"
 msgid "planifie"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:157
+#: cirb.novac:/browser/templates/novacview.pt:158
 msgid "Non"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:158
+#: cirb.novac:/browser/templates/novacview.pt:159
 msgid "Tous"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:160
+#: cirb.novac:/browser/templates/novacview.pt:161
 #. Default: "Date Commission de Consertation"
 msgid "Date_Commission_de_Consertation"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:161
+#: cirb.novac:/browser/templates/novacview.pt:162
 #. Default: "de"
 msgid "date_from"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:161
 #: cirb.novac:/browser/templates/novacview.pt:162
+#: cirb.novac:/browser/templates/novacview.pt:163
 #. Default: "dd/mm/yyyy"
 msgid "ddmmyy"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:162
+#: cirb.novac:/browser/templates/novacview.pt:163
 #. Default: "\303\240"
 msgid "date_to"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:168
+#: cirb.novac:/browser/templates/novacview.pt:169
 msgid "reset"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:171
+#: cirb.novac:/browser/templates/novacview.pt:172
 #. Default: "Exporter les donn\303\251es au format csv"
 msgid "export_csv"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:172
+#: cirb.novac:/browser/templates/novacview.pt:173
 msgid "export"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:181
+#: cirb.novac:/browser/templates/novacview.pt:182
 #. Default: "ici un texte pour expliquer ce que l'on voit"
 msgid "texte_introduction"
 msgstr ""
@@ -386,147 +394,99 @@ msgstr ""
 msgid "filtres"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:52
+#: cirb.novac:/browser/templates/novacview.pt:49
+#. Default: ""
+msgid "Number of dossiers"
+msgstr ""
+
+#: cirb.novac:/browser/templates/novacview.pt:53
 msgid "type_U"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:54
+#: cirb.novac:/browser/templates/novacview.pt:55
 msgid "urbanisme"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:57
+#: cirb.novac:/browser/templates/novacview.pt:58
 msgid "type_L"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:59
+#: cirb.novac:/browser/templates/novacview.pt:60
 msgid "lotir"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:68
+#: cirb.novac:/browser/templates/novacview.pt:69
 msgid "required"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:73
+#: cirb.novac:/browser/templates/novacview.pt:74
 msgid "granted"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:78
+#: cirb.novac:/browser/templates/novacview.pt:79
 msgid "refused"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:83
+#: cirb.novac:/browser/templates/novacview.pt:84
 msgid "canceled"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:89
+#: cirb.novac:/browser/templates/novacview.pt:90
 #. Default: "Tous les filtres"
 msgid "Tous_les_filtres"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:92
+#: cirb.novac:/browser/templates/novacview.pt:93
 #. Default: "Toutes les communes"
 msgid "Toutes_les_communes"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:93
+#: cirb.novac:/browser/templates/novacview.pt:94
 msgid "nova_municip_and"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:93
+#: cirb.novac:/browser/templates/novacview.pt:94
 msgid "Anderlecht"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:94
+#: cirb.novac:/browser/templates/novacview.pt:95
 msgid "nova_municip_aud"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:94
+#: cirb.novac:/browser/templates/novacview.pt:95
 msgid "Auderghem"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:95
+#: cirb.novac:/browser/templates/novacview.pt:96
 msgid "Berchem-Sainte-Agathe"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:95
+#: cirb.novac:/browser/templates/novacview.pt:96
 msgid "nova_municip_bsa"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:96
+#: cirb.novac:/browser/templates/novacview.pt:97
 msgid "nova_municip_bru"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:96
+#: cirb.novac:/browser/templates/novacview.pt:97
 msgid "Bruxelles"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:97
+#: cirb.novac:/browser/templates/novacview.pt:98
 msgid "nova_municip_ett"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:97
+#: cirb.novac:/browser/templates/novacview.pt:98
 msgid "Etterbeek"
 msgstr ""
 
-#: cirb.novac:/browser/templates/novacview.pt:98
-msgid "nova_municip_eve"
-msgstr ""
-
-#: cirb.novac:/browser/templates/novacview.pt:98
+#: cirb.novac:/browser/templates/novacview.pt:99
 msgid "Evere"
 msgstr ""
 
 #: cirb.novac:/browser/templates/novacview.pt:99
-msgid "nova_municip_for"
-msgstr ""
-
-#: cirb.novac:/browser/templates/novacview.pt:99
-msgid "Forest"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:102
-#: cirb.novac:/browser/templates/publicview.pt:92
-msgid "permis"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:106
-#: cirb.novac:/browser/templates/publicview.pt:96
-msgid "tooltip_enquete_public"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:106
-#: cirb.novac:/browser/templates/publicview.pt:96
-msgid "enquete_publique"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:109
-#: cirb.novac:/browser/templates/privateview.pt:121
-#: cirb.novac:/browser/templates/publicview.pt:99
-#: cirb.novac:/browser/templates/publicview.pt:111
-msgid "yes"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:113
-#: cirb.novac:/browser/templates/privateview.pt:125
-#: cirb.novac:/browser/templates/publicview.pt:103
-#: cirb.novac:/browser/templates/publicview.pt:115
-msgid "no"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:118
-#: cirb.novac:/browser/templates/publicview.pt:108
-msgid "commission_de_concertation"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:118
-#: cirb.novac:/browser/templates/publicview.pt:108
-msgid "tooltip_commission_de_concertation"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:121
-#: cirb.novac:/browser/templates/privateview.pt:238
-#: cirb.novac:/browser/templates/publicview.pt:111
-msgid "date"
+msgid "nova_municip_eve"
 msgstr ""
 
 #: cirb.novac:/browser/templates/privateview.pt:133
@@ -539,21 +499,6 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/privateview.pt:134
 msgid "notification_image_cc_fd"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:148
-#: cirb.novac:/browser/templates/publicview.pt:123
-msgid "decision"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:158
-#: cirb.novac:/browser/templates/publicview.pt:133
-msgid "tooltip_notification"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:158
-#: cirb.novac:/browser/templates/publicview.pt:133
-msgid "notification_le"
 msgstr ""
 
 #: cirb.novac:/browser/templates/privateview.pt:170
@@ -615,54 +560,6 @@ msgstr ""
 msgid "Etat d'avancement - Demande de permis d'urbanisme"
 msgstr ""
 
-#: cirb.novac:/browser/templates/privateview.pt:44
-#: cirb.novac:/browser/templates/publicview.pt:50
-msgid "informations_generales"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:47
-#: cirb.novac:/browser/templates/listprivateview.pt:38
-#: cirb.novac:/browser/templates/publicview.pt:53
-msgid "n_dossier"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:50
-#: cirb.novac:/browser/templates/publicview.pt:56
-msgid "reference"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:54
-#: cirb.novac:/browser/templates/publicview.pt:60
-msgid "dossier_depose_a"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:58
-#: cirb.novac:/browser/templates/publicview.pt:64
-msgid "type_de_permis"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:62
-#: cirb.novac:/browser/templates/publicview.pt:68
-#. Default: "Description"
-msgid "description"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:66
-#: cirb.novac:/browser/templates/listprivateview.pt:37
-#: cirb.novac:/browser/templates/publicview.pt:43
-msgid "address"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:76
-#: cirb.novac:/browser/templates/publicview.pt:78
-msgid "langue"
-msgstr ""
-
-#: cirb.novac:/browser/templates/privateview.pt:80
-#: cirb.novac:/browser/templates/publicview.pt:82
-msgid "statut_du_dossier"
-msgstr ""
-
 #: cirb.novac:/browser/templates/privateview.pt:84
 msgid "gestionnaire_du_dossier"
 msgstr ""
@@ -675,9 +572,42 @@ msgstr ""
 msgid "gestionnaire_email"
 msgstr ""
 
-#: cirb.novac:/browser/templates/privateview.pt:99
-#: cirb.novac:/browser/templates/publicview.pt:89
-msgid "parcours"
+#: cirb.novac:/browser/templates/publicview.pt:103
+#: cirb.novac:/browser/templates/publicview.pt:115
+#: cirb.novac:/browser/templates/privateview.pt:113
+#: cirb.novac:/browser/templates/privateview.pt:125
+msgid "no"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:108
+#: cirb.novac:/browser/templates/privateview.pt:118
+msgid "commission_de_concertation"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:108
+#: cirb.novac:/browser/templates/privateview.pt:118
+msgid "tooltip_commission_de_concertation"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:111
+#: cirb.novac:/browser/templates/privateview.pt:121
+#: cirb.novac:/browser/templates/privateview.pt:238
+msgid "date"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:123
+#: cirb.novac:/browser/templates/privateview.pt:148
+msgid "decision"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:133
+#: cirb.novac:/browser/templates/privateview.pt:158
+msgid "tooltip_notification"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:133
+#: cirb.novac:/browser/templates/privateview.pt:158
+msgid "notification_le"
 msgstr ""
 
 #: cirb.novac:/browser/templates/publicview.pt:38
@@ -686,6 +616,81 @@ msgstr ""
 
 #: cirb.novac:/browser/templates/publicview.pt:40
 msgid "localisation"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:43
+#: cirb.novac:/browser/templates/listprivateview.pt:37
+#: cirb.novac:/browser/templates/privateview.pt:66
+msgid "address"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:50
+#: cirb.novac:/browser/templates/privateview.pt:44
+msgid "informations_generales"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:53
+#: cirb.novac:/browser/templates/listprivateview.pt:38
+#: cirb.novac:/browser/templates/privateview.pt:47
+msgid "n_dossier"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:56
+#: cirb.novac:/browser/templates/privateview.pt:50
+msgid "reference"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:60
+#: cirb.novac:/browser/templates/privateview.pt:54
+msgid "dossier_depose_a"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:64
+#: cirb.novac:/browser/templates/privateview.pt:58
+msgid "type_de_permis"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:68
+#: cirb.novac:/browser/templates/privateview.pt:62
+#. Default: "Description"
+msgid "description"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:78
+#: cirb.novac:/browser/templates/privateview.pt:76
+msgid "langue"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:82
+#: cirb.novac:/browser/templates/privateview.pt:80
+msgid "statut_du_dossier"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:89
+#: cirb.novac:/browser/templates/privateview.pt:99
+msgid "parcours"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:92
+#: cirb.novac:/browser/templates/privateview.pt:102
+msgid "permis"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:96
+#: cirb.novac:/browser/templates/privateview.pt:106
+msgid "tooltip_enquete_public"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:96
+#: cirb.novac:/browser/templates/privateview.pt:106
+msgid "enquete_publique"
+msgstr ""
+
+#: cirb.novac:/browser/templates/publicview.pt:99
+#: cirb.novac:/browser/templates/publicview.pt:111
+#: cirb.novac:/browser/templates/privateview.pt:109
+#: cirb.novac:/browser/templates/privateview.pt:121
+msgid "yes"
 msgstr ""
 
 #: cirb.novac:/utils.py:238
