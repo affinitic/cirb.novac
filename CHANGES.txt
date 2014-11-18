@@ -4,7 +4,8 @@ Changelog
 1.3.10 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Improve total number of dossiers
+- Add translations
 
 
 1.3.9 (2014-11-18)
