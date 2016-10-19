@@ -57,6 +57,7 @@ setup(name='cirb.novac',
       extras_require = {
         'test': [
                 'plone.testing',
+                'plone.app.testing',
             ]
       },
       entry_points="""
