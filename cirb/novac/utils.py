@@ -33,7 +33,7 @@ def called_url(request_url, request_headers, params=''): # for exemple : content
         logger.error(exception)
         return False
     except URLError, e:
-        exception =  _('We failed to reach a server.<br />Reason: %s'% e.reason)
+        exception =  _('We failed to reach server %s.<br />Reason: %s' % (url, e.reason))
         logger.error(exception)
         return False
     finally:
