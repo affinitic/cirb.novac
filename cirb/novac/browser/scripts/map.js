@@ -6,7 +6,8 @@ var markers_layer, features_layer;
 function map_init() {
     var url_ws_urbis = $('#ws_urbis').html();
     var url_ws_urbis_cache = $('#urbis_cache_url').html();
-    gis_url = portal_url + "/gis/";
+    gis_others_url = portal_url + "/gis/";
+    gis_urbis_url = portal_url + "/gis-urbis/";
     OpenLayers.ImgPath = portal_url+"/++resource++cirb.novac.images/";
     var x = $('#x').html();
     var y = $('#y').html();
@@ -28,22 +29,15 @@ function map_init() {
     for (var i=0; i<16; ++i) {
         matrixIds[i] = "EPSG:31370:" + i;
     }
-    var ortho = new OpenLayers.Layer.WMTS({
-        name: "urbis ortho",
-        url: gis_url+"geoserver/gwc/service/wmts",
-        layer: "urbisORTHO",
-        matrixSet: "EPSG:31370",
-        matrixIds: matrixIds,
-        serverResolutions: [1112.61305859375, 556.306529296875, 278.1532646484375, 139.07663232421876, 69.53831616210938, 34.76915808105469, 17.384579040527345, 8.692289520263673, 4.346144760131836, 2.173072380065918, 1.086536190032959, 0.5432680950164795, 0.2716340475082398, 0.1358170237541199, 0.06790851187705994, 0.03395425593852997],
-        format: "image/png",
-        style: "_null",
-        opacity: 1,
-        isBaseLayer: true
-    });
+    var ortho = new OpenLayers.Layer.WMS(
+        "urbis ortho",
+        gis_urbis_url+"geoserver/Urbis/wms",
+        {layers: 'Urbis:Ortho2015'}
+    );
     map.addLayer(ortho);
     var urbis_base = new OpenLayers.Layer.WMTS({
         name: "urbis base map",
-        url: gis_url+"geoserver/gwc/service/wmts",
+        url: gis_urbis_url+"geoserver/gwc/service/wmts",
         layer: (current_language == 'nl')?"urbisNL":"urbisFR",
         matrixSet: "EPSG:31370",
         matrixIds: matrixIds,

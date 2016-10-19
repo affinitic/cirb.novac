@@ -5,6 +5,8 @@ var filter_geom , markers_layer, tabberOptions;
 var mouseLoc, currentPopup ;
 var portal_url;
 var gis_url;
+var gis_others_url;
+var gis_urbis_url;
 var clusters1km, clusters3km;
 var dossiers;
 var current_language;
@@ -26,13 +28,13 @@ function executeGetFeatureInfo(event) {
         Y: Math.round(event.xy.y),
         INFO_FORMAT: 'application/vnd.ogc.gml',
         FORMAT: 'application/vnd.ogc.gml',
-        LAYERS : "NOVA_DOSSIERS",
-        QUERY_LAYERS: "NOVA_DOSSIERS",
+        LAYERS : "Dossiers",
+        QUERY_LAYERS: "Dossiers",
         FEATURE_COUNT: 10,
         WIDTH: map.size.w,
         HEIGHT: map.size.h,
         CQL_FILTER: dossiers.params.CQL_FILTER},
-        gis_url+"geoserver/wms?");
+        gis_others_url+"geoserver/wms?");
     //Execute the GetFeatureInfo request and callback the showPointInfo function
     OpenLayers.Request.GET({
         url: url,
@@ -64,7 +66,7 @@ function showPointInfo(response) {
 
 
     var permits = new Array();
-    permits = getElements(xmlDoc, "nova", "NOVA_DOSSIERS");
+    permits = getElements(xmlDoc, "Nova", "Dossiers");
     var result = "<div id='tabber' class='tabber'>";
     var absolute_url  = $('#absolute_url').html();
 	var publicurl = "public"
@@ -74,21 +76,21 @@ function showPointInfo(response) {
 		    result += "<div class='tabbertab' title='Permis ";
 		    result += i+1;
 		    result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Type de permis :</td><td>";
-		    result += (getElements(permits[i], "nova", "TYPEDOSSIERFR")[0])?$(getElements(permits[i], "nova", "TYPEDOSSIERFR")[0]).text().replace("FD","fonctionnaire délégué")+ " ":"";
+		    result += (getElements(permits[i], "Nova", "TYPEDOSSIERFR")[0])?$(getElements(permits[i], "Nova", "TYPEDOSSIERFR")[0]).text().replace("FD","fonctionnaire délégué")+ " ":"";
 		    result +="</td><tr></tr><td>Adresse :</td><td>";
-		    result += (getElements(permits[i], "nova", "STREETNAMEFR")[0])?$(getElements(permits[i], "nova", "STREETNAMEFR")[0]).text()+ " ":"";
+		    result += (getElements(permits[i], "Nova", "STREETNAMEFR")[0])?$(getElements(permits[i], "Nova", "STREETNAMEFR")[0]).text()+ " ":"";
 
-			result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?$(getElements(permits[i], "nova", "NUMBERPARTFROM")[0]).text():"";
+			result +=(getElements(permits[i], "Nova", "NUMBERPARTFROM")[0])?$(getElements(permits[i], "Nova", "NUMBERPARTFROM")[0]).text():"";
 
-			result +=(getElements(permits[i], "nova", "NUMBERPARTTO")[0])? " - "+ $(getElements(permits[i], "nova", "NUMBERPARTTO")[0]).text():"";
+			result +=(getElements(permits[i], "Nova", "NUMBERPARTTO")[0])? " - "+ $(getElements(permits[i], "Nova", "NUMBERPARTTO")[0]).text():"";
 
 			result +="</td></tr><tr><td></td><td>";
-			result += (getElements(permits[i], "nova", "ZIPCODE")[0])?$(getElements(permits[i], "nova", "ZIPCODE")[0]).text()+ " ":"" ;
+			result += (getElements(permits[i], "Nova", "ZIPCODE")[0])?$(getElements(permits[i], "Nova", "ZIPCODE")[0]).text()+ " ":"" ;
 
-			result += (getElements(permits[i], "nova", "MUNICIPALITYFR")[0])?$(getElements(permits[i], "nova", "MUNICIPALITYFR")[0]).text():"";
+			result += (getElements(permits[i], "Nova", "MUNICIPALITYFR")[0])?$(getElements(permits[i], "Nova", "MUNICIPALITYFR")[0]).text():"";
 
 			result += "</td></tr><tr><td>Objet de la demande :</td><td>";
-			result += (getElements(permits[i], "nova", "OBJECTFR")[0])?$(getElements(permits[i], "nova", "OBJECTFR")[0]).text()+ " ":"";
+			result += (getElements(permits[i], "Nova", "OBJECTFR")[0])?$(getElements(permits[i], "Nova", "OBJECTFR")[0]).text()+ " ":"";
 
 			result +='</td><tr></tr><tr><td><a target="_blank" href="';
 			result += (permits[i].getAttribute("fid"))?absolute_url+"/"+publicurl+"?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
@@ -101,22 +103,22 @@ function showPointInfo(response) {
 			result += "<div class='tabbertab' title='Vergunning ";
 			result += i+1;
 			result += "'><table width='350' style='table-layout:fixed'><col width='150'><col width='200'><tr><td>Type vergunning :</td><td>";
-			result += (getElements(permits[i], "nova", "TYPEDOSSIERNL")[0])?$(getElements(permits[i], "nova", "TYPEDOSSIERNL")[0]).text()+ " ":"";
+			result += (getElements(permits[i], "Nova", "TYPEDOSSIERNL")[0])?$(getElements(permits[i], "Nova", "TYPEDOSSIERNL")[0]).text()+ " ":"";
 			result +="</td><tr></tr><td>Adres :</td><td>";
-			result += (getElements(permits[i], "nova", "STREETNAMENL")[0])?$(getElements(permits[i], "nova", "STREETNAMENL")[0]).text()+ " ":"";
+			result += (getElements(permits[i], "Nova", "STREETNAMENL")[0])?$(getElements(permits[i], "Nova", "STREETNAMENL")[0]).text()+ " ":"";
 
 
-			result +=(getElements(permits[i], "nova", "NUMBERPARTFROM")[0])?$(getElements(permits[i], "nova", "NUMBERPARTFROM")[0]).text():"";
+			result +=(getElements(permits[i], "Nova", "NUMBERPARTFROM")[0])?$(getElements(permits[i], "Nova", "NUMBERPARTFROM")[0]).text():"";
 
-			result +=(getElements(permits[i], "nova", "NUMBERPARTTO")[0])? " - "+ $(getElements(permits[i], "nova", "NUMBERPARTTO")[0]).text():"";
+			result +=(getElements(permits[i], "Nova", "NUMBERPARTTO")[0])? " - "+ $(getElements(permits[i], "Nova", "NUMBERPARTTO")[0]).text():"";
 
 			result +="</td></tr><tr><td></td><td>";
-			result += (getElements(permits[i], "nova", "ZIPCODE")[0])?$(getElements(permits[i], "nova", "ZIPCODE")[0]).text()+ " ":"" ;
+			result += (getElements(permits[i], "Nova", "ZIPCODE")[0])?$(getElements(permits[i], "Nova", "ZIPCODE")[0]).text()+ " ":"" ;
 
-			result += (getElements(permits[i], "nova", "MUNICIPALITYNL")[0])?$(getElements(permits[i], "nova", "MUNICIPALITYNL")[0]).text():"";
+			result += (getElements(permits[i], "Nova", "MUNICIPALITYNL")[0])?$(getElements(permits[i], "Nova", "MUNICIPALITYNL")[0]).text():"";
 
 			result += "</td></tr><tr><td>Voorwerp van de aanvraag&nbsp;:</td><td>";
-			result += (getElements(permits[i], "nova", "OBJECTNL")[0])?$(getElements(permits[i], "nova", "OBJECTNL")[0]).text()+ " ":"";
+			result += (getElements(permits[i], "Nova", "OBJECTNL")[0])?$(getElements(permits[i], "Nova", "OBJECTNL")[0]).text()+ " ":"";
 
 			result += '</td><tr></tr><tr><td><a target="_blank" href="';
 			result += (permits[i].getAttribute("fid"))?absolute_url+"/"+publicurl+"?id=" + permits[i].getAttribute("fid").split('.')[1]:"";
@@ -257,12 +259,13 @@ function searchAddress(street, number, post_code){
 
     var parameters = {
 	    language: $('#current_language').html(),
-        address: street
+        address: street,
+        spatialReference: 31370
     }    
 
     $("#spinner_address").css("visibility","visible");
 
-    var my_url = gis_url+"services/urbis/Rest/Localize/getaddresses";
+    var my_url = gis_url+"localization/Rest/Localize/getaddresses";
     $.ajax({
         type: "POST",
         url: my_url,
@@ -300,12 +303,12 @@ var source =
 };
 
 var count_dossiers = function() {
-    var my_url = gis_url+"geoserver/wfs";
+    var my_url = gis_others_url+"geoserver/wfs";
     var parameters = {
         service: 'WFS',
         version: '1.1.0',
         request: 'GetFeature',
-        typeName: 'NOVA_DOSSIERS',
+        typeName: 'Dossiers',
         cql_filter: getDossiersFilter(),
         resultType: 'hits'
     }
@@ -325,13 +328,13 @@ var count_dossiers = function() {
 }
 
 var get_dossiers_csv = function() {
-    var my_url = gis_url+"geoserver/wfs?";
+    var my_url = gis_others_url+"geoserver/wfs?";
     var fields = 'NO_DOSSIER,RUE,NUMERO_DE,NUMERO_A,CODE_POSTAL,COMMUNE,TYPE_DOSSIER,STATUT,OBJET,DATE_DEBUT_ENQ_PUBLIQUE,DATE_FIN_ENQ_PUBLIQUE,DATE_COMMISSION_CONCERTATION';
-    typename = 'NOVA_DOSSIERS_FR';
+    typename = 'DossiersFr';
 
     if(current_language == 'nl'){
         fields = 'DOSSIERNUMMER,STRAAT,NUMMER_VAN,NUMMER_TOT,POSTCODE,GEMEENTE,DOSSIERTYPE,STATUUT,VOORWERP,BEGINDATUM_OPENBAAR_ONDERZOEK,ENDDATUM_OPENBAAR_ONDERZOEK,DATUM_OVERLEGCOMMISSIE';
-        typename = 'NOVA_DOSSIERS_NL';
+        typename = 'DossierNl';
     }
     var parameters = {
         service: 'WFS',
@@ -371,6 +374,8 @@ $(window).bind("load", function() {
 
     portal_url = $('#portal_url').html();
     gis_url = portal_url + "/gis/";
+    gis_others_url = portal_url + "/gis-others/";
+    gis_urbis_url = portal_url + "/gis-urbis/";
     var url_ws_waws = $('#ws_waws').html();
     var json_file  = $('#json_file').html();
     OpenLayers.ImgPath = portal_url+"/++resource++cirb.novac.images/";
@@ -390,7 +395,7 @@ $(window).bind("load", function() {
     if(current_language == 'fr'){
         urbislayer = new OpenLayers.Layer.WMS(
             "urbisFR",
-            gis_url+"geoserver/gwc/service/wms",
+            gis_urbis_url+"geoserver/gwc/service/wms",
             {layers: 'urbisFR', format: 'image/png' },
             { tileSize: new OpenLayers.Size(256,256) }
         );
@@ -398,7 +403,7 @@ $(window).bind("load", function() {
     }else{
         urbislayer = new OpenLayers.Layer.WMS(
             "urbisNL", 
-            gis_url+"geoserver/gwc/service/wms",
+            gis_urbis_url+"geoserver/gwc/service/wms",
             {layers: 'urbisNL', format: 'image/png' },
             { tileSize: new OpenLayers.Size(256,256) }
         );
@@ -408,24 +413,24 @@ $(window).bind("load", function() {
     //municipalities layer
     var municipalities = new OpenLayers.Layer.WMS(
         "Municipalities", 
-        gis_url+"geoserver/wms",
-        {layers: 'urbis:URB_A_MU ', styles: 'nova_municipalities', transparent: 'true'},
+        gis_urbis_url+"geoserver/wms",
+        {layers: 'Urbis:Mu', styles: 'UrbisMuPolygonSizedBlack', transparent: 'true'},
         {singleTile: true, ratio: 1.25, isBaseLayer: false});
     map.addLayer(municipalities);
 
     //create the highest cluster layer
 	clusters3km = new OpenLayers.Layer.WMS(
 		"Clusters3km", 
-		gis_url+"geoserver/wms",
-		{layers: 'nova:CLUSTER3KM', transparent: 'true'},
+		gis_others_url+"geoserver/wms",
+		{layers: 'Nova:Cluster3km', transparent: 'true'},
 		{singleTile: true, ratio: 1.25, isBaseLayer: false});
     map.addLayer(clusters3km);
 
     //create the lowest cluset layer
     clusters1km = new OpenLayers.Layer.WMS(
         "Clusters1km", 
-        gis_url+"geoserver/wms",
-        {layers: 'nova:CLUSTER1KM', transparent: 'true'},
+        gis_others_url+"geoserver/wms",
+        {layers: 'Nova:Cluster1Km', transparent: 'true'},
         {singleTile: true, ratio: 1.25, isBaseLayer: false});
     map.addLayer(clusters1km);
 
@@ -433,8 +438,8 @@ $(window).bind("load", function() {
 	//create the dossiers layer
 	dossiers = new OpenLayers.Layer.WMS(
 	    (current_language == 'nl')?"Bouwaanvragen":"Permis d'urbanisme",
-		gis_url+"geoserver/wms", 
-		{layers: 'nova:NOVA_DOSSIERS', styles:(current_language == 'nl')?"nova_dossiers_nl":"nova_dossiers_fr",transparent: true},
+		gis_others_url+"geoserver/wms", 
+		{layers: 'Nova:Dossiers', styles:(current_language == 'nl')?"NovaDossiersZoomAttrLblCATDOSSIER_ABR_NLPoint6":"NovaDossiersZoomAttrLblCATDOSSIER_ABR_FRPoint6",transparent: true},
 		{singleTile: true, ratio: 1.25, isBaseLayer: false, maxResolution: 7.0});
  	map.addLayer(dossiers);
 
@@ -463,8 +468,8 @@ $(window).bind("load", function() {
 	//var jplOverview = urbislayer.clone();
 	var jplOverview = new OpenLayers.Layer.WMS(
         "Municipalities", 
-        gis_url+"geoserver/wms",
-        {layers: 'urbis:URB_A_MU ', transparent: 'true'},
+        gis_urbis_url+"geoserver/wms",
+        {layers: 'Urbis:Mu', transparent: 'true'},
         {singleTile: true, ratio: 1, isBaseLayer: true});
 	var controlOptions = {
 		        maximized: true,

@@ -6,21 +6,15 @@ from cirb.novac.testing import NOVAC_INTEGRATION
 import os
 
 NUMBER=10
-GEOSERVER_STA="http://geoserver.gis.irisnetlab.be"
-GEOSERVER_PROD="http://geoserver.gis.irisnet.be"
-PUBLIC_IDS="/geoserver/nova/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=nova:NOVA_DOSSIERS&maxFeatures=%s&outputFormat=json" % (str(NUMBER))
+GEOSERVER_PROD="http://geoservices-others.irisnet.be"
+PUBLIC_IDS="/geoserver/Nova/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Nova:Dossiers&maxFeatures=%s&outputFormat=json" % (str(NUMBER))
 
 class TestListprivateView(unittest.TestCase):
     layer = NOVAC_INTEGRATION
     ids=[]
     def test_public_ids(self):
         portal = self.layer["portal"]
-        env = os.environ.get("DEPLOY_ENV", "")
-        if env == "production":
-            url = GEOSERVER_PROD
-        else:
-            url = GEOSERVER_STA
-        url ="%s%s" % (url, PUBLIC_IDS)
+        url ="%s%s" % (GEOSERVER_PROD, PUBLIC_IDS)
 
         json_from_ws = utils.called_url(url,"") 
         self.assertNotEqual(json_from_ws, False, "Not able to call GEOSERVER : %s" % url)

@@ -13,9 +13,8 @@ from cirb.novac.browser.publicview import PUB_DOSSIER
 from cirb.novac.utils import called_url, json_processing
 
 NUMBER=10
-GEOSERVER_STA="http://geoserver.gis.irisnetlab.be"
-GEOSERVER_PROD="http://geoserver.gis.irisnet.be"
-PUBLIC_IDS="/geoserver/nova/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=nova:NOVA_DOSSIERS&maxFeatures=%s&outputFormat=json" % (str(NUMBER))
+GEOSERVER_PROD="http://geoservices-others.irisnet.be"
+PUBLIC_IDS="/geoserver/Nova/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Nova:Dossiers&maxFeatures=%s&outputFormat=json" % (str(NUMBER))
 
 
 class Happy(BrowserView):
@@ -68,12 +67,7 @@ class Happy(BrowserView):
         return {"status":status, "message":message}
 
     def get_pub_waws(self):
-        env = os.environ.get("DEPLOY_ENV", "")
-        if env == "production":
-            url = GEOSERVER_PROD
-        else:
-            url = GEOSERVER_STA
-        url ="%s%s" % (url, PUBLIC_IDS)
+        url ="%s%s" % (GEOSERVER_PROD, PUBLIC_IDS)
             
         json_from_ws = called_url(url,"")
         if not json_from_ws:
@@ -105,7 +99,7 @@ class Happy(BrowserView):
         return {'status':status, 'message':message}
 
     def get_urbis(self):
-        url = "%s/gis/geoserver/nova/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=CLUSTER3KM&outputFormat=json" % self.context.portal_url()
+        url = "%s/gis-others/geoserver/Nova/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Cluster3km&outputFormat=json" % self.context.portal_url()
         res_json = get_service(url)
         if res_json.get('status', '') == 'ko':
             status = res_json.get('status')
